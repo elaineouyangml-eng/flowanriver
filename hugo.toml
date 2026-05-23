@@ -13,6 +13,10 @@ theme = "PaperMod"
   name = "medium"
   url = "https://medium.com/@elaineouyangml"
 
+[[params.socialIcons]]
+  name = "x"
+  url = "https://x.com/Elaineoyml"
+
 [[menus.main]]
   name = "Home"
   url = "/"
