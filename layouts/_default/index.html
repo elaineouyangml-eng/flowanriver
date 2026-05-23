@@ -40,7 +40,7 @@
       <span class="tag tag-ai">AI</span>
       <a href="/tags/ai">See all →</a>
     </div>
-    {{ range first 3 (where .Site.RegularPages "Params.tags" "intersect" (slice "ai")) }}
+    {{ range first 3 (where .Site.RegularPages "Params.tags" "intersect" (slice "AI")) }}
     <div class="post-item">
       <a href="{{ .Permalink }}">{{ .Title }}</a>
       <div class="post-meta">{{ .Date.Format "Jan 2" }} · {{ .ReadingTime }} min</div>
