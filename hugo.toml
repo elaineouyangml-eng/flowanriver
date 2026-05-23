@@ -8,7 +8,7 @@ theme = "PaperMod"
   ShowReadingTime = true
   ShowShareButtons = true
   defaultTheme = "auto"
-  images = ["/images/ai-cover.png"]
+  images = ["/images/ai-cover2.png"]
 
 [[params.socialIcons]]
   name = "medium"
