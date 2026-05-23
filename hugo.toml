@@ -12,3 +12,23 @@ theme = "PaperMod"
 [[params.socialIcons]]
   name = "medium"
   url = "https://medium.com/@elaineouyangml"
+
+[[menus.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menus.main]]
+  name = "About"
+  url = "/about"
+  weight = 2
+
+[[menus.main]]
+  name = "AI"
+  url = "/tags/ai"
+  weight = 3
+
+[[menus.main]]
+  name = "Crypto"
+  url = "/tags/crypto"
+  weight = 4
