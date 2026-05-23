@@ -41,3 +41,4 @@ theme = "PaperMod"
 [params]
   env = "production"
   googleAnalytics = "G-HWVJVCV67S"
+googleAnalytics = "G-HWVJVCV67S"
