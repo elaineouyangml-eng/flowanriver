@@ -36,3 +36,6 @@ theme = "PaperMod"
   name = "Crypto"
   url = "/tags/crypto"
   weight = 4
+
+[params]
+  googleAnalytics = "G-HWVJVCV67S"
