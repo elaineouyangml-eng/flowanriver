@@ -7,63 +7,56 @@
 .social-links a { color: var(--secondary); font-size: 14px; text-decoration: none; border: 1px solid var(--border); padding: 4px 14px; border-radius: 20px; transition: all 0.2s; }
 .social-links a:hover { background: var(--primary); color: var(--theme); }
 .category-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; margin: 0 auto 40px; padding: 0 20px; }
-.category-section { }
 .category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 .category-header a { font-size: 13px; color: var(--secondary); text-decoration: none; }
-.category-header a:hover { color: var(--primary); }
-.tag { font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; }
+.tag { font-size: 14px; font-weight: 700; padding: 5px 16px; border-radius: 20px; }
 .tag-ai { background: #EEEDFE; color: #3C3489; }
 .tag-crypto { background: #E1F5EE; color: #085041; }
 .post-card { background: var(--entry); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 12px; text-decoration: none; display: block; transition: transform 0.2s ease, box-shadow 0.2s ease; }
 .post-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
-.post-card-title { font-size: 14px; font-weight: 600; color: var(--primary); line-height: 1.5; margin-bottom: 6px; }
+.post-card-title { font-size: 15px; font-weight: 600; color: var(--primary); line-height: 1.5; margin-bottom: 6px; }
 .post-card-meta { font-size: 12px; color: var(--secondary); }
 .latest-posts { max-width: 900px; margin: 0 auto 40px; padding: 0 20px; }
-.latest-label { font-size: 12px; font-weight: 700; color: var(--secondary); margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.08em; }
+.latest-label { font-size: 13px; font-weight: 700; color: var(--secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; background: var(--code-bg); padding: 8px 16px; border-radius: 8px; display: inline-block; }
 .latest-item { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border); }
-.latest-item a { font-size: 14px; color: var(--primary); text-decoration: none; }
+.latest-item a { font-size: 15px; color: var(--primary); text-decoration: none; }
 .latest-item a:hover { text-decoration: underline; }
 .latest-date { font-size: 12px; color: var(--secondary); white-space: nowrap; margin-left: 12px; }
 </style>
-
 <div class="home-header">
-
   <h1>{{ .Site.Params.homeInfoParams.Title }}</h1>
   <p>{{ .Site.Params.homeInfoParams.Content }}</p>
   <div class="social-links">
-    <a href="https://x.com/Elaineoyml" target="_blank">𝕏 Twitter</a>
+    <a href="https://x.com/Elaineoyml" target="_blank">X Twitter</a>
     <a href="https://medium.com/@elaineouyangml" target="_blank">Medium</a>
   </div>
 </div>
-
 <div class="category-grid">
   <div class="category-section">
     <div class="category-header">
       <span class="tag tag-ai">AI</span>
-      <a href="/tags/ai">See all →</a>
+      <a href="/tags/ai">See all</a>
     </div>
     {{ range first 3 (where .Site.RegularPages "Params.tags" "intersect" (slice "AI")) }}
     <a class="post-card" href="{{ .Permalink }}">
       <div class="post-card-title">{{ .Title }}</div>
-      <div class="post-card-meta">{{ .Date.Format "Jan 2" }} · {{ .ReadingTime }} min read</div>
+      <div class="post-card-meta">{{ .Date.Format "Jan 2" }} - {{ .ReadingTime }} min read</div>
     </a>
     {{ end }}
   </div>
-
   <div class="category-section">
     <div class="category-header">
       <span class="tag tag-crypto">Crypto</span>
-      <a href="/tags/crypto">See all →</a>
+      <a href="/tags/crypto">See all</a>
     </div>
     {{ range first 3 (where .Site.RegularPages "Params.tags" "intersect" (slice "crypto")) }}
     <a class="post-card" href="{{ .Permalink }}">
       <div class="post-card-title">{{ .Title }}</div>
-      <div class="post-card-meta">{{ .Date.Format "Jan 2" }} · {{ .ReadingTime }} min read</div>
+      <div class="post-card-meta">{{ .Date.Format "Jan 2" }} - {{ .ReadingTime }} min read</div>
     </a>
     {{ end }}
   </div>
 </div>
-
 <div class="latest-posts">
   <div class="latest-label">Latest Posts</div>
   {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
