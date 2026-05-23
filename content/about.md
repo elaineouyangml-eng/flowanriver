@@ -3,6 +3,8 @@ title = "About"
 layout = "page"
 +++
 
+![Elaine](/images/elaine-x.png)
+
 Hi, I'm Elaine.
 
 I turn 38 next week. That's probably why I've been thinking about rebirth lately.
