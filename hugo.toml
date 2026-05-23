@@ -1,8 +1,8 @@
 baseURL = "https://flowanriver.com"
 languageCode = "en-us"
 title = "FlowAnRiver"
-googleAnalytics = "G-HWVJVCV67S"
 theme = "PaperMod"
+googleAnalytics = "G-HWVJVCV67S"
 
 [params]
   env = "production"
@@ -38,8 +38,3 @@ theme = "PaperMod"
   name = "Crypto"
   url = "/tags/crypto"
   weight = 4
-
-[params]
-  env = "production"
-  googleAnalytics = "G-HWVJVCV67S"
-googleAnalytics = "G-HWVJVCV67S"
