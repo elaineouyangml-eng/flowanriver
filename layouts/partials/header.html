@@ -1,0 +1,28 @@
+{{- $isStickyNav := .Site.Params.StickyNavBar }}
+<header class="header{{- if $isStickyNav }} sticky{{- end }}">
+    <nav class="nav">
+        <div class="logo">
+            {{- $label_text := (site.Params.label.text | default site.Title) }}
+            {{- if site.Title }}
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
+                <span>{{ $label_text }}</span>
+            </a>
+            {{- end }}
+            {{- partial "theme-toggle.html" . }}
+        </div>
+        <ul id="menu">
+            {{- range site.Menus.main }}
+            <li>
+                <a href="{{ .URL | absLangURL }}" title="{{ .Title }}">
+                    <span>{{ .Name }}</span>
+                </a>
+            </li>
+            {{- end }}
+            <li>
+                <a href="/about" title="About Elaine">
+                    <img src="/images/elaineo.png" alt="Elaine" style="width:28px;height:28px;border-radius:50%;object-fit:cover;vertical-align:middle;">
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
