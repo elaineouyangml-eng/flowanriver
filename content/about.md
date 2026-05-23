@@ -7,22 +7,26 @@ layout = "page"
 
 Hi, I'm Elaine.
 
-I turn 38 next week. That's probably why I've been thinking about rebirth lately.
+I turn 38 next week. Maybe that's why I've been thinking so much about rebuilding lately.
 
-I never planned to start over this many times. But somewhere along the way, I stopped being afraid of the restart.
+I never expected to start over this many times. But somewhere along the way, I stopped being afraid of the restart.
 
-For a long time I was stuck in anxiety — not specialized enough, not polished enough, not recognizable enough. I kept building things that didn't quite work. A lingerie brand with no orders. Content that got ignored. Plans that fell apart.
+For a long time, I felt stuck in the space between ideas and execution — not specialized enough, not polished enough, not recognizable enough. I built things that didn't quite work. A lingerie brand with barely any orders. Content no one read. Plans that slowly fell apart.
 
-Then I started using AI — not just as a productivity tool, but as a way to rebuild myself.
+Then AI entered my life. Not just as a productivity tool, but as something that helped me rebuild the way I think, work, and create. Slowly, piece by piece. My confidence. My workflow. My brand. My direction.
 
-My IP, my brand, my workflow, my confidence. Slowly, piece by piece.
+I'm not here to tell a success story. I'm still in the middle of mine.
 
-I'm not here to tell you a success story. I'm still in the middle of mine.
+But along the way, I became deeply interested in how AI, Web3, and digital payments are changing the future of independent business — especially for small creators, solo founders, and people building outside traditional systems.
 
-But I am here to share what's real: what AI actually does for a solo builder, how crypto and Web3 are changing the game for small creators, and what it looks like to keep going when the path isn't clear.
+As someone running an independent e-commerce brand, I've experienced firsthand how difficult global business can be: payment friction, failed transactions, platform dependency, rising costs, and the pressure to constantly adapt. That's part of why I started paying attention to crypto and stablecoins — not from a trader's perspective, but from a builder's perspective.
+
+I don't see Web3 as just speculation anymore. I see it as infrastructure that may slowly reshape how people create, earn, build communities, and move value online.
+
+FlowAnRiver is where I document those thoughts in public — honestly, imperfectly, and in real time. Not as an expert with all the answers, but as someone actively building while trying to understand where the world is heading next.
 
 **Currently building:**
-- [LaceMoods](https://lacemoods.com) — slow feminine lingerie brand
-- FlowAnRiver — honest takes on AI & crypto
+- [LaceMoods](https://lacemoods.com) — a slow feminine lingerie brand
+- FlowAnRiver — reflections on AI, Web3, global payments, and independent building
 
-*If you're also building alone, figuring things out one step at a time — welcome.*
+*If you're also figuring things out one step at a time — welcome.*
