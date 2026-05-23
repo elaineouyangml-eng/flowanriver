@@ -4,7 +4,7 @@ title = "FlowAnRiver"
 theme = "PaperMod"
 
 [params]
-  homeInfoParams = {Title = "AI & Crypto, Unfiltered", Content = "Real insights on AI tools and crypto markets. No hype, just honest takes from someone building in the open.\n\n![](/images/ai-cover2.png)"}
+  homeInfoParams = {Title = "AI & Crypto, Unfiltered", Content = "Real insights on AI tools and crypto markets. No hype, just honest takes from someone building in the open."}
   ShowReadingTime = true
   ShowShareButtons = true
   defaultTheme = "auto"
