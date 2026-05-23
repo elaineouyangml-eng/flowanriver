@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="home-header">
+  <h1>{{ .Site.Params.homeInfoParams.Title }}</h1>
+  <p>{{ .Site.Params.homeInfoParams.Content }}</p>
+  <div class="social-links">
+    <a href="https://x.com/Elaineoyml" target="_blank">𝕏 Twitter</a>
+    <a href="https://medium.com/@elaineouyangml" target="_blank">Medium</a>
+  </div>
+</div>
+
+<div class="category-grid">
+  <div class="category-card">
+    <div class="category-header">
+      <span class="tag tag-ai">AI</span>
+      <a href="/tags/ai">See all →</a>
+    </div>
+    {{ range first 3 (where .Site.RegularPages "Params.tags" "intersect" (slice "ai")) }}
+    <div class="post-item">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <span>{{ .Date.Format "Jan 2" }} · {{ .ReadingTime }} min</span>
+    </div>
+    {{ end }}
+  </div>
+
+  <div class="category-card">
+    <div class="category-header">
+      <span class="tag tag-crypto">Crypto</span>
+      <a href="/tags/crypto">See all →</a>
+    </div>
+    {{ range first 3 (where .Site.RegularPages "Params.tags" "intersect" (slice "crypto")) }}
+    <div class="post-item">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <span>{{ .Date.Format "Jan 2" }} · {{ .ReadingTime }} min</span>
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<div class="latest-posts">
+  <h2>Latest Posts</h2>
+  {{ range first 10 .Site.RegularPages }}
+  <div class="post-item">
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+  </div>
+  {{ end }}
+</div>
+{{ end }}

@@ -1,0 +1,18 @@
+.home-header { text-align: center; padding: 40px 20px 20px; }
+.home-header h1 { font-size: 2rem; margin-bottom: 10px; }
+.home-header p { color: var(--secondary); max-width: 500px; margin: 0 auto 16px; }
+.social-links { display: flex; gap: 16px; justify-content: center; }
+.social-links a { color: var(--secondary); font-size: 14px; }
+.category-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 900px; margin: 30px auto; padding: 0 20px; }
+.category-card { border: 1px solid var(--border); border-radius: 8px; padding: 16px; }
+.category-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.category-header a { font-size: 13px; color: var(--secondary); }
+.tag { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+.tag-ai { background: #EEEDFE; color: #3C3489; }
+.tag-crypto { background: #E1F5EE; color: #085041; }
+.post-item { display: flex; justify-content: space-between; align-items: start; padding: 8px 0; border-bottom: 1px solid var(--border); }
+.post-item:last-child { border-bottom: none; }
+.post-item a { font-size: 13px; color: var(--primary); line-height: 1.4; }
+.post-item span { font-size: 12px; color: var(--secondary); white-space: nowrap; margin-left: 10px; }
+.latest-posts { max-width: 900px; margin: 0 auto 40px; padding: 0 20px; }
+.latest-posts h2 { font-size: 14px; color: var(--secondary); margin-bottom: 12px; }
