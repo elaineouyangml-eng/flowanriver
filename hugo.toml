@@ -38,3 +38,4 @@ googleAnalytics = "G-HWVJVCV67S"
   name = "Crypto"
   url = "/tags/crypto"
   weight = 4
+  logo = "/logo.svg"
