@@ -7,3 +7,23 @@
 .post-single .post-content p { margin-bottom: 1.5em; }
 .post-description { display: none; }
 </style>
+
+<style>
+.search-tags { margin-top: 20px; max-width: 800px; }
+.search-tags p { font-size: 14px; color: var(--secondary); margin-bottom: 12px; }
+.search-tags a { font-size: 13px; padding: 4px 12px; border: 1px solid var(--border); border-radius: 20px; text-decoration: none; color: var(--primary); display: inline-block; margin: 4px; }
+.search-tags a:hover { background: var(--code-bg); }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.location.pathname === "/search/" || window.location.pathname === "/search") {
+    var input = document.getElementById("searchInput");
+    if (input) {
+      var tags = document.createElement("div");
+      tags.className = "search-tags";
+      tags.innerHTML = "<p>Popular topics:</p><a href='/tags/ai'>AI</a><a href='/tags/crypto'>Crypto</a><a href='/tags/web3'>Web3</a><a href='/tags/stablecoin'>Stablecoin</a><a href='/tags/productivity'>Productivity</a><a href='/tags/solo-founder'>Solo Founder</a>";
+      input.parentNode.insertAfter ? input.parentNode.insertAfter(tags, input) : input.after(tags);
+    }
+  }
+});
+</script>
