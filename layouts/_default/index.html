@@ -17,7 +17,7 @@
 .post-card-title { font-size: 15px; font-weight: 600; color: var(--primary); line-height: 1.5; margin-bottom: 6px; }
 .post-card-meta { font-size: 12px; color: var(--secondary); }
 .latest-posts { max-width: 900px; margin: 0 auto 40px; padding: 0 20px; }
-.latest-label { font-size: 13px; font-weight: 700; color: var(--secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; background: var(--code-bg); padding: 8px 16px; border-radius: 8px; display: inline-block; }
+.latest-section { background: var(--code-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; max-width: 900px; margin: 0 auto 40px; } .latest-label { font-size: 13px; font-weight: 700; color: var(--secondary); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.08em; display: block; }
 .latest-item { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--border); }
 .latest-item a { font-size: 15px; color: var(--primary); text-decoration: none; }
 .latest-item a:hover { text-decoration: underline; }
@@ -57,7 +57,7 @@
     {{ end }}
   </div>
 </div>
-<div class="latest-posts">
+<div class="latest-section">
   <div class="latest-label">Latest Posts</div>
   {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
   <div class="latest-item">
