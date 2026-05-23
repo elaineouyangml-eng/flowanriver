@@ -68,3 +68,8 @@ favicon = "/favicon.svg"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[[menus.main]]
+  name = "Contact"
+  url = "/contact"
+  weight = 7
