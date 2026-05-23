@@ -39,3 +39,8 @@ googleAnalytics = "G-HWVJVCV67S"
   url = "/tags/crypto"
   weight = 4
   logo = "/logo.svg"
+
+[[menus.main]]
+  name = "随笔"
+  url = "/tags/chinese"
+  weight = 5
