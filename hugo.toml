@@ -27,7 +27,7 @@ googleAnalytics = "G-HWVJVCV67S"
 [[menus.main]]
   name = "About"
   url = "/about"
-  weight = 2
+  weight = 6
 
 [[menus.main]]
   name = "AI"
