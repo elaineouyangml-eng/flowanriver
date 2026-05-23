@@ -62,7 +62,7 @@ googleAnalytics = "G-HWVJVCV67S"
 favicon = "/favicon.svg"
 
 [[menus.main]]
-  name = "Search"
+  name = "🔍"
   url = "/search"
   weight = 6
 
