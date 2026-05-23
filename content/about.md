@@ -3,7 +3,7 @@ title = "About"
 layout = "page"
 +++
 
-<img src="/images/elaineo.png" alt="Elaine" style="width:100px;height:100px;border-radius:50%;object-fit:cover;margin-bottom:20px;">
+![Elaine](/images/elaine-x.png)
 
 Hi, I'm Elaine.
 
