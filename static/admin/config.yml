@@ -2,6 +2,9 @@ backend:
   name: github
   repo: elaineouyangml-eng/flowanriver
   branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+  site_id: magnificent-clafoutis-511fc0.netlify.app
 
 media_folder: static/images
 public_folder: /images
