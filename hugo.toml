@@ -60,3 +60,11 @@ googleAnalytics = "G-HWVJVCV67S"
   url = "/disclaimer/"
   weight = 3
 favicon = "/favicon.svg"
+
+[[menus.main]]
+  name = "Search"
+  url = "/search"
+  weight = 6
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
