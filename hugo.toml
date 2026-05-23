@@ -1,6 +1,7 @@
 baseURL = "https://flowanriver.com"
 languageCode = "en-us"
 title = "FlowAnRiver"
+googleAnalytics = "G-HWVJVCV67S"
 theme = "PaperMod"
 
 [params]
