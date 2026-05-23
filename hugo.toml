@@ -1,0 +1,14 @@
+baseURL = "https://flowanriver.com"
+languageCode = "en-us"
+title = "FlowAnRiver"
+theme = "PaperMod"
+
+[params]
+  homeInfoParams = {Title = "AI & Crypto, Unfiltered", Content = "Real insights on AI tools and crypto markets. No hype, just honest takes from someone building in the open."}
+  ShowReadingTime = true
+  ShowShareButtons = true
+  defaultTheme = "auto"
+
+[[params.socialIcons]]
+  name = "medium"
+  url = "https://medium.com/@elaineouyangml"
