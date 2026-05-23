@@ -1,6 +1,6 @@
 +++
 title = "AI Won't Kill Jobs. It Will Kill Tasks."
-date = 2026-05-23
+date = 2026-05-20
 draft = false
 tags = ["AI", "future of work", "productivity"]
 description = "The real shift isn't about which jobs AI will replace. It's about what happens when the tasks inside every job start disappearing."

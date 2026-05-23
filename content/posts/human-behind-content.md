@@ -1,6 +1,6 @@
 +++
 title = "People Don't Hate AI Content — They Hate Content With No Human Behind It"
-date = 2026-05-11
+date = 2026-05-15
 draft = false
 tags = ["AI", "content", "branding", "authenticity"]
 description = "As AI makes content creation cheap and infinite, the rarest thing online is starting to become a real human perspective."
