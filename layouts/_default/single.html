@@ -43,6 +43,7 @@
   {{- end }}
 
   {{- partial "extend_post_content.html" . }}
+{{ partial "share_icons.html" . }}
 
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
@@ -54,9 +55,9 @@
     {{- if (.Param "ShowPostNavLinks") }}
     {{- partial "post_nav_links.html" . }}
     {{- end }}
-    {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
-    {{- partial "share_icons.html" . -}}
-    {{- end }}
+
+
+
   </footer>
 
   {{- if (.Param "comments") }}
