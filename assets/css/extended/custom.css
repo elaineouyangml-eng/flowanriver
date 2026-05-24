@@ -113,3 +113,44 @@ body {
   padding-bottom: 1.5rem !important;
   margin-bottom: 2rem !important;
 }
+
+/* Medium-style share divider */
+.share-divider {
+  margin: 2.5rem 0;
+}
+.share-line {
+  border: none;
+  border-top: 1px solid #a89880;
+  margin: 0;
+}
+.share-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 14px 0;
+}
+.share-label {
+  font-size: 13px;
+  color: #999;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.share-buttons a {
+  font-size: 14px;
+  font-weight: 600;
+  color: #888;
+  text-decoration: none;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d4c9b8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+.share-buttons a:hover {
+  color: #333;
+  border-color: #a89880;
+}
