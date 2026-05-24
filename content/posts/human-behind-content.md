@@ -1,10 +1,16 @@
 +++
+[cover]
+image = "/images/woman_and_a_humanoid.png"
+alt = "Human behind content"
 title = "People Don't Hate AI Content — They Hate Content With No Human Behind It"
 date = 2026-05-15
 draft = false
 tags = ["AI", "content", "branding", "authenticity"]
 description = "As AI makes content creation cheap and infinite, the rarest thing online is starting to become a real human perspective."
 +++
+[cover]
+image = "/images/woman_and_a_humanoid.png"
+alt = "Human behind content"
 
 Over the past year, maybe the biggest change with AI isn't that it became dramatically smarter. It's that creating things has started becoming incredibly cheap.
 

@@ -1,10 +1,16 @@
 +++
+[cover]
+image = "/images/a_person_building_a_small.png"
+alt = "AI tools workflow"
 title = "I Stopped Comparing AI Tools — I Started Using Them Differently"
 date = 2026-04-27
 draft = false
 tags = ["AI", "tools", "workflow", "ChatGPT", "Grok"]
 description = "ChatGPT vs Grok vs Gemini — I stopped asking which one is smarter. Here's how I actually use them together to get things done."
 +++
+[cover]
+image = "/images/a_person_building_a_small.png"
+alt = "AI tools workflow"
 
 Recently, I saw a post on X from Elon Musk comparing ChatGPT and Grok. Same question, two very different answers. It was interesting to look at. And for a moment, I also wondered: which one is actually smarter?
 

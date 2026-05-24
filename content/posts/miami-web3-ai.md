@@ -1,10 +1,16 @@
 +++
+[cover]
+image = "/images/web3_and_ai_conference.png"
+alt = "Miami Web3 AI"
 title = "AI and Web3 Are Merging — What I Learned Watching Miami Consensus 2026"
 date = 2026-05-18
 draft = false
 tags = ["AI", "Web3", "crypto", "AI agents"]
 description = "After watching days of panels from Miami Consensus, one thing became clear: AI and Web3 are no longer separate conversations."
 +++
+[cover]
+image = "/images/web3_and_ai_conference.png"
+alt = "Miami Web3 AI"
 
 Over the past few days, we spent quite a bit of time watching livestreams and panels from the Miami Web3 conference. Before that, I honestly thought most of the conversations would still be around crypto, tokens, or blockchain infrastructure.
 

@@ -1,10 +1,16 @@
 +++
+[cover]
+image = "/images/personas_working_together_one_calm.png"
+alt = "Trump crypto executive order"
 title = "Trump's New Executive Order Is Bigger Than Crypto — It's About the Future of Finance"
 date = 2026-05-21
 draft = false
 tags = ["crypto", "Web3", "policy", "stablecoin"]
 description = "Trump's new executive order on crypto and fintech is being read as a bullish signal. But the bigger story might be about what the U.S. wants the future of global finance to look like."
 +++
+[cover]
+image = "/images/personas_working_together_one_calm.png"
+alt = "Trump crypto executive order"
 
 A few days ago, on May 19, Trump signed an executive order called "Integrating Financial Technology Innovation into Regulatory Frameworks." After the news came out, the crypto space got excited again. Most people immediately saw it as another bullish signal for crypto.
 

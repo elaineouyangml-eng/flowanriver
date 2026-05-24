@@ -1,10 +1,16 @@
 +++
+[cover]
+image = "/images/personas_working_together_one_calm.png"
+alt = "Trump crypto"
 title = "特朗普签的行政令，比你想象的影响大得多"
 date = 2026-05-21
 draft = false
 tags = ["随笔"]
 description = "特朗普签署金融科技行政令，加密圈沸腾了。但这件事的意义远不止于此——它可能重塑整个金融体系。"
 +++
+[cover]
+image = "/images/personas_working_together_one_calm.png"
+alt = "Trump crypto"
 特朗普签的行政令，比你想象的影响大得多 —— Crypto 正在走进主流金融
 前几天（5月19日），特朗普签署了一项关于金融科技的重要行政令《Integrating Financial Technology Innovation into Regulatory Frameworks》。根据白宫随后发布的 Fact Sheet，这项政策的核心方向之一，是研究如何让 fintech 和 crypto 公司更容易接入美国支付系统，同时继续强化风险管理与监管框架。
 很多人看到新闻后的第一反应，是觉得这是一次新的“crypto 利好”。但在我看来，这件事真正值得关注的，可能并不只是市场情绪或者币价波动，而是美国正在重新思考未来金融体系和数字支付网络的主导权。
