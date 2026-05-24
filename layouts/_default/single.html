@@ -43,7 +43,6 @@
   {{- end }}
 
   {{- partial "extend_post_content.html" . }}
-{{ partial "share_icons.html" . }}
 
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
@@ -58,7 +57,8 @@
 
 
 
-  </footer>
+  {{ partial "share_icons.html" . }}
+    </footer>
 
   {{- if (.Param "comments") }}
   {{- partial "comments.html" . }}
