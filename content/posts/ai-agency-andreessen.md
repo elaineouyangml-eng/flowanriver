@@ -4,6 +4,10 @@ date = 2026-05-08
 draft = false
 tags = ["AI", "future of work", "solo founder", "agency"]
 description = "Marc Andreessen says AI replaces tasks, not jobs. Here's what that actually means for how we work — and what I learned during a low point in my own life."
+
+[cover]
+image = "/images/ai-cover.png"
+alt = "AI and the future of work"
 +++
 
 Many people today are asking the same question: Will AI take my job?
