@@ -73,3 +73,8 @@ favicon = "/favicon.svg"
   name = "Contact"
   url = "/contact"
   weight = 6
+
+[[menus.main]]
+  name = "Newsletter"
+  url = "https://elainereset.substack.com/subscribe"
+  weight = 5
