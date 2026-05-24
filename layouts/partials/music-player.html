@@ -1,0 +1,54 @@
+<div id="music-player">
+  <button id="music-toggle" aria-label="Open music player" title="Listen while you read">♪</button>
+  <div id="music-panel">
+    <div id="music-tabs">
+      <button class="mtab active" data-type="album" data-id="6sBArWP0nTIE00DmV50A33">🎹 Piano</button>
+      <button class="mtab" data-type="playlist" data-id="37i9dQZF1E354wjOLmBLwM">🎷 Jazz</button>
+      <button class="mtab" data-type="playlist" data-id="37i9dQZF1DX0ZO4kBlpsIH">🌊 Ambient</button>
+    </div>
+    <div id="music-frame-wrap"></div>
+  </div>
+</div>
+
+<style>
+#music-player{position:fixed;bottom:24px;right:24px;z-index:9999;}
+#music-toggle{width:44px;height:44px;border-radius:50%;border:1px solid #ccc;background:#fff;font-size:18px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:transform .15s;}
+#music-toggle:hover{transform:scale(1.08);}
+#music-panel{display:none;position:absolute;bottom:54px;right:0;width:300px;background:#fff;border:1px solid #e0d9cf;border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.15);}
+#music-panel.open{display:block;}
+#music-tabs{display:flex;border-bottom:1px solid #e0d9cf;}
+.mtab{flex:1;padding:8px 4px;font-size:12px;border:none;background:transparent;cursor:pointer;color:#888;}
+.mtab.active{background:#f5f0e8;color:#333;font-weight:500;}
+#music-frame-wrap iframe{display:block;width:300px;height:152px;border:none;}
+</style>
+
+<script>
+(function(){
+  var btn=document.getElementById('music-toggle');
+  var panel=document.getElementById('music-panel');
+  var wrap=document.getElementById('music-frame-wrap');
+  var tabs=document.querySelectorAll('.mtab');
+  var loaded=false;
+
+  function load(type,id){
+    wrap.innerHTML='<iframe src="https://open.spotify.com/embed/'+type+'/'+id+'?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+  }
+
+  btn.addEventListener('click',function(){
+    panel.classList.toggle('open');
+    if(!loaded){
+      var t=tabs[0];
+      load(t.dataset.type, t.dataset.id);
+      loaded=true;
+    }
+  });
+
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      tabs.forEach(function(x){x.classList.remove('active');});
+      t.classList.add('active');
+      load(t.dataset.type, t.dataset.id);
+    });
+  });
+})();
+</script>
