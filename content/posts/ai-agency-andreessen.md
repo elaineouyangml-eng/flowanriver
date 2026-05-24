@@ -1,14 +1,17 @@
-+++
-title = "AI Won't Replace Your Job — But It Will Make Many People Irrelevant"
-date = 2026-05-08
-draft = false
-tags = ["AI", "future of work", "solo founder", "agency"]
-description = "Marc Andreessen says AI replaces tasks, not jobs. Here's what that actually means for how we work — and what I learned during a low point in my own life."
-
-[cover]
-image = "/images/ai-cover.png"
-alt = "AI and the future of work"
-+++
+---
+title: AI Won't Replace Your Job — But It Will Make Many People Irrelevant
+date: 2026-05-08
+draft: false
+tags:
+  - AI
+  - future of work
+  - solo founder
+  - agency
+description: Marc Andreessen says AI replaces tasks, not jobs. Here's what that
+  actually means for how we work — and what I learned during a low point in my
+  own life.
+cover: /images/elaine_editorial_cartoon_illustration_of_a_person_working_on__c09fcdc0-e60c-488b-b367-70e39d792a03_2.png
+---
 
 Many people today are asking the same question: Will AI take my job?
 
