@@ -30,3 +30,10 @@ FlowAnRiver is where I document those thoughts in public — honestly, imperfect
 - FlowAnRiver — reflections on AI, Web3, global payments, and independent building
 
 *If you're also figuring things out one step at a time — welcome.*
+
+---
+
+You can follow my thinking in real time:
+
+- 🐦 X: [@Elaineoyml](https://x.com/Elaineoyml)
+- 📬 Newsletter: [Elaine Reset on Substack](https://substack.com/@elainereset)
