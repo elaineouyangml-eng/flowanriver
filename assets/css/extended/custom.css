@@ -194,3 +194,21 @@ body {
   padding-top: 2rem;
   margin-top: 2rem;
 }
+
+/* end of post divider */
+.post-content.md-content::after {
+  content: "· · ·";
+  display: block;
+  text-align: center;
+  color: #a89880;
+  font-size: 18px;
+  letter-spacing: 8px;
+  margin: 2.5rem 0 1rem;
+}
+
+/* divider above More Posts */
+.post-recommendations {
+  border-top: 1px solid #a89880;
+  padding-top: 2rem;
+  margin-top: 1rem;
+}
