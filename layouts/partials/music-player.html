@@ -2,9 +2,9 @@
   <button id="music-toggle" aria-label="Open music player" title="Listen while you read">♪</button>
   <div id="music-panel">
     <div id="music-tabs">
-      <button class="mtab active" data-type="album" data-id="6sBArWP0nTIE00DmV50A33">🎹 Piano</button>
-      <button class="mtab" data-type="playlist" data-id="37i9dQZF1E354wjOLmBLwM">🎷 Jazz</button>
-      <button class="mtab" data-type="playlist" data-id="37i9dQZF1DX0ZO4kBlpsIH">🌊 Ambient</button>
+      <button class="mtab active" data-url="https://soundcloud.com/soothingrelaxation/sets/relaxing-piano-music">🎹 Piano</button>
+      <button class="mtab" data-url="https://soundcloud.com/relaxcafemusic/sets/late-night-jazz">🎷 Jazz</button>
+      <button class="mtab" data-url="https://soundcloud.com/instrumentaljazzmusicambient/sets/warm-jazz-relaxing-cafe-music">🌊 Ambient</button>
     </div>
     <div id="music-frame-wrap"></div>
   </div>
@@ -19,7 +19,7 @@
 #music-tabs{display:flex;border-bottom:1px solid #e0d9cf;}
 .mtab{flex:1;padding:8px 4px;font-size:12px;border:none;background:transparent;cursor:pointer;color:#888;}
 .mtab.active{background:#f5f0e8;color:#333;font-weight:500;}
-#music-frame-wrap iframe{display:block;width:300px;height:152px;border:none;}
+#music-frame-wrap iframe{display:block;width:300px;height:166px;border:none;}
 </style>
 
 <script>
@@ -30,24 +30,20 @@
   var tabs=document.querySelectorAll('.mtab');
   var loaded=false;
 
-  function load(type,id){
-    wrap.innerHTML='<iframe src="https://open.spotify.com/embed/'+type+'/'+id+'?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+  function load(url){
+    wrap.innerHTML='<iframe scrolling="no" allow="autoplay" src="https://w.soundcloud.com/player/?url='+encodeURIComponent(url)+'&color=%23c9b99a&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe>';
   }
 
   btn.addEventListener('click',function(){
     panel.classList.toggle('open');
-    if(!loaded){
-      var t=tabs[0];
-      load(t.dataset.type, t.dataset.id);
-      loaded=true;
-    }
+    if(!loaded){load(tabs[0].dataset.url);loaded=true;}
   });
 
   tabs.forEach(function(t){
     t.addEventListener('click',function(){
       tabs.forEach(function(x){x.classList.remove('active');});
       t.classList.add('active');
-      load(t.dataset.type, t.dataset.id);
+      load(t.dataset.url);
     });
   });
 })();
