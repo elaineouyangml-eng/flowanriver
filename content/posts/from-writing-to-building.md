@@ -1,16 +1,10 @@
 +++
-[cover]
-image = "/images/editorial_illustration_about.png"
-alt = "From writing to building"
 title = "From Generating Content to Actually Building Things — How AI Changed the Way I Work"
 date = 2026-04-21
 draft = false
 tags = ["AI", "building", "workflow", "solo founder", "personal"]
 description = "I started using AI like everyone else — writing content, organizing thoughts. Here's what changed when I started using it to actually build things."
 +++
-[cover]
-image = "/images/editorial_illustration_about.png"
-alt = "From writing to building"
 
 I didn't start out building things with AI.
 

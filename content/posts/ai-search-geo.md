@@ -1,16 +1,10 @@
 +++
-[cover]
-image = "/images/a_small_char.png"
-alt = "AI search and SEO"
 title = "AI Search Isn't Killing SEO — It's Breaking Something Bigger"
 date = 2026-03-20
 draft = false
 tags = ["AI", "SEO", "GEO", "content"]
 description = "My traffic didn't grow the way I expected. Here's what I noticed about how AI search is changing the rules — and what GEO means for content creators."
 +++
-[cover]
-image = "/images/a_small_char.png"
-alt = "AI search and SEO"
 
 I spent the past year doing SEO the "right way."
 

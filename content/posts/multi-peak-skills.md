@@ -1,16 +1,10 @@
 +++
-[cover]
-image = "/images/a_person_running.png"
-alt = "Multi-peak skills"
 title = "How to Build Multi-Peak Skills as a Solo Founder in the AI Era"
 date = 2026-05-12
 draft = false
 tags = ["AI", "solo founder", "productivity", "skills"]
 description = "Solo building isn't about doing more. It's about designing smarter — and using AI to amplify a multi-peak skill structure."
 +++
-[cover]
-image = "/images/a_person_running.png"
-alt = "Multi-peak skills"
 
 A lot of people think solo founding is about hustle. One person handling product, operations, content, design, and sales all at once.
 
