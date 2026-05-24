@@ -5,7 +5,7 @@ alt = "Trump crypto"
 title = "特朗普签的行政令，比你想象的影响大得多"
 date = 2026-05-21
 draft = false
-tags = ["随笔"]
+tags = ["crypto", "随笔"]
 description = "特朗普签署金融科技行政令，加密圈沸腾了。但这件事的意义远不止于此——它可能重塑整个金融体系。"
 +++
 [cover]
