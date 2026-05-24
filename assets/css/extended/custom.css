@@ -1,12 +1,7 @@
-:root {
-  --theme: #faf8f5;
-  --entry: #ffffff;
-  --primary: #2d2d2d;
-  --secondary: #6b6b6b;
-  --border: #e8e4df;
-  --bg: #faf8f5;
+body {
+  background-color: #f5f0e8 !important;
 }
 
-body {
-  background-color: #faf8f5;
+.main {
+  background-color: #f5f0e8 !important;
 }
