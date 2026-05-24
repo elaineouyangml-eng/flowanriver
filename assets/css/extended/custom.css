@@ -182,3 +182,15 @@ body {
   transition: color 0.15s;
 }
 .meta-share-btn:hover { color: #333; }
+
+/* dividers around More Posts and comments */
+.post-recommendations {
+  border-top: 1px solid #a89880;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
+.giscus {
+  border-top: 1px solid #a89880;
+  padding-top: 2rem;
+  margin-top: 2rem;
+}
