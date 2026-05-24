@@ -78,3 +78,8 @@ favicon = "/favicon.svg"
   name = "Newsletter"
   url = "https://elainereset.substack.com/subscribe"
   weight = 5
+
+[params.cover]
+  image = "/images/default-cover.png"
+  alt = "FlowAnRiver"
+  relative = false
