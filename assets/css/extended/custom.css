@@ -154,3 +154,31 @@ body {
   color: #333;
   border-color: #a89880;
 }
+
+/* post meta with avatar and share */
+.post-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.5rem 0;
+}
+.post-meta-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.author-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.post-meta-text {
+  font-size: 14px;
+  color: var(--secondary);
+}
+.meta-share-btn {
+  color: #999;
+  transition: color 0.15s;
+}
+.meta-share-btn:hover { color: #333; }
