@@ -5,3 +5,10 @@ body {
 .main {
   background-color: #f5f0e8 !important;
 }
+
+/* post header divider */
+.post-header {
+  border-bottom: 1px solid #d4c9b8;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
