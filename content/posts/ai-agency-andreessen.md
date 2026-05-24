@@ -10,7 +10,6 @@ tags:
 description: Marc Andreessen says AI replaces tasks, not jobs. Here's what that
   actually means for how we work — and what I learned during a low point in my
   own life.
-cover:
   image: /images/elaine_editorial_cartoon_illustration_of_a_person_working_on__c09fcdc0-e60c-488b-b367-70e39d792a03_2.png
   alt: cover image
 ---

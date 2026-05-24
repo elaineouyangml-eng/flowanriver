@@ -8,7 +8,6 @@ tags:
   - productivity
 description: The real shift isn't about which jobs AI will replace. It's about
   what happens when the tasks inside every job start disappearing.
-cover:
   image: /images/elaine_editorial_cartoon_illustration_of_a_person_working_on__c09fcdc0-e60c-488b-b367-70e39d792a03_2.png
   alt: cover image
 ---
