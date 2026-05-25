@@ -41,7 +41,7 @@ googleAnalytics = "G-HWVJVCV67S"
   logo = "/logo.svg"
 
 [[menus.main]]
-  name = "随笔"
+  name = "Journal（随笔）"
   url = "/tags/随笔"
   weight = 5
 
