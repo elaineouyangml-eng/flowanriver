@@ -1,10 +1,16 @@
-+++
-title = "I Spent $100 a Month on AI and Built More Than I Expected"
-date = 2026-05-23
-draft = false
-tags = ["AI", "side hustle", "tools"]
-description = "What actually happened when I committed to AI tools for a full month — the builds, the fails, and what I learned."
-+++
+---
+title: I Spent $100 a Month on AI and Built More Than I Expected
+date: 2026-05-23
+draft: false
+tags:
+  - AI
+  - side hustle
+  - tools
+description: What actually happened when I committed to AI tools for a full
+  month — the builds, the fails, and what I learned.
+cover:
+  image: /images/ai-cover2.png
+---
 
 I didn't start with a plan.
 
