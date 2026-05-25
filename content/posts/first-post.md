@@ -9,7 +9,7 @@ tags:
 description: What actually happened when I committed to AI tools for a full
   month — the builds, the fails, and what I learned.
 cover:
-  image: /images/ai-cover2.png
+  image: ""
 ---
 
 I didn't start with a plan.
