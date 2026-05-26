@@ -59,7 +59,7 @@
 </div>
 <div class="latest-section">
   <div class="latest-label">Latest Posts</div>
-  {{ range first 10 (where .Site.RegularPages "Section" "posts") }}
+  {{ range first 6 (where .Site.RegularPages "Section" "posts") }}
   <div class="latest-item">
     <a href="{{ .Permalink }}">{{ .Title }}</a>
     <span class="latest-date">{{ .Date.Format "Jan 2, 2006" }}</span>
