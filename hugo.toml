@@ -11,6 +11,8 @@ googleAnalytics = "G-HWVJVCV67S"
   ShowReadingTime = true
   ShowShareButtons = true
   defaultTheme = "auto"
+  ShowThumbnailInList = true
+ShowThumbnailInList = true
 
 [[params.socialIcons]]
   name = "medium"
