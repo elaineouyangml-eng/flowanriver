@@ -5,7 +5,7 @@ date = 2026-05-18
 draft = false
 tags = ["AI", "Web3", "crypto", "AI agents"]
 description = "After watching days of panels from Miami Consensus, one thing became clear: AI and Web3 are no longer separate conversations."
-+++
+
 [cover]
 image = "images/web3_and_ai_conference.png"
 alt = "AI and Web3 Are Merging"
