@@ -5,6 +5,7 @@ theme = "PaperMod"
 googleAnalytics = "G-HWVJVCV67S"
 
 [params]
+  homeRecentPostsNum = 6
   env = "production"
   homeInfoParams = {Title = "AI & Crypto, Unfiltered", Content = "Real insights on AI tools and crypto markets. No hype, just honest takes from someone building in the open."}
   ShowReadingTime = true
