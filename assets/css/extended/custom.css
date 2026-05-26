@@ -226,3 +226,27 @@ body {
 .see-all-posts a:hover {
   color: #333;
 }
+
+/* More Posts card style */
+.post-recommendations {
+  margin-top: 2rem;
+}
+.post-recommendations .post-rec-item {
+  background: var(--code-bg);
+  border: 1px solid #e0d9cf;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  transition: box-shadow 0.15s;
+}
+.post-recommendations .post-rec-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+/* Giscus container card */
+.giscus {
+  background: #f0ebe3;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
