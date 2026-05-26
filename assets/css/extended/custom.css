@@ -212,3 +212,17 @@ body {
   padding-top: 2rem;
   margin-top: 1rem;
 }
+
+/* see all posts link */
+.see-all-posts {
+  text-align: right;
+  padding: 1rem 0 0.5rem;
+}
+.see-all-posts a {
+  font-size: 14px;
+  color: #a89880;
+  text-decoration: none;
+}
+.see-all-posts a:hover {
+  color: #333;
+}
