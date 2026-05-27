@@ -1,6 +1,6 @@
 ---
 title: I Used AI Every Day — But It Didn't Make Me Better
-date: 2026-03-12T20:18:00.000+08:00
+date: 2026-05-27T20:21:00.000+08:00
 draft: false
 tags:
   - AI
