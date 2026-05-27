@@ -29,6 +29,7 @@
 .fr-posts { max-width: 640px; margin: 0 auto; padding: 0 2rem 4rem; }
 .fr-posts-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 0.5px solid rgba(0,0,0,0.07); }
 .fr-posts-heading { font-size: 0.65rem; letter-spacing: 0.18em; color: #b0aa9a; text-transform: uppercase; }
+.fr-posts-count { font-size: 0.65rem; color: #c0b8a8; letter-spacing: 0.1em; }
 .fr-posts-all { font-size: 0.75rem; color: #c0b8a8; text-decoration: none; }
 .fr-post-item { display: flex; align-items: baseline; justify-content: space-between; padding: 14px 0; border-bottom: 0.5px solid rgba(0,0,0,0.05); text-decoration: none; gap: 12px; }
 .fr-post-item:hover .fr-post-title { color: #6a5a40; }
@@ -58,6 +59,7 @@
 <div class="fr-posts">
   <div class="fr-posts-header">
     <div class="fr-posts-heading">Latest</div>
+    <div class="fr-posts-count">{{ len (where site.RegularPages "Type" "in" site.Params.mainSections) }} posts</div>
     <a class="fr-posts-all" href="/posts/">See all →</a>
   </div>
   {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
