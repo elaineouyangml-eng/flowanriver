@@ -3,7 +3,7 @@ title: It's My Birthday
 date: 2026-05-29T16:30:00.000+08:00
 draft: false
 tags:
-  - Journal
+  - journal
 description: Today is my birthday. A look back at the year — what I built, what
   I learned, and what I'm still figuring out.
 cover:

@@ -4,7 +4,7 @@ date: 2026-05-21
 draft: false
 tags:
   - crypto
-  - 随笔
+  - journal
   - 中文
 description: 特朗普签署金融科技行政令，加密圈沸腾了。但这件事的意义远不止于此——它可能重塑整个金融体系。
 ---
