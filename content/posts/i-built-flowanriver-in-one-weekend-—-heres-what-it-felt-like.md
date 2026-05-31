@@ -3,7 +3,6 @@ title: I Built FlowAnRiver in One Weekend — Here's What It Felt Like
 date: 2026-05-25T15:23:00.000+08:00
 draft: false
 tags: ["journal"]
-  - journal
 description: How I built FlowAnRiver in one weekend with zero coding experience
   — and what it made me think about AI, creativity, and owning your own space
   online.
