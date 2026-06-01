@@ -62,6 +62,11 @@ googleAnalytics = "G-HWVJVCV67S"
   name = "Disclaimer"
   url = "/disclaimer/"
   weight = 3
+
+[[menus.footer]]
+  name = "FAQ"
+  url = "/faq/"
+  weight = 4
 favicon = "/favicon.svg"
 
 [[menus.main]]
@@ -87,7 +92,3 @@ favicon = "/favicon.svg"
   alt = "FlowAnRiver"
   relative = false
 
-[[menus.footer]]
-  name = "FAQ"
-  url = "/faq/"
-  weight = 4
