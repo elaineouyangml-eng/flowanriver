@@ -40,7 +40,21 @@
 </style>
 
 <div class="fr-hero">
-  <div class="fr-eyebrow">FlowAnRiver</div>
+  <div class="fr-eyebrow" style="display:inline-flex;align-items:center;gap:10px;">
+  <svg width="16" height="36" viewBox="0 0 16 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;">
+    <style>@keyframes flicker{0%,100%{transform:scaleY(1) translateX(0);opacity:1}25%{transform:scaleY(1.08) translateX(1px);opacity:0.9}75%{transform:scaleY(0.94) translateX(-1px);opacity:0.95}}.flame{animation:flicker 2s ease-in-out infinite;transform-origin:bottom center;}</style>
+    <g class="flame">
+      <ellipse cx="8" cy="6" rx="3" ry="5" fill="#e8a030" opacity="0.9"/>
+      <ellipse cx="8" cy="7" rx="1.8" ry="3.2" fill="#f5c84a"/>
+      <ellipse cx="8" cy="8" rx="0.8" ry="1.5" fill="#fff8e0"/>
+    </g>
+    <rect x="5" y="11" width="6" height="18" rx="2" fill="#e8d8b8" stroke="#c8b89a" stroke-width="0.5"/>
+    <rect x="5" y="11" width="6" height="4" rx="1" fill="#d4c4a0" opacity="0.6"/>
+    <rect x="6.5" y="10" width="3" height="2" rx="0.5" fill="#c8b89a"/>
+    <ellipse cx="8" cy="29" rx="5" ry="1.2" fill="#c8b89a" opacity="0.4"/>
+  </svg>
+  FlowAnRiver
+</div>
   <div style="display:inline-block;position:relative;">
   <svg style="position:absolute;bottom:8px;left:-10px;right:-10px;width:calc(100% + 20px);height:18px;pointer-events:none;" viewBox="0 0 500 18" preserveAspectRatio="none" aria-hidden="true">
     <path d="M8,12 Q80,3 160,11 Q240,18 320,7 Q370,2 492,11" stroke="#C4512A" stroke-width="7" fill="none" stroke-linecap="round" opacity="0.55"/>
