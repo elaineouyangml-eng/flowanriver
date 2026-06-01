@@ -11,6 +11,9 @@ description: June 1st feels like the right day to talk about things that are
   young — AI, crypto, Web3, and everyone still figuring it out.
 cover:
   image: /images/chatgpt-image-2026年6月1日-11_42_45.png
+  alt: Childlike illustration of a girl and a robot looking at a futuristic sky
+    filled with AI, Web3, and crypto symbols, representing curiosity, learning,
+    innovation, and the future of technology on Children's Day.
 ---
 Today is June 1st. Children's Day.
 
