@@ -30,7 +30,7 @@ It was business.
 
 As I started building an international e-commerce brand, I found myself dealing with things I had never paid much attention to before: payment systems, exchange rates, transfer fees, settlement times, and the countless small frictions involved in moving money across borders.
 
-I still remember noticing a Bitcoin payment option while setting up my LaceMoods website. At the time, I thought it was interesting, but I didn't think much about it. Who was actually paying for products with Bitcoin? Why would a platform even bother offering that option?
+I still remember noticing a Bitcoin payment option while setting up my [LaceMoods](www.lacemoods.com) website. At the time, I thought it was interesting, but I didn't think much about it. Who was actually paying for products with Bitcoin? Why would a platform even bother offering that option?
 
 The question stayed in the back of my mind.
 
