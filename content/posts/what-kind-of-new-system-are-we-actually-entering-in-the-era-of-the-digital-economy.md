@@ -151,7 +151,7 @@ In a world that is changing faster and faster, people are trying to keep more op
 
 ## The meaning of Flowanriver
 
-Perhaps this is also why I started writing Flowanriver.
+Perhaps this is also why I started writing [Flowanriver](https://flowanriver.com/about/).
 
 Not because I have found answers, but because I still have many unanswered questions.
 
