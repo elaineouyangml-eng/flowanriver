@@ -90,6 +90,8 @@ There is still plenty of trading, tokens and new protocols. But stablecoins, tok
 
 The upcoming [TOKEN2049 Singapore](https://www.token2049.com/singapore) on October 7–8 is expected to bring together more than 25,000 attendees, over 7,000 companies and more than 300 speakers.
 
+![TOKEN2049 Singapore 2026 event page highlighting the scale of the global crypto, finance and technology conference.](/images/token2049-singapore-2026-crypto-finance-conference.png)
+
 What interests me is not simply the attendance number. It is what the industry is gathering to discuss.
 
 The questions are increasingly practical: how banks use stablecoins, how real-world assets move onchain, how settlement can operate beyond traditional banking hours, and what infrastructure institutions need before they can participate at scale.
