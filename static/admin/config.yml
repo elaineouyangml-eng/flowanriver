@@ -8,6 +8,11 @@ backend:
   repo: elaineouyangml-eng/flowanriver
   branch: main
 
+backend:
+  name: github
+  repo: elaineouyangml-eng/flowanriver
+  branch: main
+
 media_folder: static/images
 public_folder: /images
 
