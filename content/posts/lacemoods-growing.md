@@ -5,6 +5,8 @@ date: 2026-09-22T16:56:00.000+08:00
 draft: false
 tags:
   - journal
+  - work
+  - building
 description: LaceMoods has changed, but not because I wanted to leave its
   beginning behind. This is a reflection on how the brand is growing beyond
   lingerie while still holding on to softness, femininity, and the small
