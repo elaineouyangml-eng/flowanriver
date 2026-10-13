@@ -39,7 +39,7 @@ And the world my son is growing up in is certainly different from mine.
 
 ## The Animated Worlds Once Created by Hand
 
-Founded in 1957, the Shanghai Animation Film Studio holds an important place in the history of Chinese animation. Its name may not be familiar to every international audience, but many of the films it produced became treasured childhood memories for generations of Chinese viewers.
+Founded in 1957, [the Shanghai Animation Film Studio](https://mzj.sh.gov.cn/lnb-wsws/20221017/f806a308e6e44369be26d092ac597f0c.html) holds an important place in the history of Chinese animation. Its name may not be familiar to every international audience, but many of the films it produced became treasured childhood memories for generations of Chinese viewers.
 
 When I was little, I never thought much about how cartoons were made. I cared about whether Sun Wukong could defeat the heavenly soldiers, whether the seven Calabash Brothers could overcome the villains, and what new mystery Black Cat Detective would solve in the next episode.
 
@@ -145,7 +145,7 @@ Looking at the characters now, I pay much more attention to their shapes, colors
 
 Another film I would particularly like international readers to discover is *The Nine-Colored Deer* (*Jiu Se Lu*).
 
-Released in 1981, the animated short was inspired by the story depicted in the *Ruru Jataka* mural in Cave 257 of the Mogao Caves in Dunhuang, China.
+Released in 1981, the animated short was inspired by the story depicted in the *Ruru Jataka* mural in [Cave 257 of the Mogao Caves](https://www.dha.ac.cn/info/1425/3548.htm) in Dunhuang, China.
 
 The original mural dates to the Northern Wei period, more than a thousand years before the animated film was created.
 
