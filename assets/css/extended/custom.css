@@ -416,3 +416,10 @@ body {
     box-shadow: none;
   }
 }
+
+/* Allow desktop navigation dropdown to extend outside menu */
+@media (min-width: 769px) {
+  #menu {
+    overflow: visible !important;
+  }
+}
