@@ -259,3 +259,79 @@ body {
   border-radius: 8px;
   margin-bottom: 10px;
 }
+
+
+
+/* FlowAnRiver Sign in dropdown */
+.fr-signin-menu {
+  position: relative;
+}
+
+.fr-signin-dropdown {
+  position: relative;
+}
+
+.fr-signin-dropdown > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--primary);
+  white-space: nowrap;
+}
+
+.fr-signin-dropdown > summary::-webkit-details-marker {
+  display: none;
+}
+
+.fr-signin-dropdown > summary::marker {
+  content: "";
+}
+
+.fr-signin-dropdown[open] > summary {
+  color: var(--primary);
+}
+
+.fr-signin-options {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 100;
+  min-width: 175px;
+  padding: 8px;
+  margin: 0;
+  list-style: none;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--theme);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.1);
+}
+
+.fr-signin-options li {
+  display: block;
+  margin: 0;
+}
+
+.fr-signin-options a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 6px;
+  color: var(--primary);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.fr-signin-options a:hover,
+.fr-signin-options a:focus-visible {
+  background: var(--code-bg);
+}
+
+@media (max-width: 768px) {
+  .fr-signin-options {
+    position: static;
+    box-shadow: none;
+    margin-top: 4px;
+    min-width: 0;
+  }
+}
