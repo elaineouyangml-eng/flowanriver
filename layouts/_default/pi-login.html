@@ -1,0 +1,40 @@
+
+{{ define "main" }}
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">Sign in with Pi</h1>
+  </header>
+
+  <div class="post-content">
+    <p>Connect your Pi Network account to FlowAnRiver.</p>
+    <p>Regular readers can continue browsing without signing in.</p>
+
+    <button id="pi-signin" type="button"
+      style="background:#73509a;color:white;padding:12px 24px;border-radius:8px;cursor:pointer;">
+      Sign in with Pi
+    </button>
+
+    <p id="pi-auth-status" role="status" aria-live="polite"></p>
+  </div>
+</article>
+
+<script>
+document.getElementById("pi-signin").addEventListener("click", async function () {
+  const button = this;
+  const status = document.getElementById("pi-auth-status");
+
+  button.disabled = true;
+  status.textContent = "Connecting to Pi Network...";
+
+  try {
+    const user = await window.FlowAnRiverPiAuth.signIn();
+    status.textContent = "Signed in as " + user.username;
+  } catch (error) {
+    status.textContent = "Sign-in failed. Please try again in Pi Browser.";
+    console.error("Pi authentication failed:", error.message);
+  } finally {
+    button.disabled = false;
+  }
+});
+</script>
+{{ end }}
