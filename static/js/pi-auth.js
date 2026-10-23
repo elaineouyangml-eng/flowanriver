@@ -3,52 +3,62 @@
   let sessionToken = null;
   let piUser = null;
 
+  const backendUrl =
+    "https://backend.appstudio-u7cm9zhmha0ruwv8.piappengine.com/pi/auth/v1/login";
+
+  function showStatus(message) {
+    const el = document.getElementById("pi-auth-status");
+    if (el) el.textContent = message;
+  }
+
   async function signInWithPi() {
     if (!window.Pi) {
       throw new Error("Pi SDK is unavailable");
     }
 
-   
-const status = document.getElementById("pi-auth-status");
+    showStatus("Initializing Pi SDK...");
 
-if (status) {
-  status.textContent = "Initializing Pi SDK...";
-}
-
-await window.Pi.init({ version: "2.0" });
-
-if (status) {
-  status.textContent = "Requesting Pi authorization...";
-}
-
-
-    
-const auth = await Promise.race([
-  window.Pi.authenticate(
-    ["username"],
-    (payment) => {
-      console.info("Incomplete Pi payment detected");
+    try {
+      await window.Pi.init({ version: "2.0" });
+    } catch (error) {
+      throw new Error("Pi SDK initialization failed");
     }
-  ),
-  new Promise((_, reject) => {
-    setTimeout(() => {
-      reject(new Error("Pi authorization timed out after 20 seconds"));
-    }, 20000);
-  })
-]);
 
+    showStatus("Requesting Pi authorization...");
+
+    let auth;
+
+    try {
+      auth = await Promise.race([
+        window.Pi.authenticate(
+          ["username"],
+          (payment) => {
+            console.info("Incomplete Pi payment detected");
+          }
+        ),
+        new Promise((_, reject) => {
+          setTimeout(() => {
+            reject(new Error("Pi authorization timed out"));
+          }, 20000);
+        })
+      ]);
+    } catch (error) {
+      if (error.message?.includes("timed out")) {
+        throw new Error("Pi authorization timed out");
+      }
+      throw new Error("Pi authorization failed");
+    }
 
     if (!auth?.accessToken) {
       throw new Error("No Pi access token received");
     }
 
-if (status) {
-  status.textContent = "Verifying Pi identity...";
-}
+    showStatus("Pi authorization received. Contacting App Studio...");
 
-    const response = await fetch(
-      "https://backend.appstudio-u7cm9zhmha0ruwv8.piappengine.com/pi/auth/v1/login",
-      {
+    let response;
+
+    try {
+      response = await fetch(backendUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -56,14 +66,26 @@ if (status) {
         body: JSON.stringify({
           accessToken: auth.accessToken
         })
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error("Pi authentication verification failed");
+      });
+    } catch (error) {
+      throw new Error("App Studio network request failed");
     }
 
-    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(
+        "App Studio verification HTTP " + response.status
+      );
+    }
+
+    showStatus("Checking App Studio response...");
+
+    let data;
+
+    try {
+      data = await response.json();
+    } catch (error) {
+      throw new Error("Invalid App Studio JSON response");
+    }
 
     if (!data.sessionToken || !data.user?.uid) {
       throw new Error("Invalid App Studio response");
@@ -71,6 +93,8 @@ if (status) {
 
     sessionToken = data.sessionToken;
     piUser = data.user;
+
+    showStatus("Pi identity verified successfully");
 
     return piUser;
   }
