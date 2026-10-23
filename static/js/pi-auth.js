@@ -8,7 +8,19 @@
       throw new Error("Pi SDK is unavailable");
     }
 
-    await window.Pi.init({ version: "2.0" });
+   
+const status = document.getElementById("pi-auth-status");
+
+if (status) {
+  status.textContent = "Initializing Pi SDK...";
+}
+
+await window.Pi.init({ version: "2.0" });
+
+if (status) {
+  status.textContent = "Requesting Pi authorization...";
+}
+
 
     const auth = await window.Pi.authenticate(
       ["username"],
@@ -20,6 +32,10 @@
     if (!auth?.accessToken) {
       throw new Error("No Pi access token received");
     }
+
+if (status) {
+  status.textContent = "Verifying Pi identity...";
+}
 
     const response = await fetch(
       "https://backend.appstudio-u7cm9zhmha0ruwv8.piappengine.com/pi/auth/v1/login",
