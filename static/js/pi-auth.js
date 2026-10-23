@@ -22,12 +22,21 @@ if (status) {
 }
 
 
-    const auth = await window.Pi.authenticate(
-      ["username"],
-      (payment) => {
-        console.info("Incomplete Pi payment detected");
-      }
-    );
+    
+const auth = await Promise.race([
+  window.Pi.authenticate(
+    ["username"],
+    (payment) => {
+      console.info("Incomplete Pi payment detected");
+    }
+  ),
+  new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(new Error("Pi authorization timed out after 20 seconds"));
+    }, 20000);
+  })
+]);
+
 
     if (!auth?.accessToken) {
       throw new Error("No Pi access token received");
