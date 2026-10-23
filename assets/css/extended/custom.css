@@ -335,3 +335,84 @@ body {
     min-width: 0;
   }
 }
+
+/* Fix Sign in dropdown appearance */
+#menu > li.fr-signin-menu {
+  position: relative;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+#menu .fr-signin-dropdown {
+  position: relative;
+  display: block;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+#menu .fr-signin-dropdown > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+#menu .fr-signin-options {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: auto;
+  display: block;
+  width: max-content;
+  min-width: 175px;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--theme);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+}
+
+#menu .fr-signin-options li {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+#menu .fr-signin-options a {
+  display: block;
+  padding: 10px 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  #menu .fr-signin-options {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    margin-top: 8px;
+    box-shadow: none;
+  }
+}
