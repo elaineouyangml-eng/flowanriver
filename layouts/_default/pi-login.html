@@ -29,9 +29,17 @@ document.getElementById("pi-signin").addEventListener("click", async function ()
   try {
     const user = await window.FlowAnRiverPiAuth.signIn();
     status.textContent = "Signed in as " + user.username;
-  } catch (error) {
-    status.textContent = "Sign-in failed. Please try again in Pi Browser.";
-    console.error("Pi authentication failed:", error.message);
+  
+} catch (error) {
+  console.error("Pi authentication failed:", error);
+
+  if (error.message?.includes("timed out")) {
+    status.textContent = "Pi authorization timed out after 20 seconds.";
+  } else if (error.message === "Pi SDK is unavailable") {
+    status.textContent = "Pi SDK could not be loaded.";
+  } else {
+    status.textContent = "Pi sign-in failed. Please check the browser or network.";
+  }
   } finally {
     button.disabled = false;
   }
