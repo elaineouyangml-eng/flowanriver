@@ -30,15 +30,30 @@ document.getElementById("pi-signin").addEventListener("click", async function ()
     const user = await window.FlowAnRiverPiAuth.signIn();
     status.textContent = "Signed in as " + user.username;
   
+
 } catch (error) {
   console.error("Pi authentication failed:", error);
 
-  if (error.message?.includes("timed out")) {
-    status.textContent = "Pi authorization timed out after 20 seconds.";
-  } else if (error.message === "Pi SDK is unavailable") {
-    status.textContent = "Pi SDK could not be loaded.";
+  const message = String(error?.message || "");
+
+  const allowedMessages = [
+    "Pi SDK is unavailable",
+    "Pi SDK initialization failed",
+    "Pi authorization timed out",
+    "Pi authorization failed",
+    "No Pi access token received",
+    "App Studio network request failed",
+    "Invalid App Studio JSON response",
+    "Invalid App Studio response"
+  ];
+
+  if (
+    allowedMessages.includes(message) ||
+    /^App Studio verification HTTP \d{3}$/.test(message)
+  ) {
+    status.textContent = message;
   } else {
-    status.textContent = "Pi sign-in failed. Please check the browser or network.";
+    status.textContent = "Pi sign-in failed. Unknown error.";
   }
   } finally {
     button.disabled = false;
