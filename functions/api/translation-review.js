@@ -20,6 +20,7 @@ function json(data, status = 200) {
 
 async function hashText(text) {
   const bytes = new TextEncoder().encode(text);
+
   const digest = await crypto.subtle.digest(
     "SHA-256",
     bytes
@@ -42,7 +43,9 @@ export async function onRequestPost({ request, env }) {
   );
 
   if (!token || token !== env.TRANSLATE_TEST_TOKEN) {
-    return json({ error: "Unauthorized" }, 401);
+    return json({
+      error: "Unauthorized"
+    }, 401);
   }
 
   if (!env.TRANSLATIONS || !env.ASSETS) {
@@ -119,30 +122,41 @@ export async function onRequestPost({ request, env }) {
       ) {
         results.push({
           status: "invalid_source",
+          approved: false,
           needsReview: true
         });
         continue;
       }
 
-      const hash = await hashText(block.text);
+      const originalHash = await hashText(
+        block.text
+      );
 
-      // Original machine-translation cache key.
+      // Machine translation.
       const machineKey =
         `translation:${article}:` +
         `${TRANSLATION_CONFIG.targetLanguage}:` +
         `batch-${TRANSLATION_CONFIG.cacheVersion}:` +
-        `${block.id}:${hash}`;
+        `${block.id}:${originalHash}`;
 
-      // Human-edited draft uses a separate key.
+      // Human-edited draft.
       const editKey =
         `translation-edit:${article}:` +
         `${TRANSLATION_CONFIG.targetLanguage}:` +
-        `${block.id}:${hash}`;
+        `${block.id}:${originalHash}`;
 
-      const [machine, edited] = await Promise.all([
-        env.TRANSLATIONS.get(machineKey, "json"),
-        env.TRANSLATIONS.get(editKey, "json")
-      ]);
+      // Human approval record.
+      const approvalKey =
+        `translation-approval:${article}:` +
+        `${TRANSLATION_CONFIG.targetLanguage}:` +
+        `${block.id}:${originalHash}`;
+
+      const [machine, edited, approval] =
+        await Promise.all([
+          env.TRANSLATIONS.get(machineKey, "json"),
+          env.TRANSLATIONS.get(editKey, "json"),
+          env.TRANSLATIONS.get(approvalKey, "json")
+        ]);
 
       const machineTranslated =
         machine &&
@@ -160,13 +174,32 @@ export async function onRequestPost({ request, env }) {
           ? edited.translated
           : null;
 
-      // Human-edited text takes priority.
+      // Prefer the human-edited version.
       const translated =
         editedTranslated || machineTranslated;
 
+      let approved = false;
+
+      // Approval is valid only for the exact saved text.
+      if (
+        editedTranslated &&
+        approval &&
+        approval.approved === true &&
+        approval.originalHash === originalHash
+      ) {
+        const translatedHash = await hashText(
+          editedTranslated
+        );
+
+        approved =
+          approval.translatedHash === translatedHash;
+      }
+
       let translationStatus = "not_translated";
 
-      if (editedTranslated) {
+      if (approved) {
+        translationStatus = "approved";
+      } else if (editedTranslated) {
         translationStatus = "edited_draft";
       } else if (machineTranslated) {
         translationStatus = "ready_for_review";
@@ -189,10 +222,14 @@ export async function onRequestPost({ request, env }) {
           : machineTranslated
             ? "machine"
             : "none",
-        approved: false,
+        approved,
+        published: false,
         needsReview:
-          Boolean(block.needsReview) ||
-          validation.needsReview,
+          !approved &&
+          (
+            Boolean(block.needsReview) ||
+            validation.needsReview
+          ),
         translate: block.translate === true,
         validation: {
           valid: validation.valid,
@@ -208,9 +245,9 @@ export async function onRequestPost({ request, env }) {
       next_start: start + blocks.length,
       total: data.blocks.length,
       complete:
-        start + blocks.length >=
-        data.blocks.length,
-      approved: false,
+        start + blocks.length >= data.blocks.length,
+      approved: results.length > 0 &&
+        results.every(item => item.approved === true),
       published: false,
       results
     });
