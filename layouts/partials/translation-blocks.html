@@ -1,21 +1,20 @@
 
 {{- /*
-  Extract translatable blocks from a Hugo Markdown page.
-  Output: a JSON-compatible list.
-  This partial does not change article rendering.
+  FlowAnRiver translation block extractor.
+  Preliminary version for review before translation.
+  Preserves original Markdown in each block.
 */ -}}
 
 {{- $blocks := slice -}}
-{{- $source := .RawContent -}}
+{{- $source := replace .RawContent "\r\n" "\n" -}}
 {{- $segments := split $source "\n\n" -}}
 
 {{- range $index, $segment := $segments -}}
   {{- $text := trim $segment " \r\n\t" -}}
 
-  {{- if and $text (not (hasPrefix $text "```")) (not (hasPrefix $text "!["))
-        (not (hasPrefix $text "<")) -}}
-
+  {{- if $text -}}
     {{- $type := "paragraph" -}}
+    {{- $translate := true -}}
 
     {{- if hasPrefix $text "## " -}}
       {{- $type = "heading" -}}
@@ -23,12 +22,39 @@
     {{- else if hasPrefix $text "### " -}}
       {{- $type = "heading" -}}
       {{- $text = strings.TrimPrefix "### " $text -}}
+    {{- else if hasPrefix $text "```" -}}
+      {{- $type = "code" -}}
+      {{- $translate = false -}}
+    {{- else if hasPrefix $text "![" -}}
+      {{- $type = "image" -}}
+      {{- $translate = false -}}
+    {{- else if hasPrefix $text "<" -}}
+      {{- $type = "html" -}}
+      {{- $translate = false -}}
+    {{- else if hasPrefix $text "> " -}}
+      {{- $type = "quote" -}}
+    {{- else if or (hasPrefix $text "- ") (hasPrefix $text "* ") -}}
+      {{- $type = "list" -}}
+    {{- end -}}
+
+    {{- $review := false -}}
+
+    {{- if or
+      (in $text "](")
+      (in $text "**")
+      (in $text "```")
+      (eq $type "quote")
+      (eq $type "list")
+    -}}
+      {{- $review = true -}}
     {{- end -}}
 
     {{- $blocks = $blocks | append (dict
       "id" (printf "block-%d" $index)
       "type" $type
       "text" $text
+      "translate" $translate
+      "needsReview" $review
     ) -}}
   {{- end -}}
 {{- end -}}
