@@ -1,0 +1,36 @@
+
+{{- /*
+  Extract translatable blocks from a Hugo Markdown page.
+  Output: a JSON-compatible list.
+  This partial does not change article rendering.
+*/ -}}
+
+{{- $blocks := slice -}}
+{{- $source := .RawContent -}}
+{{- $segments := split $source "\n\n" -}}
+
+{{- range $index, $segment := $segments -}}
+  {{- $text := trim $segment " \r\n\t" -}}
+
+  {{- if and $text (not (hasPrefix $text "```")) (not (hasPrefix $text "!["))
+        (not (hasPrefix $text "<")) -}}
+
+    {{- $type := "paragraph" -}}
+
+    {{- if hasPrefix $text "## " -}}
+      {{- $type = "heading" -}}
+      {{- $text = strings.TrimPrefix "## " $text -}}
+    {{- else if hasPrefix $text "### " -}}
+      {{- $type = "heading" -}}
+      {{- $text = strings.TrimPrefix "### " $text -}}
+    {{- end -}}
+
+    {{- $blocks = $blocks | append (dict
+      "id" (printf "block-%d" $index)
+      "type" $type
+      "text" $text
+    ) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $blocks -}}
