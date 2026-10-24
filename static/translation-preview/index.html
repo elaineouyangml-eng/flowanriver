@@ -7,8 +7,10 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <title>Translation Review | FlowAnRiver</title>
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       background: #f7f4ef;
@@ -17,9 +19,23 @@
         "Segoe UI", sans-serif;
       line-height: 1.7;
     }
-    main { max-width: 1150px; margin: auto; padding: 35px 20px; }
-    h1 { font-size: 27px; margin-bottom: 5px; }
-    .subtitle { color: #777; margin-bottom: 28px; }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 35px 20px;
+    }
+
+    h1 {
+      font-size: 27px;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #777;
+      margin-bottom: 28px;
+    }
+
     .panel, .block {
       background: white;
       border: 1px solid #e8e2da;
@@ -27,7 +43,13 @@
       padding: 22px;
       margin-bottom: 18px;
     }
-    label { display: block; font-weight: 600; margin-bottom: 6px; }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
     input {
       display: block;
       width: 100%;
@@ -37,6 +59,7 @@
       margin-bottom: 14px;
       font-size: 15px;
     }
+
     button {
       background: #292622;
       color: white;
@@ -44,15 +67,32 @@
       padding: 11px 20px;
       border-radius: 6px;
       cursor: pointer;
+      margin-right: 8px;
+      margin-bottom: 8px;
     }
-    button:disabled { opacity: .5; cursor: default; }
+
+    button:disabled {
+      opacity: .5;
+      cursor: default;
+    }
+
     .columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
-    .heading { font-weight: 700; margin-bottom: 8px; }
-    .original { color: #333; white-space: pre-wrap; overflow-wrap: anywhere; }
+
+    .heading {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .original {
+      color: #333;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+
     .translated {
       color: #34312d;
       background: #faf7f2;
@@ -61,38 +101,80 @@
       white-space: pre-wrap;
       overflow-wrap: anywhere;
     }
-    .meta { font-size: 13px; color: #777; margin-bottom: 13px; }
-    .warning { color: #a15b20; font-size: 14px; }
-    .status { margin: 18px 0; }
-    .footer { display: flex; justify-content: space-between; gap: 10px; }
+
+    .meta {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 13px;
+    }
+
+    .warning {
+      color: #a15b20;
+      font-size: 14px;
+    }
+
+    .status {
+      margin: 18px 0;
+      white-space: pre-wrap;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
     @media (max-width: 700px) {
-      .columns { grid-template-columns: 1fr; }
+      .columns {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        margin-bottom: 10px;
+      }
     }
   </style>
 </head>
+
 <body>
 <main>
   <h1>FlowAnRiver · 翻译审校</h1>
+
   <p class="subtitle">
     English Original / 中文机器译文 · 仅供内部审校
   </p>
 
   <section class="panel">
     <label for="article">文章 Slug</label>
-    <input id="article" value="ai-agency-andreessen"
-      autocomplete="off" spellcheck="false">
+
+    <input
+      id="article"
+      value="ai-agency-andreessen"
+      autocomplete="off"
+      spellcheck="false"
+    >
 
     <label for="token">Cloudflare 测试密钥</label>
-    <input id="token" type="password"
-      autocomplete="off" spellcheck="false">
 
-    <button id="load">读取审校数据</button>
+    <input
+      id="token"
+      type="password"
+      autocomplete="off"
+      spellcheck="false"
+    >
+
+    <button id="load" type="button">
+      读取审校数据
+    </button>
+
     <button id="translateBatch" type="button" disabled>
-  翻译下一批（2个区块）
-</button>
+      翻译下一批（2个区块）
+    </button>
+
     <p class="meta">
-      密钥仅在当前页面内存中使用，不保存到浏览器存储。
+      密钥仅在当前页面内存中使用，不存入浏览器本地存储。
       请勿在公共或不可信的设备上输入。
+      机器译文不会自动公开发布。
     </p>
   </section>
 
@@ -100,52 +182,388 @@
   <div id="results"></div>
 
   <div class="footer">
-    <button id="prev" disabled>上一批</button>
-    <button id="next" disabled>下一批</button>
+    <button id="prev" type="button" disabled>
+      上一批
+    </button>
+
+    <button id="next" type="button" disabled>
+      下一批
+    </button>
   </div>
 </main>
 
 <script>
 (() => {
-  const articleInput = document.getElementById("article");
-  const tokenInput = document.getElementById("token");
-  const results = document.getElementById("results");
-  const status = document.getElementById("status");
-  const loadButton = document.getElementById("load");
-  const translateButton = document.getElementById("translateBatch");
-  const prevButton = document.getElementById("prev");
-  const nextButton = document.getElementById("next");
+  const articleInput =
+    document.getElementById("article");
+
+  const tokenInput =
+    document.getElementById("token");
+
+  const results =
+    document.getElementById("results");
+
+  const status =
+    document.getElementById("status");
+
+  const loadButton =
+    document.getElementById("load");
+
+  const translateButton =
+    document.getElementById("translateBatch");
+
+  const prevButton =
+    document.getElementById("prev");
+
+  const nextButton =
+    document.getElementById("next");
 
   let start = 0;
   let total = 0;
   let currentArticle = "";
+  let nextStart = 0;
+  let hasLoaded = false;
+  let busy = false;
+
+  const PAGE_SIZE = 10;
+
+  function validArticle(article) {
+    return (
+      typeof article === "string" &&
+      article.length <= 100 &&
+      /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article)
+    );
+  }
 
   function element(tag, className, text) {
     const node = document.createElement(tag);
-    if (className) node.className = className;
-    if (text !== undefined) node.textContent = String(text);
+
+    if (className) {
+      node.className = className;
+    }
+
+    if (text !== undefined) {
+      node.textContent = String(text);
+    }
+
     return node;
   }
 
-  async function loadBatch(position) {
+  function setBusy(value) {
+    busy = value;
+
+    loadButton.disabled = value;
+    translateButton.disabled =
+      value || !hasLoaded;
+
+    prevButton.disabled =
+      value || !hasLoaded || start === 0;
+
+    nextButton.disabled =
+      value || !hasLoaded ||
+      nextStart <= start ||
+      nextStart >= total;
+  }
+
+  function getCredentials() {
     const article = articleInput.value.trim();
     const token = tokenInput.value;
 
-    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article) ||
-        article.length > 100 || !token) {
-      status.textContent = "请输入正确的文章 Slug 和测试密钥。";
-      return;
+    if (!validArticle(article) || !token) {
+      throw new Error(
+        "请输入正确的文章 Slug 和测试密钥。"
+      );
     }
 
-    loadButton.disabled = true;
-    prevButton.disabled = true;
-    nextButton.disabled = true;
-    status.textContent = "正在读取审校数据……";
+    return { article, token };
+  }
+
+  async function requestReview(article, token, position) {
+    const url =
+      "/api/translation-review?article=" +
+      encodeURIComponent(article) +
+      "&start=" + position;
+
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "X-Translate-Test-Token": token
+      },
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        "读取审校数据失败，HTTP " +
+        response.status
+      );
+    }
+
+    const data = await response.json();
+
+    if (
+      !Array.isArray(data.results) ||
+      !Number.isInteger(data.next_start) ||
+      !Number.isInteger(data.total)
+    ) {
+      throw new Error(
+        "审校接口返回的数据格式不正确。"
+      );
+    }
+
+    return data;
+  }
+
+  function renderResults(data, article, position) {
     results.replaceChildren();
 
+    start = position;
+    total = data.total;
+    nextStart = data.next_start;
+    currentArticle = article;
+    hasLoaded = true;
+
+    status.textContent =
+      "文章：" + article +
+      " · 共 " + total + " 个区块" +
+      " · 当前第 " +
+      (total === 0 ? 0 : start + 1) +
+      "–" +
+      Math.min(nextStart, total) +
+      " 个";
+
+    for (const item of data.results) {
+      const block = element("section", "block");
+
+      block.appendChild(
+        element(
+          "div",
+          "meta",
+          (item.id || "Unknown") +
+          " · " +
+          (item.type || "unknown") +
+          " · " +
+          (item.status || "unknown")
+        )
+      );
+
+      const columns = element("div", "columns");
+      const left = element("div");
+      const right = element("div");
+
+      left.appendChild(
+        element(
+          "div",
+          "heading",
+          "English Original"
+        )
+      );
+
+      left.appendChild(
+        element(
+          "div",
+          "original",
+          item.original || ""
+        )
+      );
+
+      right.appendChild(
+        element(
+          "div",
+          "heading",
+          "中文机器译文"
+        )
+      );
+
+      right.appendChild(
+        element(
+          "div",
+          "translated",
+          item.translated || "尚未翻译"
+        )
+      );
+
+      columns.append(left, right);
+      block.appendChild(columns);
+
+      if (
+        item.translate === false &&
+        !item.translated
+      ) {
+        block.appendChild(
+          element(
+            "p",
+            "meta",
+            "此区块无需机器翻译。"
+          )
+        );
+      }
+
+      const warnings =
+        Array.isArray(item.validation?.warnings)
+          ? item.validation.warnings
+          : [];
+
+      const visibleWarnings = warnings.filter(
+        warning =>
+          warning !==
+          "missing_or_invalid_translation"
+      );
+
+      if (
+        !item.translated &&
+        item.translate === true
+      ) {
+        block.appendChild(
+          element(
+            "p",
+            "meta",
+            "待翻译"
+          )
+        );
+      }
+
+      if (visibleWarnings.length > 0) {
+        block.appendChild(
+          element(
+            "p",
+            "warning",
+            "自动检查提示：" +
+            visibleWarnings.join("、")
+          )
+        );
+      }
+
+      if (item.translated) {
+        block.appendChild(
+          element(
+            "p",
+            "meta",
+            "机器译文尚未获得人工审核批准"
+          )
+        );
+      }
+
+      results.appendChild(block);
+    }
+  }
+
+  async function loadBatch(position) {
+    if (busy) return false;
+
+    setBusy(true);
+    status.textContent = "正在读取审校数据……";
+
     try {
-      const url = "/api/translation-review?article=" +
-        encodeURIComponent(article) + "&start=" + position;
+      const { article, token } =
+        getCredentials();
+
+      const data = await requestReview(
+        article,
+        token,
+        position
+      );
+
+      renderResults(data, article, position);
+
+      return true;
+
+    } catch (error) {
+      status.textContent =
+        error.message || "读取失败";
+
+      return false;
+
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function translateNextBatch() {
+    if (busy || !hasLoaded) return;
+
+    setBusy(true);
+
+    status.textContent =
+      "正在查找下一批需要翻译的区块……";
+
+    try {
+      const { article, token } =
+        getCredentials();
+
+      if (article !== currentArticle) {
+        throw new Error(
+          "文章已更改，请先点击「读取审校数据」。"
+        );
+      }
+
+      let position = 0;
+      let targetStart = null;
+      let scanCount = 0;
+
+      while (true) {
+        scanCount++;
+
+        if (scanCount > 1000) {
+          throw new Error(
+            "扫描区块过多，请检查文章数据。"
+          );
+        }
+
+        const data = await requestReview(
+          article,
+          token,
+          position
+        );
+
+        const missing = data.results.find(
+          item =>
+            item.status === "not_translated" &&
+            item.translate === true &&
+            typeof item.id === "string" &&
+            /^block-\d+$/.test(item.id)
+        );
+
+        if (missing) {
+          const index =
+            Number(missing.id.slice(6));
+
+          // The backend handles two blocks per batch.
+          targetStart =
+            Math.floor(index / 2) * 2;
+
+          break;
+        }
+
+        if (
+          data.complete ||
+          data.next_start <= position ||
+          data.next_start >= data.total
+        ) {
+          break;
+        }
+
+        position = data.next_start;
+      }
+
+      if (targetStart === null) {
+        status.textContent =
+          "没有发现需要翻译的区块。";
+
+        return;
+      }
+
+      status.textContent =
+        "正在翻译第 " +
+        (targetStart + 1) +
+        "–" +
+        Math.min(targetStart + 2, total) +
+        " 个区块……";
+
+      const url =
+        "/api/translate-batch?article=" +
+        encodeURIComponent(article) +
+        "&start=" + targetStart;
 
       const response = await fetch(url, {
         method: "POST",
@@ -156,99 +574,119 @@
       });
 
       if (!response.ok) {
-        throw new Error("读取失败，HTTP " + response.status);
+        throw new Error(
+          "翻译接口失败，HTTP " +
+          response.status
+        );
       }
 
-      const data = await response.json();
+      const translationData =
+        await response.json();
 
-      if (!Array.isArray(data.results)) {
-        throw new Error("接口返回的数据格式不正确");
+      if (
+        !Array.isArray(translationData.results)
+      ) {
+        throw new Error(
+          "翻译接口返回的数据格式不正确。"
+        );
       }
 
-      start = position;
-      total = data.total;
-      currentArticle = article;
+      const failed = translationData.results.filter(
+        item =>
+          item.status === "translation_failed" ||
+          item.status === "needs_review"
+      );
 
-      status.textContent =
-        "文章：" + article + " · 共 " + total +
-        " 个区块 · 当前第 " + (start + 1) +
-        "–" + Math.min(data.next_start, total) + " 个";
+      const reviewPosition =
+        Math.floor(targetStart / PAGE_SIZE) *
+        PAGE_SIZE;
 
-      for (const item of data.results) {
-        const block = element("section", "block");
+      const reviewData = await requestReview(
+        article,
+        token,
+        reviewPosition
+      );
 
-        block.appendChild(element(
-          "div", "meta",
-          (item.id || "Unknown") + " · " +
-          (item.type || "unknown") + " · " +
-          (item.status || "unknown")
-        ));
+      renderResults(
+        reviewData,
+        article,
+        reviewPosition
+      );
 
-        const columns = element("div", "columns");
-        const left = element("div");
-        const right = element("div");
-
-        left.appendChild(element(
-          "div", "heading", "English Original"
-        ));
-        left.appendChild(element(
-          "div", "original", item.original || ""
-        ));
-
-        right.appendChild(element(
-          "div", "heading", "中文机器译文"
-        ));
-        right.appendChild(element(
-          "div", "translated",
-          item.translated || "尚未翻译"
-        ));
-
-        columns.append(left, right);
-        block.appendChild(columns);
-
-        const warnings = item.validation?.warnings || [];
-        if (warnings.length > 0) {
-          block.appendChild(element(
-            "p", "warning",
-            "自动检查提示：" + warnings.join("、")
-          ));
-        }
-
-        if (item.translated) {
-          block.appendChild(element(
-            "p", "meta",
-            "机器译文尚未获得人工审核批准"
-          ));
-        }
-
-        results.appendChild(block);
+      if (failed.length > 0) {
+        status.textContent +=
+          "\n本批存在待处理区块：" +
+          failed.map(item => item.id).join("、") +
+          "。请人工检查。";
+      } else {
+        status.textContent +=
+          "\n本批处理完成。请检查中文译文及质量提示。";
       }
-
-      prevButton.disabled = start === 0;
-      nextButton.disabled =
-        data.complete || data.next_start <= start;
-      nextButton.dataset.next = String(data.next_start);
 
     } catch (error) {
-      status.textContent = error.message || "读取失败";
+      status.textContent =
+        error.message || "翻译失败";
+
     } finally {
-      loadButton.disabled = false;
+      setBusy(false);
     }
   }
 
-  loadButton.addEventListener("click", () => loadBatch(0));
+  loadButton.addEventListener(
+    "click",
+    () => loadBatch(0)
+  );
 
-  prevButton.addEventListener("click", () => {
-    if (currentArticle === articleInput.value.trim()) {
-      loadBatch(Math.max(0, start - 10));
-    }
-  });
+  translateButton.addEventListener(
+    "click",
+    translateNextBatch
+  );
 
-  nextButton.addEventListener("click", () => {
-    if (currentArticle === articleInput.value.trim()) {
-      loadBatch(Number(nextButton.dataset.next));
+  prevButton.addEventListener(
+    "click",
+    () => {
+      if (
+        currentArticle ===
+        articleInput.value.trim()
+      ) {
+        loadBatch(
+          Math.max(0, start - PAGE_SIZE)
+        );
+      }
     }
-  });
+  );
+
+  nextButton.addEventListener(
+    "click",
+    () => {
+      if (
+        currentArticle ===
+        articleInput.value.trim()
+      ) {
+        loadBatch(nextStart);
+      }
+    }
+  );
+
+  articleInput.addEventListener(
+    "input",
+    () => {
+      hasLoaded = false;
+      translateButton.disabled = true;
+      prevButton.disabled = true;
+      nextButton.disabled = true;
+    }
+  );
+
+  tokenInput.addEventListener(
+    "input",
+    () => {
+      hasLoaded = false;
+      translateButton.disabled = true;
+      prevButton.disabled = true;
+      nextButton.disabled = true;
+    }
+  );
 })();
 </script>
 </body>
