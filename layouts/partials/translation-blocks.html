@@ -39,7 +39,7 @@
 
     {{- $review := false -}}
 
-    {{- if or
+       {{- if or
       (in $text "](")
       (in $text "**")
       (in $text "```")
@@ -47,6 +47,7 @@
       (eq $type "list")
     -}}
       {{- $review = true -}}
+      {{- $translate = false -}}
     {{- end -}}
 
     {{- $blocks = $blocks | append (dict
