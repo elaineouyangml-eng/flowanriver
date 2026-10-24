@@ -1,5 +1,5 @@
 
-import { TRANSLATION_CONFIG } from "../_lib/translation-config.js";
+import { validateTranslation } from "../_lib/translation-validator.js";
 
 const DEFAULT_ARTICLE = "pi-network-seven-years-original-vision";
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -114,15 +114,28 @@ export async function onRequestPost({ request, env }) {
           ? cached.translated
           : null;
 
+      
+      const validation = validateTranslation(
+        block.text,
+        translated
+      );
+
       results.push({
         id: block.id,
         type: block.type,
         original: block.text,
         translated,
         status: translated ? "ready_for_review" : "not_translated",
-        needsReview: Boolean(block.needsReview),
-        translate: block.translate === true
+        needsReview:
+          Boolean(block.needsReview) ||
+          validation.needsReview,
+        translate: block.translate === true,
+        validation: {
+          valid: validation.valid,
+          warnings: validation.warnings
+        }
       });
+
     }
 
     return json({
