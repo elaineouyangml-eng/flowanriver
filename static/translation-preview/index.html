@@ -7,8 +7,10 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="referrer" content="no-referrer">
   <title>Translation Review | FlowAnRiver</title>
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       background: #f7f4ef;
@@ -17,25 +19,34 @@
         "Segoe UI", sans-serif;
       line-height: 1.7;
     }
+
     main {
       max-width: 1150px;
       margin: auto;
       padding: 35px 20px;
     }
+
     h1 { font-size: 27px; margin-bottom: 5px; }
-    .subtitle { color: #777; margin-bottom: 28px; }
+
+    .subtitle {
+      color: #777;
+      margin-bottom: 28px;
+    }
+
     .panel, .block {
-      background: white;
+      background: #fff;
       border: 1px solid #e8e2da;
       border-radius: 12px;
       padding: 22px;
       margin-bottom: 18px;
     }
+
     label {
       display: block;
       font-weight: 600;
       margin-bottom: 6px;
     }
+
     input, textarea {
       width: 100%;
       padding: 11px;
@@ -44,79 +55,132 @@
       margin-bottom: 14px;
       font: inherit;
     }
+
     textarea {
       min-height: 125px;
       resize: vertical;
       background: #faf7f2;
       white-space: pre-wrap;
+      overflow-wrap: anywhere;
     }
+
     button {
       background: #292622;
-      color: white;
+      color: #fff;
       border: 0;
       padding: 11px 20px;
       border-radius: 6px;
       cursor: pointer;
       margin: 0 8px 8px 0;
     }
-    button:disabled { opacity: .5; cursor: default; }
+
+    button:disabled {
+      opacity: .45;
+      cursor: default;
+    }
+
     .columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
     }
-    .heading { font-weight: 700; margin-bottom: 8px; }
+
+    .heading {
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
     .original {
-      color: #333;
       white-space: pre-wrap;
       overflow-wrap: anywhere;
+      color: #333;
     }
+
     .meta {
-      font-size: 13px;
       color: #777;
+      font-size: 13px;
       margin-bottom: 13px;
     }
-    .warning { color: #a15b20; font-size: 14px; }
-    .status { margin: 18px 0; white-space: pre-wrap; }
-    .save-status { font-size: 14px; margin-top: 8px; }
+
+    .warning {
+      color: #a15b20;
+      font-size: 14px;
+    }
+
+    .status {
+      margin: 18px 0;
+      white-space: pre-wrap;
+    }
+
+    .save-status {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
     .edited { color: #347252; }
-    .approved { color: #287047; font-weight: 600; }
-    .actions { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .approved {
+      color: #287047;
+      font-weight: 600;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
     .footer {
       display: flex;
       justify-content: space-between;
       gap: 10px;
     }
+
     @media (max-width: 700px) {
       .columns { grid-template-columns: 1fr; }
     }
   </style>
 </head>
+
 <body>
 <main>
   <h1>FlowAnRiver · 翻译审校</h1>
+
   <p class="subtitle">
     English Original / 中文人工修订 · 仅供内部审校
   </p>
 
   <section class="panel">
     <label for="article">文章 Slug</label>
-    <input id="article" value="ai-agency-andreessen"
-      autocomplete="off" spellcheck="false">
+
+    <input
+      id="article"
+      value="ai-agency-andreessen"
+      autocomplete="off"
+      spellcheck="false"
+    >
 
     <label for="token">Cloudflare 测试密钥</label>
-    <input id="token" type="password"
-      autocomplete="off" spellcheck="false">
 
-    <button id="load" type="button">读取审校数据</button>
+    <input
+      id="token"
+      type="password"
+      autocomplete="off"
+      spellcheck="false"
+    >
+
+    <button id="load" type="button">
+      读取审校数据
+    </button>
+
     <button id="translateBatch" type="button" disabled>
       翻译下一批（2个区块）
     </button>
 
     <p class="meta">
-      人工修改稿必须保存后才能审核。
-      审核通过不代表公开发布。
-      密钥仅在当前页面内存中使用，不存入浏览器本地存储。
+      人工修改稿需要先保存，才能审核通过。
+      审核通过不等于公开发布。
+      测试密钥仅在当前页面内存中使用。
     </p>
   </section>
 
@@ -124,8 +188,13 @@
   <div id="results"></div>
 
   <div class="footer">
-    <button id="prev" type="button" disabled>上一批</button>
-    <button id="next" type="button" disabled>下一批</button>
+    <button id="prev" type="button" disabled>
+      上一批
+    </button>
+
+    <button id="next" type="button" disabled>
+      下一批
+    </button>
   </div>
 </main>
 
@@ -150,16 +219,26 @@
   let busy = false;
   let dirty = false;
 
+  // Keep each block's control updater in one place.
+  const blockUpdaters = [];
+
   function element(tag, className, text) {
     const node = document.createElement(tag);
+
     if (className) node.className = className;
-    if (text !== undefined) node.textContent = String(text);
+
+    if (text !== undefined) {
+      node.textContent = String(text);
+    }
+
     return node;
   }
 
   function validSlug(slug) {
-    return slug.length <= 100 &&
-      /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug);
+    return (
+      slug.length <= 100 &&
+      /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)
+    );
   }
 
   function credentials() {
@@ -167,7 +246,9 @@
     const token = tokenInput.value;
 
     if (!validSlug(article) || !token) {
-      throw new Error("请输入正确的文章 Slug 和测试密钥。");
+      throw new Error(
+        "请输入正确的文章 Slug 和测试密钥。"
+      );
     }
 
     return { article, token };
@@ -175,20 +256,37 @@
 
   function updateButtons() {
     loadButton.disabled = busy;
-    translateButton.disabled = busy || !hasLoaded;
-    prevButton.disabled = busy || !hasLoaded || start === 0;
-    nextButton.disabled = busy || !hasLoaded ||
-      nextStart <= start || nextStart >= total;
+
+    translateButton.disabled =
+      busy || !hasLoaded;
+
+    prevButton.disabled =
+      busy || !hasLoaded || start === 0;
+
+    nextButton.disabled =
+      busy || !hasLoaded ||
+      nextStart <= start ||
+      nextStart >= total;
+
+    // Important: refresh every block button
+    // whenever the request state changes.
+    for (const update of blockUpdaters) {
+      update();
+    }
   }
 
   function refreshDirty() {
     dirty = [...results.querySelectorAll(
       "textarea[data-original-value]"
-    )].some(area => area.value !== area.dataset.originalValue);
+    )].some(area =>
+      area.value !== area.dataset.originalValue
+    );
   }
 
   function checkUnsaved() {
-    return !dirty || confirm(
+    if (!dirty) return true;
+
+    return confirm(
       "有尚未保存的中文修改，确定放弃吗？"
     );
   }
@@ -210,7 +308,8 @@
 
     if (!response.ok) {
       throw new Error(
-        data.error || "请求失败，HTTP " + response.status
+        data.error ||
+        "请求失败，HTTP " + response.status
       );
     }
 
@@ -220,14 +319,19 @@
   async function reviewRequest(article, token, position) {
     const data = await api(
       "/api/translation-review?article=" +
-      encodeURIComponent(article) + "&start=" + position,
+      encodeURIComponent(article) +
+      "&start=" + position,
       token
     );
 
-    if (!Array.isArray(data.results) ||
-        !Number.isInteger(data.total) ||
-        !Number.isInteger(data.next_start)) {
-      throw new Error("审校数据格式不正确。");
+    if (
+      !Array.isArray(data.results) ||
+      !Number.isInteger(data.total) ||
+      !Number.isInteger(data.next_start)
+    ) {
+      throw new Error(
+        "审校接口返回的数据格式不正确。"
+      );
     }
 
     return data;
@@ -235,6 +339,9 @@
 
   function render(data, article, position) {
     results.replaceChildren();
+
+    // Discard button references from previous page.
+    blockUpdaters.length = 0;
 
     start = position;
     total = data.total;
@@ -246,14 +353,21 @@
     status.textContent =
       "文章：" + article +
       " · 共 " + total + " 个区块" +
-      " · 当前第 " + (total ? start + 1 : 0) +
-      "–" + Math.min(nextStart, total) + " 个";
+      " · 当前第 " +
+      (total ? start + 1 : 0) +
+      "–" +
+      Math.min(nextStart, total) +
+      " 个";
 
     for (const item of data.results) {
       const block = element("section", "block");
+
       const blockMeta = element(
-        "div", "meta",
-        `${item.id || "Unknown"} · ${item.type || "unknown"} · ${item.status || "unknown"}`
+        "div",
+        "meta",
+        `${item.id || "Unknown"} · ` +
+        `${item.type || "unknown"} · ` +
+        `${item.status || "unknown"}`
       );
 
       block.appendChild(blockMeta);
@@ -262,31 +376,62 @@
       const left = element("div");
       const right = element("div");
 
-      left.appendChild(element(
-        "div", "heading", "English Original"
-      ));
-      left.appendChild(element(
-        "div", "original", item.original || ""
-      ));
+      left.appendChild(
+        element(
+          "div",
+          "heading",
+          "English Original"
+        )
+      );
 
-      right.appendChild(element(
-        "div", "heading", "中文译文（可编辑）"
-      ));
+      left.appendChild(
+        element(
+          "div",
+          "original",
+          item.original || ""
+        )
+      );
 
-      if (item.id && typeof item.original === "string") {
+      right.appendChild(
+        element(
+          "div",
+          "heading",
+          "中文译文（可编辑）"
+        )
+      );
+
+      if (
+        item.id &&
+        typeof item.original === "string"
+      ) {
         const area = element("textarea");
+
         area.value = item.translated || "";
         area.dataset.originalValue = area.value;
         area.maxLength = 10000;
-        area.setAttribute("aria-label", `${item.id} 中文译文`);
+
+        area.setAttribute(
+          "aria-label",
+          `${item.id} 中文译文`
+        );
 
         const actions = element("div", "actions");
-        const saveButton = element("button", "", "保存修改");
+
+        const saveButton = element(
+          "button",
+          "",
+          "保存修改"
+        );
+
         const approvalButton = element("button");
-        const saveStatus = element("p", "save-status");
 
         saveButton.type = "button";
         approvalButton.type = "button";
+
+        const saveStatus = element(
+          "p",
+          "save-status"
+        );
 
         let savedHumanDraft =
           item.status === "edited_draft" ||
@@ -296,37 +441,59 @@
 
         function syncState() {
           const changed =
-            area.value !== area.dataset.originalValue;
+            area.value !==
+            area.dataset.originalValue;
+
+          let state = "not_translated";
+
+          if (approved) {
+            state = "approved";
+          } else if (savedHumanDraft) {
+            state = "edited_draft";
+          } else if (item.translated) {
+            state = "ready_for_review";
+          }
 
           blockMeta.textContent =
-            `${item.id} · ${item.type} · ` +
-            (approved ? "approved" :
-              savedHumanDraft ? "edited_draft" :
-              item.translated ? "ready_for_review" :
-              "not_translated");
+            `${item.id} · ${item.type} · ${state}`;
 
-          approvalButton.textContent = approved
-            ? "撤回审核"
-            : "审核通过";
+          approvalButton.textContent =
+            approved
+              ? "撤回审核"
+              : "审核通过";
 
+          // Fixed: syncState is called again
+          // after each request finishes.
           approvalButton.disabled =
-            busy || !savedHumanDraft || changed;
+            busy ||
+            !savedHumanDraft ||
+            changed;
 
           saveButton.disabled = busy;
           area.disabled = busy;
         }
 
+        // Register each block updater.
+        blockUpdaters.push(syncState);
+
         if (approved) {
           saveStatus.textContent =
             "已审核通过 · 尚未公开发布";
-          saveStatus.classList.add("approved");
+
+          saveStatus.className =
+            "save-status approved";
+
         } else if (savedHumanDraft) {
           saveStatus.textContent =
             "已保存人工修改稿 · 尚未审核";
-          saveStatus.classList.add("edited");
+
+          saveStatus.className =
+            "save-status edited";
+
         } else if (item.translated) {
           saveStatus.textContent =
             "机器译文 · 请先人工检查并保存";
+
         } else {
           saveStatus.textContent =
             "尚未翻译，可直接填写中文并保存";
@@ -334,78 +501,108 @@
 
         area.addEventListener("input", () => {
           refreshDirty();
+
           saveStatus.textContent =
             "存在尚未保存的修改";
-          saveStatus.className = "save-status";
+
+          saveStatus.className =
+            "save-status";
+
           syncState();
         });
 
-        saveButton.addEventListener("click", async () => {
-          if (busy) return;
+        saveButton.addEventListener(
+          "click",
+          async () => {
+            if (busy) return;
 
-          const translated = area.value.trim();
+            const translated = area.value.trim();
 
-          if (!translated) {
-            saveStatus.textContent =
-              "请输入中文译文后再保存。";
-            return;
-          }
-
-          let auth;
-          try {
-            auth = credentials();
-          } catch (error) {
-            saveStatus.textContent = error.message;
-            return;
-          }
-
-          if (auth.article !== currentArticle) {
-            saveStatus.textContent =
-              "文章已更改，请重新读取审校数据。";
-            return;
-          }
-
-          busy = true;
-          updateButtons();
-          syncState();
-          saveStatus.textContent = "正在保存……";
-
-          try {
-            const result = await api(
-              "/api/translation-save",
-              auth.token,
-              {
-                article: auth.article,
-                id: item.id,
-                original: item.original,
-                translated
-              }
-            );
-
-            if (result.saved !== true) {
-              throw new Error("保存结果不正确。");
+            if (!translated) {
+              saveStatus.textContent =
+                "请输入中文译文后再保存。";
+              return;
             }
 
-            area.value = translated;
-            area.dataset.originalValue = translated;
+            let auth;
 
-            savedHumanDraft = true;
-            approved = false;
-            refreshDirty();
+            try {
+              auth = credentials();
+            } catch (error) {
+              saveStatus.textContent =
+                error.message;
+              return;
+            }
 
-            saveStatus.textContent =
-              "保存成功 · 人工修改稿 · 尚未审核";
-            saveStatus.className = "save-status edited";
+            if (auth.article !== currentArticle) {
+              saveStatus.textContent =
+                "文章已更改，请重新读取。";
+              return;
+            }
 
-          } catch (error) {
-            saveStatus.textContent =
-              error.message || "保存失败";
-          } finally {
-            busy = false;
+            // No need to overwrite unchanged text.
+            if (
+              translated === area.dataset.originalValue &&
+              savedHumanDraft
+            ) {
+              saveStatus.textContent = approved
+                ? "当前译文已经审核通过，无须重新保存。"
+                : "人工修改稿已保存，无须重复保存。";
+              return;
+            }
+
+            busy = true;
             updateButtons();
-            syncState();
+
+            saveStatus.textContent =
+              "正在保存……";
+
+            try {
+              const result = await api(
+                "/api/translation-save",
+                auth.token,
+                {
+                  article: auth.article,
+                  id: item.id,
+                  original: item.original,
+                  translated
+                }
+              );
+
+              if (result.saved !== true) {
+                throw new Error(
+                  "保存结果不正确。"
+                );
+              }
+
+              area.value = translated;
+              area.dataset.originalValue =
+                translated;
+
+              savedHumanDraft = true;
+
+              // Saving a changed draft
+              // invalidates the old approval.
+              approved = false;
+
+              refreshDirty();
+
+              saveStatus.textContent =
+                "保存成功 · 人工修改稿 · 尚未审核";
+
+              saveStatus.className =
+                "save-status edited";
+
+            } catch (error) {
+              saveStatus.textContent =
+                error.message || "保存失败";
+
+            } finally {
+              busy = false;
+              updateButtons();
+            }
           }
-        });
+        );
 
         approvalButton.addEventListener(
           "click",
@@ -413,41 +610,45 @@
             if (busy || !savedHumanDraft) return;
 
             if (
-              area.value !== area.dataset.originalValue
+              area.value !==
+              area.dataset.originalValue
             ) {
               saveStatus.textContent =
-                "请先保存中文修改，再进行审核。";
+                "请先保存修改，再进行审核。";
               return;
             }
 
             let auth;
+
             try {
               auth = credentials();
             } catch (error) {
-              saveStatus.textContent = error.message;
+              saveStatus.textContent =
+                error.message;
               return;
             }
 
             if (auth.article !== currentArticle) {
               saveStatus.textContent =
-                "文章已更改，请重新读取审校数据。";
+                "文章已更改，请重新读取。";
               return;
             }
 
-            const action = approved
-              ? "revoke"
-              : "approve";
+            const action =
+              approved ? "revoke" : "approve";
 
-            const message = approved
-              ? "确定撤回这个区块的审核吗？"
-              : "确认这段中文准确、完整，可以审核通过吗？";
+            const message =
+              approved
+                ? "确定撤回这段中文的审核吗？"
+                : "确认这段中文准确、完整，审核通过吗？";
 
             if (!confirm(message)) return;
 
             busy = true;
             updateButtons();
-            syncState();
-            saveStatus.textContent = "正在更新审核状态……";
+
+            saveStatus.textContent =
+              "正在更新审核状态……";
 
             try {
               const result = await api(
@@ -457,58 +658,84 @@
                   article: auth.article,
                   id: item.id,
                   original: item.original,
-                  translated: area.dataset.originalValue,
+                  translated:
+                    area.dataset.originalValue,
                   action
                 }
               );
 
               if (result.success !== true) {
-                throw new Error("审核状态更新失败。");
+                throw new Error(
+                  "审核状态更新失败。"
+                );
               }
 
-              approved = result.approved === true;
+              approved =
+                result.approved === true;
 
-              saveStatus.textContent = approved
-                ? "审核通过 · 尚未公开发布"
-                : "已撤回审核 · 人工修改稿仍保留";
+              saveStatus.textContent =
+                approved
+                  ? "审核通过 · 尚未公开发布"
+                  : "已撤回审核 · 人工修改稿仍保留";
 
-              saveStatus.className = approved
-                ? "save-status approved"
-                : "save-status edited";
+              saveStatus.className =
+                approved
+                  ? "save-status approved"
+                  : "save-status edited";
 
             } catch (error) {
               saveStatus.textContent =
                 error.message || "审核失败";
+
             } finally {
               busy = false;
               updateButtons();
-              syncState();
             }
           }
         );
 
-        actions.append(saveButton, approvalButton);
-        right.append(area, actions, saveStatus);
-        syncState();
+        actions.append(
+          saveButton,
+          approvalButton
+        );
+
+        right.append(
+          area,
+          actions,
+          saveStatus
+        );
 
       } else {
-        right.appendChild(element(
-          "p", "meta", "无法编辑此区块"
-        ));
+        right.appendChild(
+          element(
+            "p",
+            "meta",
+            "无法编辑此区块"
+          )
+        );
       }
 
       columns.append(left, right);
       block.appendChild(columns);
 
-      const warnings = (
-        item.validation?.warnings || []
-      ).filter(w => w !== "missing_or_invalid_translation");
+      const warnings =
+        Array.isArray(item.validation?.warnings)
+          ? item.validation.warnings.filter(
+              warning =>
+                warning !==
+                "missing_or_invalid_translation"
+            )
+          : [];
 
-      if (warnings.length) {
-        block.appendChild(element(
-          "p", "warning",
-          "自动检查提示：" + warnings.join("、")
-        ));
+      if (warnings.length > 0) {
+        block.appendChild(
+          element(
+            "p",
+            "warning",
+            "自动检查提示：" +
+            warnings.join("、")
+          )
+        );
       }
 
       results.appendChild(block);
@@ -522,35 +749,54 @@
 
     busy = true;
     updateButtons();
-    status.textContent = "正在读取审校数据……";
+
+    status.textContent =
+      "正在读取审校数据……";
 
     try {
       const { article, token } = credentials();
+
       const data = await reviewRequest(
-        article, token, position
+        article,
+        token,
+        position
       );
+
       render(data, article, position);
+
     } catch (error) {
-      status.textContent = error.message || "读取失败";
+      status.textContent =
+        error.message || "读取失败";
+
     } finally {
       busy = false;
+
+      // Updates page controls AND every block.
       updateButtons();
     }
   }
 
   async function translateNextBatch() {
-    if (busy || !hasLoaded || !checkUnsaved()) return;
+    if (
+      busy ||
+      !hasLoaded ||
+      !checkUnsaved()
+    ) {
+      return;
+    }
 
     busy = true;
     updateButtons();
-    status.textContent = "正在查找下一批待翻译区块……";
+
+    status.textContent =
+      "正在查找下一批待翻译区块……";
 
     try {
       const { article, token } = credentials();
 
       if (article !== currentArticle) {
         throw new Error(
-          "文章已更改，请先重新读取审校数据。"
+          "文章已更改，请先重新读取。"
         );
       }
 
@@ -559,23 +805,33 @@
 
       while (position < 10000) {
         const data = await reviewRequest(
-          article, token, position
+          article,
+          token,
+          position
         );
 
-        const missing = data.results.find(item =>
-          item.translate === true &&
-          item.status === "not_translated" &&
-          /^block-\d+$/.test(item.id || "")
+        const missing = data.results.find(
+          item =>
+            item.translate === true &&
+            item.status === "not_translated" &&
+            /^block-\d+$/.test(item.id || "")
         );
 
         if (missing) {
-          const index = Number(missing.id.slice(6));
-          targetStart = Math.floor(index / 2) * 2;
+          const index = Number(
+            missing.id.slice(6)
+          );
+
+          targetStart =
+            Math.floor(index / 2) * 2;
+
           break;
         }
 
-        if (data.complete ||
-            data.next_start <= position) {
+        if (
+          data.complete ||
+          data.next_start <= position
+        ) {
           break;
         }
 
@@ -589,8 +845,11 @@
       }
 
       status.textContent =
-        `正在翻译第 ${targetStart + 1}–` +
-        `${Math.min(targetStart + 2, total)} 个区块……`;
+        "正在翻译第 " +
+        (targetStart + 1) +
+        "–" +
+        Math.min(targetStart + 2, total) +
+        " 个区块……";
 
       const translation = await api(
         "/api/translate-batch?article=" +
@@ -600,7 +859,9 @@
       );
 
       if (!Array.isArray(translation.results)) {
-        throw new Error("翻译返回的数据格式不正确。");
+        throw new Error(
+          "翻译返回的数据格式不正确。"
+        );
       }
 
       const page =
@@ -608,23 +869,29 @@
         PAGE_SIZE;
 
       const data = await reviewRequest(
-        article, token, page
+        article,
+        token,
+        page
       );
 
       render(data, article, page);
 
-      const failed = translation.results.filter(item =>
-        item.status === "translation_failed" ||
-        item.status === "needs_review"
-      );
+      const failed =
+        translation.results.filter(
+          item =>
+            item.status === "translation_failed" ||
+            item.status === "needs_review"
+        );
 
-      status.textContent += failed.length
-        ? "\n部分区块需要人工处理。"
-        : "\n本批翻译处理完成，请检查中文译文。";
+      status.textContent +=
+        failed.length > 0
+          ? "\n部分区块需要人工处理。"
+          : "\n本批处理完成，请检查中文译文。";
 
     } catch (error) {
       status.textContent =
         error.message || "翻译失败";
+
     } finally {
       busy = false;
       updateButtons();
@@ -632,38 +899,63 @@
   }
 
   loadButton.addEventListener(
-    "click", () => loadBatch(0)
+    "click",
+    () => loadBatch(0)
   );
 
   translateButton.addEventListener(
-    "click", translateNextBatch
+    "click",
+    translateNextBatch
   );
 
-  prevButton.addEventListener("click", () => {
-    if (currentArticle === articleInput.value.trim()) {
-      loadBatch(Math.max(0, start - PAGE_SIZE));
+  prevButton.addEventListener(
+    "click",
+    () => {
+      if (
+        currentArticle ===
+        articleInput.value.trim()
+      ) {
+        loadBatch(
+          Math.max(0, start - PAGE_SIZE)
+        );
+      }
     }
-  });
+  );
 
-  nextButton.addEventListener("click", () => {
-    if (currentArticle === articleInput.value.trim()) {
-      loadBatch(nextStart);
+  nextButton.addEventListener(
+    "click",
+    () => {
+      if (
+        currentArticle ===
+        articleInput.value.trim()
+      ) {
+        loadBatch(nextStart);
+      }
     }
-  });
+  );
 
-  for (const input of [articleInput, tokenInput]) {
-    input.addEventListener("input", () => {
-      hasLoaded = false;
-      updateButtons();
-    });
+  for (const input of [
+    articleInput,
+    tokenInput
+  ]) {
+    input.addEventListener(
+      "input",
+      () => {
+        hasLoaded = false;
+        updateButtons();
+      }
+    );
   }
 
-  window.addEventListener("beforeunload", event => {
-    if (dirty) {
-      event.preventDefault();
-      event.returnValue = "";
+  window.addEventListener(
+    "beforeunload",
+    event => {
+      if (dirty) {
+        event.preventDefault();
+        event.returnValue = "";
+      }
     }
-  });
+  );
 
   updateButtons();
 })();
