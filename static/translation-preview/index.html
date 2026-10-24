@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <title>Translation Review | FlowAnRiver</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f7f4ef;
+      color: #272420;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.7;
+    }
+    main { max-width: 1150px; margin: auto; padding: 35px 20px; }
+    h1 { font-size: 27px; margin-bottom: 5px; }
+    .subtitle { color: #777; margin-bottom: 28px; }
+    .panel, .block {
+      background: white;
+      border: 1px solid #e8e2da;
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+    label { display: block; font-weight: 600; margin-bottom: 6px; }
+    input {
+      display: block;
+      width: 100%;
+      padding: 11px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+    button {
+      background: #292622;
+      color: white;
+      border: 0;
+      padding: 11px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:disabled { opacity: .5; cursor: default; }
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .heading { font-weight: 700; margin-bottom: 8px; }
+    .original { color: #333; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .translated {
+      color: #34312d;
+      background: #faf7f2;
+      padding: 14px;
+      border-radius: 7px;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+    }
+    .meta { font-size: 13px; color: #777; margin-bottom: 13px; }
+    .warning { color: #a15b20; font-size: 14px; }
+    .status { margin: 18px 0; }
+    .footer { display: flex; justify-content: space-between; gap: 10px; }
+    @media (max-width: 700px) {
+      .columns { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>FlowAnRiver · 翻译审校</h1>
+  <p class="subtitle">
+    English Original / 中文机器译文 · 仅供内部审校
+  </p>
+
+  <section class="panel">
+    <label for="article">文章 Slug</label>
+    <input id="article" value="ai-agency-andreessen"
+      autocomplete="off" spellcheck="false">
+
+    <label for="token">Cloudflare 测试密钥</label>
+    <input id="token" type="password"
+      autocomplete="off" spellcheck="false">
+
+    <button id="load">读取审校数据</button>
+    <p class="meta">
+      密钥仅在当前页面内存中使用，不保存到浏览器存储。
+      请勿在公共或不可信的设备上输入。
+    </p>
+  </section>
+
+  <div id="status" class="status" role="status"></div>
+  <div id="results"></div>
+
+  <div class="footer">
+    <button id="prev" disabled>上一批</button>
+    <button id="next" disabled>下一批</button>
+  </div>
+</main>
+
+<script>
+(() => {
+  const articleInput = document.getElementById("article");
+  const tokenInput = document.getElementById("token");
+  const results = document.getElementById("results");
+  const status = document.getElementById("status");
+  const loadButton = document.getElementById("load");
+  const prevButton = document.getElementById("prev");
+  const nextButton = document.getElementById("next");
+
+  let start = 0;
+  let total = 0;
+  let currentArticle = "";
+
+  function element(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined) node.textContent = String(text);
+    return node;
+  }
+
+  async function loadBatch(position) {
+    const article = articleInput.value.trim();
+    const token = tokenInput.value;
+
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article) ||
+        article.length > 100 || !token) {
+      status.textContent = "请输入正确的文章 Slug 和测试密钥。";
+      return;
+    }
+
+    loadButton.disabled = true;
+    prevButton.disabled = true;
+    nextButton.disabled = true;
+    status.textContent = "正在读取审校数据……";
+    results.replaceChildren();
+
+    try {
+      const url = "/api/translation-review?article=" +
+        encodeURIComponent(article) + "&start=" + position;
+
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "X-Translate-Test-Token": token
+        },
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error("读取失败，HTTP " + response.status);
+      }
+
+      const data = await response.json();
+
+      if (!Array.isArray(data.results)) {
+        throw new Error("接口返回的数据格式不正确");
+      }
+
+      start = position;
+      total = data.total;
+      currentArticle = article;
+
+      status.textContent =
+        "文章：" + article + " · 共 " + total +
+        " 个区块 · 当前第 " + (start + 1) +
+        "–" + Math.min(data.next_start, total) + " 个";
+
+      for (const item of data.results) {
+        const block = element("section", "block");
+
+        block.appendChild(element(
+          "div", "meta",
+          (item.id || "Unknown") + " · " +
+          (item.type || "unknown") + " · " +
+          (item.status || "unknown")
+        ));
+
+        const columns = element("div", "columns");
+        const left = element("div");
+        const right = element("div");
+
+        left.appendChild(element(
+          "div", "heading", "English Original"
+        ));
+        left.appendChild(element(
+          "div", "original", item.original || ""
+        ));
+
+        right.appendChild(element(
+          "div", "heading", "中文机器译文"
+        ));
+        right.appendChild(element(
+          "div", "translated",
+          item.translated || "尚未翻译"
+        ));
+
+        columns.append(left, right);
+        block.appendChild(columns);
+
+        const warnings = item.validation?.warnings || [];
+        if (warnings.length > 0) {
+          block.appendChild(element(
+            "p", "warning",
+            "自动检查提示：" + warnings.join("、")
+          ));
+        }
+
+        if (item.translated) {
+          block.appendChild(element(
+            "p", "meta",
+            "机器译文尚未获得人工审核批准"
+          ));
+        }
+
+        results.appendChild(block);
+      }
+
+      prevButton.disabled = start === 0;
+      nextButton.disabled =
+        data.complete || data.next_start <= start;
+      nextButton.dataset.next = String(data.next_start);
+
+    } catch (error) {
+      status.textContent = error.message || "读取失败";
+    } finally {
+      loadButton.disabled = false;
+    }
+  }
+
+  loadButton.addEventListener("click", () => loadBatch(0));
+
+  prevButton.addEventListener("click", () => {
+    if (currentArticle === articleInput.value.trim()) {
+      loadBatch(Math.max(0, start - 10));
+    }
+  });
+
+  nextButton.addEventListener("click", () => {
+    if (currentArticle === articleInput.value.trim()) {
+      loadBatch(Number(nextButton.dataset.next));
+    }
+  });
+})();
+</script>
+</body>
+</html>
