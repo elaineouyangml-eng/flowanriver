@@ -76,8 +76,7 @@ favicon = "/favicon.svg"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
-  page = ["HTML", "JSON"]
-
+  
 [[menus.main]]
   name = "Contact"
   url = "/contact"
