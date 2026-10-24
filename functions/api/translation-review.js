@@ -1,4 +1,5 @@
 
+import { TRANSLATION_CONFIG } from "../_lib/translation-config.js";
 import { validateTranslation } from "../_lib/translation-validator.js";
 
 const DEFAULT_ARTICLE = "pi-network-seven-years-original-vision";
