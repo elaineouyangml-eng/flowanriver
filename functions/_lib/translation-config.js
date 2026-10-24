@@ -31,3 +31,38 @@ export const TRANSLATION_TERMS = {
   "Large Language Model": "大语言模型",
   "Generative AI": "生成式人工智能"
 };
+
+export const TRANSLATION_REVIEW_RULES = {
+  preserveNames: [
+    "Pi Network",
+    "Bitcoin",
+    "Ethereum",
+    "OpenAI",
+    "Google",
+    "Cloudflare",
+    "FlowAnRiver"
+  ],
+
+  preserveUncertainty: [
+    "may",
+    "might",
+    "could",
+    "possibly",
+    "potentially",
+    "likely"
+  ],
+
+  preserveFacts: true,
+  preserveNumbers: true,
+  preserveDates: true,
+  preserveURLs: true,
+  preserveQuotes: true,
+
+  requireHumanReviewFor: [
+    "financial claims",
+    "investment statements",
+    "regulatory claims",
+    "technical specifications",
+    "personal opinions"
+  ]
+};
