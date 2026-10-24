@@ -60,3 +60,4 @@ export function onRequestGet() {
     message: "Translation test endpoint. POST requires authentication."
   });
 }
+// Redeploy translation function after configuring Cloudflare secret.
