@@ -1,0 +1,13 @@
+
+{{- $page := site.GetPage "/posts/pi-network-seven-years-original-vision" -}}
+{{- if $page -}}
+  {{- $blocks := partial "translation-blocks.html" $page -}}
+  {{- dict
+    "article" $page.RelPermalink
+    "count" (len $blocks)
+    "blocks" $blocks
+    | jsonify
+  -}}
+{{- else -}}
+  {{- dict "error" "Article not found" | jsonify -}}
+{{- end -}}
