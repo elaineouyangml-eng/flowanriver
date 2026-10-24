@@ -1,5 +1,5 @@
 
-{{- if eq .RelPermalink "/posts/pi-network-seven-years-original-vision/" -}}
+{{- if eq .Section "posts" -}}
   {{- $blocks := partial "translation-blocks.html" . -}}
   {{- dict
     "article" .RelPermalink
@@ -7,5 +7,5 @@
     "blocks" $blocks
     | jsonify -}}
 {{- else -}}
-  {{- dict "status" "not_test_article" | jsonify -}}
+  {{- dict "status" "not_a_post" | jsonify -}}
 {{- end -}}
