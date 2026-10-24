@@ -20,7 +20,10 @@ function json(data, status = 200) {
 
 async function hashText(text) {
   const bytes = new TextEncoder().encode(text);
-  const digest = await crypto.subtle.digest("SHA-256", bytes);
+  const digest = await crypto.subtle.digest(
+    "SHA-256",
+    bytes
+  );
 
   return [...new Uint8Array(digest)]
     .map(n => n.toString(16).padStart(2, "0"))
@@ -29,30 +32,47 @@ async function hashText(text) {
 
 export async function onRequestPost({ request, env }) {
   if (!env.TRANSLATE_TEST_TOKEN) {
-    return json({ error: "Review access not configured" }, 503);
+    return json({
+      error: "Review access not configured"
+    }, 503);
   }
 
-  const token = request.headers.get("X-Translate-Test-Token");
+  const token = request.headers.get(
+    "X-Translate-Test-Token"
+  );
 
   if (!token || token !== env.TRANSLATE_TEST_TOKEN) {
     return json({ error: "Unauthorized" }, 401);
   }
 
   if (!env.TRANSLATIONS || !env.ASSETS) {
-    return json({ error: "Required binding unavailable" }, 503);
+    return json({
+      error: "Required binding unavailable"
+    }, 503);
   }
 
   const url = new URL(request.url);
-  const article =
-    url.searchParams.get("article") ?? DEFAULT_ARTICLE;
-  const rawStart = url.searchParams.get("start") ?? "0";
 
-  if (article.length > 100 || !SLUG_PATTERN.test(article)) {
-    return json({ error: "Invalid article slug" }, 400);
+  const article =
+    url.searchParams.get("article") ??
+    DEFAULT_ARTICLE;
+
+  const rawStart =
+    url.searchParams.get("start") ?? "0";
+
+  if (
+    article.length > 100 ||
+    !SLUG_PATTERN.test(article)
+  ) {
+    return json({
+      error: "Invalid article slug"
+    }, 400);
   }
 
   if (!/^(0|[1-9]\d{0,3})$/.test(rawStart)) {
-    return json({ error: "Invalid start index" }, 400);
+    return json({
+      error: "Invalid start index"
+    }, 400);
   }
 
   const start = Number(rawStart);
@@ -68,7 +88,9 @@ export async function onRequestPost({ request, env }) {
     );
 
     if (!response.ok) {
-      return json({ error: "Article source unavailable" }, 404);
+      return json({
+        error: "Article source unavailable"
+      }, 404);
     }
 
     const data = await response.json();
@@ -77,7 +99,9 @@ export async function onRequestPost({ request, env }) {
       data.article !== `/posts/${article}/` ||
       !Array.isArray(data.blocks)
     ) {
-      return json({ error: "Invalid article source" }, 502);
+      return json({
+        error: "Invalid article source"
+      }, 502);
     }
 
     const blocks = data.blocks.slice(
@@ -102,20 +126,52 @@ export async function onRequestPost({ request, env }) {
 
       const hash = await hashText(block.text);
 
-      const key =
-        `translation:${article}:${TRANSLATION_CONFIG.targetLanguage}:batch-${TRANSLATION_CONFIG.cacheVersion}:${block.id}:${hash}`;
+      // Original machine-translation cache key.
+      const machineKey =
+        `translation:${article}:` +
+        `${TRANSLATION_CONFIG.targetLanguage}:` +
+        `batch-${TRANSLATION_CONFIG.cacheVersion}:` +
+        `${block.id}:${hash}`;
 
-      const cached = await env.TRANSLATIONS.get(key, "json");
+      // Human-edited draft uses a separate key.
+      const editKey =
+        `translation-edit:${article}:` +
+        `${TRANSLATION_CONFIG.targetLanguage}:` +
+        `${block.id}:${hash}`;
 
-      const translated =
-        cached &&
-        cached.original === block.text &&
-        typeof cached.translated === "string" &&
-        cached.translated.trim()
-          ? cached.translated
+      const [machine, edited] = await Promise.all([
+        env.TRANSLATIONS.get(machineKey, "json"),
+        env.TRANSLATIONS.get(editKey, "json")
+      ]);
+
+      const machineTranslated =
+        machine &&
+        machine.original === block.text &&
+        typeof machine.translated === "string" &&
+        machine.translated.trim()
+          ? machine.translated
           : null;
 
-      
+      const editedTranslated =
+        edited &&
+        edited.original === block.text &&
+        typeof edited.translated === "string" &&
+        edited.translated.trim()
+          ? edited.translated
+          : null;
+
+      // Human-edited text takes priority.
+      const translated =
+        editedTranslated || machineTranslated;
+
+      let translationStatus = "not_translated";
+
+      if (editedTranslated) {
+        translationStatus = "edited_draft";
+      } else if (machineTranslated) {
+        translationStatus = "ready_for_review";
+      }
+
       const validation = validateTranslation(
         block.text,
         translated
@@ -126,7 +182,14 @@ export async function onRequestPost({ request, env }) {
         type: block.type,
         original: block.text,
         translated,
-        status: translated ? "ready_for_review" : "not_translated",
+        machineTranslated,
+        status: translationStatus,
+        source: editedTranslated
+          ? "human_edit"
+          : machineTranslated
+            ? "machine"
+            : "none",
+        approved: false,
         needsReview:
           Boolean(block.needsReview) ||
           validation.needsReview,
@@ -136,7 +199,6 @@ export async function onRequestPost({ request, env }) {
           warnings: validation.warnings
         }
       });
-
     }
 
     return json({
@@ -145,13 +207,18 @@ export async function onRequestPost({ request, env }) {
       start,
       next_start: start + blocks.length,
       total: data.blocks.length,
-      complete: start + blocks.length >= data.blocks.length,
+      complete:
+        start + blocks.length >=
+        data.blocks.length,
       approved: false,
       published: false,
       results
     });
+
   } catch {
-    return json({ error: "Review service unavailable" }, 502);
+    return json({
+      error: "Review service unavailable"
+    }, 502);
   }
 }
 
