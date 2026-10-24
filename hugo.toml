@@ -4,6 +4,19 @@ title = "FlowAnRiver"
 theme = "PaperMod"
 googleAnalytics = "G-HWVJVCV67S"
 
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+[languages.en]
+  languageCode = "en-US"
+  languageName = "English"
+  weight = 1
+
+[languages.zh]
+  languageCode = "zh-CN"
+  languageName = "中文"
+  weight = 2
+
 [params]
   mainSections = ["posts"]
   homeRecentPostsNum = 6
