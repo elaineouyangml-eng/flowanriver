@@ -3,6 +3,9 @@ title: "Pi Network: Seven Years Later, Is Its Original Vision Taking Shape?"
 slug: pi-network-seven-years-original-vision
 date: 2026-10-18T11:10:00.000+08:00
 draft: false
+outputs:
+  - HTML
+  - JSON
 tags:
   - crypto
   - Pi Network
