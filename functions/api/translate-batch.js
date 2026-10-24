@@ -6,11 +6,9 @@ import {
 
 const MODEL = "@cf/meta/m2m100-1.2b";
 
-const ARTICLE = "pi-network-seven-years-original-vision";
-const ARTICLE_PATH =
-  `/posts/${ARTICLE}/index.json`;
-
+const DEFAULT_ARTICLE = "pi-network-seven-years-original-vision";
 const MAX_BATCH = 2;
+const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -164,6 +162,12 @@ export async function onRequestPost({ request, env }) {
 
   const url = new URL(request.url);
   const rawStart = url.searchParams.get("start") ?? "0";
+  
+  const article = url.searchParams.get("article") ?? DEFAULT_ARTICLE;
+
+if (article.length > 100 || !SLUG_PATTERN.test(article)) {
+  return json({ error: "Invalid article slug" }, 400);
+}
 
   if (!/^(0|[1-9]\d{0,3})$/.test(rawStart)) {
     return json({ error: "Invalid start index" }, 400);
@@ -173,9 +177,9 @@ export async function onRequestPost({ request, env }) {
 
   try {
     const articleUrl = new URL(
-      ARTICLE_PATH,
-      request.url
-    );
+  `/posts/${article}/index.json`,
+  request.url
+);
 
     const sourceResponse = await env.ASSETS.fetch(
       new Request(articleUrl.toString())
@@ -189,7 +193,7 @@ export async function onRequestPost({ request, env }) {
 
     if (
       articleData.article !==
-        `/posts/${ARTICLE}/` ||
+        `/posts/${article}/` ||
       !Array.isArray(articleData.blocks)
     ) {
       return json({ error: "Invalid article source" }, 502);
@@ -216,7 +220,7 @@ export async function onRequestPost({ request, env }) {
       const hash = await hashText(block.text);
 
       const key =
-        `translation:${ARTICLE}:zh:batch-v1:${block.id}:${hash}`;
+        `translation:${article}:zh:batch-v1:${block.id}:${hash}`;
 
       const cached = await env.TRANSLATIONS.get(key, "json");
 
@@ -257,7 +261,7 @@ export async function onRequestPost({ request, env }) {
     }
 
     return json({
-      article: ARTICLE,
+      article,
       start,
       next_start: start + batch.length,
       total: articleData.blocks.length,
