@@ -2,7 +2,7 @@
 ---
 title: "TOKEN2049 之后：加密货币正在从一个行业走向金融基础设施"
 date: 2026-10-09T14:09:00+08:00
-draft: true
+draft: false
 tags:
   - Crypto
   - TOKEN2049
