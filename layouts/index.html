@@ -67,7 +67,17 @@
       <span class="fr-post-tag">{{ index .Params.tags 0 }}</span>
       <span class="fr-post-title">{{ .Title }}</span>
     </div>
-    <span class="fr-post-meta">{{ .Date.Format "Jan 2" }} · {{ .ReadingTime }} min</span>
+    
+{{- $minutes := .ReadingTime -}}
+{{- if eq .Lang "zh" -}}
+  {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" .Plain) -}}
+  {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
+  {{- if lt $minutes 1 -}}
+    {{- $minutes = 1 -}}
+  {{- end -}}
+{{- end -}}
+<span class="fr-post-meta">{{ .Date.Format "Jan 2" }} · {{ $minutes }} min</span>
+
   </a>
   {{- end }}
 </div>
