@@ -1,7 +1,7 @@
 
 import { TRANSLATION_CONFIG } from "../_lib/translation-config.js";
 
-const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const SLUG = /^[a-z0-9]+(?:-+[a-z0-9]+)*$/;
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
