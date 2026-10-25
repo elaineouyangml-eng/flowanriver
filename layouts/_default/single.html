@@ -19,6 +19,18 @@
   {{- end }}
   {{- if .Content }}
   <div class="post-content md-content">
+    
+    {{- if and (eq .Lang "zh") (eq .Section "posts") }}
+      {{- range .Translations }}
+        {{- if eq .Lang "en" }}
+        <p style="font-size:14px;color:var(--secondary);padding:12px 16px;border-left:3px solid var(--tertiary);margin-bottom:28px;">
+          <strong>翻译说明：</strong>本文根据 FlowAnRiver 英文原文自动翻译整理，仅为方便中文读者阅读。如有理解上的差异，请以
+          <a href="{{ .RelPermalink }}">英文原文</a>为准。
+        </p>
+        {{- end }}
+      {{- end }}
+    {{- end }}
+
     {{- if not (.Param "disableAnchoredHeadings") }}
     {{- partial "anchored_headings.html" .Content -}}
     {{- else }}{{ .Content }}{{ end }}
