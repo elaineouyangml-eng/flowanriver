@@ -2,7 +2,7 @@
 ---
 title: "Pi Network：七年之后，最初的生态愿景正在成形吗？"
 date: 2026-10-18T11:10:00+08:00
-draft: false
+draft: true
 tags:
   - crypto
   - Pi Network
