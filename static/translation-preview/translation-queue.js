@@ -22,7 +22,34 @@
   panel.appendChild(openButton);
   panel.after(result);
 
-  let selected = new Set();
+  const STORAGE_KEY = "flowanriver-translation-selection";
+
+function rememberSelection() {
+  try {
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify([...selected])
+    );
+  } catch {
+    // 浏览器不允许保存时，不影响翻译功能
+  }
+}
+
+function restoreSelection() {
+  try {
+    const saved = JSON.parse(
+      localStorage.getItem(STORAGE_KEY) || "[]"
+    );
+
+    return new Set(
+      Array.isArray(saved) ? saved : []
+    );
+  } catch {
+    return new Set();
+  }
+}
+
+let selected = restoreSelection();
   let pending = [];
   let running = false;
   let stopped = false;
@@ -223,6 +250,7 @@
     const checkboxes = [];
 
     function update() {
+      rememberSelection();
       count.textContent =
         "已选择 " + selected.size + " 篇" +
         "（每次最多处理 3 篇）";
