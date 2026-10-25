@@ -58,22 +58,51 @@
                 </button>
                 {{- end }}
                 
-                {{- if (not site.Params.disableLangToggle) }}
-                    {{- $lang := .Lang}}
-                    {{- with .Translations }}
-                    {{- $separator := or $label_text (not site.Params.disableThemeToggle)}}
-                    {{- if $separator }}<span class="nav-sep">|</span>{{ end }}
-                    <ul class="lang-menu">
-                        {{- range . -}}
-                        {{- if ne $lang .Lang }}
-                        <li>
-                            <a href="{{- .Permalink -}}" title="{{ .Language.Params.languageAltTitle | default (.Language.LanguageName | emojify) | default (.Lang | title) }}"
-                                aria-label="{{ .Language.LanguageName | default (.Lang | title) }}">
-                                {{- if (and site.Params.displayFullLangName (.Language.LanguageName)) }}
-                                {{- .Language.LanguageName | emojify -}}
-                                {{- else }}
-                                {{- .Lang | title -}}
-                                {{- end -}}
+                
+{{- if (not site.Params.disableLangToggle) }}
+  {{- if hugo.IsMultilingual }}
+    {{- $englishURL := "/" -}}
+    {{- $chineseURL := "/zh/" -}}
+    {{- $hasChineseTranslation := false -}}
+
+    {{- if eq .Lang "en" -}}
+      {{- $englishURL = .RelPermalink -}}
+    {{- else if eq .Lang "zh" -}}
+      {{- $chineseURL = .RelPermalink -}}
+    {{- end -}}
+
+    {{- range .Translations -}}
+      {{- if eq .Lang "en" -}}
+        {{- $englishURL = .RelPermalink -}}
+      {{- else if eq .Lang "zh" -}}
+        {{- $chineseURL = .RelPermalink -}}
+        {{- $hasChineseTranslation = true -}}
+      {{- end -}}
+    {{- end -}}
+
+    <div class="fr-language-switch" style="display:flex;align-items:center;gap:8px;margin-left:10px;white-space:nowrap;font-size:14px;">
+      <span aria-hidden="true">🌐</span>
+
+      {{- if eq .Lang "en" -}}
+        <strong aria-current="page">EN</strong>
+      {{- else -}}
+        <a href="{{ $englishURL }}" title="Read in English">EN</a>
+      {{- end -}}
+
+      <span style="opacity:.4;">/</span>
+
+      {{- if eq .Lang "zh" -}}
+        <strong aria-current="page">中文</strong>
+      {{- else -}}
+        <a href="{{ $chineseURL }}"
+           title="{{ if or .IsHome $hasChineseTranslation }}阅读中文版{{ else }}本文章暂无中文版，前往中文首页{{ end }}">
+          中文
+        </a>
+      {{- end -}}
+    </div>
+  {{- end -}}
+{{- end -}}
+
                             </a>
                         </li>
                         {{- end -}}
