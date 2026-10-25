@@ -96,7 +96,13 @@
                 {{- cond $is_search (" accesskey=/" | safeHTMLAttr) ("" | safeHTMLAttr ) }}>
                     <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
                         {{- .Pre }}
-                        {{- .Name -}}
+                        
+                        {{- if eq site.Language.Lang "zh" -}}
+    {{- $names := dict "Home" "首页" "Journal" "随笔" "About" "关于" "Contact" "联系" -}}
+    {{- index $names .Name | default .Name -}}
+{{- else -}}
+    {{- .Name -}}
+{{- end -}}
                         {{ .Post -}}
                     </span>
                     {{- if (findRE "://" .URL) }}&nbsp;
