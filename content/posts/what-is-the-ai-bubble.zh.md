@@ -2,7 +2,7 @@
 ---
 title: "AI 泡沫究竟是什么？当越来越多人相信 AI 可以让自己致富"
 date: 2026-10-10T23:01:00+08:00
-draft: true
+draft: false
 tags:
   - AI
   - Technology
