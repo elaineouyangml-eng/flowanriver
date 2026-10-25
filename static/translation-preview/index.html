@@ -237,7 +237,7 @@
   function validSlug(slug) {
     return (
       slug.length <= 100 &&
-      /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)
+      /^[a-z0-9]+(?:-+[a-z0-9]+)*$/.test(slug)
     );
   }
 
