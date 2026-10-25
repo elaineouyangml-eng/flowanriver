@@ -1,358 +1,230 @@
+
 ---
 title: "TOKEN2049 不再只是关于加密货币：金融的下一步将走向哪里？"
-date: 2026-10-06
+date: 2026-10-06T10:18:00+08:00
 draft: true
-description: "Ahead of TOKEN2049 Singapore 2026, I’m looking beyond crypto prices to the bigger questions: stablecoins, AI agents, onchain finance, and whether traditional finance and crypto are beginning to merge."
-tags: ["Crypto","TOKEN2049","Stablecoins","AI","Finance"]
+tags:
+  - Crypto
+  - TOKEN2049
+  - Stablecoins
+  - AI
+  - Finance
+description: "TOKEN2049 Singapore 2026 开幕前，重新思考稳定币、AI Agent、链上金融与传统金融融合的发展趋势，以及未来金融体系可能发生的变化。"
+cover:
+  image: /images/token2049-singapore-2026-finance.png
+  alt: "TOKEN2049 Singapore 2026 大会，聚焦加密货币、稳定币、人工智能及金融未来。"
 ---
 
-<!-- 中文机器翻译草稿，公开发布前须检查 -->
+过去一年，我陆续关注了几场重要的加密货币行业会议，从迈阿密，到香港的 Bitcoin Asia，再到即将在新加坡举行的 TOKEN2049。
 
-<!-- TODO: 翻译 block-0 -->
-Over the past year, I have followed several major crypto conferences, from Miami to Bitcoin Asia in Hong Kong, and now TOKEN2049 Singapore.
+在这个过程中，我发现自己对这些会议的关注点正在慢慢发生变化。
 
-<!-- TODO: 翻译 block-1 -->
-What interests me most has gradually changed.
+最初，加密货币会议讨论的内容似乎比较容易理解。比特币、监管政策、交易所、新的区块链网络、市场周期，以及不可避免的价格变化，几乎构成了每场会议的主要话题。
 
-<!-- TODO: 翻译 block-2 -->
-At first, crypto conferences were easy to understand. We watched Bitcoin, regulation, exchanges, new chains, market cycles and, inevitably, price. But the conversations around these events have started to feel broader. AI keeps appearing. Stablecoins are moving deeper into payments. Traditional financial institutions are no longer simply asking whether they should participate in crypto. Increasingly, they are discussing what parts of finance might eventually move onchain.
+但最近，这些讨论开始逐渐超越加密货币行业本身。
 
-<!-- TODO: 翻译 block-3 -->
-That is why, before TOKEN2049 Singapore begins on October 7, I am less interested in predicting what Bitcoin will do after the conference than in asking a different question:
+AI 越来越频繁地出现在行业会议中，稳定币正在向支付领域深入发展，而传统金融机构也不再仅仅讨论是否应该进入 Crypto 市场。它们开始关注，未来究竟有哪些金融业务可能迁移到区块链上。
 
-<!-- TODO: 翻译 block-4 -->
-**What kind of financial system are we moving toward?**
+因此，在10月7日 TOKEN2049 Singapore 正式开始之前，相比预测会议结束后比特币价格会怎样变化，我更想思考另一个问题：
 
-<!-- TODO: 翻译 block-5 -->
-A look at the official [TOKEN2049 Singapore agenda](https://www.token2049.com/singapore/agenda) already suggests that the conversation is expanding beyond crypto as an asset class. Sessions cover stablecoin payments, institutional finance moving onchain, AI agents, DeFi and the broader future of financial infrastructure.
+**我们究竟正在走向一个怎样的金融体系？**
 
-<!-- TODO: 翻译 block-6 -->
-These are no longer only conversations about crypto.
+从 [TOKEN2049 Singapore 官方议程](https://www.token2049.com/singapore/agenda)可以看出，会议讨论的范围已经明显超越了将加密货币视为单纯投资资产的范畴。
 
-<!-- TODO: 翻译 block-7 -->
-They are increasingly conversations about payments, markets, money and financial infrastructure.
+稳定币支付、机构金融上链、AI Agent、DeFi，以及未来金融基础设施的发展，都成为重要议题。
 
-<!-- TODO: 翻译 block-8 -->
-So before the conference starts, these are the questions I want to carry into it.
+这些已经不只是关于 Crypto 的讨论，而是越来越多地涉及支付、金融市场、货币以及底层金融基础设施。
 
-<!-- TODO: 翻译 block-9 -->
-1. Are stablecoins becoming financial infrastructure rather than simply crypto assets?
+所以，在会议开始之前，我想带着几个问题继续观察。
 
-<!-- TODO: 翻译 block-10 -->
-For a long time, stablecoins were largely discussed inside the crypto economy.
+## 1. 稳定币正在成为金融基础设施，而不再只是加密资产吗？
 
-<!-- TODO: 翻译 block-11 -->
-USDT became essential to global crypto liquidity. USDC developed a strong position around regulated institutions, exchanges and onchain finance. Stablecoins became one of the easiest ways to move dollars between exchanges, wallets and blockchain networks.
+很长一段时间里，稳定币主要是在加密货币经济体系内部被讨论。
 
-<!-- TODO: 翻译 block-12 -->
-But during 2026, the conversation changed noticeably.
+USDT 逐渐成为全球加密货币市场流动性的重要组成部分，USDC 则围绕受监管金融机构、交易所和链上金融建立了自己的优势。
 
-<!-- TODO: 翻译 block-13 -->
-Visa has been expanding stablecoin settlement across multiple blockchain networks and positioning stablecoins as part of broader payment and settlement infrastructure. Its own updates on [stablecoin settlement](https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-launches-stablecoin-settlement-in-the-united-states.html) show how the company is moving beyond experimentation and into real settlement use cases.
+稳定币也因此成为不同交易所、钱包以及区块链网络之间转移美元价值的便利工具。
 
-<!-- TODO: 翻译 block-14 -->
-Mastercard has been moving in a similar direction. The company has discussed integrating regulated stablecoins into its payment infrastructure and settlement capabilities, including cross-border payments, payouts and treasury flows. Its broader [stablecoin strategy](https://www.mastercard.com/us/en/news-and-trends/press/2026/june/mastercard-expands-settlement-capabilities-to-include-stablecoin.html) is another sign that stablecoins are no longer being treated only as crypto-native instruments.
+但进入2026年后，关于稳定币的讨论出现了明显变化。
 
-<!-- TODO: 翻译 block-15 -->
-This is quite different from simply allowing customers to buy crypto.
+Visa 正在多个区块链网络上扩展稳定币结算业务，并逐渐将稳定币定位为更广泛支付和结算基础设施的一部分。
 
-<!-- TODO: 翻译 block-16 -->
-The payment networks themselves are beginning to integrate stablecoins into the infrastructure used to move and settle money.
+从 Visa 官方发布的[稳定币结算业务进展](https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-launches-stablecoin-settlement-in-the-united-states.html)可以看到，它已经开始从技术试验走向实际结算场景。
 
-<!-- TODO: 翻译 block-17 -->
-Then, at the end of September, Open USD — OUSD — went live.
+Mastercard 也在朝着类似方向发展。
 
-<!-- TODO: 翻译 block-18 -->
-OUSD caught my attention not simply because it is another dollar stablecoin. The [Open Standard](https://joinopenstandard.com/) network brings together companies including Coinbase, Mastercard, Shopify, Stripe and Visa, alongside a wider ecosystem of financial and technology partners.
+该公司持续探索将受监管稳定币整合进自身支付基础设施和结算服务，包括跨境支付、资金发放以及企业资金管理等领域。
 
-![Open Standard homepage introducing Open USD (OUSD) as a shared stablecoin for global financial activity](/images/open-usd-ousd-stablecoin-infrastructure.png "open-usd-ousd-stablecoin-infrastructure")
+Mastercard 公布的[稳定币结算战略](https://www.mastercard.com/us/en/news-and-trends/press/2026/june/mastercard-expands-settlement-capabilities-to-include-stablecoin.html)，同样说明稳定币已经不再仅仅被当作加密货币行业内部使用的金融工具。
 
-<!-- TODO: 翻译 block-20 -->
-Stripe has also discussed OUSD directly and positioned it as part of its stablecoin infrastructure. Its [OUSD announcement](https://stripe.com/blog/ousd-now-live-on-stripe) is especially interesting because it shows how quickly stablecoins are becoming integrated into products that already sit close to mainstream payments and online commerce.
+这与过去支付公司允许用户购买加密货币，有着本质上的区别。
 
-<!-- TODO: 翻译 block-21 -->
-That makes me wonder whether stablecoin competition itself is entering a different stage.
+如今，支付网络本身开始尝试将稳定币纳入资金转移和结算流程。
 
-<!-- TODO: 翻译 block-22 -->
-USDT built enormous liquidity. USDC built a strong institutional and regulatory ecosystem. OUSD appears to be testing another model: distribution through existing financial, commerce and payment networks.
+而在9月底，Open USD（OUSD）正式上线，也引起了我的注意。
 
-<!-- TODO: 翻译 block-23 -->
-The important question may therefore no longer be simply, **which stablecoin will become the biggest?**
+我关注 OUSD，并不只是因为市场又出现了一种美元稳定币，而是因为它背后的发展模式有所不同。
 
-<!-- TODO: 翻译 block-24 -->
-It may be:
+[Open Standard](https://joinopenstandard.com/) 网络聚集了包括 Coinbase、Mastercard、Shopify、Stripe 和 Visa 在内的企业，以及更多金融和科技领域的合作伙伴。
 
-<!-- TODO: 翻译 block-25 -->
-**Which stablecoin, or group of stablecoins, becomes embedded deeply enough into payment infrastructure that users no longer need to think about the stablecoin at all?**
+![Open Standard 官方网站展示 Open USD（OUSD），探索稳定币在全球金融活动中的应用](/images/open-usd-ousd-stablecoin-infrastructure.png "Open USD (OUSD)")
 
-<!-- TODO: 翻译 block-26 -->
-If TOKEN2049 spends more time talking about settlement, treasury management, merchant payments, cards and cross-border money movement than about stablecoin trading liquidity, that will be one signal worth watching.
+Stripe 也曾专门介绍 OUSD，并将其纳入稳定币基础设施的发展方向。
 
-<!-- TODO: 翻译 block-27 -->
-2. Why does almost every major crypto conference now end up talking about AI?
+从 Stripe 发布的 [OUSD 官方公告](https://stripe.com/blog/ousd-now-live-on-stripe)可以看出，稳定币正在更快地与已经服务于主流支付及电子商务的产品结合。
 
-<!-- TODO: 翻译 block-28 -->
-Another pattern has been difficult to ignore this year.
+这让我开始思考，稳定币之间的竞争是否也正在进入另一个阶段。
 
-<!-- TODO: 翻译 block-29 -->
-From Miami to Hong Kong and now Singapore, AI keeps moving into crypto conferences.
+USDT 通过庞大的市场流动性建立优势，USDC 则围绕机构金融与监管环境发展，而 OUSD 似乎正在探索另一种方式：通过现有金融、商业和支付网络扩大使用范围。
 
-<!-- TODO: 翻译 block-30 -->
-The [TOKEN2049 agenda](https://www.token2049.com/singapore/agenda) makes that especially obvious. There are sessions on crypto and AI, AI agents trading on blockchains, privacy, agent economies and the question of why AI might need crypto in the first place.
+因此，未来值得关注的问题，或许不再只是**哪一种稳定币会拥有最大的市场规模**。
 
-<!-- TODO: 翻译 block-31 -->
-At this point, simply saying “AI + Crypto is a trend” does not tell us very much.
+而是：
 
-<!-- TODO: 翻译 block-32 -->
-The more interesting question is what blockchain actually provides that AI cannot easily get from the existing internet and banking system.
+**哪一种稳定币，或者哪一组稳定币，最终能够深入融入支付基础设施，以至于普通用户甚至不需要意识到它们的存在？**
 
-<!-- TODO: 翻译 block-33 -->
-AI can make decisions, automate work and operate software. But if autonomous agents eventually start buying services, paying for APIs, purchasing computing resources, trading assets or paying other agents, they also need a way to hold and transfer value.
+如果今年 TOKEN2049 关于稳定币的讨论，更多涉及结算、企业资金管理、商户支付、银行卡以及跨境资金流动，而不再局限于交易市场中的流动性，那么这将是一个值得观察的信号。
 
-<!-- TODO: 翻译 block-34 -->
-That means wallets, identity, permissions and settlement become important.
+## 2. 为什么几乎每一场重要的 Crypto 会议都开始讨论 AI？
 
-<!-- TODO: 翻译 block-35 -->
-Traditional payment systems were built primarily around people and companies. They were not designed for millions of autonomous pieces of software making small, programmable transactions around the clock.
+今年还有一个越来越难以忽视的现象。
 
-<!-- TODO: 翻译 block-36 -->
-Blockchain and stablecoins, however, are naturally programmable.
+从迈阿密到香港，再到新加坡，人工智能正在不断进入加密货币行业的讨论。
 
-<!-- TODO: 翻译 block-37 -->
-This is where two trends that often appear separately — **AI and stablecoins** — may eventually meet.
+[TOKEN2049 官方议程](https://www.token2049.com/singapore/agenda)也清楚地体现了这一趋势。
 
-<!-- TODO: 翻译 block-38 -->
-If AI agents become economic actors, what money will they use?
+会议安排了 AI 与 Crypto、AI Agent 在区块链上进行交易、隐私保护、代理经济，以及人工智能为什么可能需要加密货币等相关议题。
 
-<!-- TODO: 翻译 block-39 -->
-That is one of the questions I am most interested in hearing discussed at TOKEN2049.
+但到了现在，仅仅说一句“AI + Crypto 是未来趋势”，已经不足以解释这个领域真正的价值。
 
-<!-- TODO: 翻译 block-40 -->
-The answer may not be “crypto” in the speculative sense at all. It may simply be programmable digital dollars moving through blockchain infrastructure in the background.
+我更关心的问题是，区块链究竟能够提供哪些现有互联网和银行系统难以轻松实现的能力？
 
-<!-- TODO: 翻译 block-41 -->
-3. Is traditional finance entering crypto, or is finance itself slowly moving onchain?
+AI 已经能够作出一定程度的决策、自动完成工作，以及操作软件。
 
-<!-- TODO: 翻译 block-42 -->
-For years, headlines celebrated every traditional financial institution that “entered crypto.”
+但如果未来自主运行的 AI Agent 开始购买服务、支付 API 使用费、购买计算资源、交易金融资产，甚至向其他 AI Agent 支付费用，那么它们也需要一种能够持有和转移价值的方式。
 
-<!-- TODO: 翻译 block-43 -->
-A bank launched a digital asset desk. An asset manager created a Bitcoin product. A payment company experimented with blockchain.
+这就涉及数字钱包、身份、授权以及交易结算。
 
-<!-- TODO: 翻译 block-44 -->
-Those developments mattered, but I think the more interesting question today is different.
+传统支付系统主要围绕个人和企业设计，并不是为了让数以百万计的自主软件程序，全天候进行小额、可编程交易而建立的。
 
-<!-- TODO: 翻译 block-45 -->
-Instead of asking whether traditional finance is entering crypto, perhaps we should ask:
+相比之下，区块链和稳定币天然具有可编程的特点。
 
-<!-- TODO: 翻译 block-46 -->
-**Which parts of traditional finance are beginning to move onchain?**
+也正是在这里，两个经常被分别讨论的趋势——**AI 与稳定币**——开始可能出现真正的交汇。
 
-<!-- TODO: 翻译 block-47 -->
-Again, the [TOKEN2049 Singapore agenda](https://www.token2049.com/singapore/agenda) reflects this change clearly, with sessions focused on tokenized markets, institutional finance, onchain settlement, DeFi and stablecoin payments.
+如果未来 AI Agent 能够成为独立参与经济活动的执行主体，那么它们会使用什么样的货币？
 
-<!-- TODO: 翻译 block-48 -->
-That change in language matters.
+这是我希望在 TOKEN2049 会议中进一步了解的问题之一。
 
-<!-- TODO: 翻译 block-49 -->
-The future of crypto may not depend on convincing everyone to become a crypto investor. It may depend on blockchain infrastructure quietly becoming useful for things people already do: transferring money, settling transactions, managing collateral, issuing assets or moving funds across borders.
+最终答案未必是人们通常理解的、带有投机属性的加密货币。
 
-<!-- TODO: 翻译 block-50 -->
-Visa’s expanding [stablecoin settlement infrastructure](https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-launches-stablecoin-settlement-in-the-united-states.html) illustrates this shift. Mastercard’s work on integrating stablecoins into existing payment rails points in the same direction.
+它也可能只是由区块链基础设施在后台支持、能够自动完成转账与结算的可编程数字美元。
 
-<!-- TODO: 翻译 block-51 -->
-That does not mean banks, card networks or fiat money disappear.
+## 3. 是传统金融正在进入 Crypto，还是金融本身正在逐渐上链？
 
-<!-- TODO: 翻译 block-52 -->
-It may mean something more subtle.
+过去几年，每当一家传统金融机构宣布进入加密货币市场时，往往都会引起行业关注。
 
-<!-- TODO: 翻译 block-53 -->
-Traditional finance and onchain finance may gradually stop looking like two completely separate systems.
+一家银行成立数字资产业务部门，一家资产管理公司推出比特币投资产品，或者一家支付企业开始测试区块链技术，都可能成为重要新闻。
 
-<!-- TODO: 翻译 block-54 -->
-4. Will mass adoption happen when people stop noticing the blockchain?
+这些进展当然具有意义。
 
-<!-- TODO: 翻译 block-55 -->
-There was a time when nearly every blockchain product wanted users to know that it was a blockchain product.
+但我觉得，今天更值得思考的已经不再是传统金融是否正在进入 Crypto。
 
-<!-- TODO: 翻译 block-56 -->
-“Powered by blockchain” was part of the selling point.
+也许我们应该换一个问题：
 
-<!-- TODO: 翻译 block-57 -->
-I am beginning to think the opposite may eventually be true.
+**传统金融究竟有哪些业务，正在逐渐迁移到区块链上？**
 
-<!-- TODO: 翻译 block-58 -->
-Most people who pay with a Visa card do not think about clearing networks, correspondent banks or settlement infrastructure. They simply care whether the transaction works.
+再次查看 [TOKEN2049 Singapore 的官方议程](https://www.token2049.com/singapore/agenda)，可以发现代币化市场、机构金融、链上结算、DeFi 以及稳定币支付，已经成为重要讨论方向。
 
-<!-- TODO: 翻译 block-59 -->
-The same could eventually happen with blockchain.
+这种语言上的变化值得注意。
 
-<!-- TODO: 翻译 block-60 -->
-A consumer might use a normal card while stablecoins are involved somewhere in the settlement process. A company could send an international payment without caring which blockchain moved the funds. A merchant might receive local currency even though part of the transaction travelled through a stablecoin. An AI agent might pay another service without a human ever opening a crypto wallet.
+Crypto 的未来或许并不取决于我们能否说服所有人成为加密货币投资者，而在于区块链能否逐渐成为普通金融活动中实用的底层技术。
 
-<!-- TODO: 翻译 block-61 -->
-The blockchain could become less visible precisely because it becomes more useful.
+例如跨境转账、交易结算、抵押品管理、金融资产发行，以及不同国家和地区之间的资金流动。
 
-<!-- TODO: 翻译 block-62 -->
-Perhaps mass adoption will not happen when everyone owns crypto.
+Visa 持续扩展的[稳定币结算基础设施](https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-launches-stablecoin-settlement-in-the-united-states.html)，正体现出这一方向。
 
-<!-- TODO: 翻译 block-63 -->
-**It may happen when people use crypto infrastructure without realizing they are using it.**
+Mastercard 将稳定币整合进现有支付网络的尝试，也提出了类似的可能性。
 
-<!-- TODO: 翻译 block-64 -->
-That is why I am increasingly less interested in the number of people who call themselves crypto users and more interested in the infrastructure being built underneath ordinary financial products.
+这并不意味着银行、银行卡网络或者法定货币将会因此消失。
 
-<!-- TODO: 翻译 block-65 -->
-5. After TOKEN2049, what direction is the financial system actually pointing?
+真正可能发生的变化，也许更加细微。
 
-![TOKEN2049 Singapore 2026 conference stage and audience ahead of discussions on crypto, AI, stablecoins and the future of finance](/images/token2049-singapore-2026-finance-outlook.png "token2049-singapore-2026-finance-outlook")
+传统金融与链上金融，可能会逐渐不再是两个完全独立的体系。
 
-<!-- TODO: 翻译 block-67 -->
-I do not expect TOKEN2049 to redesign global finance in two days.
+## 4. 当人们不再注意到区块链时，大规模采用才会真正发生吗？
 
-<!-- TODO: 翻译 block-68 -->
-Conferences do not work like that.
+曾经有一段时间，几乎所有区块链产品都希望用户知道，自己正在使用的是一种区块链产品。
 
-<!-- TODO: 翻译 block-69 -->
-But they can reveal where attention, capital and talent are moving. When exchanges, blockchain developers, stablecoin companies, payment networks, institutional investors and AI builders all begin discussing similar problems, it becomes useful to pay attention to the overlap.
+“Powered by Blockchain”（由区块链技术支持）甚至成为宣传产品的重要卖点。
 
-<!-- TODO: 翻译 block-70 -->
-Right now, three trends seem to be moving closer together:
+但我开始觉得，未来的情况可能恰恰相反。
 
-<!-- TODO: 翻译 block-71 -->
-**Stablecoins are becoming payment and settlement infrastructure.**
+大多数人在使用 Visa 卡支付时，并不会思考清算网络、代理银行或者资金结算基础设施究竟如何运作。
 
-<!-- TODO: 翻译 block-72 -->
-**More traditional financial activity is experimenting with onchain rails.**
-
-<!-- TODO: 翻译 block-73 -->
-**AI agents may create a new category of economic participant that needs programmable money.**
-
-<!-- TODO: 翻译 block-74 -->
-If those three trends continue to converge, the future financial system may look very different from the old argument of “crypto versus banks.”
-
-<!-- TODO: 翻译 block-75 -->
-It may not be a victory for one side over the other.
-
-<!-- TODO: 翻译 block-76 -->
-Instead, we could see the boundary between traditional finance and crypto become increasingly difficult to identify.
-
-<!-- TODO: 翻译 block-77 -->
-Bank accounts may remain. Visa and Mastercard may remain. Fiat currencies will remain. At the same time, stablecoins, tokenized assets and blockchain settlement could increasingly operate underneath them.
-
-<!-- TODO: 翻译 block-78 -->
-For ordinary users, the technology may eventually matter less than the result.
-
-<!-- TODO: 翻译 block-79 -->
-The money arrives faster. Cross-border payments become easier. Markets operate for longer hours. Software can transact with software. Financial products become more programmable.
-
-<!-- TODO: 翻译 block-80 -->
-And somewhere underneath all of that, blockchain may simply become another piece of financial infrastructure.
-
-<!-- TODO: 翻译 block-81 -->
-That is why I am watching TOKEN2049 Singapore differently this time.
-
-<!-- TODO: 翻译 block-82 -->
-I am not looking for the next token narrative, and I am not particularly interested in whether one keynote temporarily moves the market.
-
-<!-- TODO: 翻译 block-83 -->
-I want to know whether the conversations in Singapore confirm something that has gradually become more visible throughout 2026:
-
-<!-- TODO: 翻译 block-84 -->
-**Crypto may no longer be trying to build a financial system outside traditional finance. The two systems may already be starting to merge.**
-
-<!-- TODO: 翻译 block-85 -->
-Tomorrow, TOKEN2049 begins.
-
-<!-- TODO: 翻译 block-86 -->
-After it ends, I want to come back to these questions and see what the conference actually told us.
-
-<!--
-原文：https://flowanriver.com/posts/token2049-crypto-future-of-finance/
-人工检查项目：
-block-0：缺少中文译文
-block-1：缺少中文译文
-block-2：缺少中文译文
-block-3：缺少中文译文
-block-4：缺少中文译文
-block-5：缺少中文译文
-block-6：缺少中文译文
-block-7：缺少中文译文
-block-8：缺少中文译文
-block-9：缺少中文译文
-block-10：缺少中文译文
-block-11：缺少中文译文
-block-12：缺少中文译文
-block-13：缺少中文译文
-block-14：缺少中文译文
-block-15：缺少中文译文
-block-16：缺少中文译文
-block-17：缺少中文译文
-block-18：缺少中文译文
-block-20：缺少中文译文
-block-21：缺少中文译文
-block-22：缺少中文译文
-block-23：缺少中文译文
-block-24：缺少中文译文
-block-25：缺少中文译文
-block-26：缺少中文译文
-block-27：缺少中文译文
-block-28：缺少中文译文
-block-29：缺少中文译文
-block-30：缺少中文译文
-block-31：缺少中文译文
-block-32：缺少中文译文
-block-33：缺少中文译文
-block-34：缺少中文译文
-block-35：缺少中文译文
-block-36：缺少中文译文
-block-37：缺少中文译文
-block-38：缺少中文译文
-block-39：缺少中文译文
-block-40：缺少中文译文
-block-41：缺少中文译文
-block-42：缺少中文译文
-block-43：缺少中文译文
-block-44：缺少中文译文
-block-45：缺少中文译文
-block-46：缺少中文译文
-block-47：缺少中文译文
-block-48：缺少中文译文
-block-49：缺少中文译文
-block-50：缺少中文译文
-block-51：缺少中文译文
-block-52：缺少中文译文
-block-53：缺少中文译文
-block-54：缺少中文译文
-block-55：缺少中文译文
-block-56：缺少中文译文
-block-57：缺少中文译文
-block-58：缺少中文译文
-block-59：缺少中文译文
-block-60：缺少中文译文
-block-61：缺少中文译文
-block-62：缺少中文译文
-block-63：缺少中文译文
-block-64：缺少中文译文
-block-65：缺少中文译文
-block-67：缺少中文译文
-block-68：缺少中文译文
-block-69：缺少中文译文
-block-70：缺少中文译文
-block-71：缺少中文译文
-block-72：缺少中文译文
-block-73：缺少中文译文
-block-74：缺少中文译文
-block-75：缺少中文译文
-block-76：缺少中文译文
-block-77：缺少中文译文
-block-78：缺少中文译文
-block-79：缺少中文译文
-block-80：缺少中文译文
-block-81：缺少中文译文
-block-82：缺少中文译文
-block-83：缺少中文译文
-block-84：缺少中文译文
-block-85：缺少中文译文
-block-86：缺少中文译文
--->
+他们真正关心的，只是这笔交易能否顺利完成。
+
+同样的情况，也可能发生在区块链领域。
+
+未来，消费者可能像往常一样使用银行卡，而某个结算环节已经涉及稳定币。
+
+企业可能通过熟悉的银行或者支付平台完成国际转账，却不需要知道资金究竟通过哪条区块链网络进行转移。
+
+商家可能最终收到的是本国法定货币，但交易中的某个环节已经通过稳定币完成。
+
+AI Agent 也可能自动向其他服务支付费用，而整个过程不需要任何人主动打开加密钱包。
+
+在这样的场景下，区块链可能恰恰因为越来越实用，而逐渐变得不再明显。
+
+因此，真正的大规模采用，也许不会发生在所有人都开始持有加密货币的时候。
+
+**它可能发生在人们已经开始使用 Crypto 基础设施，却并没有意识到自己正在使用它的时候。**
+
+这也是为什么，相比有多少人主动将自己称为加密货币用户，我越来越关注普通金融产品背后正在建立的技术基础设施。
+
+## 5. TOKEN2049 之后，金融体系究竟会朝着什么方向发展？
+
+![TOKEN2049 Singapore 2026 会议舞台与观众，围绕 Crypto、AI、稳定币及未来金融展开讨论](/images/token2049-singapore-2026-finance-outlook.png "TOKEN2049 Singapore 2026 Finance Outlook")
+
+我并不期待 TOKEN2049 能够在短短两天内重新设计全球金融体系。
+
+行业会议显然不具备这样的能力。
+
+但会议可以帮助我们观察，行业注意力、资本以及人才正在向哪些方向流动。
+
+当交易所、区块链开发者、稳定币企业、支付网络、机构投资者以及 AI 开发者，开始围绕类似的问题展开讨论时，它们之间逐渐出现的交集就值得关注。
+
+至少从目前的发展来看，有三个趋势似乎正在不断靠近：
+
+**稳定币正在逐渐成为支付和结算基础设施的一部分。**
+
+**越来越多传统金融活动开始探索链上运行方式。**
+
+**AI Agent 可能创造出一种需要可编程货币的新型经济参与者。**
+
+如果这些趋势继续相互融合，未来的金融体系可能不再适合用“Crypto 与银行之间的竞争”来解释。
+
+这也许不是某一方战胜另一方的故事。
+
+相反，我们可能会看到传统金融与 Crypto 之间的界限越来越难以区分。
+
+银行账户可能继续存在，Visa 和 Mastercard 等支付网络可能继续运营，法定货币也依然会发挥核心作用。
+
+与此同时，稳定币、代币化金融资产，以及区块链结算机制，却可能越来越多地在这些系统背后运行。
+
+对于普通用户而言，技术本身也许最终没有使用结果那么重要。
+
+资金能够更快到账，跨境支付更加便利，金融市场可以提供更长的交易时间，软件能够与软件进行经济交易，金融产品也可以实现更灵活的自动化操作。
+
+而在这些变化的背后，区块链可能只是逐渐成为金融基础设施的一部分。
+
+这也是为什么，我今年会用不同于以往的方式关注 TOKEN2049 Singapore。
+
+我并不是为了寻找下一个代币市场热点，也没有特别期待某一场演讲能够在短时间内推动价格上涨。
+
+我真正希望了解的是，新加坡会议上的讨论，是否能够进一步印证2026年以来逐渐变得清晰的一个趋势：
+
+**Crypto 也许已经不再试图在传统金融体系之外建立一个完全独立的新世界，而是正在与传统金融逐步融合。**
+
+明天，TOKEN2049 就将正式开始。
+
+等会议结束之后，我还想重新回到这些问题，看看这两天的讨论究竟为我们带来了哪些答案。
