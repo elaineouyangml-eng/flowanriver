@@ -3,7 +3,7 @@ import { TRANSLATION_CONFIG } from "../_lib/translation-config.js";
 import { validateTranslation } from "../_lib/translation-validator.js";
 
 const DEFAULT_ARTICLE = "pi-network-seven-years-original-vision";
-const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const SLUG_PATTERN = /^[a-z0-9]+(?:-+[a-z0-9]+)*$/;
 const REVIEW_BATCH = 10;
 
 function json(data, status = 200) {
