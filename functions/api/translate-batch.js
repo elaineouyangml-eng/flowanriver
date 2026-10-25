@@ -4,6 +4,10 @@ import {
   restoreMarkdownLinks
 } from "../_lib/markdown-links.js";
 
+import {
+  splitProtectedTerms
+} from "../_lib/translation-terms.js";
+
 const MODEL = "@cf/meta/m2m100-1.2b";
 
 const DEFAULT_ARTICLE = "pi-network-seven-years-original-vision";
@@ -83,7 +87,34 @@ function prepareParts(block) {
   }
 }
 
+
 async function translateText(env, text) {
+  if (!text.trim()) return text;
+
+  const segments = splitProtectedTerms(text);
+
+  if (!segments.some(part => part.type === "term")) {
+    return translatePlainText(env, text);
+  }
+
+  const results = [];
+
+  for (const segment of segments) {
+    if (segment.type === "term") {
+      results.push(segment.value);
+    } else if (segment.value.trim()) {
+      results.push(
+        await translatePlainText(env, segment.value)
+      );
+    } else {
+      results.push(segment.value);
+    }
+  }
+
+  return results.join("");
+}
+
+async function translatePlainText(env, text) {
   if (!text.trim()) return text;
 
   const result = await env.AI.run(MODEL, {
@@ -101,6 +132,7 @@ async function translateText(env, text) {
 
   return result.translated_text;
 }
+
 
 async function translateParts(env, parts) {
   const translatedParts = [];
