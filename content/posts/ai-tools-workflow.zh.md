@@ -1,7 +1,7 @@
 ---
 title: "我不再比较 AI 工具，而是开始用不同的方式使用它们"
 date: 2026-04-27
-draft: true
+draft: false
 description: "与其比较 ChatGPT、Grok 和 Gemini 哪个更聪明，我更关心如何根据实际工作需要使用不同的 AI 工具。"
 tags: ["AI", "tools", "workflow", "ChatGPT", "Grok"]
 ---
