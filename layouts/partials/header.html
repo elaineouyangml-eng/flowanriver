@@ -60,7 +60,7 @@
                 
                 {{- if (not site.Params.disableLangToggle) }}
                     {{- $lang := .Lang}}
-                    {{- with site.Home.Translations }}
+                    {{- with .Translations }}
                     {{- $separator := or $label_text (not site.Params.disableThemeToggle)}}
                     {{- if $separator }}<span class="nav-sep">|</span>{{ end }}
                     <ul class="lang-menu">
