@@ -1,7 +1,7 @@
 ---
 title: "AI 已不再是最难的部分，真正的挑战是资源与信任"
 date: 2026-04-02
-draft: true
+draft: false
 description: "The barrier to building has dropped. But the real gap now isn't about tools — it's about resources and trust that AI can't replace."
 tags: ["AI"]
 ---
