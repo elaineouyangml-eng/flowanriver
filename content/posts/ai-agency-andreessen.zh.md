@@ -2,7 +2,7 @@
 ---
 title: "AI 不会取代你的工作，但可能让一些人失去竞争力"
 date: 2026-05-08
-draft: true
+draft: false
 tags:
   - AI
   - future of work
