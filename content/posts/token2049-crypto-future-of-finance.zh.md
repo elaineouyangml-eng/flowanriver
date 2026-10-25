@@ -2,7 +2,7 @@
 ---
 title: "TOKEN2049 不再只是关于加密货币：金融的下一步将走向哪里？"
 date: 2026-10-06T10:18:00+08:00
-draft: true
+draft: false
 tags:
   - Crypto
   - TOKEN2049
