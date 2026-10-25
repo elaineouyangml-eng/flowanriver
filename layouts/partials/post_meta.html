@@ -5,7 +5,18 @@
 {{- end }}
 
 {{- if (.Param "ShowReadingTime") -}}
-    {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" (i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime)))) }}
+    {{- $readingTime := .ReadingTime -}}
+
+    {{- if and (eq .Lang "zh") (eq .Section "posts") -}}
+        {{- $content := .Plain -}}
+        {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" $content) -}}
+        {{- $readingTime = int (math.Ceil (div (float $chineseChars) 400)) -}}
+        {{- if lt $readingTime 1 -}}
+            {{- $readingTime = 1 -}}
+        {{- end -}}
+    {{- end -}}
+
+    {{- $scratch.Add "meta" (slice (printf "<span>%s</span>" (i18n "read_time" $readingTime | default (printf "%d min" $readingTime)))) -}}
 {{- end }}
 
 {{- if not (.Param "hideAuthor") -}}
