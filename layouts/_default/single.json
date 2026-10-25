@@ -3,6 +3,10 @@
   {{- $blocks := partial "translation-blocks.html" . -}}
   {{- dict
     "article" .RelPermalink
+    "title" .Title
+    "date" (.Date.Format "2006-01-02")
+    "description" .Description
+    "tags" (.Params.tags | default (slice))
     "count" (len $blocks)
     "blocks" $blocks
     | jsonify -}}
