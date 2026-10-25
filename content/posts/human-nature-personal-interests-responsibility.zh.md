@@ -2,7 +2,7 @@
 ---
 title: "利益面前，我们还能保留多少初心？"
 date: 2026-10-16T11:35:00+08:00
-draft: true
+draft: false
 tags:
   - Journal
   - Human Nature
