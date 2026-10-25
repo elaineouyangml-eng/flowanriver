@@ -23,7 +23,7 @@
     const token = tokenInput.value;
 
     if (
-      !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article) ||
+      !/^[a-z0-9]+(?:-+[a-z0-9]+)*$/.test(article) ||
       article.length > 100 ||
       !token
     ) {
