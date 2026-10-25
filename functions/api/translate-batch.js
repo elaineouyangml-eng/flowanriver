@@ -8,7 +8,7 @@ const MODEL = "@cf/meta/m2m100-1.2b";
 
 const DEFAULT_ARTICLE = "pi-network-seven-years-original-vision";
 const MAX_BATCH = 2;
-const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const SLUG_PATTERN = /^[a-z0-9]+(?:-+[a-z0-9]+)*$/;
 
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
