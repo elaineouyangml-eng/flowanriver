@@ -1,14 +1,13 @@
 
+
 ---
 title: "AI 不会消灭工作，而是正在改变工作中的任务"
 date: 2026-05-20
-draft: true
-tags:
-  - AI
-  - future of work
-  - productivity
+draft: false
+tags: ["AI", "future of work", "productivity"]
 description: "AI 正在改变不同职业中的具体任务，也让个人有机会跨越传统的职业边界。未来真正重要的，是定义问题、整合资源和承担结果的能力。"
 ---
+
 
 最近，我看到一个观点，让我停下来认真想了想：
 
