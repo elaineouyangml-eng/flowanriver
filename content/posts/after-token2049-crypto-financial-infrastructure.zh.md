@@ -1,137 +1,223 @@
+
 ---
 title: "TOKEN2049 之后：加密货币正在从一个行业走向金融基础设施"
-date: 2026-10-09
+date: 2026-10-09T14:09:00+08:00
 draft: true
-description: "TOKEN2049 Singapore 2026 showed a crypto industry increasingly focused on payments, AI agents, tokenized markets and regulated financial infrastructure rather than standalone crypto narratives."
-tags: ["Crypto","TOKEN2049","Stablecoins","AI","Tokenization","Finance"]
+tags:
+  - Crypto
+  - TOKEN2049
+  - Stablecoins
+  - AI
+  - Tokenization
+  - Finance
+description: "回顾 TOKEN2049 Singapore 2026，探讨稳定币、AI Agent、资产代币化与监管如何推动加密货币逐渐融入全球金融基础设施。"
+cover:
+  image: /images/token2049-singapore-2026-main-stage.png
+  alt: "TOKEN2049 Singapore 2026 在滨海湾金沙举行的会议主舞台。"
 ---
 
-<!-- 中文机器翻译草稿，公开发布前须检查 -->
+在 TOKEN2049 Singapore 开始前两天，我写下了几个希望能够从这次会议中找到答案的问题。
 
-在TOKEN2049新加坡开始两天前,我写下了一些问题,我想在会议上回答,我对比特币在讲话后可能做什么或哪个项目可能成为下一个短暂的叙述更感兴趣,更感兴趣的是稳定币是否正在成为金融基础设施的一部分,人工智能代理人是否真的需要加密,以及传统金融是否正在进入加密货币 - 或者金融本身开始在链上移动。
+相比会议演讲之后比特币价格会出现怎样的变化，或者哪个项目可能成为下一个短暂的市场热点，我更感兴趣的是另外几个问题：稳定币是否正在逐渐成为金融基础设施的一部分？AI Agent 是否真的需要加密货币？传统金融究竟是在进入 Crypto 行业，还是金融本身已经开始向链上迁移？
 
-在我以前的作品中, *[TOKEN2049不再只是关于加密货币,下一步是金融?](https://flowanriver.com/posts/token2049-crypto-future-of-finance/),我写道,更有趣的问题不再只是加密货币的下一个方向,而是金融的下一个方向,在新加坡两天后,我不认为TOKEN2049给了我们最终的答案,但这个方向变得越来越难忽视。
+在此前的文章 [《TOKEN2049 不再只是关于加密货币，金融的下一步将走向哪里？》](https://flowanriver.com/posts/token2049-crypto-future-of-finance/) 中，我曾经提出，或许比加密货币下一步如何发展更值得关注的，是金融体系接下来将发生怎样的变化。
 
-<!-- TODO: 翻译 block-2 -->
-The conference was still very much a crypto conference, with exchanges, protocols, market narratives, new products and plenty of discussion about where digital assets go next. Yet a look through the official [TOKEN2049 Singapore agenda](https://www.token2049.com/singapore/agenda?utm_source=chatgpt.com) shows how much of the language has shifted toward payments, settlement, tokenized markets, institutional finance and AI agents. That is what felt different this time. Crypto is beginning to look less like a separate industry sitting outside finance and more like a collection of technologies gradually being absorbed into the financial system.
+经过新加坡两天的会议，我并不认为 TOKEN2049 已经给出了明确的答案，但有一个方向似乎正在变得越来越清晰。
 
-![TOKEN2049 Singapore 2026 exhibition floor with crypto, blockchain and financial technology companies](/images/token2049-singapore-2026-exhibition-floor.png "TOKEN2049 Singapore 2026 Exhibition Floor")
+这仍然是一场典型的加密货币行业大会。交易所、区块链协议、新产品、市场热点以及数字资产未来的发展方向，依然是会议的重要组成部分。然而，如果仔细查看 [TOKEN2049 Singapore 官方议程](https://www.token2049.com/singapore/agenda)，就会发现，越来越多的讨论开始围绕支付、结算、资产代币化、机构金融和 AI Agent 展开。
 
-## Stablecoins越来越接近支付层
+我觉得，这正是今年会议与以往有所不同的地方。
 
-在TOKEN2049之前,stablecoins已经是这种转变的最清晰的例子之一。USDT通过流动性和全球加密使用建立了自己的地位,而USDC与监管机构和连锁金融密切相关。
+加密货币似乎正在逐渐摆脱一个独立于传统金融体系之外的行业形象，相关技术也开始以不同的方式进入现有金融体系。
 
-![Open Standard introducing Open USD (OUSD) as a shared stablecoin for global financial activity](/images/open-usd-ousd-stablecoin-infrastructure.png "Open USD (OUSD) by Open Standard")
+![TOKEN2049 Singapore 2026 展会现场，汇集加密货币、区块链与金融科技企业](/images/token2049-singapore-2026-exhibition-floor.png "TOKEN2049 Singapore 2026 Exhibition Floor")
 
-在TOKEN2049上,围绕稳定币的谈话反映了更广泛的变化。官方议程包括“稳定币支付的下一个时代”(The Next Era of Stablecoin Payments)和“稳定币:支付行业(Stablecoins: The Payments Industry, Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebuilt)(Rebu
+## 稳定币正在逐渐成为支付基础设施的一部分
 
-这种区别很重要,因为真正的意义可能不是消费者突然放弃银行账户并开始思考在USDC,USDT或OUSD上。这可能是恰恰相反的。越成功的稳定币成为基础设施,他们最终可能对付款人的看法越少。这是我在TOKEN2049之前提出的问题之一:当更多人意识到成为“加密用户”时,大规模采用会发生,或者当人们开始使用加密基础设施而不考虑它时?本周之后,我更倾向于第二种可能性。
+在 TOKEN2049 举行之前，稳定币已经是这一变化中较为明显的例子。
 
-Stablecoins似乎不再只在加密货币内部争取合法性,而且越来越多地在支付中争取一个地方。
+USDT 主要通过流动性优势和全球加密货币市场中的广泛使用建立了自己的地位，而 USDC 则与受监管金融机构以及链上金融的发展联系得更加紧密。
 
-## AI + Crypto正在成为一个金融问题
+最近，OUSD 也引起了我的注意，因为它采用了另一种不同的模式，希望通过包括 Coinbase、Mastercard、Shopify、Stripe 和 Visa 等企业在内的金融及商业生态网络，拓展稳定币的分发和使用场景。
 
-从迈阿密到香港,现在是新加坡,AI在今年的加密会议上反复出现了,有一段时间,我发现一些AI + Crypto叙述很难认真对待,因为将两种流行的技术放在同一个演示中不会自动创造一个有用的产品。
+![Open Standard 推出的 Open USD（OUSD），探索稳定币在全球金融活动中的应用](/images/open-usd-ousd-stablecoin-infrastructure.png "Open USD (OUSD) by Open Standard")
 
-TOKEN2049的感觉略有不同,因为谈话更接近一个实际的问题:如果AI代理人最终代表人们或企业,他们将如何与金钱互动?
+在 TOKEN2049 上，关于稳定币的讨论进一步反映出这种变化。
 
-会议议程包括围绕人工智能代理商在区块链网络上交易的讨论和“代理经济:为什么人工智能需要加密”(The Agent Economy: Why AI Needs Crypto)在会议周围,谈话进一步扩大到代理支付,钱包和自主金融活动,这使得这个问题比其他一轮人工智能代币投机更有趣。
+官方议程中出现了 *The Next Era of Stablecoin Payments*（稳定币支付的下一个时代）以及 *Stablecoins: The Payments Industry, Rebuilt*（稳定币：重构支付行业）等主题。
 
-人工智能已经可以生成内容,分析信息和自动化工作流程,但一旦一个代理人被允许购买服务,支付计算资源,执行交易或向另一个代理人发送资金,金融进入了画面。
+这些议题本身就说明，市场对于稳定币的关注已经不再局限于交易用途。
 
-如果软件开始与软件进行交易,那么哪种货币最有效的问题也变得不可避免。
+过去，稳定币更多被视为一种用于交易、转移美元价值，或者在交易所、钱包与区块链协议之间调配资金的工具。但现在，更重要的问题是，它能否进入商户支付、企业资金管理、跨境结算，以及现有银行卡支付网络的底层系统。
 
-新加坡监管机构似乎在从另一个角度思考同样的问题,10月7日,新加坡货币管理局发布了一份新的报告。[关于金融机构人工智能风险管理的指导方针](https://www.mas.gov.sg/regulation/guidelines/guidelines-on-artificial-intelligence-risk-management-for-financial-institutions?utm_source=chatgpt.com)将对问责、治理、测试、人体监督和生命周期控制的期望提出,因为人工智能系统变得更加有能力和自主。
+这种区别值得认真思考。
 
-虽然TOKEN2049的一些部分正在询问人工智能代理人可以用钱包和可编程的钱包做些什么,但监管机构正在询问金融机构如何在人工智能变得更加自主时应如何承担责任。
+稳定币真正产生广泛影响的方式，可能并不是消费者突然放弃银行账户，开始习惯使用 USDC、USDT 或 OUSD 进行日常交易。
 
-## 代币化正在从“我们可以把什么放在链上?”转向“这些市场应该如何运作?”
+情况或许恰恰相反。
 
-Tokenization 已经被讨论了多年,通常在现实世界资产的广泛标签下,但这次的谈话感觉更成熟了. 问题不再仅仅是股票,基金或其他资产是否可以在区块链上被代表。
+当稳定币越来越多地成为金融基础设施的一部分时，普通消费者反而可能越来越难注意到它的存在。
 
-<!-- TODO: 翻译 block-20 -->
-TOKEN2049 Day 2 leaned heavily in that direction, with traditional financial institutions and crypto companies discussing tokenized assets, global liquidity and onchain settlement in the same context. While the conference was taking place, Securitize announced blockchain-based tokenized stock trading for shares including Apple, Nvidia and Microsoft. Reuters reported that the products are backed by the actual underlying shares, bringing traditional equities another step closer to blockchain-based market infrastructure. [Reuters: Securitize launches blockchain-based stocks](https://www.reuters.com/legal/government/securitize-launches-blockchain-based-stocks-2026-10-08/?utm_source=chatgpt.com)
+这也是我在 TOKEN2049 之前提出过的问题：真正的大规模采用，究竟发生在人们主动成为加密货币用户的时候，还是发生在人们已经开始使用加密货币基础设施，却并不需要意识到这一点的时候？
 
-<!-- TODO: 翻译 block-21 -->
-Only a few days earlier, OKXICE — a joint venture between OKX and Intercontinental Exchange — filed with the U.S. Securities and Exchange Commission seeking approval for a platform that would support 24/7 trading of tokenized U.S. securities. [Reuters: OKX joint venture files for tokenized securities platform](https://www.reuters.com/legal/government/okx-joint-venture-files-with-sec-launch-tokenized-trading-platform-2026-10-05/?utm_source=chatgpt.com)
+经过这次会议，我更加倾向于后一种可能性。
 
-这是一个与代币化早期非常不同的对话,旧的问题是,什么可以被代币化;现在更难的问题是资产交易在哪里,它如何定居,谁持有底层安全,它如何连接到受监管的交易所,以及投资者权利发生了什么。
+稳定币似乎已经不再仅仅寻求加密货币行业内部的认可，而是在逐渐争取成为全球支付体系的一部分。
 
-10月8日,Standard Chartered宣布计划在新加坡扩大其数字资产托管服务,包括针对机构和符合条件的企业客户选择的加密资产、稳定货币和代币化现实资产。
+## AI 与 Crypto 的结合，正在变成一个金融问题
 
-对我来说,重要的是不仅仅是另一个大型银行“进入了加密货币”,更重要的变化是,数字资产正在融入现有机构功能,如托管、融资和证券服务。
+从迈阿密到香港，再到新加坡，AI 几乎贯穿了我今年关注的几场加密货币会议。
 
-## 法规决定什么被融资吸收
+坦率地说，有一段时间，我对某些 AI + Crypto 的市场叙事并没有太大兴趣。因为把两项热门技术放进同一份商业计划，并不意味着它们自然能够形成具有实际价值的产品。
 
-随着稳定币,代币资产和机构托管的扩张,它可以看起来像监管只是变得更加加密友好。
+但这次 TOKEN2049 让我产生了不一样的感受。
 
-监管机构正在决定加密货币的哪些部分可以融入金融系统,在哪些条件下,以及哪些部分仍然会产生他们不愿意吸收的风险。
+会议开始更多地关注一个实际问题：如果未来 AI Agent 能够代表个人或者企业执行任务，那么它们将如何与金钱发生联系？
 
-MAS继续支持机构的数字资产基础设施和代币化,同时加强围绕金融风险和人工智能的治理,新AI指南明确表示,金融机构仍然对人工智能的使用方式负责,即使涉及第三方系统。
+官方议程中出现了围绕 AI Agent 在区块链网络上进行交易的讨论，也包括 *The Agent Economy: Why AI Needs Crypto*（代理经济：为什么 AI 需要加密货币）这样的主题。
 
-欧洲正朝着类似的方向前进,但通过更正式的MiCA框架。10月8日,欧洲证券市场管理局发布了与不符合MiCA的稳定币相关服务的新监管期望。ESMA的做法清楚地表明,问题不仅在于稳定币是否存在,而且是否授权的加密货币公司可以继续在欧盟内提供交易、托管、转让和其他相关服务。[ESMA的监管意见](https://www.esma.europa.eu/press-news/esma-news/esma-sets-out-supervisory-expectations-services-related-unauthorised?utm_source=chatgpt.com)是的
+围绕会议展开的讨论还进一步延伸至 AI Agent 支付、数字钱包以及自主金融活动。
 
-与此同时,欧洲银行管理局已经期待MiCA的下一阶段。9月,欧洲银行管理局确定了包括多发行国稳定币、加密贷款、DeFi和加密资产分类等领域作为审查优先事项。[MiCA审查优先事项](https://www.eba.europa.eu/publications-and-media/press-releases/eba-identifies-priorities-review-mica)显示欧洲已经超越了加密货币是否应该被监管的基本问题;现在讨论的是随着产品变得更加复杂,规则如何发展。
+相比又一轮关于 AI 概念代币的市场炒作，我认为这些问题更加值得研究。
 
-这就是为什么我不认为这个故事只是说,监管正在“打开”加密货币。加密货币正在被选择性地集成。稳定货币可能成为受监管的支付基础设施的一部分,但储备,赎回和合规性要求很重要。代币化证券可能会在链上移动,但证券法不会消失。人工智能代理人最终可能执行金融交易,但责任和风险控制变得更重要,而不是更少。
+今天，AI 已经能够生成内容、分析数据，并自动完成部分工作流程。但如果未来一个 AI Agent 获得授权，可以购买某项服务、支付计算资源费用、执行金融交易，甚至向另一个 AI Agent 转账，那么它就开始真正参与经济活动。
 
-在这种意义上,监管不仅仅是减缓或鼓励采用,它有助于决定什么是加密货币成为金融。
+随之而来的问题，也不再只是技术能否完成这些操作。
 
-## 最重要的变化可能是边界变得越来越难看到。
+谁有权允许 AI Agent 使用资金？谁控制相关钱包？交易金额应该受到怎样的限制？如果 AI Agent 作出了错误决定，又应该由谁承担相应的责任？
 
-在TOKEN2049之前,我想知道加密货币是否仍然试图在传统金融之外建立一个替代性的金融体系。
+当软件开始与软件进行交易，什么样的货币和结算方式更适合这种场景，也就成为一个无法回避的问题。
 
-Stablecoins正在与支付网络连接,代币化证券正在与受监管的市场连接,银行正在为数字资产构建托管基础设施,AI代理人正在开始提出关于可编程货币和自动化金融活动的问题。
+在这样的环境下，稳定币以及可编程的链上结算机制，开始呈现出更加明确的应用逻辑。
 
-可能改变的是这些系统背后的东西。
+值得注意的是，新加坡监管机构也正在从另一个角度思考类似的问题。
 
-支付可能涉及一个stablecoin,而客户从未持有加密钱包。 一个安全性可能会通过熟悉的金融界面进行交易,而部分结算发生在链上。
+10月7日，新加坡金融管理局（MAS）发布了[《金融机构人工智能风险管理指南》](https://www.mas.gov.sg/regulation/guidelines/guidelines-on-artificial-intelligence-risk-management-for-financial-institutions)，围绕人工智能系统日益增强的能力和自主性，对责任归属、治理、测试、人类监督以及全生命周期风险管理提出了相关要求。
 
-这就是为什么TOKEN2049这次对我来说是不同的原因,它仍然充满了加密公司和加密原生想法,但越来越多的问题听起来像是金融本身的问题:支付如何移动,资产如何持有和结算,市场如何运作,监管如何适应,以及自动软件如何最终与货币相互作用。
+这个时间节点很有意思。
 
-加密货币并没有消失,但也许其下一个阶段将被定义为变得不太明显,而不是要求每个人进入一个单独的加密经济,加密货币的部分可能会被嵌入到人们已经使用的经济中。
+当 TOKEN2049 的部分讨论正在探索 AI Agent 可以利用钱包和可编程货币完成哪些任务时，监管机构则开始关注，当人工智能系统拥有更高自主权时，金融机构应该如何继续履行自己的责任。
 
-在TOKEN2049之前的两天,我问金融可能下一步去哪儿,新加坡之后,答案仍然不完整,但一个方向看起来更清楚:
+从这个角度来看，AI 与 Crypto 的结合正在逐渐超越单纯的技术叙事，开始进入金融治理和风险管理的讨论范围。
 
-<!-- TODO: 翻译 block-41 -->
-**Crypto is starting to look less like a separate industry — and more like infrastructure.**
+## 资产代币化的重点，正在从技术可行性转向市场如何运作
 
-<!--
-原文：https://flowanriver.com/posts/after-token2049-crypto-financial-infrastructure/
-人工检查项目：
-block-0：需要检查译文
-block-1：需要检查译文
-block-2：缺少中文译文
-block-5：需要检查译文
-block-7：需要检查译文
-block-8：需要检查译文
-block-9：需要检查译文
-block-11：需要检查译文
-block-12：需要检查译文
-block-13：需要检查译文
-block-14：需要检查译文
-block-15：需要检查译文
-block-16：需要检查译文
-block-17：需要检查译文
-block-19：需要检查译文
-block-20：缺少中文译文
-block-21：缺少中文译文
-block-22：需要检查译文
-block-23：需要检查译文
-block-24：需要检查译文
-block-26：需要检查译文
-block-27：需要检查译文
-block-28：需要检查译文
-block-29：需要检查译文
-block-30：需要检查译文
-block-31：需要检查译文
-block-32：需要检查译文
-block-34：需要检查译文
-block-35：需要检查译文
-block-36：需要检查译文
-block-37：需要检查译文
-block-38：需要检查译文
-block-39：需要检查译文
-block-40：需要检查译文
-block-41：缺少中文译文
--->
+资产代币化并不是一个新概念。
+
+过去几年，市场经常在现实世界资产（Real-World Assets，RWA）的框架下讨论这一领域。
+
+但这次 TOKEN2049 的相关讨论，让我觉得这个话题正在变得更加成熟。
+
+过去的问题通常是，股票、基金或者其他金融资产能不能被放到区块链上。
+
+现在，市场开始更多地讨论资产托管、交易结算、交易时间、监管要求，以及代币化资产应该如何与现有金融市场连接。
+
+TOKEN2049 第二天的议程尤其体现了这一方向。传统金融机构与 Crypto 企业开始将代币化资产、全球流动性和链上结算放在同一个背景下讨论。
+
+会议期间，Securitize 宣布推出基于区块链的代币化股票交易产品，涉及 Apple、Nvidia 和 Microsoft 等公司的股票。
+
+根据 [Reuters 于10月8日的报道](https://www.reuters.com/legal/government/securitize-launches-blockchain-based-stocks-2026-10-08/)，这些产品由实际的标的股票支持，使传统股票市场向区块链金融基础设施又迈进了一步。
+
+就在几天之前，由 OKX 与 Intercontinental Exchange 组成的合资企业 OKXICE，也向美国证券交易委员会（SEC）提交了申请，希望获得运营代币化美国证券交易平台的许可，并支持全天候交易。
+
+相关进展可以参考 [Reuters 10月5日的报道](https://www.reuters.com/legal/government/okx-joint-venture-files-with-sec-launch-tokenized-trading-platform-2026-10-05/)。
+
+这些变化与资产代币化发展的早期阶段已经有所不同。
+
+过去，人们更多讨论什么资产可以被代币化；现在，真正困难的问题是这些资产应该在哪里交易、如何完成结算、由谁持有底层证券，以及它们应该如何与受监管的交易所连接。
+
+还有一个同样重要的问题：当股票或者其他证券通过区块链形式进行交易时，投资者原本拥有的法律权利应该如何得到保护？
+
+这些已经不只是产品设计问题，而是涉及金融市场结构的问题。
+
+传统金融机构也正在向类似的方向发展。
+
+10月8日，Standard Chartered 宣布计划扩大其在新加坡提供的数字资产托管服务，在符合监管要求的前提下，为机构客户及符合条件的企业客户提供特定加密资产、稳定币以及代币化现实世界资产的托管服务。
+
+在我看来，值得关注的并不只是又有一家大型银行进入 Crypto 领域。
+
+更重要的变化在于，数字资产正在逐渐被纳入传统金融机构已经熟悉的业务体系，例如资产托管、融资以及证券服务。
+
+这与早期围绕区块链展开的各种技术试验相比，已经更接近金融基础设施的实际建设。
+
+## 监管正在决定哪些 Crypto 应用能够进入金融体系
+
+当稳定币、代币化资产以及机构托管业务不断发展时，我们很容易产生一种印象：监管机构是不是正在变得越来越支持 Crypto？
+
+但我觉得，事情可能没有那么简单。
+
+更准确地说，监管机构正在逐渐明确，哪些 Crypto 产品和服务可以被纳入现有金融体系、需要满足哪些条件，以及哪些风险仍然无法被接受。
+
+新加坡就是一个值得观察的例子。
+
+MAS 一方面继续支持机构数字资产基础设施和代币化的发展，另一方面也不断完善金融风险与人工智能治理方面的要求。
+
+新的 AI 风险管理指南也说明，即使金融机构使用第三方人工智能系统，相关责任仍然不能简单地转移给技术供应商。
+
+欧洲则通过更加制度化的 MiCA 框架推进相关监管。
+
+10月8日，欧洲证券和市场管理局（ESMA）公布了与不符合 MiCA 要求的稳定币相关服务的监管预期。
+
+这一监管方向表明，问题已经不只是某种稳定币能否存在于市场，而是获得授权的加密资产服务提供商，能否继续在欧盟范围内提供与其有关的交易、托管、转账及其他服务。
+
+具体内容可以参考 [ESMA 发布的监管意见](https://www.esma.europa.eu/press-news/esma-news/esma-sets-out-supervisory-expectations-services-related-unauthorised)。
+
+与此同时，欧洲银行管理局（EBA）也开始关注 MiCA 下一阶段需要解决的问题。
+
+9月，EBA 将多发行主体稳定币、加密资产借贷、DeFi 以及加密资产分类等领域列为重点审查方向。
+
+从其公布的 [MiCA 审查优先事项](https://www.eba.europa.eu/publications-and-media/press-releases/eba-identifies-priorities-review-mica)可以看出，欧洲的讨论已经逐渐超越了加密货币是否应该受到监管这一基本问题，转而关注随着产品和市场结构变得更加复杂，相关规则应该如何继续完善。
+
+因此，我并不认为当前的变化可以简单理解为监管正在全面向 Crypto 开放。
+
+更接近现实的情况是，Crypto 正在被选择性地纳入金融体系。
+
+稳定币可能成为受监管支付基础设施的一部分，但储备资产、赎回安排和合规要求依然重要。
+
+代币化证券可以通过区块链进行交易和结算，但证券法律并不会因此失去效力。
+
+AI Agent 未来可能自主执行某些金融交易，但这只会让责任归属与风险控制变得更加重要。
+
+至于某些高度杠杆化或者难以有效监管的加密产品，可能还需要更长时间，才能进入主流金融基础设施。
+
+从这个意义上来说，监管并不只是决定 Crypto 的发展速度。
+
+它也在一定程度上决定，究竟哪些 Crypto 技术和产品能够真正成为金融体系的一部分。
+
+## 最重要的变化，也许是金融与 Crypto 之间的边界正在变得模糊
+
+在 TOKEN2049 开始之前，我曾经思考，Crypto 是否仍然希望在传统金融体系之外，建立一个独立的金融世界。
+
+但在新加坡会议之后，我觉得这个问题本身可能已经没有那么重要了。
+
+稳定币正在与支付网络建立联系，代币化证券正在进入受监管的金融市场，银行开始为数字资产提供托管基础设施，而 AI Agent 的发展又进一步提出了关于可编程货币和自动化金融活动的新问题。
+
+这些变化并不意味着传统金融体系会因此消失。
+
+银行仍然会存在，银行卡支付网络仍然会继续运行，监管机构仍然需要履行职责，法定货币也依然会在经济活动中发挥核心作用。
+
+真正可能发生改变的，是这些系统背后使用的技术。
+
+未来，一笔支付可能通过稳定币完成，但消费者从头到尾都不需要拥有自己的加密钱包。
+
+某种证券可能通过人们已经熟悉的金融交易界面进行买卖，而部分结算流程已经在区块链上完成。
+
+一个 AI Agent 也可能在获得授权后使用可编程货币完成支付，而使用这项服务的人甚至不需要了解区块链的运行机制。
+
+这也是为什么我觉得，这次 TOKEN2049 与以往有所不同。
+
+会议依然聚集了大量 Crypto 企业，也依然充满加密货币原生市场的各种想法，但越来越多的讨论已经开始涉及金融本身需要解决的问题。
+
+资金应该如何流动，资产应该怎样托管与结算，市场应该如何运行，监管如何适应新的技术，以及未来具备自主执行能力的软件应该怎样与货币发生联系。
+
+这些问题早已不只属于加密货币行业。
+
+Crypto 并没有消失，但也许它下一阶段的发展，恰恰会表现为越来越不容易被普通人注意到。
+
+与其要求所有人都进入一个独立的加密经济体系，未来的某些 Crypto 技术可能会直接融入人们已经熟悉的经济活动之中。
+
+在 TOKEN2049 开始前两天，我提出的问题是：金融接下来可能走向哪里？
+
+新加坡会议结束之后，我依然无法给出完整答案，但至少有一个方向已经逐渐清晰：
+
+**加密货币正在从一个相对独立的行业，逐步发展为金融基础设施的一部分。**
