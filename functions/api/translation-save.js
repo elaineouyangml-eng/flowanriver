@@ -2,7 +2,7 @@
 import { TRANSLATION_CONFIG } from "../_lib/translation-config.js";
 import { validateTranslation } from "../_lib/translation-validator.js";
 
-const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const SLUG_PATTERN = /^[a-z0-9]+(?:-+[a-z0-9]+)*$/;
 const BLOCK_PATTERN = /^block-\d+$/;
 
 function json(data, status = 200) {
