@@ -2,7 +2,7 @@
 ---
 title: "从 USDT、USDC 到 GENIUS Act：为什么我开始关注稳定币监管"
 date: 2026-06-12T20:19:00.000+08:00
-draft: true
+draft: false
 description: "从认识 USDT 与 USDC 的区别，到关注美国 GENIUS Act、香港与新加坡的稳定币监管，记录我对数字金融和跨境支付逐渐深入的理解。"
 tags: ["Crypto", "Stablecoins", "Finance", "Regulation"]
 cover:
