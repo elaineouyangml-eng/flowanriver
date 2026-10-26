@@ -546,40 +546,59 @@
   background: var(--primary);
 }
   
-/* Align all desktop header elements */
-@media (min-width: 769px) {
-  .fr-header-nav {
-    align-items: center !important;
-  }
 
+/* Unified desktop header alignment */
+@media (min-width: 769px) {
+  .fr-header-nav,
   .fr-header-nav #menu,
   .fr-header-actions {
     align-items: center !important;
   }
 
-  .fr-header-nav #menu > li,
-  .fr-header-dropdown,
-  .fr-header-dropdown > summary,
-  .fr-language-switch > summary {
-    vertical-align: middle;
+  .fr-header-nav #menu > li {
+    display: flex;
+    align-items: center;
   }
 
-  .fr-header-actions > *,
-  .fr-header-search,
+  .fr-header-nav #menu > li > a,
+  .fr-header-nav #menu > li > details > summary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 35px;
+    padding: 0;
+    line-height: 1.5 !important;
+  }
+
+  .fr-header-dropdown,
   .fr-desktop-signin,
-  .fr-language-switch,
-  .fr-header-nav #theme-toggle {
+  .fr-language-switch {
+    display: flex;
+    align-items: center;
+  }
+
+  .fr-dropdown-trigger {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 5px;
+    min-height: 35px;
+    padding: 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  .fr-dropdown-arrow {
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .fr-desktop-signin .fr-dropdown-trigger {
+    font-size: 13px;
+  }
+
+  .fr-header-actions > * {
     align-self: center;
   }
+}
 
-.fr-dropdown-trigger,
-.fr-desktop-signin .fr-dropdown-trigger {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center;
-  gap: 5px;
-  min-height: 35px;
-  line-height: normal !important;
 }
 }
 
