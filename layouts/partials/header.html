@@ -345,8 +345,9 @@
 
 /* Mobile-only items */
 
-.fr-mobile-only {
-  display: none;
+/* Hide mobile menu items on desktop */
+.fr-header-nav #menu > li.fr-mobile-only {
+  display: none !important;
 }
 
 /* Responsive desktop */
@@ -457,9 +458,9 @@
     display: none !important;
   }
 
-  .fr-mobile-only {
-    display: block;
-  }
+.fr-header-nav #menu > li.fr-mobile-only {
+  display: block !important;
+}
 
   /* Regular mobile dropdowns */
   .fr-header-dropdown-menu {
