@@ -1,0 +1,469 @@
+
+{{ define "main" }}
+
+{{- $term := lower .Data.Term -}}
+{{- $isZH := eq .Lang "zh" -}}
+
+{{- $intro := "" -}}
+{{- if eq $term "ai" -}}
+  {{- if $isZH -}}
+    {{- $intro = "从实际使用出发，探索人工智能如何改变我们的工作、创作与生活，也保留对技术与趋势的独立思考。" -}}
+  {{- else -}}
+    {{- $intro = "Exploring how artificial intelligence is changing the way we work, create, and live—with curiosity, practical experience, and a critical eye." -}}
+  {{- end -}}
+{{- else if eq $term "crypto" -}}
+  {{- if $isZH -}}
+    {{- $intro = "不止关注价格，也关注区块链技术、数字资产、监管变化，以及金融世界正在发生的转变。" -}}
+  {{- else -}}
+    {{- $intro = "Looking beyond market prices to explore blockchain technology, digital assets, regulation, and the ideas shaping an evolving financial landscape." -}}
+  {{- end -}}
+{{- else if eq $term "journal" -}}
+  {{- if $isZH -}}
+    {{- $intro = "记录文化、创意、人际关系与日常生活中的观察和感受，也记录那些值得慢慢思考的问题。" -}}
+  {{- else -}}
+    {{- $intro = "Personal reflections on culture, creativity, relationships, and everyday life—thoughts shaped by experience, observation, and a little curiosity." -}}
+  {{- end -}}
+{{- else -}}
+  {{- $intro = .Description | plainify -}}
+{{- end -}}
+
+<style>
+/* FlowAnRiver editorial category pages */
+
+.fr-category {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 70px 30px 100px;
+}
+
+/* Category introduction */
+
+.fr-category-intro {
+  max-width: 760px;
+  margin: 0 auto 62px;
+  text-align: center;
+}
+
+.fr-category-eyebrow {
+  margin-bottom: 18px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: #a99c8b;
+}
+
+.fr-category-title {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(42px, 6vw, 65px);
+  font-weight: 400;
+  line-height: 1.2;
+  color: #302a23;
+}
+
+.fr-category-accent {
+  width: 46px;
+  height: 2px;
+  background: #d99c8a;
+  margin: 24px auto;
+}
+
+.fr-category-description {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #83786c;
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+/* Article section */
+
+.fr-category-list {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.fr-category-list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dfd5c9;
+}
+
+.fr-category-list-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a99c8b;
+}
+
+.fr-category-list-count {
+  font-size: 12px;
+  color: #a99c8b;
+}
+
+/* Article rows */
+
+.fr-category-article {
+  display: grid;
+  grid-template-columns: 185px minmax(0, 1fr);
+  align-items: center;
+  gap: 27px;
+  padding: 28px 0;
+  border-bottom: 1px solid #e7dfd5;
+}
+
+.fr-category-image {
+  width: 185px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #e9e1d6;
+}
+
+.fr-category-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .3s ease;
+}
+
+.fr-category-image:hover img {
+  transform: scale(1.035);
+}
+
+.fr-category-content {
+  min-width: 0;
+}
+
+.fr-category-meta {
+  margin-bottom: 10px;
+  color: #a49787;
+  font-size: 11px;
+  letter-spacing: 0.025em;
+}
+
+.fr-category-article-title {
+  margin: 0 0 11px;
+  font-family: Georgia, serif;
+  font-size: clamp(19px, 2.2vw, 24px);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.fr-category-article-title a {
+  color: #302a23;
+  text-decoration: none;
+}
+
+.fr-category-article-title a:hover {
+  color: #a47a63;
+}
+
+.fr-category-excerpt {
+  color: #82786e;
+  font-size: 13px;
+  line-height: 1.8;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Text-only articles */
+
+.fr-category-article.no-image {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.fr-category-article.no-image .fr-category-content {
+  max-width: 760px;
+}
+
+/* Pagination */
+
+.fr-category-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 40px;
+  font-size: 13px;
+}
+
+.fr-category-pagination a {
+  color: #766b5c;
+  text-decoration: none;
+}
+
+.fr-category-pagination a:hover {
+  color: #302a23;
+}
+
+.fr-category-page-number {
+  color: #a99c8b;
+  font-size: 12px;
+}
+
+/* Dark mode */
+
+[data-theme="dark"] .fr-category-title,
+[data-theme="dark"] .fr-category-article-title a {
+  color: var(--primary);
+}
+
+[data-theme="dark"] .fr-category-description,
+[data-theme="dark"] .fr-category-excerpt {
+  color: var(--secondary);
+}
+
+[data-theme="dark"] .fr-category-list-head,
+[data-theme="dark"] .fr-category-article {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .fr-category-image {
+  background: #48534b;
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+  .fr-category {
+    padding: 50px 24px 70px;
+  }
+
+  .fr-category-article {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .fr-category-image {
+    width: 150px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .fr-category {
+    padding: 42px 18px 65px;
+  }
+
+  .fr-category-intro {
+    margin-bottom: 42px;
+  }
+
+  .fr-category-title {
+    font-size: 42px;
+  }
+
+  .fr-category-description {
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .fr-category-article {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 14px;
+    padding: 21px 0;
+    align-items: start;
+  }
+
+  .fr-category-image {
+    width: 104px;
+    border-radius: 4px;
+  }
+
+  .fr-category-article-title {
+    font-size: 17px;
+    line-height: 1.4;
+    margin-bottom: 7px;
+  }
+
+  .fr-category-meta {
+    font-size: 10px;
+    margin-bottom: 7px;
+  }
+
+  .fr-category-excerpt {
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .fr-category-list-count {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .fr-category-article {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .fr-category-image {
+    width: 88px;
+  }
+
+  .fr-category-article-title {
+    font-size: 15px;
+  }
+}
+</style>
+
+<main class="fr-category">
+
+  <!-- Category introduction -->
+
+  <header class="fr-category-intro">
+
+    <div class="fr-category-eyebrow">
+      FlowAnRiver / {{ .Title }}
+    </div>
+
+    <h1 class="fr-category-title">
+      {{ .Title }}
+    </h1>
+
+    <div class="fr-category-accent"></div>
+
+    {{ with $intro }}
+    <p class="fr-category-description">
+      {{ . }}
+    </p>
+    {{ end }}
+
+  </header>
+
+  <!-- Article list -->
+
+  <section class="fr-category-list">
+
+    {{- $paginator := .Paginate .Pages 10 -}}
+
+    <div class="fr-category-list-head">
+
+      <span class="fr-category-list-label">
+        {{ if $isZH }}最新文章{{ else }}Latest Stories{{ end }}
+      </span>
+
+      <span class="fr-category-list-count">
+        {{ len .Pages }}
+        {{ if $isZH }}篇文章{{ else }}Articles{{ end }}
+      </span>
+
+    </div>
+
+    {{ range $paginator.Pages }}
+
+      {{- $cover := "" -}}
+      {{- $coverAlt := .Title -}}
+
+      {{- with .Params.cover -}}
+        {{- with .image -}}
+          {{- $cover = . -}}
+        {{- end -}}
+        {{- with .alt -}}
+          {{- $coverAlt = . -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- if not $cover -}}
+        {{- with .Params.image -}}
+          {{- $cover = . -}}
+        {{- end -}}
+      {{- end -}}
+
+      <article class="fr-category-article{{ if not $cover }} no-image{{ end }}">
+
+        {{ with $cover }}
+        <a class="fr-category-image"
+           href="{{ $.Site.BaseURL }}{{ "" }}"
+           data-placeholder="none"
+           style="display:none"></a>
+        {{ end }}
+
+        {{ if $cover }}
+        <a class="fr-category-image"
+           href="{{ .RelPermalink }}"
+           aria-label="{{ .Title }}">
+
+          <img src="{{ $cover | safeURL }}"
+               alt="{{ $coverAlt }}"
+               loading="lazy"
+               decoding="async">
+
+        </a>
+        {{ end }}
+
+        <div class="fr-category-content">
+
+          <div class="fr-category-meta">
+            {{ .Date.Format "Jan 2, 2006" }}
+            &nbsp;·&nbsp;
+            {{ .ReadingTime }} min read
+          </div>
+
+          <h2 class="fr-category-article-title">
+            <a href="{{ .RelPermalink }}">
+              {{ .Title }}
+            </a>
+          </h2>
+
+          {{- $excerpt := .Description -}}
+          {{- if not $excerpt -}}
+            {{- $excerpt = .Summary | plainify -}}
+          {{- end -}}
+
+          {{ with $excerpt }}
+          <div class="fr-category-excerpt">
+            {{ . | plainify | truncate 180 }}
+          </div>
+          {{ end }}
+
+        </div>
+
+      </article>
+
+    {{ end }}
+
+    <!-- Pagination -->
+
+    {{ if gt $paginator.TotalPages 1 }}
+    <nav class="fr-category-pagination"
+         aria-label="Pagination">
+
+      <div>
+        {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}">
+          ← Previous
+        </a>
+        {{ end }}
+      </div>
+
+      <span class="fr-category-page-number">
+        {{ $paginator.PageNumber }}
+        / {{ $paginator.TotalPages }}
+      </span>
+
+      <div>
+        {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}">
+          Next →
+        </a>
+        {{ end }}
+      </div>
+
+    </nav>
+    {{ end }}
+
+  </section>
+
+</main>
+
+{{ end }}
