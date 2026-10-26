@@ -11,7 +11,7 @@
    Crypto Disclaimer
 ========================= */}}
 
-{{- if in $currentTags "crypto" -}}
+{{- if and (in $currentTags "crypto") (not .Params.hideCryptoDisclaimer) -}}
 <div class="fr-crypto-disclaimer">
   {{- if $isZH -}}
     <strong>免责声明：</strong>
