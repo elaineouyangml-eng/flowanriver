@@ -74,6 +74,8 @@ There is an easy mistake to make when looking at all of this. As stablecoins, to
 
 A better description may be that regulators are becoming more specific. They are deciding which parts of crypto can fit inside the financial system, under what conditions, and which parts still create risks they are unwilling to absorb.
 
+The debate around the CLARITY Act in the United States reflects a similar challenge. In an earlier article, [Crypto Is Becoming Financial Infrastructure: Why the World Was Watching the CLARITY Act](https://flowanriver.com/posts/crypto-is-becoming-financial-infrastructure-why-the-world-was-watching-the-clarity-act/), I explored why the uncertainty around market structure matters not only to crypto companies, but also to banks, payment providers and institutions considering digital assets. The legislation had stalled in September, but the underlying questions about custody, trading and regulatory responsibility had not gone away.
+
 Singapore is a good example. MAS continues to support institutional digital-asset infrastructure and tokenization while tightening governance around financial risk and AI. The new AI guidelines make clear that financial institutions remain responsible for how AI is used, even when third-party systems are involved.
 
 Europe is moving in a similar direction, but through the more formal MiCA framework. On October 8, the European Securities and Markets Authority published new supervisory expectations around services linked to stablecoins that do not comply with MiCA. ESMA’s approach makes clear that the issue is not only whether a stablecoin exists, but whether authorised crypto firms can continue offering trading, custody, transfer and other services related to it inside the EU. You can read the [ESMA supervisory opinion here](https://www.esma.europa.eu/press-news/esma-news/esma-sets-out-supervisory-expectations-services-related-unauthorised?utm_source=chatgpt.com).
@@ -86,7 +88,7 @@ In that sense, regulation is not simply slowing or encouraging adoption. It is h
 
 ## The most important change may be that the boundary is becoming harder to see
 
-Before TOKEN2049, I wondered whether crypto was still trying to build an alternative financial system outside traditional finance. After Singapore, that question feels less useful.
+Before TOKEN2049, I wondered whether crypto was still trying to build an alternative financial system outside traditional finance. I had been thinking about that broader transition for some time, including in [From Fed Policy to Crypto Evolution: How Digital Finance Is Entering a New Era](https://flowanriver.com/posts/from-fed-policy-to-crypto-evolution-how-digital-finance-is-entering-a-new-era/). After Singapore, the idea of two completely separate financial systems feels less convincing to me. What I increasingly see is a gradual connection between traditional finance and blockchain-based infrastructure.
 
 Stablecoins are connecting with payment networks, tokenized securities are connecting with regulated markets, banks are building custody infrastructure for digital assets, and AI agents are beginning to raise questions about programmable money and automated financial activity. None of this means the old financial system is disappearing. Banks will still exist, card networks will still exist, regulators will still regulate, and fiat currencies will still be central to the economy.
 
