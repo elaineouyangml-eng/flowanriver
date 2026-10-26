@@ -17,18 +17,45 @@
 </div>
 {{ end }}
 
-<script src="https://giscus.app/client.js"
-        data-repo="elaineouyangml-eng/flowanriver"
-        data-repo-id="R_kgDOSlbN2A"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOSlbN2M4C9q85"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
+
+<div class="fr-x-invite">
+  {{ if eq .Lang "zh" }}
+    <p>读完有什么想法？欢迎来 X 和我聊聊。</p>
+  {{ else }}
+    <p>Thoughts on this story? I'd love to hear from you on X.</p>
+  {{ end }}
+
+  <a href="https://x.com/Elaineoyml"
+     target="_blank"
+     rel="noopener noreferrer">
+    𝕏 <span>{{ if eq .Lang "zh" }}在 X 上交流{{ else }}Connect on X{{ end }}</span>
+    <span aria-hidden="true">↗</span>
+  </a>
+</div>
+
+<style>
+.fr-x-invite {
+  margin: 36px auto 24px;
+  padding: 25px 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+.fr-x-invite p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: var(--secondary);
+  line-height: 1.8;
+}
+.fr-x-invite a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+}
+.fr-x-invite a:hover {
+  text-decoration: underline;
+}
+</style>
+
