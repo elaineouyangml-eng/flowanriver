@@ -7,27 +7,28 @@
 {{- $intro := "" -}}
 {{- if eq $term "ai" -}}
   {{- if $isZH -}}
-    {{- $intro = "从实际使用出发，探索人工智能如何改变我们的工作、创作与生活，也保留对技术与趋势的独立思考。" -}}
+    {{- $intro = "AI 正在逐渐融入我们的工作与生活。在这里，我想分享自己使用 AI 的经历、对技术变化的观察，以及那些至今仍让我感到好奇的问题" -}}
   {{- else -}}
-    {{- $intro = "Exploring how artificial intelligence is changing the way we work, create, and live—with curiosity, practical experience, and a critical eye." -}}
+    {{- $intro = "AI is becoming part of how we work and live. Here, I share what I've learned from using it, the changes I find interesting, and the questions I still have" -}}
   {{- end -}}
 {{- else if eq $term "crypto" -}}
   {{- if $isZH -}}
-    {{- $intro = "不止关注价格，也关注区块链技术、数字资产、监管变化，以及金融世界正在发生的转变。" -}}
+    {{- $intro = "Crypto 不只是价格涨跌和交易。我更感兴趣的是区块链、数字资产与监管变化将如何影响未来的金融体系，以及这些变化在现实中究竟会如何发生" -}}
   {{- else -}}
-    {{- $intro = "Looking beyond market prices to explore blockchain technology, digital assets, regulation, and the ideas shaping an evolving financial landscape." -}}
+    {{- $intro = "Crypto is about more than prices and trading. I'm interested in how blockchain, digital assets, and changing regulations might reshape finance—and what actually happens along the way" -}}
   {{- end -}}
 {{- else if eq $term "journal" -}}
   {{- if $isZH -}}
-    {{- $intro = "记录文化、创意、人际关系与日常生活中的观察和感受，也记录那些值得慢慢思考的问题。" -}}
+    {{- $intro = "有些思考来自一本书、一段对话，或生活中某个平常的瞬间。这里记录我对生活、文化与人性的观察，也记录那些一直留在心里的感受" -}}
   {{- else -}}
-    {{- $intro = "Personal reflections on culture, creativity, relationships, and everyday life—thoughts shaped by experience, observation, and a little curiosity." -}}
+    {{- $intro = "Some thoughts begin with a book, a conversation, or an ordinary day. This is where I write about life, culture, human nature, and whatever stays on my mind" -}}
   {{- end -}}
 {{- else -}}
   {{- $intro = .Description | plainify -}}
 {{- end -}}
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap');
 /* FlowAnRiver editorial category pages */
 
 .fr-category {
@@ -55,10 +56,12 @@
 
 .fr-category-title {
   margin: 0;
-  font-family: Georgia, serif;
-  font-size: clamp(42px, 6vw, 65px);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(52px, 6vw, 72px);
+  font-style: italic;
   font-weight: 400;
   line-height: 1.2;
+  letter-spacing: -0.02em;
   color: #302a23;
 }
 
