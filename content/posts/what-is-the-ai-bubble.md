@@ -176,5 +176,3 @@ I won't just wonder how much those successful people earned. I'll also wonder wh
 After all, the number of extraordinary success stories a technology produces tells us something very different from how much it actually improves the working lives and incomes of ordinary people.
 
 And I'm far more interested in the latter.
-
-\
