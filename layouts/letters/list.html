@@ -1,5 +1,436 @@
+
 {{ define "main" }}
 
-<!-- Letters 页面内容放在这里 -->
+<style>
+  .future-letters {
+    --letter-green: #607764;
+    --letter-dark: #3e5143;
+    --letter-cream: #f7f4ed;
+    --letter-border: #dde5d9;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 28px 0 70px;
+    color: var(--primary);
+  }
+
+  .future-letters * {
+    box-sizing: border-box;
+  }
+
+  .letters-hero {
+    position: relative;
+    padding: 56px 28px 48px;
+    text-align: center;
+    background: linear-gradient(145deg, #f7f4ed, #eaf0e7);
+    border-radius: 22px;
+    color: var(--letter-dark);
+  }
+
+  .letters-lang {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    display: flex;
+    gap: 5px;
+  }
+
+  .letters-lang button {
+    border: 1px solid #d4ded0;
+    border-radius: 20px;
+    padding: 6px 13px;
+    font-size: 12px;
+    color: #526655;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .letters-lang button.active {
+    background: #607764;
+    border-color: #607764;
+    color: white;
+  }
+
+  .letters-icon {
+    font-size: 44px;
+    margin-bottom: 18px;
+  }
+
+  .letters-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #788975;
+    margin-bottom: 16px;
+  }
+
+  .letters-hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 5vw, 43px);
+    line-height: 1.25;
+    margin: 0 0 18px;
+    color: #3e5143;
+  }
+
+  .letters-subtitle {
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: #617563;
+  }
+
+  .letters-intro {
+    max-width: 550px;
+    margin: 24px auto 0;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #5d6d5e;
+  }
+
+  .letters-form-card {
+    margin-top: 30px;
+    padding: 35px;
+    background: var(--entry);
+    border: 1px solid var(--letter-border);
+    border-radius: 20px;
+  }
+
+  .letters-field {
+    margin-bottom: 25px;
+  }
+
+  .letters-field label {
+    display: block;
+    margin-bottom: 11px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+  }
+
+  .letters-field textarea,
+  .letters-field input {
+    width: 100%;
+    padding: 15px;
+    font: inherit;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--primary);
+    background: var(--theme);
+    border: 1px solid var(--letter-border);
+    border-radius: 11px;
+    outline: none;
+  }
+
+  .letters-field textarea {
+    min-height: 250px;
+    resize: vertical;
+  }
+
+  .letters-field textarea:focus,
+  .letters-field input:focus {
+    border-color: #8aa18b;
+    box-shadow: 0 0 0 3px rgba(116,146,119,.12);
+  }
+
+  .letters-field input[type="date"] {
+    color-scheme: light;
+  }
+
+  .letters-form-card h2 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    margin: 0 0 25px;
+    font-weight: 500;
+  }
+
+  .letters-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+
+  .letters-send {
+    width: 100%;
+    padding: 16px 20px;
+    border: 0;
+    border-radius: 30px;
+    font-size: 15px;
+    background: #819583;
+    color: #fff;
+    cursor: not-allowed;
+    opacity: .75;
+  }
+
+  .letters-preview-note {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 13px;
+    color: var(--secondary);
+  }
+
+  .letters-privacy {
+    margin-top: 24px;
+    padding: 22px;
+    background: var(--letter-cream);
+    border-radius: 14px;
+    text-align: center;
+    color: #586b5a;
+  }
+
+  .letters-privacy strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .letters-privacy p {
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  .letters-footer-note {
+    margin: 34px auto 0;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--secondary);
+  }
+
+  .future-letters [data-en],
+  .future-letters [data-zh] {
+    transition: opacity .15s ease;
+  }
+
+  @media (max-width: 600px) {
+    .future-letters {
+      padding-top: 10px;
+    }
+
+    .letters-hero {
+      padding: 76px 20px 40px;
+    }
+
+    .letters-form-card {
+      padding: 24px 18px;
+    }
+
+    .letters-two-col {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .letters-intro {
+      font-size: 14px;
+    }
+  }
+
+  [data-theme="dark"] .letters-hero {
+    background: #25382e;
+  }
+
+  [data-theme="dark"] .letters-hero h1,
+  [data-theme="dark"] .letters-subtitle,
+  [data-theme="dark"] .letters-intro,
+  [data-theme="dark"] .letters-eyebrow {
+    color: #e0e9db;
+  }
+
+  [data-theme="dark"] .letters-privacy {
+    background: #25382e;
+    color: #e0e9db;
+  }
+</style>
+
+<section class="future-letters" id="futureLetters">
+
+  <div class="letters-hero">
+
+    <div class="letters-lang">
+      <button type="button" id="lettersEN"
+        class="active" aria-pressed="true">EN</button>
+      <button type="button" id="lettersZH"
+        aria-pressed="false">中文</button>
+    </div>
+
+    <div class="letters-icon" aria-hidden="true">✉</div>
+
+    <div class="letters-eyebrow">
+      FLOWANRIVER · A QUIET CORNER
+    </div>
+
+    <h1 data-en="Letters to the Future"
+        data-zh="写给未来的自己">
+      Letters to the Future
+    </h1>
+
+    <div class="letters-subtitle"
+      data-en="Some words are meant to find us later."
+      data-zh="有些话，留给未来的某一天。">
+      Some words are meant to find us later.
+    </div>
+
+    <p class="letters-intro"
+      data-en="Life keeps moving, and so do we. Take a moment to write something to your future self. A thought, a memory, a wish, or simply how you feel today. Choose a date, and let these words find their way back to you."
+      data-zh="生活一直向前，我们也在不断改变。不妨花一点时间，给未来的自己写封信。可以是此刻的心情、一段回忆、一个愿望，或者只是今天想说的话。选好一个日期，让这些文字在未来的某一天重新与你相遇。">
+      Life keeps moving, and so do we. Take a moment
+      to write something to your future self.
+      A thought, a memory, a wish, or simply how
+      you feel today. Choose a date, and let
+      these words find their way back to you.
+    </p>
+
+  </div>
+
+  <div class="letters-form-card">
+
+    <h2 data-en="Dear Future Me,"
+        data-zh="亲爱的未来的我：">
+      Dear Future Me,
+    </h2>
+
+    <div class="letters-field">
+      <label for="futureLetterText"
+        data-en="Your letter"
+        data-zh="写下你的信">
+        Your letter
+      </label>
+
+      <textarea id="futureLetterText"
+        maxlength="20000"
+        data-placeholder-en="Dear future me,
+
+I wonder what life looks like for you now..."
+        data-placeholder-zh="亲爱的未来的我：
+
+不知道现在的你，过着怎样的生活……"
+        placeholder="Dear future me,
+
+I wonder what life looks like for you now..."></textarea>
+    </div>
+
+    <div class="letters-two-col">
+
+      <div class="letters-field">
+        <label for="futureLetterDate"
+          data-en="When should it arrive?"
+          data-zh="希望哪一天收到？">
+          When should it arrive?
+        </label>
+
+        <input type="date" id="futureLetterDate">
+      </div>
+
+      <div class="letters-field">
+        <label for="futureLetterEmail"
+          data-en="Your email address"
+          data-zh="你的邮箱地址">
+          Your email address
+        </label>
+
+        <input type="email" id="futureLetterEmail"
+          autocomplete="email"
+          placeholder="hello@example.com">
+      </div>
+
+    </div>
+
+    <button type="button" class="letters-send"
+      disabled
+      data-en="Seal My Letter"
+      data-zh="封存这封信">
+      Seal My Letter
+    </button>
+
+    <p class="letters-preview-note"
+      data-en="Preview only — letter delivery is not available yet. Nothing is saved or sent."
+      data-zh="页面预览中，信件寄送功能尚未开放。当前不会保存或发送任何内容。">
+      Preview only — letter delivery is not available yet.
+      Nothing is saved or sent.
+    </p>
+
+    <div class="letters-privacy">
+      <strong
+        data-en="♡ A Little Promise from Flowanriver"
+        data-zh="♡ Flowanriver 的一份小小承诺">
+        ♡ A Little Promise from Flowanriver
+      </strong>
+
+      <p
+        data-en="Your letter is personal. We respect your privacy and will not intentionally read, share, or publish your words without your permission."
+        data-zh="你的信件属于你自己。我们尊重每个人的隐私，未经你的允许，不会主动阅读、分享或公开你的信件。">
+        Your letter is personal. We respect your
+        privacy and will not intentionally read,
+        share, or publish your words without
+        your permission.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="letters-footer-note"
+    data-en="Time moves on. Your words will find their way back to you."
+    data-zh="时间不断向前，你写下的文字，终有一天会重新回到你身边。">
+    Time moves on. Your words will find their way back to you.
+  </div>
+
+</section>
+
+<script>
+(function () {
+  const root = document.getElementById("futureLetters");
+  if (!root) return;
+
+  const enButton = document.getElementById("lettersEN");
+  const zhButton = document.getElementById("lettersZH");
+  const message = document.getElementById("futureLetterText");
+  const dateInput = document.getElementById("futureLetterDate");
+
+  function changeLanguage(lang) {
+    root.querySelectorAll("[data-en][data-zh]").forEach(function (el) {
+      el.textContent = el.getAttribute("data-" + lang);
+    });
+
+    root.querySelectorAll("[data-placeholder-en]").forEach(function (el) {
+      el.placeholder = el.getAttribute(
+        "data-placeholder-" + lang
+      );
+    });
+
+    enButton.classList.toggle("active", lang === "en");
+    zhButton.classList.toggle("active", lang === "zh");
+
+    enButton.setAttribute("aria-pressed", lang === "en");
+    zhButton.setAttribute("aria-pressed", lang === "zh");
+
+    message.lang = lang;
+  }
+
+  enButton.addEventListener("click", function () {
+    changeLanguage("en");
+  });
+
+  zhButton.addEventListener("click", function () {
+    changeLanguage("zh");
+  });
+
+  const today = new Date();
+  const tomorrow = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 1
+  );
+
+  const year = tomorrow.getFullYear();
+  const month = String(tomorrow.getMonth() + 1).padStart(2, "0");
+  const day = String(tomorrow.getDate()).padStart(2, "0");
+
+  dateInput.min = year + "-" + month + "-" + day;
+
+  changeLanguage("en");
+})();
+</script>
 
 {{ end }}
+
