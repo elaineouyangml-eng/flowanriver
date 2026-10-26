@@ -1,5 +1,6 @@
 ---
 title: From Thinking All Stablecoins Were the Same to Understanding USDT and USDC
+slug: from-thinking-all-stablecoins-were-the-same-to-understanding-usdt-and-usdc
 date: 2026-06-12T09:30:00.000+08:00
 draft: false
 tags:
@@ -26,7 +27,7 @@ But as I spent more time learning about crypto, I slowly realized that people ch
 
 I didn't start learning about crypto because I wanted to trade. What pulled me in was a mix of work, curiosity, and a desire to understand technologies that more and more people were talking about.
 
-For years, my world revolved around products, customers, websites, and orders. Terms like blockchain, wallets, and stablecoins felt distant. Then I opened exchange accounts, started transferring funds, and discovered something I hadn't expected: in many cases, the most frequently used assets in crypto aren't Bitcoin or Ethereum. They're stablecoins.
+For years, my world revolved around products, customers, websites, and orders. Terms like blockchain, wallets, and stablecoins felt distant. My curiosity about crypto actually grew out of running my own business, something I wrote about in [Why a Lingerie Brand Founder Started Paying Attention to Crypto](https://flowanriver.com/posts/why-a-lingerie-brand-founder-started-paying-attention-to-crypto/). Then I opened exchange accounts, started transferring funds, and discovered something I hadn't expected: in many cases, the most frequently used assets in crypto aren't Bitcoin or Ethereum. They're stablecoins.
 
 [Tether's USDT](https://tether.to) was the first one I encountered. Looking back, part of why it felt easy to trust was simple: the name. USDT is one letter away from USD, and somehow that creates familiarity. It may not be a logical reason, but that's often how confidence works when you're learning something new.
 
@@ -62,7 +63,7 @@ What problems does this technology actually solve? Why are people choosing to us
 
 Those questions became far more interesting to me than daily price charts.
 
-Of course, stablecoins aren't without controversy. Governments and regulators around the world are still deciding how digital assets should fit into existing financial systems. The US, EU, Hong Kong, and Singapore have all introduced or developed frameworks related to stablecoins in recent years — and the conversation is far from settled.
+Of course, stablecoins aren't without controversy. Governments and regulators around the world have been working out how digital assets should fit into existing financial systems. The US, EU, Hong Kong, and Singapore have all taken different approaches to stablecoin regulation. As I learned more about the differences between USDT and USDC, I also became curious about the rules behind them. That eventually led me to explore the US GENIUS Act, which I wrote about in [Form USDT and USCD to the GENIUS Act](https://flowanriver.com/posts/from-usdt-and-usdc-to-the-genius-act-why-i-started-paying-attention-to-stablecoin-regulation/).
 
 **So, USDT or USDC?**
 
@@ -75,8 +76,6 @@ A year ago, I thought stablecoins were a small side story in crypto. Today, they
 And they've left me with a question I hadn't seriously considered before: as more payments, commerce, and financial activity move onto the internet, what will money actually look like in the future?
 
 Many new ideas begin with a question like that.
-
-
 
 *Sources: [Tether](https://tether.to) · [Circle](https://www.circle.com) · [CoinDesk](https://www.coindesk.com) · [CoinMarketCap](https://coinmarketcap.com)*
 
