@@ -1,162 +1,142 @@
 ---
 title: "从经营 LaceMoods 到关注 Crypto：一笔跨境转账带来的思考"
-date: 2026-06-06
+date: 2026-06-06T14:03:00.000+08:00
 draft: true
-description: "How running an e-commerce brand taught me to take crypto seriously — and why a $35 transfer fee was the moment everything changed."
-tags: ["crypto","journal"]
+description: "从经营独立内衣品牌 LaceMoods 的跨境支付经历出发，分享一笔超过 35 美元的转账手续费，如何让我开始关注 Bitcoin、稳定币与数字金融。"
+tags: ["Crypto", "Journal", "Stablecoins", "Business"]
+cover:
+  image: "/images/chatgpt-image-2026年6月6日-14_03_51.png"
+  alt: "桌面上摆放着电脑、记录 Bitcoin 和跨境转账费用的笔记本，以及 LaceMoods 品牌杯子，展现独立品牌经营者对数字金融的探索"
 ---
 
-<!-- 中文机器翻译草稿，公开发布前须检查 -->
+第一次听说 Bitcoin，是在 2015 年。
 
-<!-- TODO: 翻译 block-0 -->
-I first heard about Bitcoin in 2015, when a friend told me he was mining it. Out of curiosity, I spent some time reading about it, but that was as far as it went. I didn't buy any, I didn't follow the market, and I certainly didn't imagine it would ever become relevant to my life.
+当时有位朋友告诉我，他正在挖比特币。出于好奇，我也去了解了一些相关内容，不过仅此而已。那时候的我既没有购买 Bitcoin，也没有继续关注市场，更没有想到有一天，它会和自己的生活产生联系。
 
-<!-- TODO: 翻译 block-1 -->
-The first time Bitcoin really caught my attention was in 2021, when it climbed to around $70,000 for the first time. Suddenly, crypto seemed to be everywhere. News outlets were covering it, social media was talking about it, and everyone appeared to have an opinion.
+真正让我再次注意到 Bitcoin，是 2021 年它的价格一度接近 7 万美元的时候。突然之间，Crypto 似乎成了所有人都在讨论的话题。新闻媒体在报道，社交平台上也充满了各种观点，有人看好它的未来，也有人认为这只是一场投机。
 
-<!-- TODO: 翻译 block-2 -->
-Even then, if someone had told me that Bitcoin, stablecoins, and blockchain technology would eventually become part of my daily learning process, I probably would have laughed.
+即使在那个时候，如果有人告诉我，未来我会主动学习 Bitcoin、稳定币和区块链技术，我大概也会觉得不可思议。
 
-<!-- TODO: 翻译 block-3 -->
-My world revolved around products, customers, websites, content, and orders — not trading charts or market strategies.
+毕竟，我的日常工作一直围绕产品、客户、网站、内容和订单展开，和交易图表或投资策略并没有太多关系。
 
-<!-- TODO: 翻译 block-4 -->
-For a long time, my view of crypto was probably similar to that of many other people. It felt complicated, risky, and difficult to understand. I was curious, but not curious enough to jump in.
+很长一段时间里，我对 Crypto 的印象大概和许多人差不多：复杂、风险高，而且有太多自己看不懂的概念。我虽然有些好奇，却始终没有真正深入了解。
 
-<!-- TODO: 翻译 block-5 -->
-What eventually pulled me closer wasn't investing.
+后来让我逐渐走近 Crypto 的，并不是投资。
 
-<!-- TODO: 翻译 block-6 -->
-It was business.
+而是经营自己的品牌。
 
-<!-- TODO: 翻译 block-7 -->
-As I started building an international e-commerce brand, I found myself dealing with things I had never paid much attention to before: payment systems, exchange rates, transfer fees, settlement times, and the countless small frictions involved in moving money across borders.
+## 经营独立品牌，让我重新思考跨境支付
 
-<!-- TODO: 翻译 block-8 -->
-I still remember noticing a Bitcoin payment option while setting up my [LaceMoods](www.lacemoods.com) website. At the time, I thought it was interesting, but I didn't think much about it. Who was actually paying for products with Bitcoin? Why would a platform even bother offering that option?
+开始经营面向国际市场的电商品牌后，我接触到了一些过去很少认真思考的问题，包括支付系统、汇率、转账手续费、资金结算时间，以及跨境交易过程中各种看似不起眼的成本。
 
-<!-- TODO: 翻译 block-9 -->
-The question stayed in the back of my mind.
+我还记得，当初搭建 [LaceMoods](https://lacemoods.com/) 独立站时，曾经看到过 Bitcoin 支付选项。
 
-<!-- TODO: 翻译 block-10 -->
-Then came the moment that changed things.
+当时我觉得有些新鲜，却没有认真研究。
 
-<!-- TODO: 翻译 block-11 -->
-When I was registering an Etsy store, I needed to complete a verification process that cost a little over twenty dollars. The fee itself wasn't a problem. What surprised me was the transfer cost.
+真的会有人用 Bitcoin 购买商品吗？为什么电商平台会提供这样的支付方式？相比银行卡或者其他常见的支付渠道，它又有什么不同？
 
-<!-- TODO: 翻译 block-12 -->
-By the time everything was processed, I had paid more than $35 in fees just to send that payment.
+这些问题偶尔会出现在脑海里，但始终没有让我真正开始行动。
 
-<!-- TODO: 翻译 block-13 -->
-I remember staring at the numbers and laughing.
+直到后来发生了一件小事。
 
-<!-- TODO: 翻译 block-14 -->
-Paying more in fees than the verification itself felt absurd.
+当时，我正在注册 Etsy 店铺，需要完成一个二十多美元的验证付款。费用本身并不高，真正让我惊讶的是完成这笔付款所产生的转账手续费。
 
-<!-- TODO: 翻译 block-15 -->
-It wasn't a life-changing sum, but it forced me to ask a question I had never seriously considered before: in a world where information travels across the globe instantly, why is moving money still so expensive?
+等到整笔交易处理完成，我发现光是转账费用就已经超过了 35 美元。
 
-<!-- TODO: 翻译 block-16 -->
-That moment didn't turn me into a crypto believer overnight.
+我记得当时看着账单，忍不住笑了出来。
 
-<!-- TODO: 翻译 block-17 -->
-But it made me pay attention.
+明明只是支付二十多美元的费用，结果转账成本竟然比需要支付的金额还高。
 
-<!-- TODO: 翻译 block-18 -->
-It was around that time that I started learning about stablecoins.
+35 美元当然不是一笔会改变生活的钱，但这件事让我第一次认真思考：
 
-<!-- TODO: 翻译 block-19 -->
-Why were so many entrepreneurs talking about USDT and USDC? Why were stablecoins becoming part of conversations about payments and international business?
+在一个信息几乎可以瞬间传遍全球的时代，为什么跨境转移一笔资金，仍然可能如此昂贵？
 
-<!-- TODO: 翻译 block-20 -->
-I didn't have the answers.
+这次经历并没有让我一夜之间成为 Crypto 的支持者，但它确实让我开始重新关注这个领域。
 
-<!-- TODO: 翻译 block-21 -->
-So I started reading.
+## 为什么我开始了解稳定币？
 
-<!-- TODO: 翻译 block-22 -->
-I signed up for exchanges, downloaded wallets, and spent a lot of time confused. The first time I saw a seed phrase, I had no idea what I was looking at. I couldn't tell the difference between BTC, ETH, and SOL. Most crypto terms sounded like a foreign language, and I often found myself searching the same concept multiple times before it finally started to make sense.
+也是在那段时间，我逐渐接触到了稳定币。
 
-<!-- TODO: 翻译 block-23 -->
-But as I kept going, I realized the most interesting part of crypto wasn't the price charts or the overnight success stories.
+为什么越来越多人讨论 USDT 和 USDC？为什么一些从事国际业务的人，也开始关注稳定币在支付和转账中的应用？
 
-<!-- TODO: 翻译 block-24 -->
-It was the problems crypto was trying to solve.
+最初，我并不知道答案。
 
-<!-- TODO: 翻译 block-25 -->
-How money moves.
+于是我开始阅读相关资料，注册交易平台账户，下载钱包，慢慢尝试理解那些以前觉得距离自己很遥远的概念。
 
-<!-- TODO: 翻译 block-26 -->
-How global payments could become more efficient.
+这个过程并没有想象中容易。
 
-<!-- TODO: 翻译 block-27 -->
-How value could travel across the internet as easily as information does today.
+第一次看到钱包助记词时，我甚至不知道它究竟是什么，也不明白为什么需要特别保存。BTC、ETH、SOL 之间有什么不同，区块链网络又是如何运行的，对当时的我来说都是陌生的知识。
 
-<!-- TODO: 翻译 block-28 -->
-Those questions felt surprisingly relevant to someone running an online business.
+有时候，同一个概念看过一遍依然不明白，只能反复查找资料，直到慢慢理解。
 
-<!-- TODO: 翻译 block-29 -->
-Over time, I began following crypto news more closely — regulations, stablecoin adoption, exchange competition, and eventually the growing overlap between AI and Web3.
+但随着学习不断深入，我发现，Crypto 真正让我感兴趣的部分，已经不再是价格走势图，或者那些一夜暴富的故事。
 
-<!-- TODO: 翻译 block-30 -->
-What I've come to understand is that crypto is about much more than speculation.
+我开始关注它试图解决的问题。
 
-<!-- TODO: 翻译 block-31 -->
-At its core, it feels like a new kind of infrastructure — an ongoing experiment in how value might move through the internet in the future.
+资金如何流动？跨境支付有没有可能变得更加高效？未来的价值交换，是否能够像今天的信息传递一样方便？
 
-<!-- TODO: 翻译 block-32 -->
-Many things that feel ordinary today once seemed strange and unnecessary.
+这些问题对于一个经营过国际电商业务的人来说，并不遥远。
 
-<!-- TODO: 翻译 block-33 -->
-Perhaps some of the ideas we dismiss today will eventually become part of everyday life as well.
+过去，我只是把支付手续费、货币兑换和漫长的结算流程视为经营成本的一部分。但现在，我开始尝试理解它们背后的金融体系，以及新技术可能带来的变化。
 
-<!-- TODO: 翻译 block-34 -->
-What fascinates me most right now is how often AI and crypto appear in the same conversation.
+当然，这并不意味着稳定币或区块链支付一定比传统银行更便宜、更方便。实际使用时，仍然需要考虑网络费用、兑换成本、服务商收费、监管要求和资金安全等问题。
 
-<!-- TODO: 翻译 block-35 -->
-Maybe a few years from now, we'll look back and realize these technologies had already quietly blended into daily life — and we stopped calling them "AI" or "crypto" altogether.
+但至少，它让我知道，除了自己熟悉的方式，还存在一些值得研究的可能性。
 
-<!-- TODO: 翻译 block-36 -->
-They'll simply become part of how the world works.
+如果想进一步了解我后来对稳定币的认识，也可以阅读 [《从以为稳定币都一样，到真正认识 USDT 与 USDC》](https://flowanriver.com/posts/from-thinking-all-stablecoins-were-the-same-to-understanding-usdt-and-usdc/)。
 
-<!--
-原文：https://flowanriver.com/posts/why-a-lingerie-brand-founder-started-paying-attention-to-crypto/
-人工检查项目：
-block-0：缺少中文译文
-block-1：缺少中文译文
-block-2：缺少中文译文
-block-3：缺少中文译文
-block-4：缺少中文译文
-block-5：缺少中文译文
-block-6：缺少中文译文
-block-7：缺少中文译文
-block-8：缺少中文译文
-block-9：缺少中文译文
-block-10：缺少中文译文
-block-11：缺少中文译文
-block-12：缺少中文译文
-block-13：缺少中文译文
-block-14：缺少中文译文
-block-15：缺少中文译文
-block-16：缺少中文译文
-block-17：缺少中文译文
-block-18：缺少中文译文
-block-19：缺少中文译文
-block-20：缺少中文译文
-block-21：缺少中文译文
-block-22：缺少中文译文
-block-23：缺少中文译文
-block-24：缺少中文译文
-block-25：缺少中文译文
-block-26：缺少中文译文
-block-27：缺少中文译文
-block-28：缺少中文译文
-block-29：缺少中文译文
-block-30：缺少中文译文
-block-31：缺少中文译文
-block-32：缺少中文译文
-block-33：缺少中文译文
-block-34：缺少中文译文
-block-35：缺少中文译文
-block-36：缺少中文译文
--->
+## 我开始关注的，不再只是 Crypto 的价格
+
+随着了解越来越多，我也开始主动阅读 Crypto 行业的新闻。
+
+从稳定币的发展，到不同地区的监管政策，再到交易平台之间的竞争，以及 AI 和 Web3 之间逐渐出现的联系，这些内容慢慢成为我日常关注的一部分。
+
+以前看到数字资产新闻时，我可能首先注意到的是价格涨了多少、跌了多少。
+
+但现在，我更愿意花时间了解这些变化背后的原因，以及它们可能如何影响未来的商业和金融活动。
+
+比如，当越来越多企业开始研究稳定币支付时，我会想，它们究竟希望解决什么问题？是为了降低跨境支付成本，缩短结算时间，还是为了拓展现有金融体系尚未充分覆盖的服务？
+
+而当监管机构开始为稳定币建立相关规则时，我也会好奇，这些制度未来将如何影响发行机构、商业用户和普通消费者。
+
+我逐渐意识到，Crypto 的发展涉及的远不止数字资产交易。
+
+它与金融体系、跨境商业、技术创新以及不同地区的监管环境都有着密切联系。
+
+从某种角度来说，我开始把区块链看作一种仍在发展中的基础设施。它尝试探索一个问题：未来，价值能否通过互联网以不同于传统方式的路径进行转移和交换？
+
+这项探索最终会发展到什么程度，我现在无法判断。
+
+有些技术可能真正进入日常生活，也有些项目和应用最终无法持续发展。这些都是新领域在发展过程中需要面对的现实。
+
+但我愿意继续观察和学习。
+
+## 从 AI 到 Crypto，我仍然在探索
+
+现在最让我感兴趣的一件事，是 AI 和 Crypto 越来越频繁地出现在同一场讨论中。
+
+它们原本有着不同的发展路径，一个更多涉及智能化与工作方式的变化，另一个则与数字资产、价值交换和去中心化网络有关。
+
+但随着技术和应用场景不断发展，两者之间可能产生怎样的联系，也成为我想继续了解的问题。
+
+也许几年之后，我们回头看今天讨论的某些技术，会发现它们早已融入普通人的生活。
+
+就像很多曾经看起来陌生、复杂，甚至没有必要的技术，如今已经成为我们每天都会使用的工具。
+
+那时，人们或许不会再刻意强调自己正在使用 AI 或 Crypto，因为相关技术已经成为某些服务背后的组成部分。
+
+当然，这只是一种可能。
+
+而对我来说，从 2015 年第一次听说 Bitcoin，到后来经营 LaceMoods 时遇到跨境支付问题，再到今天主动关注稳定币和金融监管，整个过程其实并没有什么特别的计划。
+
+很多兴趣，就是在遇到一个问题之后，慢慢延伸出来的。
+
+如果当初没有那笔让我觉得有些荒唐的转账手续费，也许我会在更晚的时候，才开始认真了解 Crypto。
+
+现在回头看，那 35 美元虽然让我多付了一笔费用，却也让我开始思考一些过去不曾关注的问题。
+
+而这些问题，最终让我对金融世界有了更多好奇。
+
+---
+
+*说明：本文记录的是我个人经营独立品牌、接触 Crypto 和学习数字金融的经历与观点，不构成投资或金融建议。数字资产及其相关支付服务存在技术、市场、发行方和监管风险，实际使用时应自行了解相关规则。*
