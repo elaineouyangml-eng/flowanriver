@@ -11,7 +11,23 @@
    Crypto Disclaimer
 ========================= */}}
 
-{{- if and (in $currentTags "crypto") (not .Params.hideCryptoDisclaimer) -}}
+{{- $articleText := lower .RawContent -}}
+
+{{- $hasDisclaimer := or
+  (in $articleText "disclaimer")
+  (in $articleText "disclosure")
+  (in $articleText "免责声明")
+  (in $articleText "风险提示")
+  (in $articleText "不构成投资建议")
+  (in $articleText "not financial advice")
+-}}
+
+{{- if and
+  (in $currentTags "crypto")
+  (not $hasDisclaimer)
+  (not .Params.hideCryptoDisclaimer)
+-}}
+
 <div class="fr-crypto-disclaimer">
   {{- if $isZH -}}
     <strong>免责声明：</strong>
