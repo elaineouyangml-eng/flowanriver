@@ -1,6 +1,7 @@
 ---
 title: "From USDT and USDC to the GENIUS Act: Why I Started Paying Attention to
   Stablecoin Regulation"
+slug: from-usdt-and-usdc-to-the-genius-act-why-i-started-paying-attention-to-stablecoin-regulation
 date: 2026-06-12T20:19:00.000+08:00
 draft: false
 tags:
@@ -13,7 +14,11 @@ cover:
   alt: A visual representation of stablecoin regulation across the US, Hong Kong,
     and Singapore — USDT, USDC, and the GENIUS Act explained for beginners.
 ---
-After spending time learning about USDT and USDC, I thought I had finally figured out the stablecoin story.
+After spending time learning about USDT and USDC, I thought I had finally figured out the stablecoin story. I had written about that learning process in [From Thinking All Stablecoins Were the Same to Understanding USDT and USDC](https://flowanriver.com/posts/from-thinking-all-stablecoins-were-the-same-to-understanding-usdt-and-usdc/), but the more I learned, the more I realized there was another side of the story I hadn't really considered.
+
+One is used almost everywhere. The other is often associated with transparency and compliance. That seemed to be the main difference.
+
+But it turned out I was only looking at the surface.
 
 One is used almost everywhere. The other is often associated with transparency and compliance. That seemed to be the main difference.
 
@@ -55,9 +60,9 @@ Regulation isn't just a policy discussion anymore. It may eventually affect how 
 
 ### The Signal Behind the GENIUS Act
 
-The [GENIUS Act](https://www.congress.gov/bill/119th-congress/senate-bill/394) in the United States gave me exactly that feeling.
+The [GENIUS Act](https://www.govinfo.gov/app/details/PLAW-119publ27) in the United States gave me exactly that feeling. Signed into law on July 18, 2025, it established a federal framework for payment stablecoins.
 
-What interested me wasn't every detail of the legislation. It was the signal behind it. One of the core ideas behind the proposed framework is that stablecoin issuers should maintain high-quality reserves and provide greater transparency — in other words, if a company wants to issue a stablecoin that people trust, it should be able to prove the backing assets actually exist.
+What interested me wasn't every detail of the legislation. It was the signal behind it. The law introduced requirements concerning reserves, transparency, and oversight. In other words, if a company wants to issue a payment stablecoin that people can rely on, it needs to meet clearer standards for how that stablecoin is backed and managed.
 
 A few years ago, many crypto conversations focused on a simple question: "Does this technology have a future?" Today, the conversation is increasingly becoming: "If it does have a future, how should it be regulated?"
 
@@ -81,7 +86,7 @@ The details may differ, but the direction is similar. Governments are acknowledg
 
 When I first started learning about crypto, I focused on prices. Later, I became interested in projects. Then I started learning about wallets, stablecoins, and on-chain applications. Now I find myself paying attention to regulation.
 
-Not because regulation is exciting on its own. But because once you follow the stablecoin story long enough, it becomes impossible to ignore.
+Not because regulation is exciting on its own. But because once you follow the stablecoin story long enough, it becomes impossible to ignore. And the more I learned about stablecoin regulation, the more I began paying attention to the broader rules surrounding digital assets. That question eventually led me to explore the CLARITY Act, which I discussed in [Crypto Is Becoming Financial Infrastructure: Why the World Was Watching the CLARITY Act](https://flowanriver.com/posts/crypto-is-becoming-financial-infrastructure-why-the-world-was-watching-the-clarity-act/).
 
 Stablecoins aren't really just about coins. They're about how money moves. They're about whether cross-border payments can become simpler. They're about how value might be exchanged in an increasingly digital world.
 
