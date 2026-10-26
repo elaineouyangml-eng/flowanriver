@@ -2,7 +2,7 @@
 ---
 title: "Flowanriver 迈入 Pi Network 生态：从 Testnet 开始"
 date: 2026-10-26
-draft: true
+draft: false
 description: "Flowanriver 开始接入 Pi Network Testnet，记录一个编程门外汉如何借助 AI 完善独立网站、增加中文支持，并尝试参与 Web3 生态应用建设。"
 tags: ["Crypto", "Pi Network", "Web3", "AI", "Flowanriver"]
 ---
