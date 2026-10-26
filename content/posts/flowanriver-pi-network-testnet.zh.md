@@ -1,10 +1,14 @@
 
 ---
 title: "Flowanriver 迈入 Pi Network 生态：从 Testnet 开始"
+slug: "flowanriver-pi-network-testnet"
 date: 2026-10-26
 draft: false
 description: "Flowanriver 开始接入 Pi Network Testnet，记录一个编程门外汉如何借助 AI 完善独立网站、增加中文支持，并尝试参与 Web3 生态应用建设。"
 tags: ["Crypto", "Pi Network", "Web3", "AI", "Flowanriver"]
+cover:
+  image: "/images/entering-pi-network-testnet.png"
+  alt: "Flowanriver 走进 Pi Network Testnet 大门，象征网站开始探索 Pi 生态应用建设"
 ---
 
 今天想和大家分享一个关于 Flowanriver 的新消息：**Flowanriver 已经接入 Pi Network 的测试环境，正式开始参与生态应用建设。**
