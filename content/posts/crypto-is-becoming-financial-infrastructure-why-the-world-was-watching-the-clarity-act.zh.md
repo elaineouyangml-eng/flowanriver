@@ -1,7 +1,7 @@
 ---
 title: "Crypto 正在成为金融基础设施：为什么全球关注 CLARITY Act？"
 date: 2026-09-16T19:39:00.000+08:00
-draft: true
+draft: false
 description: "从美国 CLARITY Act 立法受阻，到稳定币支付、资产代币化与全球金融机构的参与，探讨 Crypto 如何逐渐融入传统金融基础设施。"
 tags: ["Crypto", "Regulation", "Stablecoins", "Finance"]
 cover:
