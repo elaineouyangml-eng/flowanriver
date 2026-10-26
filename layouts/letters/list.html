@@ -916,3 +916,417 @@
 </script>
 
 {{ end }}
+
+
+<!-- MAGIC LETTER ANIMATION PREVIEW -->
+
+<style>
+.magic-preview-btn {
+  display: block;
+  margin: 22px auto 0;
+  padding: 11px 24px;
+  border: 1px solid #9aac98;
+  border-radius: 30px;
+  background: transparent;
+  color: #607764;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.magic-preview-btn:hover {
+  background: #edf2e9;
+  color: #405746;
+}
+
+.magic-scene[hidden] {
+  display: none !important;
+}
+
+.magic-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse at center,
+    #f6f3e9 0%,
+    #e8eee5 75%,
+    #e2eadf 100%
+  );
+}
+
+.magic-close {
+  position: absolute;
+  top: 25px;
+  right: 26px;
+  z-index: 5;
+  padding: 8px 13px;
+  border: 1px solid #c9d6c7;
+  border-radius: 25px;
+  background: #ffffffbb;
+  color: #536b57;
+  cursor: pointer;
+}
+
+.magic-letter {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 150px;
+  height: 102px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 12px 12px #59664b33);
+}
+
+.magic-envelope {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid #cab898;
+  border-radius: 5px;
+  background: #e9dcc3;
+}
+
+.magic-envelope::before {
+  content: "";
+  position: absolute;
+  top: -77px;
+  left: 21px;
+  width: 106px;
+  height: 106px;
+  transform: rotate(45deg);
+  border-right: 1px solid #bca888;
+  border-bottom: 1px solid #bca888;
+  background: #f8eed9;
+}
+
+.magic-envelope::after {
+  content: "";
+  position: absolute;
+  bottom: -63px;
+  left: 24px;
+  width: 102px;
+  height: 102px;
+  transform: rotate(45deg);
+  border-top: 1px solid #d2c1a3;
+  border-left: 1px solid #d2c1a3;
+  background: #eee0c5;
+}
+
+.magic-wax {
+  position: absolute;
+  z-index: 2;
+  left: 61px;
+  top: 42px;
+  width: 28px;
+  height: 28px;
+  border-radius: 46% 54% 49% 51%;
+  background: #799077;
+  border: 3px double #506950;
+  box-shadow: 0 2px 4px #403c2c44;
+  transform: scale(0);
+}
+
+.magic-wax::after {
+  content: "F";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e8eddf;
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+
+.magic-particle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c6a66d;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.magic-scene.playing .magic-letter {
+  animation: magicFlight 4.2s ease-in-out forwards;
+}
+
+.magic-scene.playing .magic-wax {
+  animation: magicSeal .55s .65s ease-out forwards;
+}
+
+.magic-scene.playing .magic-particle {
+  animation: magicSpark 1.6s ease-out both;
+  animation-delay: var(--delay);
+}
+
+@keyframes magicSeal {
+  0% { transform: scale(1.6); opacity: 0; }
+  70% { transform: scale(.9); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes magicFlight {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 80%) scale(.8);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  36% {
+    opacity: 1;
+    transform: translate(-50%, -75%) scale(1.07)
+      rotate(-8deg);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(-5%, -105%) scale(.95)
+      rotate(9deg);
+  }
+  75% {
+    opacity: 1;
+    transform: translate(100%, -170%) scale(.7)
+      rotate(-12deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(260%, -300%) scale(.2)
+      rotate(15deg);
+  }
+}
+
+@keyframes magicSpark {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(.3);
+  }
+  35% { opacity: .9; }
+  100% {
+    opacity: 0;
+    transform:
+      translate(var(--x), var(--y)) scale(.2);
+  }
+}
+
+.magic-finish {
+  position: absolute;
+  z-index: 3;
+  left: 20px;
+  right: 20px;
+  top: 53%;
+  text-align: center;
+  color: #49634e;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.magic-finish h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, serif;
+  font-size: clamp(23px, 5vw, 32px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.magic-finish p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.magic-scene.finished .magic-finish {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .8s, transform .8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magic-scene.playing .magic-letter,
+  .magic-scene.playing .magic-wax,
+  .magic-scene.playing .magic-particle {
+    animation: none;
+  }
+
+  .magic-scene.playing .magic-letter {
+    opacity: 0;
+  }
+
+  .magic-scene.finished .magic-finish {
+    transition: none;
+  }
+}
+</style>
+
+<div style="text-align:center">
+  <button
+    type="button"
+    id="magicPreviewButton"
+    class="magic-preview-btn">
+    ✨ Preview Letter Animation
+  </button>
+</div>
+
+<div
+  id="magicScene"
+  class="magic-scene"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Letter animation preview"
+  hidden>
+
+  <button
+    type="button"
+    id="magicClose"
+    class="magic-close"
+    aria-label="Close animation">
+    ✕
+  </button>
+
+  <div class="magic-letter" aria-hidden="true">
+    <div class="magic-envelope"></div>
+    <div class="magic-wax"></div>
+  </div>
+
+  <div id="magicParticles" aria-hidden="true"></div>
+
+  <div class="magic-finish" aria-live="polite">
+    <div style="font-size:31px;margin-bottom:15px">
+      ✉
+    </div>
+
+    <h2 id="magicFinishTitle">
+      Your letter is sealed.
+      Until we meet again.
+    </h2>
+
+    <p id="magicFinishNote">
+      A little piece of today, waiting for tomorrow.
+    </p>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const preview = document.getElementById(
+    "magicPreviewButton"
+  );
+  const scene = document.getElementById("magicScene");
+  const close = document.getElementById("magicClose");
+  const particles = document.getElementById(
+    "magicParticles"
+  );
+
+  const title = document.getElementById(
+    "magicFinishTitle"
+  );
+  const note = document.getElementById(
+    "magicFinishNote"
+  );
+
+  if (!preview || !scene) return;
+
+  let finishTimer;
+  let previousFocus = null;
+
+  // Reproducible light particles
+  const positions = [
+    [-120, -70], [-65, -135], [25, -115],
+    [105, -90], [160, -155], [-160, 40],
+    [-35, 75], [90, 50], [175, 35],
+    [-90, 130], [45, 150], [215, -55],
+    [-190, -110], [120, 110], [-15, -190]
+  ];
+
+  positions.forEach(function (position, index) {
+    const spark = document.createElement("span");
+    spark.className = "magic-particle";
+    spark.style.setProperty("--x", position[0] + "px");
+    spark.style.setProperty("--y", position[1] + "px");
+    spark.style.setProperty(
+      "--delay",
+      (1.1 + index * .14) + "s"
+    );
+    particles.appendChild(spark);
+  });
+
+  function isChinese() {
+    const zhButton = document.getElementById("lettersZH");
+    return zhButton &&
+      zhButton.getAttribute("aria-pressed") === "true";
+  }
+
+  function openAnimation() {
+    previousFocus = document.activeElement;
+    clearTimeout(finishTimer);
+
+    if (isChinese()) {
+      title.textContent = "信已封存，未来再见。";
+      note.textContent =
+        "把今天的一小段时光，留给未来的自己。";
+    } else {
+      title.textContent =
+        "Your letter is sealed. Until we meet again.";
+      note.textContent =
+        "A little piece of today, waiting for tomorrow.";
+    }
+
+    scene.hidden = false;
+    scene.classList.remove("playing", "finished");
+
+    // Force a fresh animation on every preview
+    void scene.offsetWidth;
+
+    scene.classList.add("playing");
+    close.focus();
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    finishTimer = setTimeout(function () {
+      scene.classList.add("finished");
+    }, reduceMotion ? 100 : 4100);
+  }
+
+  function closeAnimation() {
+    clearTimeout(finishTimer);
+    scene.classList.remove("playing", "finished");
+    scene.hidden = true;
+
+    if (previousFocus &&
+        typeof previousFocus.focus === "function") {
+      previousFocus.focus();
+    }
+  }
+
+  preview.addEventListener("click", openAnimation);
+  close.addEventListener("click", closeAnimation);
+
+  scene.addEventListener("click", function (event) {
+    if (event.target === scene) closeAnimation();
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (scene.hidden) return;
+
+    if (event.key === "Escape") {
+      closeAnimation();
+    }
+
+    if (event.key === "Tab") {
+      event.preventDefault();
+      close.focus();
+    }
+  });
+})();
+</script>
