@@ -33,29 +33,54 @@
   </a>
 </div>
 
+
 <style>
 .fr-x-invite {
-  margin: 36px auto 24px;
-  padding: 25px 0;
+  max-width: 760px;
+  margin: 42px auto 36px;
+  padding: 34px 24px;
   text-align: center;
-  border-top: 1px solid var(--border);
+  background: #E8E3D8;
+  border-radius: 16px;
 }
+
 .fr-x-invite p {
-  margin: 0 0 12px;
+  margin: 0 0 18px;
   font-size: 15px;
-  color: var(--secondary);
+  color: #655F57;
   line-height: 1.8;
 }
+
 .fr-x-invite a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--primary);
+  gap: 10px;
+  padding: 9px 19px;
+  border: 1px solid #A79B88;
+  border-radius: 30px;
+  color: #423E38;
+  font-size: 13px;
+  text-decoration: none;
+  transition: background .2s ease;
+}
+
+.fr-x-invite a:hover {
+  background: #DCD5C8;
   text-decoration: none;
 }
-.fr-x-invite a:hover {
-  text-decoration: underline;
+
+.dark .fr-x-invite {
+  background: #343731;
+}
+
+.dark .fr-x-invite p,
+.dark .fr-x-invite a {
+  color: #E7E0D5;
+}
+
+.dark .fr-x-invite a {
+  border-color: #77796E;
 }
 </style>
+
 
