@@ -1,7 +1,7 @@
 ---
 title: "从经营 LaceMoods 到关注 Crypto：一笔跨境转账带来的思考"
 date: 2026-06-06T14:03:00.000+08:00
-draft: true
+draft: false
 description: "从经营独立内衣品牌 LaceMoods 的跨境支付经历出发，分享一笔超过 35 美元的转账手续费，如何让我开始关注 Bitcoin、稳定币与数字金融。"
 tags: ["Crypto", "Journal", "Stablecoins", "Business"]
 cover:
