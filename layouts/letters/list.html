@@ -2,46 +2,117 @@
 {{ define "main" }}
 
 <style>
+/* ==============================
+   FLOWANRIVER FUTURE LETTERS
+   ============================== */
+
 .future-letters {
   --letter-green: #607764;
-  --letter-dark: #3e5143;
-  --letter-cream: #f7f4ed;
-  --letter-border: #dde5d9;
+  --letter-dark: #405746;
+  --letter-sage: #e9eee6;
+  --letter-cream: #f7f3eb;
+  --letter-border: #e1e7de;
+  --letter-muted: #637565;
+
+  width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 28px 0 70px;
+  padding: 24px 0 65px;
   color: var(--primary);
 }
 
-.future-letters * {
+.future-letters *,
+.future-letters *::before,
+.future-letters *::after {
   box-sizing: border-box;
 }
 
+/* HERO */
+
 .letters-hero {
   position: relative;
-  padding: 56px 28px 48px;
-  text-align: center;
-  background: linear-gradient(145deg, #f7f4ed, #eaf0e7);
-  border-radius: 22px;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 65px 40px 58px;
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      ellipse at 96% 18%,
+      rgba(210,226,207,.6),
+      transparent 55%
+    ),
+    linear-gradient(
+      125deg,
+      #f7f3eb 0%,
+      #f2f2e9 48%,
+      #e9eee6 100%
+    );
+
   color: var(--letter-dark);
 }
 
+/* Subtle botanical shadow */
+
+.letters-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 110px;
+  left: -55px;
+  width: 210px;
+  height: 300px;
+  opacity: .38;
+  filter: blur(15px);
+  transform: rotate(-24deg);
+
+  background:
+    radial-gradient(
+      ellipse 22px 65px at 45px 62px,
+      rgba(116,144,107,.2) 0 75%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 26px 65px at 115px 115px,
+      rgba(116,144,107,.2) 0 75%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 24px 60px at 45px 175px,
+      rgba(116,144,107,.18) 0 75%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 25px 65px at 125px 245px,
+      rgba(116,144,107,.16) 0 75%,
+      transparent 80%
+    );
+
+  pointer-events: none;
+}
+
+/* Language Switch */
+
 .letters-lang {
   position: absolute;
-  top: 18px;
-  right: 18px;
+  top: 22px;
+  right: 23px;
   display: flex;
-  gap: 5px;
+  gap: 7px;
+  z-index: 2;
 }
 
 .letters-lang button {
-  border: 1px solid #d4ded0;
-  border-radius: 20px;
-  padding: 6px 13px;
+  appearance: none;
+  border: 1px solid #cfdbce;
+  border-radius: 30px;
+  padding: 7px 15px;
   font-size: 12px;
-  color: #526655;
+  font-weight: 500;
   background: transparent;
+  color: #58715d;
   cursor: pointer;
+  transition: .2s ease;
 }
 
 .letters-lang button.active {
@@ -50,177 +121,351 @@
   color: white;
 }
 
-.letters-icon {
-  font-size: 44px;
-  margin-bottom: 18px;
+.letters-lang button:hover {
+  border-color: #607764;
+}
+
+/* Hero Typography */
+
+.letters-hero-top {
+  text-align: center;
+}
+
+.letters-envelope {
+  margin-bottom: 23px;
+  font-size: 33px;
+  line-height: 1;
+  color: #506b56;
 }
 
 .letters-eyebrow {
+  margin-bottom: 17px;
+  color: #7a8d7b;
   font-size: 11px;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #788975;
-  margin-bottom: 16px;
+  font-weight: 600;
+  letter-spacing: 3px;
 }
 
 .letters-hero h1 {
-  font-family: Georgia, serif;
-  font-size: clamp(30px, 5vw, 43px);
+  margin: 0 0 20px;
+  color: #405746;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 5vw, 45px);
+  font-weight: 600;
   line-height: 1.25;
-  margin: 0 0 18px;
-  color: #3e5143;
 }
 
 .letters-subtitle {
-  font-family: Georgia, serif;
+  margin-bottom: 30px;
+  color: #607764;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
   font-style: italic;
-  font-size: 17px;
-  color: #617563;
-  margin-bottom: 27px;
+  line-height: 1.6;
 }
 
 .letters-intro {
   max-width: 760px;
   margin: 0 auto;
+  color: #506552;
   font-size: 15px;
   line-height: 1.85;
-  color: #526653;
   text-align: left;
 }
 
 .letters-intro p {
-  margin: 0 0 12px;
+  margin: 0 0 15px;
 }
 
 .letters-intro p:last-child {
   margin-bottom: 0;
 }
 
+.letters-intro[hidden] {
+  display: none !important;
+}
+
+/* FORM CARD */
+
 .letters-form-card {
-  margin-top: 30px;
-  padding: 35px;
-  background: var(--entry);
-  border: 1px solid var(--letter-border);
-  border-radius: 20px;
+  margin-top: 26px;
+  padding: 43px 44px 35px;
+  background: #fff;
+  border: 1px solid #dfe6dc;
+  border-radius: 21px;
+  box-shadow: 0 8px 28px rgba(73,83,67,.035);
+  color: #252c26;
 }
 
 .letters-form-card h2 {
-  font-family: Georgia, serif;
-  font-size: 24px;
+  margin: 0 0 28px;
+  color: #252b25;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
   font-weight: 500;
-  margin: 0 0 25px;
-  color: var(--primary);
 }
 
 .letters-field {
-  margin-bottom: 25px;
+  margin-bottom: 26px;
 }
 
-.letters-field label {
+.letters-field label,
+.letters-date-label {
   display: block;
   margin-bottom: 11px;
+  color: #29342c;
   font-size: 14px;
   font-weight: 600;
-  color: var(--primary);
 }
 
 .letters-field textarea,
-.letters-field input {
+.letters-field input,
+.letters-field select {
+  display: block;
   width: 100%;
-  padding: 15px;
+  min-width: 0;
+  padding: 13px 15px;
+  background: #fff;
+  border: 1px solid #dbe4d9;
+  border-radius: 11px;
+  color: #303d33;
   font: inherit;
   font-size: 14px;
-  line-height: 1.7;
-  color: var(--primary);
-  background: var(--theme);
-  border: 1px solid var(--letter-border);
-  border-radius: 11px;
+  line-height: 1.65;
   outline: none;
+  transition: border-color .2s, box-shadow .2s;
 }
 
 .letters-field textarea {
-  min-height: 250px;
+  min-height: 220px;
   resize: vertical;
+  line-height: 1.8;
+}
+
+.letters-field textarea::placeholder,
+.letters-field input::placeholder {
+  color: #909a91;
 }
 
 .letters-field textarea:focus,
-.letters-field input:focus {
-  border-color: #8aa18b;
-  box-shadow: 0 0 0 3px rgba(116,146,119,.12);
+.letters-field input:focus,
+.letters-field select:focus {
+  border-color: #91a792;
+  box-shadow: 0 0 0 3px rgba(120,151,124,.12);
 }
 
-.letters-field input[type="date"] {
-  color-scheme: light;
-}
+/* TWO COLUMNS */
 
 .letters-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  gap: 22px;
+  align-items: start;
 }
 
+/* CUSTOM DATE FIELDS */
+
+.letters-date-fields {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  gap: 7px;
+}
+
+.letters-date-fields select {
+  appearance: auto;
+  padding: 13px 7px;
+  font-size: 13px;
+}
+
+.letters-date-hint {
+  margin-top: 8px;
+  color: #7b897d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* BUTTON */
+
 .letters-send {
+  display: block;
   width: 100%;
+  margin-top: 7px;
   padding: 16px 20px;
   border: 0;
-  border-radius: 30px;
+  border-radius: 35px;
+  background: #607764;
+  color: white;
   font-size: 15px;
-  background: #819583;
-  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  transition: background .2s ease;
+}
+
+.letters-send:disabled {
+  background: #9eae9f;
+  opacity: 1;
   cursor: not-allowed;
-  opacity: .75;
+}
+
+.letters-send:not(:disabled) {
+  cursor: pointer;
+}
+
+.letters-send:not(:disabled):hover {
+  background: #4d6552;
 }
 
 .letters-preview-note {
+  margin: 14px 0 0;
+  color: #858b84;
+  font-size: 12px;
+  line-height: 1.7;
   text-align: center;
-  margin: 15px 0;
-  font-size: 13px;
-  color: var(--secondary);
-  line-height: 1.8;
 }
 
+/* PRIVACY */
+
 .letters-privacy {
-  margin-top: 24px;
-  padding: 22px;
-  background: var(--letter-cream);
-  border-radius: 14px;
+  margin-top: 28px;
+  padding: 24px 25px;
+  background: linear-gradient(
+    125deg,
+    #f6f3ed,
+    #f8f6f0
+  );
+  border-radius: 13px;
+  color: #637364;
   text-align: center;
-  color: #586b5a;
 }
 
 .letters-privacy strong {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
+  color: #556d59;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .letters-privacy p {
+  max-width: 640px;
+  margin: 0 auto;
   font-size: 13px;
-  line-height: 1.8;
-  margin: 0;
+  line-height: 1.85;
 }
+
+/* FOOTER QUOTE */
 
 .letters-footer-note {
-  margin: 34px auto 0;
-  text-align: center;
-  font-family: Georgia, serif;
-  font-style: italic;
+  margin: 38px auto 0;
+  color: #687c6b;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 15px;
+  font-style: italic;
   line-height: 1.8;
-  color: var(--secondary);
+  text-align: center;
 }
 
-@media (max-width: 600px) {
+.letters-flower {
+  display: block;
+  margin-bottom: 10px;
+  color: #738c75;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.letters-footer-note::after {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 1px;
+  margin: 18px auto 0;
+  background: #cbd6c9;
+}
+
+/* DARK MODE */
+
+[data-theme="dark"] .letters-hero {
+  background: linear-gradient(
+    130deg,
+    #26382e,
+    #304638
+  );
+}
+
+[data-theme="dark"] .letters-hero h1,
+[data-theme="dark"] .letters-subtitle,
+[data-theme="dark"] .letters-intro,
+[data-theme="dark"] .letters-eyebrow,
+[data-theme="dark"] .letters-envelope {
+  color: #e1e9de;
+}
+
+[data-theme="dark"] .letters-hero::before {
+  opacity: .15;
+}
+
+[data-theme="dark"] .letters-form-card {
+  background: var(--entry);
+  border-color: #465a49;
+  color: var(--primary);
+}
+
+[data-theme="dark"] .letters-form-card h2,
+[data-theme="dark"] .letters-field label,
+[data-theme="dark"] .letters-date-label {
+  color: var(--primary);
+}
+
+[data-theme="dark"] .letters-field textarea,
+[data-theme="dark"] .letters-field input,
+[data-theme="dark"] .letters-field select {
+  background: var(--theme);
+  color: var(--primary);
+  border-color: #4a604e;
+}
+
+[data-theme="dark"] .letters-privacy {
+  background: #293b30;
+  color: #d1ded0;
+}
+
+[data-theme="dark"] .letters-privacy strong {
+  color: #dce7d8;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
   .future-letters {
-    padding-top: 10px;
+    padding: 10px 0 45px;
   }
 
   .letters-hero {
-    padding: 76px 20px 40px;
+    padding: 75px 22px 38px;
+    border-radius: 17px;
+  }
+
+  .letters-hero h1 {
+    font-size: 31px;
+  }
+
+  .letters-subtitle {
+    font-size: 16px;
+    margin-bottom: 23px;
+  }
+
+  .letters-intro {
+    font-size: 14px;
+    line-height: 1.85;
   }
 
   .letters-form-card {
-    padding: 24px 18px;
+    padding: 27px 19px;
+    border-radius: 16px;
+  }
+
+  .letters-form-card h2 {
+    font-size: 24px;
   }
 
   .letters-two-col {
@@ -228,67 +473,70 @@
     gap: 0;
   }
 
-  .letters-intro {
-    font-size: 14px;
-    line-height: 1.9;
+  .letters-field textarea {
+    min-height: 230px;
   }
 
-  .letters-subtitle {
-    font-size: 15px;
+  .letters-date-fields {
+    grid-template-columns: 1.2fr 1fr 1fr;
   }
-}
 
-[data-theme="dark"] .letters-hero {
-  background: #25382e;
-}
-
-[data-theme="dark"] .letters-hero h1,
-[data-theme="dark"] .letters-subtitle,
-[data-theme="dark"] .letters-intro,
-[data-theme="dark"] .letters-eyebrow {
-  color: #e0e9db;
-}
-
-[data-theme="dark"] .letters-privacy {
-  background: #25382e;
-  color: #e0e9db;
+  .letters-privacy {
+    padding: 22px 16px;
+  }
 }
 </style>
 
 <section class="future-letters" id="futureLetters">
 
+  <!-- HERO -->
+
   <div class="letters-hero">
 
     <div class="letters-lang">
-      <button type="button" id="lettersEN"
-        class="active" aria-pressed="true">
+      <button type="button"
+        id="lettersEN"
+        class="active"
+        aria-pressed="true">
         EN
       </button>
-      <button type="button" id="lettersZH"
+
+      <button type="button"
+        id="lettersZH"
         aria-pressed="false">
         中文
       </button>
     </div>
 
-    <div class="letters-icon" aria-hidden="true">✉</div>
+    <div class="letters-hero-top">
 
-    <div class="letters-eyebrow">
-      FLOWANRIVER · A QUIET CORNER
-    </div>
+      <div class="letters-envelope" aria-hidden="true">
+        ✉
+      </div>
 
-    <h1 data-en="Letters to the Future"
+      <div class="letters-eyebrow">
+        FLOWANRIVER · A QUIET CORNER
+      </div>
+
+      <h1
+        data-en="Letters to the Future"
         data-zh="写给未来的自己">
-      Letters to the Future
-    </h1>
+        Letters to the Future
+      </h1>
 
-    <div class="letters-subtitle"
-      data-en="You may forget, but time will remember."
-      data-zh="你可能会忘记，但时间会记得。">
-      You may forget, but time will remember.
+      <div class="letters-subtitle"
+        data-en="You may forget, but time will remember."
+        data-zh="你可能会忘记，但时间会记得。">
+        You may forget, but time will remember.
+      </div>
+
     </div>
+
+    <!-- ENGLISH INTRO -->
 
     <div class="letters-intro"
-      data-letters-en="true">
+      data-letters-en
+      lang="en">
 
       <p>
         Imagine opening your inbox one ordinary day
@@ -303,8 +551,8 @@
         and things that once meant so much to you.
         Perhaps you see things differently now.
         Perhaps those worries are long gone,
-        or you've almost forgotten why you
-        wrote those words in the first place.
+        or you've almost forgotten why you wrote
+        those words in the first place.
       </p>
 
       <p>
@@ -328,8 +576,10 @@
 
     </div>
 
+    <!-- CHINESE INTRO -->
+
     <div class="letters-intro"
-      data-letters-zh="true"
+      data-letters-zh
       lang="zh-CN"
       hidden>
 
@@ -368,10 +618,13 @@
 
   </div>
 
+  <!-- LETTER FORM -->
+
   <div class="letters-form-card">
 
-    <h2 data-en="Your Letter"
-        data-zh="写给未来的一封信">
+    <h2
+      data-en="Your Letter"
+      data-zh="写给未来的一封信">
       Your Letter
     </h2>
 
@@ -383,7 +636,8 @@
         What would you like to tell your future self?
       </label>
 
-      <textarea id="futureLetterText"
+      <textarea
+        id="futureLetterText"
         maxlength="20000"
         data-placeholder-en="A thought, a memory, a wish, or anything you'd like to remember..."
         data-placeholder-zh="写下此刻的心情、一个愿望，或任何你想留给未来的话……"
@@ -393,19 +647,57 @@
 
     <div class="letters-two-col">
 
+      <!-- DATE -->
+
       <div class="letters-field">
 
-        <label for="futureLetterDate"
+        <label class="letters-date-label"
+          for="letterYear"
           data-en="When should it arrive?"
           data-zh="希望哪一天收到？">
           When should it arrive?
         </label>
 
-        <input type="date"
-       id="futureLetterDate"
-       lang="en">
+        <div class="letters-date-fields">
+
+          <select id="letterYear"
+            aria-label="Year">
+            <option value=""
+              data-en="Year"
+              data-zh="年">
+              Year
+            </option>
+          </select>
+
+          <select id="letterMonth"
+            aria-label="Month">
+            <option value=""
+              data-en="Month"
+              data-zh="月">
+              Month
+            </option>
+          </select>
+
+          <select id="letterDay"
+            aria-label="Day">
+            <option value=""
+              data-en="Day"
+              data-zh="日">
+              Day
+            </option>
+          </select>
+
+        </div>
+
+        <div class="letters-date-hint"
+          data-en="Choose a future date"
+          data-zh="选择一个未来的日期">
+          Choose a future date
+        </div>
 
       </div>
+
+      <!-- EMAIL -->
 
       <div class="letters-field">
 
@@ -424,8 +716,11 @@
 
     </div>
 
+    <!-- BUTTON DISABLED UNTIL BACKEND IS READY -->
+
     <button type="button"
       class="letters-send"
+      id="sealLetterButton"
       disabled
       data-en="Seal My Letter"
       data-zh="封存这封信">
@@ -438,6 +733,8 @@
       Preview only — letter delivery is not available yet.
       Nothing is saved or sent.
     </p>
+
+    <!-- PRIVACY -->
 
     <div class="letters-privacy">
 
@@ -460,10 +757,20 @@
 
   </div>
 
-  <div class="letters-footer-note"
-    data-en="A little piece of today, waiting for tomorrow."
-    data-zh="把今天的一小段时光，留给未来的自己。">
-    A little piece of today, waiting for tomorrow.
+  <!-- FOOTER -->
+
+  <div class="letters-footer-note">
+
+    <span class="letters-flower" aria-hidden="true">
+      ❧
+    </span>
+
+    <span
+      data-en="A little piece of today, waiting for tomorrow."
+      data-zh="把今天的一小段时光，留给未来的自己。">
+      A little piece of today, waiting for tomorrow.
+    </span>
+
   </div>
 
 </section>
@@ -475,19 +782,77 @@
 
   const enButton = document.getElementById("lettersEN");
   const zhButton = document.getElementById("lettersZH");
+
   const message = document.getElementById("futureLetterText");
-  const dateInput = document.getElementById("futureLetterDate");
 
-  const englishIntro = root.querySelector(
-    "[data-letters-en]"
-  );
+  const englishIntro = root.querySelector("[data-letters-en]");
+  const chineseIntro = root.querySelector("[data-letters-zh]");
 
-  const chineseIntro = root.querySelector(
-    "[data-letters-zh]"
-  );
+  const yearSelect = document.getElementById("letterYear");
+  const monthSelect = document.getElementById("letterMonth");
+  const daySelect = document.getElementById("letterDay");
+
+  const today = new Date();
+
+  /* Populate future years: preview supports up to 10 years */
+
+  for (
+    let year = today.getFullYear();
+    year <= today.getFullYear() + 10;
+    year++
+  ) {
+    const option = document.createElement("option");
+    option.value = year;
+    option.textContent = year;
+    yearSelect.appendChild(option);
+  }
+
+  /* Populate months */
+
+  for (let month = 1; month <= 12; month++) {
+    const option = document.createElement("option");
+    option.value = String(month).padStart(2, "0");
+    option.textContent = month;
+    monthSelect.appendChild(option);
+  }
+
+  /* Rebuild days according to selected year and month */
+
+  function updateDays() {
+    const previousDay = daySelect.value;
+
+    while (daySelect.options.length > 1) {
+      daySelect.remove(1);
+    }
+
+    const year = Number(yearSelect.value);
+    const month = Number(monthSelect.value);
+
+    if (!year || !month) return;
+
+    const totalDays = new Date(year, month, 0).getDate();
+
+    for (let day = 1; day <= totalDays; day++) {
+      const option = document.createElement("option");
+      option.value = String(day).padStart(2, "0");
+      option.textContent = day;
+      daySelect.appendChild(option);
+    }
+
+    if (
+      previousDay &&
+      Number(previousDay) <= totalDays
+    ) {
+      daySelect.value = previousDay;
+    }
+  }
+
+  yearSelect.addEventListener("change", updateDays);
+  monthSelect.addEventListener("change", updateDays);
+
+  /* Language switch */
 
   function changeLanguage(lang) {
-
     root.querySelectorAll("[data-en][data-zh]").forEach(
       function (el) {
         el.textContent = el.getAttribute("data-" + lang);
@@ -502,22 +867,38 @@
       }
     );
 
-    englishIntro.hidden = (lang !== "en");
-    chineseIntro.hidden = (lang !== "zh");
+    englishIntro.hidden = lang !== "en";
+    chineseIntro.hidden = lang !== "zh";
 
     enButton.classList.toggle("active", lang === "en");
     zhButton.classList.toggle("active", lang === "zh");
 
     enButton.setAttribute(
-      "aria-pressed", String(lang === "en")
+      "aria-pressed",
+      String(lang === "en")
     );
 
     zhButton.setAttribute(
-      "aria-pressed", String(lang === "zh")
+      "aria-pressed",
+      String(lang === "zh")
     );
 
     message.lang = lang === "zh" ? "zh-CN" : "en";
-    dateInput.lang = lang === "zh" ? "zh-CN" : "en";
+
+    yearSelect.setAttribute(
+      "aria-label",
+      lang === "zh" ? "年" : "Year"
+    );
+
+    monthSelect.setAttribute(
+      "aria-label",
+      lang === "zh" ? "月" : "Month"
+    );
+
+    daySelect.setAttribute(
+      "aria-label",
+      lang === "zh" ? "日" : "Day"
+    );
   }
 
   enButton.addEventListener("click", function () {
@@ -528,24 +909,7 @@
     changeLanguage("zh");
   });
 
-  const today = new Date();
-
-  const tomorrow = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate() + 1
-  );
-
-  const year = tomorrow.getFullYear();
-  const month = String(
-    tomorrow.getMonth() + 1
-  ).padStart(2, "0");
-
-  const day = String(
-    tomorrow.getDate()
-  ).padStart(2, "0");
-
-  dateInput.min = year + "-" + month + "-" + day;
+  /* No data is saved or submitted in preview mode */
 
   changeLanguage("en");
 })();
