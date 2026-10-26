@@ -2,7 +2,7 @@
 ---
 title: "从以为稳定币都一样，到真正认识 USDT 与 USDC"
 date: 2026-06-12T09:30:00.000+08:00
-draft: true
+draft: false
 description: "从最初分不清 USDT 与 USDC，到逐渐理解稳定币在交易、跨境支付和数字金融中的作用，记录我认识稳定币的过程。"
 tags: ["Crypto", "Stablecoins", "Finance"]
 cover:
