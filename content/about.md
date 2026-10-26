@@ -48,7 +48,3 @@ Everything I write on FlowAnRiver comes from the way I see and understand the wo
 If something you've read here makes you curious, gives you a different perspective, or simply makes you want to share a thought, you're welcome to find me on [X (@Elaineoyml)](https://x.com/Elaineoyml).
 
 Thanks for stopping by. I hope you'll find something here worth reading.
-You can follow my thinking in real time:
-
-- 🐦 X: [@Elaineoyml](https://x.com/Elaineoyml)
-- 📬 Newsletter: [Elaine Reset on Substack](https://substack.com/@elainereset)
