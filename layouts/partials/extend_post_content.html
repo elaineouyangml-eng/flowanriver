@@ -1,54 +1,152 @@
-{{ if in .Params.tags "crypto" }}
-<div style="margin:32px 0;padding:16px 20px;border-left:3px solid var(--border);font-size:13px;color:var(--secondary);line-height:1.7;">
-  <strong>Disclaimer:</strong> This content is intended for informational purposes only and is directed at a global English-speaking audience. It does not constitute financial or investment advice. Cryptocurrency regulations vary by jurisdiction — please ensure compliance with the laws applicable in your region before taking any action based on the information provided.
-</div>
-{{ end }}
 
-{{- $posts := where .Site.RegularPages "Section" "posts" -}}
-{{- $posts = where $posts "Permalink" "ne" .Permalink -}}
-{{- $related := slice -}}
+{{- $current := . -}}
+{{- $isZH := eq .Lang "zh" -}}
+{{- $currentTags := slice -}}
+
+{{- range (.Params.tags | default (slice)) -}}
+  {{- $currentTags = $currentTags | append (lower .) -}}
+{{- end -}}
+
+{{/* =========================
+   Crypto Disclaimer
+========================= */}}
+
+{{- if in $currentTags "crypto" -}}
+<div class="fr-crypto-disclaimer">
+  {{- if $isZH -}}
+    <strong>免责声明：</strong>
+    本文仅用于信息分享、知识交流与个人观察，不构成任何投资、交易、法律或财务建议。加密资产存在价格波动、技术和监管风险，不同国家及地区的相关规定也有所不同。请在作出任何决定前独立核实信息，并根据自身情况寻求必要的专业意见。
+  {{- else -}}
+    <strong>Disclaimer:</strong>
+    This article is for information, education, and personal commentary only. It does not constitute investment, trading, legal, or financial advice. Crypto assets involve market, technical, and regulatory risks, and the rules vary by jurisdiction. Please verify information independently and seek professional advice where appropriate before making decisions.
+  {{- end -}}
+</div>
+{{- end -}}
+
+{{/* =========================
+   Related Article Selection
+========================= */}}
+
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+{{- $posts = where $posts "Lang" .Lang -}}
+{{- $posts = where $posts "RelPermalink" "ne" .RelPermalink -}}
+{{- $posts = $posts.ByDate.Reverse -}}
 {{- $selected := slice -}}
 
-{{- with .Params.tags -}}
-  {{- $related = where $posts "Params.tags" "intersect" . -}}
-{{- end -}}
+{{/* Priority 1:
+   Manually selected articles.
 
-{{- range $related -}}
-  {{- if lt (len $selected) 4 -}}
-    {{- $selected = $selected | append . -}}
+   Optional front matter:
+   related_posts:
+     - "/posts/article-slug/"
+*/}}
+
+{{- range (.Params.related_posts | default (slice)) -}}
+  {{- $path := . -}}
+  {{- with $current.Site.GetPage $path -}}
+    {{- if and
+      (eq .Lang $current.Lang)
+      (ne .RelPermalink $current.RelPermalink)
+      (lt (len $selected) 4)
+      (not (in $selected .))
+    -}}
+      {{- $selected = $selected | append . -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
+
+{{/* Priority 2:
+   Articles sharing at least two tags.
+*/}}
 
 {{- range $posts -}}
-  {{- if and (lt (len $selected) 4) (not (in $selected .)) -}}
+  {{- $candidateTags := slice -}}
+
+  {{- range (.Params.tags | default (slice)) -}}
+    {{- $candidateTags = $candidateTags | append (lower .) -}}
+  {{- end -}}
+
+  {{- $shared := intersect $currentTags $candidateTags -}}
+
+  {{- if and
+    (ge (len $shared) 2)
+    (lt (len $selected) 4)
+    (not (in $selected .))
+  -}}
     {{- $selected = $selected | append . -}}
   {{- end -}}
 {{- end -}}
 
+{{/* Priority 3:
+   Articles sharing at least one tag.
+*/}}
+
+{{- range $posts -}}
+  {{- $candidateTags := slice -}}
+
+  {{- range (.Params.tags | default (slice)) -}}
+    {{- $candidateTags = $candidateTags | append (lower .) -}}
+  {{- end -}}
+
+  {{- $shared := intersect $currentTags $candidateTags -}}
+
+  {{- if and
+    (ge (len $shared) 1)
+    (lt (len $selected) 4)
+    (not (in $selected .))
+  -}}
+    {{- $selected = $selected | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Priority 4:
+   Fill remaining spaces with recent articles
+   in the same language.
+*/}}
+
+{{- range $posts -}}
+  {{- if and
+    (lt (len $selected) 4)
+    (not (in $selected .))
+  -}}
+    {{- $selected = $selected | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* =========================
+   Continue Reading
+========================= */}}
+
 {{- with $selected -}}
-<section class="fr-continue-reading">
+<section class="fr-continue-reading"
+         aria-label="{{ if $isZH }}继续阅读{{ else }}Continue Reading{{ end }}">
+
   <div class="fr-reading-heading">
     <span>
-      {{ if eq $.Lang "zh" }}更多精彩内容{{ else }}FROM THE JOURNAL{{ end }}
+      {{ if $isZH }}更多精彩内容{{ else }}FROM THE JOURNAL{{ end }}
     </span>
+
     <h2>
-      {{ if eq $.Lang "zh" }}继续阅读{{ else }}Continue Reading{{ end }}
+      {{ if $isZH }}继续阅读{{ else }}Continue Reading{{ end }}
     </h2>
   </div>
 
   <div class="fr-reading-grid">
     {{- range . -}}
     <a class="fr-reading-item" href="{{ .RelPermalink }}">
+
       <span class="fr-reading-category">
         {{- with .Params.tags -}}
           {{ index . 0 }}
         {{- else -}}
-          {{ if eq $.Lang "zh" }}文章{{ else }}JOURNAL{{ end }}
+          {{ if $isZH }}文章{{ else }}JOURNAL{{ end }}
         {{- end -}}
       </span>
 
       <h3>{{ .Title }}</h3>
-      <span class="fr-reading-arrow" aria-hidden="true">↗</span>
+
+      <span class="fr-reading-arrow"
+            aria-hidden="true">↗</span>
     </a>
     {{- end -}}
   </div>
@@ -56,6 +154,24 @@
 {{- end -}}
 
 <style>
+
+/* =========================
+   Crypto Disclaimer
+========================= */
+
+.fr-crypto-disclaimer {
+  margin: 32px 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--border);
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.7;
+}
+
+/* =========================
+   Continue Reading
+========================= */
+
 .fr-continue-reading {
   max-width: 760px;
   margin: 46px auto 36px;
@@ -146,12 +262,15 @@
     border-left: none;
   }
 }
+
 </style>
 
-
+<!-- =========================
+     X Invitation
+========================= -->
 
 <div class="fr-x-invite">
-  {{ if eq .Lang "zh" }}
+  {{ if $isZH }}
     <p>读完有什么想法？欢迎来 X 和我聊聊。</p>
   {{ else }}
     <p>Thoughts on this story? I'd love to hear from you on X.</p>
@@ -160,13 +279,17 @@
   <a href="https://x.com/Elaineoyml"
      target="_blank"
      rel="noopener noreferrer">
-    𝕏 <span>{{ if eq .Lang "zh" }}在 X 上交流{{ else }}Connect on X{{ end }}</span>
+    𝕏 <span>{{ if $isZH }}在 X 上交流{{ else }}Connect on X{{ end }}</span>
     <span aria-hidden="true">↗</span>
   </a>
 </div>
 
-
 <style>
+
+/* =========================
+   X Invitation
+========================= */
+
 .fr-x-invite {
   max-width: 760px;
   margin: 42px auto 36px;
@@ -213,6 +336,5 @@
 .dark .fr-x-invite a {
   border-color: #77796E;
 }
+
 </style>
-
-
