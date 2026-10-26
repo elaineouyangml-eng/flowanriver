@@ -7,7 +7,7 @@
   --letter-dark: #3e5143;
   --letter-cream: #f7f4ed;
   --letter-border: #dde5d9;
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 28px 0 70px;
   color: var(--primary);
@@ -80,16 +80,16 @@
 }
 
 .letters-intro {
-  max-width: 590px;
+  max-width: 760px;
   margin: 0 auto;
   font-size: 15px;
-  line-height: 2;
+  line-height: 1.85;
   color: #526653;
   text-align: left;
 }
 
 .letters-intro p {
-  margin: 0 0 15px;
+  margin: 0 0 12px;
 }
 
 .letters-intro p:last-child {
@@ -401,7 +401,9 @@
           When should it arrive?
         </label>
 
-        <input type="date" id="futureLetterDate">
+        <input type="date"
+       id="futureLetterDate"
+       lang="en">
 
       </div>
 
@@ -515,6 +517,7 @@
     );
 
     message.lang = lang === "zh" ? "zh-CN" : "en";
+    dateInput.lang = lang === "zh" ? "zh-CN" : "en";
   }
 
   enButton.addEventListener("click", function () {
