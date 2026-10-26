@@ -1,7 +1,12 @@
 
 {{ define "main" }}
+
 <style>
-/* FlowAnRiver homepage */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* =========================
+   FlowAnRiver Homepage
+========================= */
 
 .fr-hero {
   display: flex;
@@ -9,53 +14,110 @@
   align-items: center;
   justify-content: center;
   min-height: 76vh;
+  padding: 4rem 1.5rem 3rem;
   text-align: center;
-  padding: 4rem 2rem 3rem;
+  background: transparent;
+}
+
+/* Candle & brand */
+
+.fr-hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 2rem;
+}
+
+.fr-candle {
+  font-size: 28px;
+  line-height: 1;
 }
 
 .fr-eyebrow {
-  font-size: 0.65rem;
-  letter-spacing: 0.22em;
-  color: #b0aa9a;
+  margin: 0;
+  color: #b7ae9e;
+  font-family: Georgia, serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.38em;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
 }
 
-.fr-title {
-  font-size: 2rem;
-  font-weight: 400;
-  color: #1e1c18;
-  margin-bottom: 1.2rem;
-  line-height: 1.3;
+/* Handwritten hero title */
+
+.fr-hero .fr-title {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  margin: 0 0 1.6rem;
+  padding: 0 0.18em 0.18em;
+  font-family: 'Great Vibes', cursive !important;
+  font-size: clamp(3.7rem, 7.3vw, 7.2rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.28 !important;
+  letter-spacing: 0 !important;
+  color: #24201d !important;
+}
+
+/* Hand-drawn coral underline */
+
+.fr-title::after {
+  content: "";
+  position: absolute;
+  left: 1%;
+  bottom: 3%;
+  width: 98%;
+  height: 10px;
+  border-radius: 60% 45% 55% 40%;
+  background: #df9886;
+  opacity: 0.95;
+  transform: rotate(-0.45deg);
+  clip-path: polygon(
+    0 35%, 7% 25%, 17% 40%,
+    29% 30%, 44% 48%, 58% 29%,
+    72% 37%, 85% 24%, 100% 41%,
+    100% 82%, 80% 78%, 61% 86%,
+    43% 81%, 26% 90%, 9% 75%, 0 86%
+  );
 }
 
 .fr-rule {
-  width: 32px;
+  width: 36px;
   height: 1px;
+  margin: 0 auto 1.3rem;
   background: #c8c0a8;
-  margin: 0 auto 1.2rem;
   border: none;
 }
 
-.fr-sub {
-  font-size: 0.85rem;
-  color: #9a9488;
-  line-height: 2;
-  margin-bottom: 2rem;
+/* Hero introduction */
+
+.fr-hero .fr-sub {
+  margin: 0 0 2.5rem;
+  color: #958b7d;
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-size: clamp(1.15rem, 1.65vw, 1.5rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.025em;
 }
+
+/* Music indicator */
 
 .fr-music {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 3rem;
+  justify-content: center;
+  gap: 9px;
+  margin-bottom: 3.5rem;
   opacity: 0.7;
 }
 
 .fr-music-bars {
   display: flex;
   align-items: flex-end;
-  gap: 2px;
+  gap: 3px;
   height: 12px;
 }
 
@@ -63,7 +125,7 @@
   width: 2px;
   border-radius: 1px;
   background: #b0a888;
-  animation: mw 1.2s ease-in-out infinite;
+  animation: fr-music-wave 1.2s ease-in-out infinite;
 }
 
 .fr-music-bars span:nth-child(2) {
@@ -82,27 +144,29 @@
   animation-delay: 0.35s;
 }
 
-@keyframes mw {
+@keyframes fr-music-wave {
   0%, 100% { height: 3px; }
   50% { height: 11px; }
 }
 
 .fr-music-label {
-  font-size: 0.65rem;
   color: #b8b0a0;
-  letter-spacing: 0.1em;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
 }
+
+/* Scroll indicator */
 
 .fr-scroll {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .fr-scroll-line {
   width: 1px;
-  height: 32px;
+  height: 35px;
   background: linear-gradient(
     to bottom,
     #c8c0a8,
@@ -111,27 +175,47 @@
 }
 
 .fr-scroll-text {
-  font-size: 0.6rem;
-  letter-spacing: 0.16em;
   color: #c8c0a8;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-/* Soft editorial transition */
+/* =========================
+   Journal Transition
+========================= */
 
 .fr-journal-zone {
   position: relative;
-  padding-top: 2.5rem;
+  padding-top: 3rem;
   background: linear-gradient(
     180deg,
-    rgba(234, 225, 211, 0.30) 0%,
-    rgba(247, 243, 236, 0.14) 58%,
+    rgba(232, 222, 208, 0.22) 0%,
+    rgba(247, 243, 236, 0.10) 55%,
     transparent 100%
   );
-  border-radius: 50% 50% 0 0 / 34px 34px 0 0;
+  border-radius: 50% 50% 0 0 / 28px 28px 0 0;
 }
 
-/* Latest stories */
+/* Small sage leaf */
+
+.fr-journal-leaf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: -12px auto 2rem;
+  color: #929b83;
+  opacity: 0.85;
+}
+
+.fr-journal-leaf svg {
+  width: 24px;
+  height: 28px;
+}
+
+/* =========================
+   Latest Stories
+========================= */
 
 .fr-posts {
   max-width: 640px;
@@ -145,36 +229,35 @@
   align-items: end;
   gap: 16px;
   padding-bottom: 18px;
-  border-bottom: 0.5px solid rgba(0,0,0,0.09);
+  border-bottom: 1px solid rgba(90, 79, 65, 0.10);
 }
 
 .fr-posts-kicker {
   display: block;
   margin-bottom: 8px;
-  font-size: 0.58rem;
-  letter-spacing: 0.23em;
-  font-weight: 500;
   color: #a99b88;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.23em;
   text-transform: uppercase;
 }
 
 .fr-posts-heading {
-  display: block;
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.65rem, 2.5vw, 2.15rem);
-  font-weight: 400;
+  color: #29251f;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 500;
   line-height: 1.15;
   letter-spacing: -0.025em;
-  color: #29251f;
 }
 
 .fr-posts-all {
+  padding-bottom: 5px;
+  color: #aa9d8d;
   font-size: 0.75rem;
-  color: #a99b88;
   text-decoration: none;
   white-space: nowrap;
-  padding-bottom: 3px;
 }
 
 .fr-posts-all:hover {
@@ -187,46 +270,54 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 16px 0;
-  border-bottom: 0.5px solid rgba(0,0,0,0.06);
-  text-decoration: none;
   gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(90, 79, 65, 0.07);
+  text-decoration: none;
+}
+
+.fr-post-left {
+  display: flex;
+  align-items: baseline;
+  flex: 1;
+  min-width: 0;
+  gap: 14px;
+}
+
+.fr-post-tag {
+  flex-shrink: 0;
+  min-width: 38px;
+  color: #b8b0a0;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.fr-post-title {
+  color: #1e1c18;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: color 0.2s;
 }
 
 .fr-post-item:hover .fr-post-title {
   color: #6a5a40;
 }
 
-.fr-post-left {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  flex: 1;
-  min-width: 0;
-}
-
-.fr-post-tag {
-  font-size: 0.6rem;
-  color: #b8b0a0;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  min-width: 38px;
-  flex-shrink: 0;
-}
-
-.fr-post-title {
-  font-size: 0.9rem;
-  color: #1e1c18;
-  font-weight: 400;
-  line-height: 1.5;
-  transition: color 0.2s;
-}
-
 .fr-post-meta {
-  font-size: 0.7rem;
-  color: #c0b8a8;
-  white-space: nowrap;
   flex-shrink: 0;
+  color: #b8ad9e;
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+/* Dark mode */
+
+[data-theme="dark"] .fr-title,
+[data-theme="dark"] .fr-posts-heading,
+[data-theme="dark"] .fr-post-title {
+  color: var(--primary) !important;
 }
 
 /* Mobile */
@@ -234,11 +325,38 @@
 @media (max-width: 768px) {
   .fr-hero {
     min-height: 70vh;
-    padding: 3rem 1.2rem 2rem;
+    padding: 3rem 1rem 2rem;
+  }
+
+  .fr-hero-brand {
+    gap: 9px;
+    margin-bottom: 1.5rem;
+  }
+
+  .fr-candle {
+    font-size: 22px;
+  }
+
+  .fr-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+  }
+
+  .fr-hero .fr-title {
+    font-size: clamp(2.5rem, 10vw, 4.5rem) !important;
+    line-height: 1.35 !important;
+  }
+
+  .fr-title::after {
+    height: 7px;
+  }
+
+  .fr-hero .fr-sub {
+    font-size: 1.1rem;
   }
 
   .fr-journal-zone {
-    padding-top: 1.8rem;
+    padding-top: 2rem;
     border-radius: 50% 50% 0 0 / 20px 20px 0 0;
   }
 
@@ -247,11 +365,7 @@
   }
 
   .fr-posts-heading {
-    font-size: 1.7rem;
-  }
-
-  .fr-post-item {
-    gap: 8px;
+    font-size: 2rem;
   }
 
   .fr-post-left {
@@ -270,14 +384,18 @@
 }
 </style>
 
-<!-- Homepage hero -->
+<!-- HERO -->
 
 <div class="fr-hero">
-  <div class="fr-eyebrow">FlowAnRiver</div>
 
-  <div class="fr-title">
-    AI & Crypto, Unfiltered
+  <div class="fr-hero-brand">
+    <span class="fr-candle" aria-hidden="true">🕯️</span>
+    <span class="fr-eyebrow">FlowAnRiver</span>
   </div>
+
+  <h1 class="fr-title">
+    AI &amp; Crypto, Unfiltered
+  </h1>
 
   <hr class="fr-rule">
 
@@ -287,7 +405,7 @@
   </div>
 
   <div class="fr-music">
-    <div class="fr-music-bars">
+    <div class="fr-music-bars" aria-hidden="true">
       <span style="height:4px"></span>
       <span style="height:9px"></span>
       <span style="height:5px"></span>
@@ -301,11 +419,29 @@
     <div class="fr-scroll-line"></div>
     <div class="fr-scroll-text">scroll</div>
   </div>
+
 </div>
 
-<!-- Editorial journal section -->
+<!-- JOURNAL -->
 
-<section class="fr-journal-zone">
+<section class="fr-journal-zone" aria-label="Latest stories">
+
+  <div class="fr-journal-leaf" aria-hidden="true">
+    <svg viewBox="0 0 32 36" fill="none"
+         xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 33C16 23 15 14 24 5"
+            stroke="currentColor"
+            stroke-width="1.3"
+            stroke-linecap="round"/>
+      <path d="M16 23C7 23 5 17 6 11C12 12 17 16 16 23Z"
+            fill="currentColor"
+            opacity="0.8"/>
+      <path d="M18 17C18 9 23 5 29 4C28 12 25 16 18 17Z"
+            fill="currentColor"
+            opacity="0.7"/>
+    </svg>
+  </div>
+
   <div class="fr-posts">
 
     <div class="fr-posts-header">
@@ -327,10 +463,13 @@
     {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
 
     {{- range first 6 $pages }}
+
     <a class="fr-post-item" href="{{ .Permalink }}">
       <div class="fr-post-left">
         <span class="fr-post-tag">
-          {{ index .Params.tags 0 }}
+          {{ with .Params.tags }}
+            {{ index . 0 }}
+          {{ end }}
         </span>
         <span class="fr-post-title">
           {{ .Title }}
@@ -349,9 +488,12 @@
       <span class="fr-post-meta">
         {{ .Date.Format "Jan 2" }} · {{ $minutes }} min
       </span>
+
     </a>
+
     {{- end }}
 
   </div>
 </section>
+
 {{ end }}
