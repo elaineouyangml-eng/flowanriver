@@ -545,6 +545,42 @@
 [data-theme="dark"] .fr-header-nav #hamburger span {
   background: var(--primary);
 }
+  
+/* Align all desktop header elements */
+@media (min-width: 769px) {
+  .fr-header-nav {
+    align-items: center !important;
+  }
+
+  .fr-header-nav #menu,
+  .fr-header-actions {
+    align-items: center !important;
+  }
+
+  .fr-header-nav #menu > li,
+  .fr-header-dropdown,
+  .fr-header-dropdown > summary,
+  .fr-language-switch > summary {
+    vertical-align: middle;
+  }
+
+  .fr-header-actions > *,
+  .fr-header-search,
+  .fr-desktop-signin,
+  .fr-language-switch,
+  .fr-header-nav #theme-toggle {
+    align-self: center;
+  }
+
+  .fr-dropdown-trigger,
+  .fr-desktop-signin .fr-dropdown-trigger {
+    display: inline-flex !important;
+    align-items: center !important;
+    min-height: 35px;
+    line-height: 1 !important;
+  }
+}
+
 </style>
 
 <header class="header">
