@@ -1,7 +1,7 @@
 ---
 title: "从美联储政策到 Crypto 演变：数字金融正在进入怎样的新阶段？"
 date: 2026-08-04T17:00:00.000+08:00
-draft: true
+draft: false
 description: "从美联储货币政策、稳定币和全球数字资产监管，到 AI Agent 与区块链技术的结合，探讨 Crypto 如何逐渐从资产交易走向数字金融基础设施。"
 tags: ["AI", "Crypto", "Web3", "Finance", "Stablecoins"]
 cover:
