@@ -1,358 +1,304 @@
 ---
 title: "Crypto 正在成为金融基础设施：为什么全球关注 CLARITY Act？"
-date: 2026-09-16
+date: 2026-09-16T19:39:00.000+08:00
 draft: true
-description: "Why did the CLARITY Act matter far beyond Washington? This analysis looks at stablecoins, tokenization, regulation and crypto’s growing role in global financial infrastructure."
-tags: ["crypto","regulation","stablecoins"]
+description: "从美国 CLARITY Act 立法受阻，到稳定币支付、资产代币化与全球金融机构的参与，探讨 Crypto 如何逐渐融入传统金融基础设施。"
+tags: ["Crypto", "Regulation", "Stablecoins", "Finance"]
+cover:
+  image: "/images/clarity-act-crypto-financial-infrastructure-2026.png"
+  alt: "CLARITY Act 与数字金融基础设施主题插画，展示美国国会、稳定币和全球金融市场"
 ---
 
-<!-- 中文机器翻译草稿，公开发布前须检查 -->
+在 9 月 15 日美国参议院投票之前，参议员 Cynthia Lummis 曾在 X 上发表了一段态度明确的声明。
 
-在9月15日投票之前,参议员Cynthia Lummis在X上发表了一个明确的信息,经过几个月的谈判,她认为最新版本的清晰度法案已经包含了许多民主党的请求,是时候停止谈判和投票了。
+经过数月谈判，她认为最新版 CLARITY Act 已经吸收了民主党提出的多项修改要求，是时候结束反复协商，进入投票程序了。
 
-<!-- TODO: 翻译 block-1 -->
-The revised text did include **126 substantive changes sought by Democrats**, including tighter restrictions related to public officials and crypto conflicts of interest, according to [Reuters’ reporting on the final draft of the bill](https://www.reuters.com/legal/government/senate-republicans-new-crypto-bill-text-adds-new-ethics-language-2026-09-14/). Even so, disputes over ethics, banking and financial stability remained unresolved going into the vote.
+根据 [Reuters 对最终修订草案的报道](https://www.reuters.com/legal/government/senate-republicans-new-crypto-bill-text-adds-new-ethics-language-2026-09-14/)，新版法案纳入了民主党提出的 126 项实质性修改，其中包括针对公职人员及 Crypto 利益冲突的更严格限制。
 
-![Senator Cynthia Lummis calls for a vote on the CLARITY Act after negotiations over ethics and regulatory provisions.](/images/cynthia-lummis-clarity-act-vote-post-2026.png)
+但即使如此，双方在政府官员伦理规范、银行体系和金融稳定等方面，仍然存在明显分歧。
 
-<!-- TODO: 翻译 block-3 -->
-Less than a day later, the bill failed to clear the Senate’s procedural threshold. As [Reuters reported after the September 15 vote](https://www.reuters.com/legal/government/us-senate-vote-advancing-landmark-crypto-bill-2026-09-15/), the final tally was 50–49, short of the 60 votes required to move forward. Four Republican senators also voted against advancing the legislation, while Senator Thom Tillis changed his vote for procedural reasons that preserved the possibility of reconsideration later.
+![美国参议员 Cynthia Lummis 在 X 上呼吁推进 CLARITY Act 投票，并讨论相关伦理及监管条款。](/images/cynthia-lummis-clarity-act-vote-post-2026.png)
 
-因此,清晰度法案不一定是完成的,目前,它已经停滞不前。
+不到一天之后，法案未能通过参议院推进审议所需的程序性门槛。
 
-![X post explaining that the CLARITY Act failed to advance in the U.S. Senate after falling short of the 60-vote threshold.](/images/clarity-act-senate-vote-failed-to-advance-2026.png)
+根据 [Reuters 对 9 月 15 日投票的报道](https://www.reuters.com/legal/government/us-senate-vote-advancing-landmark-crypto-bill-2026-09-15/)，最终投票结果为 50 比 49，未达到推进审议所需的 60 票门槛。
 
-仅此而已,这将成为一个简单的加密新闻故事,但我认为更有趣的问题在别处。
+有四名共和党参议员也投票反对推进法案，而参议员 Thom Tillis 出于程序性考虑调整了投票立场，为未来重新审议保留了可能性。
 
-为什么华盛顿以外的这么多人关心这次投票?
+因此，CLARITY Act 并不意味着已经彻底结束，但至少在这次投票之后，立法进程暂时受阻。
 
-為什麼加密交易所、stablecoin發行商、支付公司、資產經理和傳統金融機構都在觀看美國參議院的程序投票?
+![关于 CLARITY Act 未达到美国参议院 60 票程序性门槛、未能继续推进的 X 帖文截图。](/images/clarity-act-senate-vote-failed-to-advance-2026.png)
 
-今年我发现了一件事:围绕加密货币的谈话正在发生变化,价格仍在主导头条,但现在更多的行业正在谈论支付,结算,财政业务,代币化资产和机构基础设施。
+如果只是报道这次投票，它当然可以成为一条普通的 Crypto 新闻。但在我看来，更值得思考的问题其实是：为什么美国国会的一次程序性投票，会引起如此广泛的关注？
 
-加密货币越来越多地与以前几乎完全属于传统金融的金融系统部分相互作用。
+为什么除了 Crypto 交易平台和稳定币发行机构，支付公司、资产管理机构，甚至传统银行，也都在关注 CLARITY Act 的进展？
 
-这使得Clarity Act比美国加密货币立法更有趣,它成为了监管是否为正在接近主流金融基础设施的行业做好准备的测试。
+今年以来，我注意到 Crypto 行业的讨论正在发生变化。
 
-## 问题从来不是完全缺乏监管。
+价格涨跌依然占据着大量新闻标题，但越来越多人开始讨论支付、结算、企业资金管理、资产代币化，以及金融机构需要怎样的数字基础设施。
 
-美国加密行业多年来一直生活在监管之中,更难的问题就是知道边界在哪里。
+Crypto 正在与过去主要由传统金融机构承担的业务发生越来越多的联系。
 
-什么时候一个代币属于证券法?SEC权威在哪里结束,CFTC权威在哪里开始?交易所应该遵循哪些规则?发行人、保管人和其他市场参与者应具备哪些义务?
+这也让 CLARITY Act 的意义超出了一项普通的美国加密资产法案。它所反映的，是监管制度能否跟上一个正在逐渐进入主流金融体系的行业。
 
-这些问题听起来很技术,直到一家公司必须决定是否投资严重的钱。
+## Crypto 面临的问题，并不是完全没有监管
 
-考虑存储数字资产的银行或资产经理构建代币化基础设施,不会在六个月的视野下做出决定。
+美国 Crypto 行业并不是一直处于完全没有规则的环境中。
 
-这就是监管不确定性成为业务成本的地方。
+真正困难的是，很多监管边界长期缺乏明确的定义。
 
-技术风险常常可以估计,基础设施成本、网络安全曝光率和实施时间表可以模型化。
+一种代币在什么情况下属于证券？美国证券交易委员会（SEC）和商品期货交易委员会（CFTC）的监管职责应该如何划分？交易平台需要遵守哪些规则？发行机构、托管服务商及其他市场参与者又应该承担什么责任？
 
-这是国会立法的重要原因的一部分。机构领导可以改变,执法优先事项可以改变,解释可以修改。法定市场框架不会消除政治或监管风险,但它可以为机构提供一个更持久的基础。
+这些问题听起来很专业，但当一家企业需要决定是否投入大量资金时，它们就会变得非常现实。
 
-因此,参议院投票并没有真正讨论是否应该允许加密货币存在,这一辩论在很大程度上继续。
+如果一家银行准备开展数字资产托管业务，或者资产管理机构打算建设代币化基础设施，它们考虑的通常不是未来六个月，而是未来数年能否持续经营。
 
-更实际的问题是,当数字资产开始与普通金融市场互动时,应该适用哪些规则。
+支付公司如果计划采用稳定币结算，也需要了解相关商业模式在几年之后是否仍然符合监管要求。
 
-## 为什么美国法律在美国以外重要
+在这种情况下，监管的不确定性本身就会成为一种商业成本。
 
-清晰度法案是美国的一项法案,其他司法管辖区并不等待华盛顿制定其数字资产政策。
+技术风险通常能够进行一定程度的评估。基础设施投入、网络安全成本和项目实施周期，也可以通过商业模型进行估算。
 
-然而,在美国事务中发生了什么。
+但监管政策突然改变所带来的风险，却往往更难判断。
 
-加密货币公司在多个司法管辖区开展业务,而最大的银行,资产经理和支付网络很少以单一的国内市场来思考。
+这也是为什么国会立法如此重要。
 
-其次是美元。
+监管机构的负责人可能更换，执法重点可能调整，对某些法律条文的解释也可能随着时间改变。
 
-一旦以美元为基础的稳定货币、代币化美国资产和美国资本市场成为谈话的一部分,美国的监管自然会产生国际影响,即使法律本身在边境停滞。
+由法律确立的市场结构框架，虽然无法消除所有政治和监管风险，但有机会为金融机构和企业提供更加稳定的长期经营基础。
 
-全球机构还喜欢能够相互配合的系统,他们需要围绕托管、KYC和AML、结算、代币化所有权、市场监控以及区块链记录与法律认可的财务记录之间的关系的可行规则。
+因此，这次参议院投票所涉及的，已经不只是 Crypto 是否应该存在的问题。
 
-新加坡不会像美国那样规范数字资产,也不会像香港、日本或欧洲那样,但大型机构也不可能为每个司法管辖区构建完全独立的基础设施。
+更现实的讨论是，当数字资产开始与日常金融市场发生联系时，究竟应该适用什么样的规则？
 
-随着时间的推移,某种程度的互操作性变得越来越有用。
+## 为什么美国的一项法案，会影响其他国家？
 
-这并不意味着美国模型将成为一个全球模板,但它确实意味着美国市场结构的稳定可以成为跨市场设计数字资产产品的机构的重要参考点之一。
+CLARITY Act 是美国的法案，其他国家和地区当然不会等着美国制定自己的数字资产政策。
 
-## 会议谈话也发生了变化
+但美国的监管方向仍然具有国际影响。
 
-你可以在今年的加密会议上看到相同的转变。
+Bitcoin 是全球交易的数字资产，稳定币可以跨境流通，Crypto 企业也经常同时在多个司法管辖区开展业务。
 
-从迈阿密到香港的比特币亚洲,现在到新加坡,议程感觉不同于几年前。
+而大型银行、资产管理公司和国际支付网络，在设计业务时，很少只考虑单一国家的市场。
 
-仍然有很多交易,代币和新协议,但稳定币,代币化,RWA,支付,机构采用和监管都更难错过。
+此外，还有美元的因素。
 
-<!-- TODO: 翻译 block-36 -->
-The upcoming [TOKEN2049 Singapore](https://www.token2049.com/singapore) on October 7–8 is expected to bring together more than 25,000 attendees, over 7,000 companies and more than 300 speakers.
+当美元稳定币、美国资产代币化以及美国资本市场越来越多地进入数字金融体系时，美国监管制度的影响自然可能超出其本国范围。
 
-![TOKEN2049 Singapore 2026 event page highlighting the scale of the global crypto, finance and technology conference.](/images/token2049-singapore-2026-crypto-finance-conference.png)
+全球金融机构也需要不同系统之间能够相互连接。
 
-我感兴趣的不仅仅是参观人数,这是行业正在聚集讨论的。
+无论是资产托管、客户身份识别（KYC）、反洗钱（AML）、资金结算、代币化所有权、市场监控，还是区块链记录与法律认可的金融记录之间的关系，都需要相应的制度支持。
 
-这些问题变得越来越实际:银行如何使用稳定币,现实世界的资产如何在链上移动,如何结算可以超越传统的银行时间,以及基础设施机构在参与规模之前需要什么。
+新加坡不会完全按照与美国相同的方式监管数字资产，香港、日本和欧洲也都有各自的金融体系和政策目标。
 
-这些问题不同于“下一个代币是哪个?”
+但对于一家跨国金融机构而言，为每一个国家建立完全独立、无法互通的基础设施，显然也不是理想选择。
 
-## Stablecoins可能是最明显的例子
+随着数字金融的发展，不同系统之间的互操作性会越来越重要。
 
-多年来,许多人通过USDT来理解稳定币。
+这并不意味着美国的模式一定会成为全球统一标准，但如果美国能够建立更加稳定的数字资产市场规则，它很可能成为国际金融机构设计相关业务时的重要参考之一。
 
-你交易了加密货币,想减少波动性,转向USDT,然后在准备购买其他东西时再次使用它。
+## Crypto 会议讨论的内容也在变化
 
-这种使用案例仍然很重要,但它不再描述整个市场。
+今年参加行业会议的人，可能也会注意到类似的趋势。
 
-<!-- TODO: 翻译 block-45 -->
-Earlier this year, [Visa expanded its stablecoin settlement program across additional blockchain networks](https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-expands-stablecoin-settlement-adds-five-blockchains.html), saying annualized settlement activity had reached roughly **$7 billion**.
+从迈阿密到香港的 Bitcoin Asia，再到即将在新加坡举行的 TOKEN2049，Crypto 会议的讨论方向似乎和几年前有所不同。
 
-<!-- TODO: 翻译 block-46 -->
-By September, Visa said it had more than **160 stablecoin-linked card programs** globally and that stablecoin settlement volume had moved beyond a **$20 billion annualized run rate**. In its discussion of [stablecoin-linked cards and onchain settlement financing](https://www.visa.com/en-us/thought-leadership/innovation/onchain-settlement-financing), the company increasingly framed stablecoins as part of real payment, liquidity and settlement infrastructure rather than simply a crypto-market tool.
+当然，交易、代币和新的区块链协议仍然是行业的重要话题。
 
-这些数字很重要,因为它们显示了稳定币使用开始移动的地方。
+但稳定币、资产代币化、现实世界资产（RWA）、支付、机构采用和监管，也越来越频繁地出现在会议议程中。
 
-消费者可能仍然会扫描熟悉的卡片,但这些卡片背后的结算和流动性流程的部分可能越来越多地涉及基于区块链的货币。
+根据当时公布的会议资料，计划于 10 月 7 日至 8 日举行的 [TOKEN2049 Singapore](https://www.token2049.com/singapore)，预计将吸引超过 25,000 名参会者、7,000 多家企业，以及超过 300 位演讲嘉宾。
 
-Mastercard正在朝着类似的方向前进。
+![TOKEN2049 Singapore 2026 活动页面截图，展示全球 Crypto、金融与科技会议的规模。](/images/token2049-singapore-2026-crypto-finance-conference.png)
 
-<!-- TODO: 翻译 block-50 -->
-In June, [Mastercard expanded its settlement capabilities to include regulated stablecoins](https://www.mastercard.com/us/en/news-and-trends/press/2026/june/mastercard-expands-settlement-capabilities-to-include-stablecoin.html), including USDC, PYUSD, USDG, USDP, RLUSD and SoFiUSD across several blockchain networks. The company specifically highlighted cross-border payments, treasury and payouts as areas where faster settlement and liquidity management could matter.
+真正让我感兴趣的，并不只是参会人数。
 
-<!-- TODO: 翻译 block-51 -->
-Even more interesting is how Mastercard now presents its broader [digital asset and stablecoin solutions](https://www.mastercard.com/us/en/business/payments/consumer-payments/next-gen-payments/digital-asset-solutions.html). Stablecoins, tokenized deposits, blockchain networks and traditional payment rails increasingly appear as parts of the same infrastructure.
+而是这些人聚在一起，究竟准备讨论什么。
 
-在这一点上,稳定币开始看起来不仅仅是“加密货币”。
+银行如何使用稳定币？现实世界资产如何进入区块链？结算系统能否突破传统银行营业时间的限制？金融机构如果希望大规模采用区块链技术，需要哪些基础设施？
 
-它们越来越多地被用作支付和结算基础设施的一部分。
+这些问题，已经和过去单纯讨论“下一种会上涨的代币是什么”有了很大区别。
 
-## 从USDT和USDC到OUSD,更大的问题不是哪个稳定币赢。
+## 稳定币可能是最明显的例子
 
-USDT展示了对美元值的强劲全球需求,可在链上快速移动。
+过去很多年，不少人都是通过 USDT 认识稳定币的。
 
-但是随着稳定币进入银行、公司财政、支付和机构结算,围绕它们的问题变得更加复杂。
+当你在交易 Crypto 时，希望暂时减少市场波动带来的影响，就可能把数字资产转换成 USDT，等到准备再次交易时再使用。
 
-一个代币不再足以交易接近一美元。
+这种用途至今仍然重要，但已经不足以描述整个稳定币市场。
 
-机构开始问谁发行它,什么支持它,赎回如何工作,谁监管它,银行是否可以连接到它,公司是否可以直接使用它,支付网络是否可以解决它,以及它是否适合现有合规系统。
+今年早些时候，[Visa 宣布将稳定币结算扩展至更多区块链网络](https://corporate.visa.com/en/sites/visa-perspectives/newsroom/visa-expands-stablecoin-settlement-adds-five-blockchains.html)，并表示其稳定币结算活动的年化规模已达到约 70 亿美元。
 
-这就是为什么从USDT到USDC、PYUSD、USDG、RLUSD、OUSD等产品的进化不一定被视为一个以一个赢家结束的比赛。
+到了 9 月，Visa 表示其在全球拥有超过 160 个与稳定币相关的银行卡项目，稳定币结算量的年化运行规模也已经超过 200 亿美元。
 
-<!-- TODO: 翻译 block-60 -->
-A more realistic future may be a **multi-money system**.
+在介绍[稳定币银行卡和链上结算融资](https://www.visa.com/en-us/thought-leadership/innovation/onchain-settlement-financing)时，Visa 越来越多地将稳定币放在支付、流动性管理和资金结算基础设施的背景下讨论，而不只是将它视为 Crypto 市场中的交易工具。
 
-菲亚特货币不会一夜之间消失,稳定币不太可能简单地取代商业银行存款,代币存款,稳定币,传统货币和代币资产都可能共存,而金融基础设施正在发展,以安全有效地连接它们。
+这些数字之所以值得关注，是因为它们反映了稳定币使用场景正在发生的变化。
 
-马斯特卡在描述支付的未来时使用了类似的语言,在收购BVNK后,该公司讨论了[多元货币环境,其中法定货币、稳定货币、代币存款和其他形式的价值可以共存](https://www.mastercard.com/us/en/news-and-trends/press/2026/august/mastercard-completes-acquisition-of-bvnk-to-advance-global-stabl.html)是的
+消费者可能仍然像过去一样刷卡付款，但在银行卡背后的部分结算和资金流动环节中，基于区块链的货币已经开始发挥作用。
 
-然后有趣的问题成为连接性。
+Mastercard 也在探索类似的方向。
 
-价值如何在这些不同形式的货币之间移动?谁保证赎回?什么是最终结算?哪些合规义务跟随货币?
+今年 6 月，[Mastercard 宣布扩大稳定币结算能力](https://www.mastercard.com/us/en/news-and-trends/press/2026/june/mastercard-expands-settlement-capabilities-to-include-stablecoin.html)，将 USDC、PYUSD、USDG、USDP、RLUSD 和 SoFiUSD 等受监管稳定币纳入相关结算方案，涉及多个区块链网络。
 
-这就是稳定币开始看起来不那么像一个加密货币小区,更像是金融管道的一部分。
+Mastercard 特别提到了跨境支付、企业资金管理及资金发放等应用场景，因为这些业务对结算效率和流动性管理都有着实际需求。
 
-## 代币化使机构问题更加清晰
+更值得注意的是，Mastercard 在介绍自身的[数字资产与稳定币解决方案](https://www.mastercard.com/us/en/business/payments/consumer-payments/next-gen-payments/digital-asset-solutions.html)时，已经开始把稳定币、代币化存款、区块链网络以及传统支付渠道放在同一个框架下讨论。
 
-支付只是这一过渡的一部分。
+到了这个阶段，稳定币看起来已经不只是人们熟悉的“Crypto 美元”。
 
-一旦货币能够在链上移动,金融资产就可以随之而来。
+它正在尝试成为支付和结算基础设施的一部分。
 
-财宝、基金、债券和其他证券可以在区块链网络上被代表。从技术上讲,这已经是可能的。
+## 从 USDT、USDC 到 OUSD，重要的也许不是谁最终胜出
 
-代币究竟代表了什么?转让它还会转让法律所有权吗?如果区块链记录和法律认可的记录不同意,会发生什么?谁负责保管?
+USDT 的发展证明，全球市场确实存在对能够在区块链网络中快速流通的美元计价资产的需求。
 
-这些不是软件错误,它们是金融法律问题。
+但当稳定币开始进入银行、企业资金管理、支付系统和机构结算领域时，人们需要考虑的问题就会复杂得多。
 
-这就是加密讨论变得更有趣的地方。
+一枚稳定币的价格能够维持在一美元附近，已经远远不够。
 
-一旦它开始与证券所有权,银行资产负债表,支付结算和机构监护互动,它必须与已经管理数万亿美元的规则一起运作。
+金融机构还需要了解它由谁发行、储备资产是什么、能否按要求赎回、受到哪个监管机构管理，以及银行和企业能不能直接使用。
 
-技术仍然重要,它只是不再是唯一重要的层。
+它能否与现有支付网络连接？是否符合相关合规制度？发生问题时又应该由谁负责？
 
-## 通过《清晰度法案》是否会启动新的金融改革?
+因此，从 USDT、USDC 到 PYUSD、USDG、RLUSD、OUSD 等不同产品的发展，未必是一场最终只能留下一个赢家的竞争。
 
-我会小心这个说法。
+未来更有可能出现的，是一个不同货币形式长期共存的金融环境。
 
-一个法案不会一夜之间重新设计一个金融系统,稳定币,代币化,银行和资本市场太大,太复杂。
+法定货币不会一夜之间消失，稳定币也未必会直接取代商业银行存款。
 
-但我也不认为我们正在等待改革开始。
+代币化存款、稳定币、传统货币和代币化资产，可能长期共同存在，而金融基础设施则逐渐发展出能够安全、高效连接这些资产的方式。
 
-它已经发生在碎片上。
+Mastercard 也曾在讨论数字支付未来时表达过类似的观点。
 
-Visa在结算基础设施中使用稳定币,Mastercard正在扩大监管数字资产结算,金融机构正在探索代币化,监管机构正试图将数字资产融入现有证券和商品框架。
+在完成对 BVNK 的收购后，Mastercard 曾提出一种[多种货币形式共存的支付环境](https://www.mastercard.com/us/en/news-and-trends/press/2026/august/mastercard-completes-acquisition-of-bvnk-to-advance-global-stabl.html)，其中包括法定货币、稳定币、代币化存款及其他价值形式。
 
-市场在法律框架完成之前正在移动。
+但新的问题也随之出现。
 
-如果清晰度法案最终成为法律,其重要性可能在于“启动”这一转变,而在于赋予它的一部分更持久的机构结构。
+这些不同形式的货币之间应该怎样转移价值？谁来保证赎回？什么情况下可以认定结算已经最终完成？资金在不同系统之间流动时，需要遵守哪些合规要求？
 
-这个区别很重要。
+也正是在这里，稳定币开始更像金融基础设施的一部分，而不只是 Crypto 行业中的一个细分市场。
 
-重要的是,美国突然决定接受加密货币,加密货币已经存在多年。
+## 资产代币化，让金融机构面临的问题更加清晰
 
-更大的转变将是数字资产在金融体系架构中开始占据更明确的位置。
+支付只是这场变化中的一部分。
 
-这更接近我称之为金融改革。
+如果货币能够在区块链网络上转移，那么金融资产是否也能采用类似的方式？
 
-## 更多的监管并不意味着行业自动落后
+国债、基金、债券以及其他证券，都可以尝试通过区块链网络进行代币化表示。
 
-加密货币监管显然变得更加密集。
+从技术上来说，这已经不是一个完全无法实现的概念。
 
-很容易解释,作为对行业的敌意,在某些市场或政策中,限制确实是故事的一部分。
+真正复杂的问题，往往出现在代币创建之后。
 
-但更严格的规则也可能反映出更高的财务风险。
+一枚代币究竟代表什么权利？转移代币是否意味着法律上的所有权同时转移？如果区块链上的记录与法律认可的登记记录不一致，应该以哪一方为准？资产托管的责任又由谁承担？
 
-当加密货币主要坐落在银行,证券和支付系统之外时,监管机构可以更长时间地容忍灰色区域。
+这些问题并不是简单的软件漏洞，而是涉及金融法律和财产权利的制度问题。
 
-一旦稳定币开始与支付网络互动,加密货币公司持有更大的客户资产,代币证券进入资本市场,银行开始使用区块链基础设施,监管问题变得更广泛。
+我觉得，这也是 Crypto 发展到今天越来越有意思的地方。
 
-这些措施现在包括消费者保护、洗钱、银行存款、监护、市场完整性和金融稳定。
+过去很长一段时间，区块链可以在传统金融机构之外发展，甚至试图挑战这些机构所建立的业务模式。
 
-这有助于解释为什么清晰度法案变得如此难以谈判。
+但当区块链开始涉及证券所有权、银行资产负债表、支付结算和机构托管时，就必须面对原本已经管理着巨额金融资产的法律制度和市场规则。
 
-即使在最新版本包含了126个实质性的民主变更之后,[关于伦理条款、银行和稳定币的作用仍存在重大分歧。](https://www.reuters.com/legal/government/senate-republicans-new-crypto-bill-text-adds-new-ethics-language-2026-09-14/)银行部门的担忧包括稳定币激励措施可能与传统存款竞争并影响银行融资的可能性。
+技术仍然重要，但它不再是唯一需要考虑的因素。
 
-这不仅仅是“加密对抗加密”的分歧。
+## 如果 CLARITY Act 通过，会开启一场新的金融改革吗？
 
-这是关于数字金融如何与现有银行和资本市场体系相互作用的辩论。
+对于这个问题，我觉得需要谨慎。
 
-## 投票失败了,基础设施没有停止。
+一项法案不可能在一夜之间重新设计整个金融体系。
 
-比特币和与加密相关的股票在参议院投票时下降,尽管更广泛的宏观经济压力也影响了市场。[路透社报道,比特币,Coinbase和Circle在法案未能推进后下降](https://www.reuters.com/business/bitcoin-crypto-stocks-remain-down-after-us-senate-fails-advance-regulatory-bill-2026-09-15/),但投票不应该被视为影响当天的价格的唯一因素。
+稳定币、资产代币化、银行体系和资本市场都非常庞大，也远比一项法律能够覆盖的范围复杂。
 
-长期基础设施的故事并未于9月15日结束。
+但另一方面，我也不认为金融改革一定要等到某项法案通过之后才会开始。
 
-Visa仍在开发稳定币结算系统,Mastercard仍在扩大链上结算功能,代币化项目仍在进行中,TOKEN2049新加坡将在10月将数千名行业参与者聚集在一起。
+事实上，变化已经在不同领域逐渐发生。
 
-国会可以推迟一项法律,它不能自动停止技术、资本或商业需求的发展。
+Visa 开始将稳定币应用于结算基础设施，Mastercard 扩大受监管数字资产的结算能力，金融机构探索资产代币化，监管机构则试图将数字资产纳入既有的证券和商品监管框架。
 
-这就是为什么我认为这次投票后更有用的问题不仅仅是清晰度法案的回归。
+换句话说，在完整的法律框架建立之前，市场已经开始行动。
 
-数字资产与更广泛的金融体系之间的整合是否已经走得足够远,即使立法运动缓慢,它也会继续。
+如果 CLARITY Act 未来能够成为法律，它的重要意义或许不在于突然开启一场金融变革，而是为已经发生的部分变化提供更加稳定的制度基础。
 
-加密货币的第一个时代证明了去中心化的数字资产可以存在并创造一个全球市场。
+我觉得这两者之间存在重要区别。
 
-下一个时代看起来更难。
+真正值得关注的，并不是美国是否突然决定接受 Crypto。毕竟，Crypto 已经存在很多年了。
 
-它必须显示这些资产是否可以与银行,支付网络,资本市场和现实经济一起运作。
+更大的变化在于，数字资产可能开始在现有金融体系中获得更加明确的位置。
 
-当Visa,Mastercard,资产经理,银行,稳定币发行商,区块链网络和监管机构都开始出现在同一个对话中时,“加密金融”和“传统金融”之间的旧线变得更加困难。
+这也更接近我所理解的金融改革。
 
-也许,最终,我们将停止将它们视为两个独立的系统。
+## 更严格的监管，不一定意味着 Crypto 正在倒退
 
-我们可以简单地称之为金融。
+Crypto 行业面临的监管确实越来越严格。
 
-稳定币、银行、代币资产、支付网络和监管机构仍在谈判边界应该在哪里,不同的司法管辖区可能会做出非常不同的答案。
+有些人可能会把这种变化理解为监管机构对行业的不友好。在某些国家和政策中，限制数字资产活动的确是监管方向的一部分。
 
-2026年清晰法案可能或可能不会以其当前形式成为法律,但围绕该法案的辩论已经揭示了行业面临的更大问题:
+但规则变得严格，也可能意味着相关金融活动已经开始涉及更大的资金规模和更广泛的社会影响。
 
-<!-- TODO: 翻译 block-113 -->
-**Digital assets have proved that they can exist. Now they have to find their place inside the financial system.**
+当 Crypto 主要在传统银行和证券体系之外运行时，一些监管灰色地带可能长期存在。
 
-## 编辑笔记
+但随着稳定币与支付网络连接、Crypto 企业管理越来越多的客户资产、代币化证券进入资本市场，以及银行开始使用区块链基础设施，监管需要考虑的问题也会越来越复杂。
 
-本文仅供信息和分析用途,不构成财务、投资或法律建议,数字资产监管不断发展,规则可能在各个司法管辖区有显著差异,读者在做出法律、合规或投资决策时应咨询官方监管来源或合格的专业人士。
+消费者保护、反洗钱、银行存款、资产托管、市场公平和金融稳定，都会进入政策讨论。
 
-<!--
-原文：https://flowanriver.com/posts/crypto-is-becoming-financial-infrastructure-why-the-world-was-watching-the-clarity-act/
-人工检查项目：
-block-0：需要检查译文
-block-1：缺少中文译文
-block-3：缺少中文译文
-block-4：需要检查译文
-block-6：需要检查译文
-block-7：需要检查译文
-block-8：需要检查译文
-block-9：需要检查译文
-block-10：需要检查译文
-block-11：需要检查译文
-block-13：需要检查译文
-block-14：需要检查译文
-block-15：需要检查译文
-block-16：需要检查译文
-block-17：需要检查译文
-block-18：需要检查译文
-block-19：需要检查译文
-block-20：需要检查译文
-block-21：需要检查译文
-block-23：需要检查译文
-block-24：需要检查译文
-block-25：需要检查译文
-block-26：需要检查译文
-block-27：需要检查译文
-block-28：需要检查译文
-block-29：需要检查译文
-block-30：需要检查译文
-block-31：需要检查译文
-block-33：需要检查译文
-block-34：需要检查译文
-block-35：需要检查译文
-block-36：缺少中文译文
-block-38：需要检查译文
-block-39：需要检查译文
-block-40：需要检查译文
-block-42：需要检查译文
-block-43：需要检查译文
-block-44：需要检查译文
-block-45：缺少中文译文
-block-46：缺少中文译文
-block-47：需要检查译文
-block-48：需要检查译文
-block-49：需要检查译文
-block-50：缺少中文译文
-block-51：缺少中文译文
-block-52：需要检查译文
-block-53：需要检查译文
-block-55：需要检查译文
-block-56：需要检查译文
-block-57：需要检查译文
-block-58：需要检查译文
-block-59：需要检查译文
-block-60：缺少中文译文
-block-61：需要检查译文
-block-62：需要检查译文
-block-63：需要检查译文
-block-64：需要检查译文
-block-65：需要检查译文
-block-67：需要检查译文
-block-68：需要检查译文
-block-69：需要检查译文
-block-70：需要检查译文
-block-71：需要检查译文
-block-72：需要检查译文
-block-73：需要检查译文
-block-74：需要检查译文
-block-76：需要检查译文
-block-77：需要检查译文
-block-78：需要检查译文
-block-79：需要检查译文
-block-80：需要检查译文
-block-81：需要检查译文
-block-82：需要检查译文
-block-83：需要检查译文
-block-84：需要检查译文
-block-85：需要检查译文
-block-86：需要检查译文
-block-88：需要检查译文
-block-89：需要检查译文
-block-90：需要检查译文
-block-91：需要检查译文
-block-92：需要检查译文
-block-93：需要检查译文
-block-94：需要检查译文
-block-95：需要检查译文
-block-96：需要检查译文
-block-97：需要检查译文
-block-99：需要检查译文
-block-100：需要检查译文
-block-101：需要检查译文
-block-102：需要检查译文
-block-103：需要检查译文
-block-104：需要检查译文
-block-105：需要检查译文
-block-106：需要检查译文
-block-107：需要检查译文
-block-108：需要检查译文
-block-109：需要检查译文
-block-110：需要检查译文
-block-111：需要检查译文
-block-112：需要检查译文
-block-113：缺少中文译文
-block-115：需要检查译文
--->
+这或许也解释了为什么 CLARITY Act 的谈判如此困难。
+
+即使最新版本纳入了民主党提出的 126 项实质性修改，[各方在政府官员伦理规范、银行体系和稳定币角色方面仍然存在较大分歧](https://www.reuters.com/legal/government/senate-republicans-new-crypto-bill-text-adds-new-ethics-language-2026-09-14/)。
+
+银行业关注的问题之一，是稳定币相关激励机制可能与传统银行存款形成竞争，从而影响银行的资金来源。
+
+因此，这场争论并不能简单归结为“支持 Crypto”与“反对 Crypto”之间的对立。
+
+它更接近于一场关于数字金融应该怎样与现有银行和资本市场体系共同发展的讨论。
+
+## 法案投票受阻，但金融基础设施的发展没有停止
+
+在参议院投票前后，Bitcoin 及部分 Crypto 相关股票出现下跌。不过，当时更广泛的宏观经济因素也在影响金融市场。
+
+[Reuters 报道了法案未能推进后 Bitcoin、Coinbase 和 Circle 的股价表现](https://www.reuters.com/business/bitcoin-crypto-stocks-remain-down-after-us-senate-fails-advance-regulatory-bill-2026-09-15/)，但我们也不能把当天的所有价格变化，都简单归因于这一场投票。
+
+从长期发展来看，9 月 15 日的投票结果并没有让行业基础设施建设停止。
+
+Visa 仍在发展稳定币结算业务，Mastercard 继续扩展链上支付能力，资产代币化项目也在推进，而 TOKEN2049 Singapore 仍计划在 10 月吸引来自全球的大量行业参与者。
+
+国会可以延迟一项法律的推进，但这并不意味着相关技术、商业需求和资本投入也会同时暂停。
+
+所以，在这次投票之后，我觉得真正值得思考的问题，不只是 CLARITY Act 什么时候会再次进入审议程序。
+
+而是数字资产与现有金融体系的融合，是否已经发展到即使立法进程缓慢，相关市场活动仍会继续的阶段。
+
+Crypto 发展的早期阶段，证明了去中心化数字资产能够存在，并逐渐形成一个全球市场。
+
+但下一阶段可能更加困难。
+
+数字资产需要证明，它们能否在银行、支付网络、资本市场以及现实经济中发挥持续的作用。
+
+当 Visa、Mastercard、资产管理机构、银行、稳定币发行方、区块链网络和监管机构开始频繁出现在同一场讨论中时，过去所谓 Crypto 金融与传统金融之间的界限，也会逐渐变得不那么清晰。
+
+或许有一天，我们不再需要把它们看成两个完全不同的系统。
+
+我们可能只会把它们统称为金融。
+
+当然，最终会形成怎样的结构，现在还无法确定。
+
+稳定币、银行、代币化资产、支付网络和监管机构之间，仍然需要不断协调各自的角色与边界，不同国家和地区也可能形成完全不同的制度安排。
+
+2026 年的 CLARITY Act 最终能否以当时的版本成为法律，仍然存在不确定性。
+
+但围绕它展开的讨论，已经让整个行业面对一个更加现实的问题：
+
+**数字资产已经证明自己能够存在。接下来，它们需要找到在金融体系中的位置。**
+
+---
+
+### 编辑说明
+
+本文根据 2026 年 9 月 16 日发表的英文原文整理，保留了当时美国参议院 CLARITY Act 投票、相关行业动态及个人分析的时间背景。文中会议预期、企业披露数据与法案进展，均应结合其原始发布日期理解，不代表截至今日的最新状态。
+
+### 免责声明
+
+本文仅供信息分享与分析交流，不构成金融、投资或法律建议。
+
+数字资产监管制度仍在持续发展，不同国家和地区的法律要求可能存在较大差异。涉及投资、业务合规或法律问题时，请参考有关监管机构的官方资料，并在必要时咨询具有相应资质的专业人士。
