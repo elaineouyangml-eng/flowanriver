@@ -1,6 +1,7 @@
 ---
 title: "Crypto Is Becoming Financial Infrastructure: Why the World Was Watching
   the CLARITY Act"
+slug: crypto-is-becoming-financial-infrastructure-why-the-world-was-watching-the-clarity-act
 date: 2026-09-16T19:39:00.000+08:00
 draft: false
 tags:
@@ -48,7 +49,7 @@ When does a token fall under securities law? Where does SEC authority end and CF
 
 Those questions sound technical until a company has to decide whether to invest serious money.
 
-A bank considering digital-asset custody or an asset manager building tokenization infrastructure does not make decisions on a six-month horizon. A payment company looking at stablecoin settlement needs to understand whether the same business model is likely to remain viable several years from now.
+A bank considering digital-asset custody or an asset manager building tokenization infrastructure does not make decisions on a six-month horizon. A payment company looking at stablecoin settlement needs to understand whether the same business model is likely to remain viable several years from now. The GENIUS Act had already established a federal framework for payment stablecoins in 2025, something I explored in [From USDT and USDC to the GENIUS Act](https://flowanriver.com/posts/from-usdt-and-usdc-to-the-genius-act-why-i-started-paying-attention-to-stablecoin-regulation/). But stablecoin regulation is only one part of the picture. The wider digital-asset market still raises questions about trading, custody, regulatory authority and the responsibilities of market participants.
 
 That is where regulatory uncertainty becomes a business cost.
 
@@ -97,6 +98,8 @@ What interests me is not simply the attendance number. It is what the industry i
 The questions are increasingly practical: how banks use stablecoins, how real-world assets move onchain, how settlement can operate beyond traditional banking hours, and what infrastructure institutions need before they can participate at scale.
 
 Those are different questions from “which token is next?”
+
+After TOKEN2049 Singapore in October, I returned to many of these questions in [After TOKEN2049: Crypto Is Starting to Look Less Like an Industry—and More Like Infrastructure](https://flowanriver.com/posts/after-token2049-crypto-financial-infrastructure/). Looking back at the discussions after the event, I found myself thinking even more about how stablecoins, regulation and institutional finance are beginning to overlap.
 
 ## Stablecoins are probably the clearest example
 
