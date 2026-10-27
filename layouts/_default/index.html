@@ -2,7 +2,7 @@
 {{ define "main" }}
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Caveat:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
 
 /* =========================
    FlowAnRiver Homepage
@@ -13,8 +13,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 76vh;
-  padding: 4rem 1.5rem 3rem;
+  min-height: 56vh;
+  padding: 3rem 1.5rem 2.4rem;
   text-align: center;
   background: transparent;
 }
@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   gap: 14px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.45rem;
 }
 
 .fr-candle {
@@ -50,7 +50,7 @@
   position: relative;
   display: inline-block;
   max-width: 100%;
-  margin: 0 0 1.6rem;
+  margin: 0 0 1.25rem;
   padding: 0 0.18em 0.18em;
   font-family: 'Great Vibes', cursive !important;
   font-size: clamp(3.7rem, 7.3vw, 7.2rem) !important;
@@ -62,7 +62,7 @@
 
 /* Hand-drawn coral underline */
 
-.fr-title::after {
+.fr-hero .fr-title::after {
   content: "";
   position: absolute;
   left: 1%;
@@ -85,7 +85,7 @@
 .fr-rule {
   width: 36px;
   height: 1px;
-  margin: 0 auto 1.3rem;
+  margin: 0 auto 1.1rem;
   background: #c8c0a8;
   border: none;
 }
@@ -93,7 +93,7 @@
 /* Hero introduction */
 
 .fr-hero .fr-sub {
-  margin: 0 0 2.5rem;
+  margin: 0 0 1.5rem;
   color: #958b7d;
   font-family: 'Cormorant Garamond', Georgia, serif !important;
   font-size: clamp(1.15rem, 1.65vw, 1.5rem);
@@ -114,7 +114,7 @@
 
 .fr-scroll-line {
   width: 1px;
-  height: 35px;
+  height: 25px;
   background: linear-gradient(
     to bottom,
     #c8c0a8,
@@ -127,6 +127,184 @@
   font-size: 0.6rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+/* =========================
+   Letters to the Future
+========================= */
+
+.fr-letters {
+  padding: 0 1.5rem 4.5rem;
+}
+
+.fr-letters-card {
+  position: relative;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 3.2rem 4rem;
+  overflow: hidden;
+  border: 1px solid #e0e6dc;
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    #faf8f2 0%,
+    #f2f5ee 100%
+  );
+  box-shadow: 0 12px 38px rgba(71, 90, 70, 0.035);
+}
+
+.fr-letters-card::after {
+  content: "✉";
+  position: absolute;
+  top: 12px;
+  right: 36px;
+  color: #8da18d;
+  font-family: Georgia, serif;
+  font-size: 110px;
+  line-height: 1;
+  opacity: 0.09;
+  pointer-events: none;
+}
+
+.fr-letters-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+  color: #718775;
+  font-family: Georgia, serif;
+  font-size: 0.67rem;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+}
+
+.fr-letters-kicker-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.fr-letters-title {
+  margin: 0;
+  color: #405b47;
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2.7rem, 5.3vw, 4.3rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.fr-letters-zh {
+  margin: 0.65rem 0 1.3rem;
+  color: #879587;
+  font-size: 0.93rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+.fr-letters-intro {
+  max-width: 650px;
+  margin: 0 0 2rem;
+  color: #617264;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.22rem, 2vw, 1.48rem);
+  font-weight: 400;
+  line-height: 1.58;
+}
+
+.fr-letters-rule {
+  width: 100%;
+  height: 1px;
+  margin: 0 0 1.7rem;
+  border: 0;
+  background: #dce4d8;
+}
+
+.fr-letters-features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.65rem 2rem;
+}
+
+.fr-letters-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.fr-letters-feature-icon {
+  display: flex;
+  flex: 0 0 27px;
+  align-items: center;
+  justify-content: center;
+  color: #738d76;
+}
+
+.fr-letters-feature-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fr-letters-feature-title {
+  margin: 0 0 3px;
+  color: #475e4b;
+  font-family: Georgia, serif;
+  font-size: 0.93rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.fr-letters-feature-zh {
+  margin: 0;
+  color: #8b998c;
+  font-size: 0.77rem;
+  line-height: 1.6;
+}
+
+.fr-letters-action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.fr-letters-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 0 7px;
+  border-bottom: 1px solid #98ac98;
+  color: #405b47;
+  font-family: 'Caveat', cursive;
+  font-size: 1.85rem;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.fr-letters-link:hover {
+  color: #253e2b;
+  border-color: #405b47;
+  transform: translateX(3px);
+}
+
+.fr-letters-link:focus-visible {
+  outline: 2px solid #607764;
+  outline-offset: 5px;
+  border-radius: 2px;
+}
+
+.fr-letters-link-arrow {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
 }
 
 /* =========================
@@ -260,25 +438,65 @@
   white-space: nowrap;
 }
 
-/* Dark mode */
+/* =========================
+   Dark mode
+========================= */
 
-[data-theme="dark"] .fr-title,
+[data-theme="dark"] .fr-hero .fr-title,
 [data-theme="dark"] .fr-posts-heading,
 [data-theme="dark"] .fr-post-title {
   color: var(--primary) !important;
 }
 
-/* Mobile */
+[data-theme="dark"] .fr-letters-card {
+  background: linear-gradient(
+    135deg,
+    #25332c 0%,
+    #293b31 100%
+  );
+  border-color: #435a48;
+  box-shadow: none;
+}
+
+[data-theme="dark"] .fr-letters-title,
+[data-theme="dark"] .fr-letters-feature-title,
+[data-theme="dark"] .fr-letters-link {
+  color: #e3ebdd;
+}
+
+[data-theme="dark"] .fr-letters-kicker,
+[data-theme="dark"] .fr-letters-feature-icon,
+[data-theme="dark"] .fr-letters-zh,
+[data-theme="dark"] .fr-letters-feature-zh {
+  color: #bdcdbb;
+}
+
+[data-theme="dark"] .fr-letters-intro {
+  color: #d1dfce;
+}
+
+[data-theme="dark"] .fr-letters-rule {
+  background: #49604d;
+}
+
+[data-theme="dark"] .fr-letters-link {
+  border-bottom-color: #9fb59f;
+}
+
+/* =========================
+   Mobile
+========================= */
 
 @media (max-width: 768px) {
+
   .fr-hero {
-    min-height: 70vh;
-    padding: 3rem 1rem 2rem;
+    min-height: 48vh;
+    padding: 2rem 1rem 1.8rem;
   }
 
   .fr-hero-brand {
     gap: 9px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .fr-candle {
@@ -293,15 +511,90 @@
   .fr-hero .fr-title {
     font-size: clamp(2.5rem, 10vw, 4.5rem) !important;
     line-height: 1.35 !important;
+    margin-bottom: 1rem;
   }
 
-  .fr-title::after {
+  .fr-hero .fr-title::after {
     height: 7px;
   }
 
   .fr-hero .fr-sub {
     font-size: 1.1rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
   }
+
+  .fr-scroll-line {
+    height: 18px;
+  }
+
+  /* Letters */
+
+  .fr-letters {
+    padding: 0 1rem 3rem;
+  }
+
+  .fr-letters-card {
+    padding: 2.1rem 1.4rem;
+    border-radius: 18px;
+  }
+
+  .fr-letters-card::after {
+    top: 15px;
+    right: 15px;
+    font-size: 72px;
+  }
+
+  .fr-letters-title {
+    font-size: clamp(2.5rem, 9vw, 3.8rem);
+    line-height: 1.1;
+  }
+
+  .fr-letters-zh {
+    margin: 0.55rem 0 1.1rem;
+    font-size: 0.86rem;
+  }
+
+  .fr-letters-intro {
+    font-size: 1.2rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .fr-letters-features {
+    gap: 1.2rem 1rem;
+  }
+
+  .fr-letters-feature {
+    gap: 8px;
+  }
+
+  .fr-letters-feature-title {
+    font-size: 0.82rem;
+  }
+
+  .fr-letters-feature-zh {
+    font-size: 0.7rem;
+  }
+
+  .fr-letters-feature-icon {
+    flex-basis: 23px;
+  }
+
+  .fr-letters-feature-icon svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .fr-letters-action {
+    margin-top: 1.7rem;
+  }
+
+  .fr-letters-link {
+    font-size: 1.7rem;
+  }
+
+  /* Journal */
 
   .fr-journal-zone {
     padding-top: 2rem;
@@ -324,9 +617,22 @@
     font-size: 0.62rem;
   }
 }
+
+@media (max-width: 390px) {
+  .fr-letters-features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .fr-letters-title {
+    font-size: 2.55rem;
+  }
+}
 </style>
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <div class="fr-hero">
 
@@ -353,7 +659,140 @@
 
 </div>
 
-<!-- JOURNAL -->
+<!-- =========================
+     LETTERS TO THE FUTURE
+========================= -->
+
+<section
+  class="fr-letters"
+  aria-labelledby="fr-letters-title">
+
+  <div class="fr-letters-card">
+
+    <div class="fr-letters-kicker">
+      <span class="fr-letters-kicker-icon"
+            aria-hidden="true">✉</span>
+      <span>Letters to the Future</span>
+    </div>
+
+    <h2
+      class="fr-letters-title"
+      id="fr-letters-title">
+      A Conversation with Your Future Self
+    </h2>
+
+    <p class="fr-letters-zh">
+      与未来自己的对话
+    </p>
+
+    <p class="fr-letters-intro">
+      Some words are meant to be read another day.
+      Write to your future self, choose a date,
+      and let your words find their way back to you.
+    </p>
+
+    <hr class="fr-letters-rule">
+
+    <div class="fr-letters-features">
+
+      <!-- Choose Your Date -->
+
+      <div class="fr-letters-feature">
+        <span class="fr-letters-feature-icon"
+              aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M7 3v4M17 3v4M3 10h18"/>
+            <path d="M8 15h3v3H8z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="fr-letters-feature-title">
+            Choose Your Date
+          </p>
+          <p class="fr-letters-feature-zh">
+            选择收信日期
+          </p>
+        </div>
+      </div>
+
+      <!-- Private & Encrypted -->
+
+      <div class="fr-letters-feature">
+        <span class="fr-letters-feature-icon"
+              aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="4" y="10" width="16" height="11" rx="2"/>
+            <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+            <path d="M12 14v3"/>
+          </svg>
+        </span>
+        <div>
+          <p class="fr-letters-feature-title">
+            Private &amp; Encrypted
+          </p>
+          <p class="fr-letters-feature-zh">
+            信件内容加密保存
+          </p>
+        </div>
+      </div>
+
+      <!-- Email Confirmation -->
+
+      <div class="fr-letters-feature">
+        <span class="fr-letters-feature-icon"
+              aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="5" width="20" height="14" rx="2"/>
+            <path d="m3 7 9 7 9-7"/>
+            <path d="m16 16 2 2 4-4"/>
+          </svg>
+        </span>
+        <div>
+          <p class="fr-letters-feature-title">
+            Email Confirmation
+          </p>
+          <p class="fr-letters-feature-zh">
+            邮箱验证后预约
+          </p>
+        </div>
+      </div>
+
+      <!-- Conversation Across Time -->
+
+      <div class="fr-letters-feature">
+        <span class="fr-letters-feature-icon"
+              aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/>
+          </svg>
+        </span>
+        <div>
+          <p class="fr-letters-feature-title">
+            A Conversation Across Time
+          </p>
+          <p class="fr-letters-feature-zh">
+            与未来自己的对话
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="fr-letters-action">
+      <a class="fr-letters-link" href="/letters/">
+        Write Your Letter
+        <span class="fr-letters-link-arrow"
+              aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- =========================
+     JOURNAL
+========================= -->
 
 <section class="fr-journal-zone" aria-label="Latest stories">
 
