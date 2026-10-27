@@ -112,15 +112,17 @@ export async function onRequestPost({ request, env }) {
   }
 
   // Basic per-email cooldown
-  const since = new Date(Date.now() - 15 * 60 * 1000)
-    .toISOString();
+  
+const since = new Date(Date.now() - 15 * 60 * 1000)
+  .toISOString();
 
-  try {
-    const existing = await env.DB.prepare(
-      `SELECT COUNT(*) AS count FROM letters
-       WHERE recipient_email = ?
-       AND created_at > ?`
-    ).bind(email, since).first();
+try {
+  const existing = await env.DB.prepare(
+    `SELECT COUNT(*) AS count
+     FROM letters
+     WHERE recipient_email = ?
+       AND julianday(created_at) > julianday(?)`
+  ).bind(email, since).first();
 
     if (Number(existing?.count || 0) > 0) {
       return reply(
