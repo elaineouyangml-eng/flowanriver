@@ -1279,10 +1279,25 @@
       zhButton.getAttribute("aria-pressed") === "true";
   }
 
-  function openAnimation() {
-    previousFocus = document.activeElement;
-    clearTimeout(finishTimer);
+  f
+function openAnimation(event) {
+  previousFocus = document.activeElement;
+  clearTimeout(finishTimer);
 
+  const isRealSubmission =
+    event?.type === "flowanriver:letter-submitted";
+
+  if (isRealSubmission) {
+    if (isChinese()) {
+      title.textContent = "确认邮件已发出";
+      note.textContent =
+        "请在24小时内前往邮箱完成确认。确认后，这封信才会正式预约寄送。";
+    } else {
+      title.textContent = "Check your inbox";
+      note.textContent =
+        "Please confirm your email within 24 hours to schedule your letter.";
+    }
+  } else {
     if (isChinese()) {
       title.textContent = "信已封存，未来再见。";
       note.textContent =
@@ -1293,6 +1308,8 @@
       note.textContent =
         "A little piece of today, waiting for tomorrow.";
     }
+  }
+
 
     scene.hidden = false;
     scene.classList.remove("playing", "finished");
@@ -1324,6 +1341,10 @@
   }
 
   preview.addEventListener("click", openAnimation);
+   window.addEventListener(
+  "flowanriver:letter-submitted",
+  openAnimation
+);
   close.addEventListener("click", closeAnimation);
 
   scene.addEventListener("click", function (event) {
@@ -1491,11 +1512,16 @@
         })
       });
 
-      if (response.ok) {
-        submitted = true;
-        showMessage("success");
-        button.disabled = true;
-      } else {
+     
+if (response.ok) {
+  submitted = true;
+  showMessage("success");
+  button.disabled = true;
+
+  window.dispatchEvent(
+    new Event("flowanriver:letter-submitted")
+  );
+} else {
         showMessage(response.status === 503 ? "closed" : "error");
         resetVerification();
       }
