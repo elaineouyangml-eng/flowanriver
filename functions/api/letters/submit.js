@@ -141,6 +141,22 @@ if (!submissionsOpen && !adminTestAllowed) {
     data?.email ?? ""
   ).trim().toLowerCase();
 
+
+  // Only allow the configured email during admin testing.
+  if (!submissionsOpen) {
+    const testEmail = String(
+      env.LETTERS_TEST_EMAIL ?? ""
+    ).trim().toLowerCase();
+
+    if (!testEmail || email !== testEmail) {
+      return reply(
+        "Test submissions are restricted to the configured test email.",
+        403
+      );
+    }
+  }
+
+  
   const content = String(
     data?.content ?? ""
   ).trim();
