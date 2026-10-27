@@ -79,12 +79,21 @@ export async function onRequestPost({ request, env }) {
 
   // Feature must remain disabled until
   // delivery and cleanup are ready.
-  if (env.LETTERS_SUBMISSIONS_ENABLED !== "true") {
-    return reply(
-      "Letters submissions are not open yet.",
-      503
-    );
-  }
+  const submissionsOpen =
+  env.LETTERS_SUBMISSIONS_ENABLED === "true";
+
+const adminTestAllowed =
+  env.LETTERS_TEST_MODE === "true" &&
+  Boolean(env.LETTERS_ADMIN_TOKEN) &&
+  request.headers.get("X-Letters-Admin-Token") ===
+    env.LETTERS_ADMIN_TOKEN;
+
+if (!submissionsOpen && !adminTestAllowed) {
+  return reply(
+    "Letters submissions are not open yet.",
+    503
+  );
+}
 
   if (
     !env.DB ||
