@@ -1,380 +1,279 @@
 ---
 title: "加密货币中的共识是什么？从 Bitcoin 披萨交易到真实的生态价值"
-date: 2026-10-27
+date: 2026-10-27T10:07:00.000+08:00
 draft: true
-description: "What does consensus really mean in crypto? From Bitcoin's pizza purchase to Pi Network, explore real-world adoption, circulation, and merchant risks."
+description: "从 Bitcoin 披萨交易到 Pi Network 生态，探讨技术共识、社区共识与市场价格的区别，以及数字资产的真实应用、流动性和商家经营风险。"
 tags: ["Crypto","Blockchain","Bitcoin","Pi Network"]
+cover:
+  image: /images/from-pizza-to-global-crypto-commerce.png
+  alt: "从 Bitcoin 披萨交易到全球数字资产应用，展现加密货币的价值共识、真实交易与生态流通。"
 ---
 
-<!-- 中文机器翻译草稿，公开发布前须检查 -->
+在加密货币的世界里，“共识”大概是我们最经常听见的词语之一。项目刚刚开始，需要建立共识；市场行情不好，需要坚定共识；生态准备发展，又需要扩大共识。甚至有时候，当有人对项目提出不同意见时，得到的回答也是应该相信共识。
 
-<!-- TODO: 翻译 block-0 -->
-If you spend enough time around cryptocurrency communities, there's one word you'll hear almost everywhere: consensus.
+听得多了，我反而开始思考，这个被反复提及的词语，究竟意味着什么？
 
-<!-- TODO: 翻译 block-1 -->
-A new project needs to build consensus. When the market falls, people are encouraged to strengthen it. When an ecosystem starts expanding, the community is told to bring more people on board. Sometimes, even a reasonable question about a project's direction is met with the same response: you need to believe in the consensus.
+最近在接触一些加密社区、了解生态建设的过程中，我发现大家对共识的理解并不完全相同。有人认为吸引更多人加入社区就是建设共识，有人强调长期持币，还有人希望通过社交媒体宣传，让更多人认识项目。
 
-<!-- TODO: 翻译 block-2 -->
-The more often I hear it, the more I wonder what people actually mean by it.
+这些行为或许都能产生一定作用，但如果一个社区拥有大量成员，每天都有很多人讨论和宣传，却很少有人真正了解技术、使用产品，那么这样的共识究竟建立在什么基础上？
 
-<!-- TODO: 翻译 block-3 -->
-Through my involvement in different crypto communities and my interest in ecosystem development, I've noticed that people have very different ideas about what building consensus involves. Some believe it means attracting more members, others see long-term holding as a sign of commitment, while others focus on spreading information and promoting projects through social media.
+我并不认为宣传或者扩大社区有什么问题。任何一项新技术要被更多人认识，都需要有人愿意介绍和解释。但如果最终只剩下对未来价格的期待，共识就可能逐渐偏离最初的意义。
 
-<!-- TODO: 翻译 block-4 -->
-None of these activities is necessarily meaningless. Every new technology needs people who are willing to introduce it, explain it, and help others understand why it matters. But if a community has thousands of members talking about the same project while very few of them understand the technology or use its products, what exactly are they agreeing on?
+## 共识是什么？它又是如何产生的？
 
-<!-- TODO: 翻译 block-5 -->
-And if that agreement is mostly about the hope of a higher price, is it really the kind of consensus that can support an ecosystem over time?
+从字面上理解，共识就是人们对某件事情形成共同的认可。我更愿意从生活中一个很简单的场景来理解它。
 
-<!-- TODO: 翻译 block-6 -->
-Where Does Consensus Come From?
+比如，我们走进一家商店，看中一件商品。商家愿意以某个价格出售，而我们也认为这个价格可以接受，于是交易发生了。
 
-<!-- TODO: 翻译 block-7 -->
-In everyday language, consensus means reaching some form of shared agreement. I find it easier to understand through something we all experience: buying and selling.
+在这个过程中，双方并不一定对商品的价值拥有完全相同的判断。商家可能认为这件商品值 80 元，却希望卖到 100 元；顾客可能觉得它值 120 元，所以愿意花 100 元购买。最终，双方对这一次的成交价格和交易条件达成了认可。
 
-<!-- TODO: 翻译 block-8 -->
-Imagine walking into a shop and finding something you want. The seller has a price in mind, and you decide whether you're willing to pay it. If both sides accept the terms, the transaction takes place.
+那么，商品的价值究竟是怎么产生的？是商家标出了价格，它就有了价值，还是因为有人愿意购买，它的价值得到了体现？
 
-<!-- TODO: 翻译 block-9 -->
-That doesn't necessarily mean the buyer and seller believe the product has exactly the same value. The seller is thinking about costs and profit, while the buyer is deciding whether the product is worth the money. What they have agreed on is the exchange itself.
+我认为，两者之间存在联系，但并不完全相同。商品可能本身就具有实用价值，而市场价格需要通过供需关系和真实交易不断形成。一个人愿意购买，并不意味着所有人都认可这个价格，一笔交易能够完成，也不代表未来还可以用相同的价格成交。
 
-<!-- TODO: 翻译 block-10 -->
-This raises an interesting question. Does a product become valuable because someone puts a price tag on it, or does the willingness to buy it reveal that value?
+这让我想起 Bitcoin 早期那笔著名的披萨交易。
 
-<!-- TODO: 翻译 block-11 -->
-I think there's a difference between the usefulness of something and the price people are prepared to pay for it. A product can have practical value before anyone buys it, while its market price develops through supply, demand, and actual transactions. One completed sale tells us that two people accepted the terms at a particular moment, not that everyone else agrees with the price or that it will remain unchanged.
+2009 年 Bitcoin 网络刚刚开始运行时，它还没有今天这样成熟的交易市场，更谈不上广泛的支付应用。对于大多数不了解它的人来说，Bitcoin 可能只是计算机网络里的一串数字，而对于当时参与研究、开发和挖矿的人而言，这些数字背后代表着一种新的技术尝试。
 
-<!-- TODO: 翻译 block-12 -->
-That brings me to one of the best-known stories in Bitcoin's history.
+2010 年 5 月 22 日，Laszlo Hanyecz 通过 BitcoinTalk 社区，用 10,000 BTC 换得了两张披萨。实际上，早在这笔交易发生之前，Bitcoin 已经出现过早期报价和法币交易，因此不能说它直到购买披萨才第一次拥有价格。
 
-<!-- TODO: 翻译 block-13 -->
-When Bitcoin launched in 2009, there was no mature trading market or widespread payment network behind it. To most people, it probably looked like little more than numbers on a computer screen. For the early developers, miners, and enthusiasts, however, those numbers represented an experiment in transferring value without relying on a central authority.
+但这笔交易仍然具有特殊意义。
 
-<!-- TODO: 翻译 block-14 -->
-On May 22, 2010, Laszlo Hanyecz exchanged 10,000 BTC for two pizzas through the BitcoinTalk community. Bitcoin had already seen early exchange rates and transactions involving traditional currencies, so this wasn't the moment it first acquired a price. Still, it became an important example of Bitcoin being used to obtain something in the physical world.
+当时并不是披萨店直接接受了 Bitcoin，而是另一位社区成员 Jeremy Sturdivant 帮忙订购披萨，再收取 10,000 BTC。两个人通过一次真实的交换，让 Bitcoin 与现实世界的商品产生了联系。关于这段历史，可以查看 [BitcoinTalk 上保存的早期交易讨论](https://bitcointalk.org/index.php?topic=137.0)。
 
-<!-- TODO: 翻译 block-15 -->
-Interestingly, the pizza restaurant didn't accept Bitcoin directly. Another community member, Jeremy Sturdivant, arranged the purchase and received the BTC in return. Their exchange can still be found in the [original BitcoinTalk discussion](https://bitcointalk.org/index.php?topic=137.0).
+![Bitcoin 早期披萨交易在 BitcoinTalk 上的原始讨论记录。](/images/bitcoin-pizza-original-bitcointalk-post.jpeg)
 
-![Original 2010 BitcoinTalk post by Laszlo Hanyecz offering 10,000 BTC for two pizzas.](/images/bitcoin-pizza-original-bitcointalk-post.jpeg "bitcoin-pizza-original-bitcointalk-post")
+今天回头看，很多人会感叹那两张披萨实在太贵了。但如果站在 2010 年的时间点上，事情或许完全不同。当时没有人知道 Bitcoin 将来会发展到什么程度，更没有人能够保证这些数字会被越来越多人接受。
 
-<!-- TODO: 翻译 block-17 -->
-Looking back, it's easy to think those were two extraordinarily expensive pizzas. But in 2010, nobody knew how far Bitcoin would go or whether people outside a small group of enthusiasts would ever want to use it.
+我认为，这个故事最值得讨论的，不是那 10,000 BTC 今天值多少钱，而是它说明了一件事：一种新的数字资产即使拥有技术基础，也需要有人愿意接受和使用，才能逐渐发展出更广泛的经济用途。
 
-<!-- TODO: 翻译 block-18 -->
-For me, the most interesting part isn't what those 10,000 BTC would be worth today. It's that one person was willing to offer a digital asset and another was willing to accept it in exchange for something tangible.
+当然，一笔真实交易并不能决定一种资产永久的价值。真正值得关注的是，这样的交换能否持续发生，以及它能否在不同参与者之间逐渐形成更广泛的认可。
 
-<!-- TODO: 翻译 block-19 -->
-That single transaction didn't establish Bitcoin's permanent value, but it demonstrated a possibility. If more people were willing to accept and use it, Bitcoin could gradually find a place in economic activity beyond the community that created it.
+## 区块链的技术共识，与我们讨论的价值共识是一回事吗？
 
-<!-- TODO: 翻译 block-20 -->
-Technical Consensus Isn't the Same as Agreement on Value
+虽然我们平时把共识理解为共同认可，但在区块链技术中，这个词还有更加明确的含义。
 
-<!-- TODO: 翻译 block-21 -->
-The everyday meaning of consensus is relatively straightforward, but in blockchain technology, the term has a more specific purpose.
+传统金融体系通常依靠银行或者其他中心化机构记录和确认交易，而区块链尝试让分布在不同地区、彼此不一定信任的计算机节点，按照共同的协议规则维护交易记录。
 
-<!-- TODO: 翻译 block-22 -->
-Traditional financial systems generally rely on banks and other centralized institutions to maintain and verify transaction records. Blockchain networks take a different approach by allowing computers that don't necessarily know or trust one another to maintain records according to shared protocol rules.
+在 [Bitcoin 白皮书](https://bitcoin.org/bitcoin.pdf)中，中本聪提出了基于工作量证明（Proof of Work，PoW）的机制，让网络能够在没有统一管理者的情况下，对有效的交易历史形成一致认识。
 
-<!-- TODO: 翻译 block-23 -->
-In the original [Bitcoin white paper](https://bitcoin.org/bitcoin.pdf), Satoshi Nakamoto described a system based on Proof of Work (PoW). Ethereum followed a different path and moved to Proof of Stake (PoS) in 2022, a change explained in its [official documentation on consensus mechanisms](https://ethereum.org/developers/docs/consensus-mechanisms/).
+Ethereum 则采用了不同的技术路线，并在 2022 年转向权益证明（Proof of Stake，PoS）。具体机制可以参考 [Ethereum 官方的共识机制说明](https://ethereum.org/developers/docs/consensus-mechanisms/)。
 
-<!-- TODO: 翻译 block-24 -->
-These mechanisms help networks validate transactions and agree on the state of the blockchain. They don't determine how much Bitcoin, ETH, or any other cryptocurrency should be worth.
+这些技术设计并不是为了让所有人认可某个代币应该值多少钱，而是为了让网络能够按照既定规则运行、验证交易并维护一致的状态。
 
-<!-- TODO: 翻译 block-25 -->
-That's where I think a lot of community discussions become confusing. Technical consensus, community agreement, and market valuation are related in some ways, but they're not interchangeable.
+因此，我认为有必要把技术共识、社区共识和市场价格分开讨论。
 
-<!-- TODO: 翻译 block-26 -->
-A blockchain can operate reliably without attracting many real users. A project can have a huge community without building products that people consistently need. And even when both technology and adoption improve, the price of its token can still fall because of market conditions, token supply, liquidity, or changing expectations.
+技术共识解决网络如何运行的问题；社区共识涉及参与者是否认可项目目标、是否愿意持续建设；市场价格则受到实际需求、供给、交易流动性以及市场预期等多种因素影响。
 
-<!-- TODO: 翻译 block-27 -->
-Believing in a technology and believing that its token is fairly priced are two different things.
+三者之间可能相互作用，却不能直接画上等号。
 
-<!-- TODO: 翻译 block-28 -->
-Why I Think Consensus Needs Real Use and Circulation
+一个区块链网络可以在技术上正常运行，但缺乏足够多的真实用户；一个社区也可以拥有庞大的成员数量，却始终没有形成可持续的产品需求。
 
-<!-- TODO: 翻译 block-29 -->
-When I think about how agreement develops around money, I often find myself comparing cryptocurrencies with the fiat currencies we use every day.
+即使技术和生态不断发展，代币价格也不一定随之上涨。因为市场认可一种技术的潜力，与愿意在某个时刻以特定价格购买相关资产，本来就是两件不同的事情。
 
-<!-- TODO: 翻译 block-30 -->
-Why can a banknote with a face value of 100 yuan buy real goods? Not because the paper itself is worth that amount, but because it belongs to a monetary system supported by laws, institutions, economic activity, and public trust.
+## 为什么我认为，共识不能只看交易所的价格？
 
-<!-- TODO: 翻译 block-31 -->
-Of course, 100 yuan won't always buy the same amount of goods. Inflation and changing economic conditions affect purchasing power, even when the number printed on the banknote stays the same.
+当我们讨论加密货币的共识时，很容易把注意力集中在交易所的价格上。价格上涨，似乎代表越来越多人认可它；价格下跌，又容易被理解为共识正在减弱。
 
-<!-- TODO: 翻译 block-32 -->
-We accept money partly because we expect to be able to use it again, whether that's for shopping, paying for services, or settling debts. The same money continues moving between customers, businesses, employees, and suppliers.
+但我始终觉得，市场价格并不能解释共识的全部。
 
-<!-- TODO: 翻译 block-33 -->
-Cryptocurrencies don't have the same institutional foundations as national currencies, but I think there's a useful comparison here.
+如果一种加密货币拥有大量持有者，大家都期待未来能够以更高的价格出售，却没有相应的产品、服务或者生态应用，那么对于这些参与者而言，它与一般的投机交易又有多少区别？
 
-<!-- TODO: 翻译 block-34 -->
-If a digital asset has plenty of holders but very few people willing to accept it in exchange for anything, much of its demand may depend on investment expectations. When people begin using it for goods and services, and those receiving it can use it again, other kinds of demand may gradually develop.
+当然，投资者可以因为看好未来而选择长期持有，交易行为本身也没有什么问题。只是，如果整个社区都把价格上涨当成唯一目标，我们又该如何判断这个项目是否真正创造了使用价值？
 
-<!-- TODO: 翻译 block-35 -->
-However, there's an important difference between real-world circulation and liquidity on an exchange.
+这让我想到了 Pi Network。
 
-<!-- TODO: 翻译 block-36 -->
-A cryptocurrency can record enormous daily trading volume without being widely accepted for payments. Much of that trading may come from investors speculating on price movements rather than people buying goods or services.
+Pi 的价值究竟应该是多少？我不知道，也不认为能够通过某个社区提出的价格，就为所有人找到统一的答案。
 
-<!-- TODO: 翻译 block-37 -->
-The opposite can also happen. A shop may accept a cryptocurrency, but that doesn't mean the merchant can easily exchange it for another currency at a reasonable price. If converting it is difficult, expensive, or involves considerable price risk, accepting it may create problems for the business.
+但从已经出现的生态活动来看，确实有商家愿意接受 Pi 支付，也有持币者愿意使用手中的 Pi 换取商品和服务。
 
-<!-- TODO: 翻译 block-38 -->
-This is also one reason stablecoins have become part of the wider discussion around digital payments. Although [USDT and USDC](https://flowanriver.com/posts/from-thinking-all-stablecoins-were-the-same-to-understanding-usdt-and-usdc/) are both designed to maintain a value close to the US dollar, their structures and risks are not identical. Understanding those differences matters when considering how digital assets can move between people and businesses.
+根据 [Pi Network 官方发布的开放网络百日回顾](https://minepi.com/blog/100-days-open-network/)，2025 年的 PiFest 活动吸引了超过 125,000 家注册卖家，其中约 58,000 家被统计为活跃卖家，Map of Pi 的使用人数超过 180 万。
 
-<!-- TODO: 翻译 block-39 -->
-The relationship between acceptance and use isn't unique to cryptocurrency. The Bank for International Settlements discusses this in its research on [money and the architecture of trust](https://www.bis.org/publications/iii-anchoring-trust-money-innovation-beyond-stablecoins), explaining how people are more willing to accept a form of money when they expect others to accept it too. As more people use it, that wider acceptance can encourage further use.
+这些官方公布的参与数据说明，生态中的商业活动已经不只是停留在概念阶段，但它们并不能直接告诉我们有多少笔实际交易成功完成、商品的成交总额是多少，更不能据此确定 Pi 的合理价格。
 
-<!-- TODO: 翻译 block-40 -->
-This makes me wonder whether crypto communities should spend as much time discussing circulation as they do discussing long-term holding.
+![Pi Network 官方公布的 PiFest 2025 商家参与数据。](/images/pi-network-pifest-2025-merchant-data.jpeg)
 
-<!-- TODO: 翻译 block-41 -->
-Imagine a customer buying a product with cryptocurrency. The merchant receives the tokens and then uses them to pay a supplier or purchase another service. If this can happen repeatedly at costs and risks that businesses can reasonably manage, economic activity within the ecosystem has a better chance of becoming sustainable.
+关于 Pi Network 从早期移动端参与发展到生态应用的过程，我曾在[《Pi Network 七年后，最初的愿景正在实现吗？》](https://flowanriver.com/zh/posts/pi-network-seven-years-original-vision/)中进行过更完整的讨论。
 
-<!-- TODO: 翻译 block-42 -->
-Simply moving tokens between wallets doesn't automatically create value, and frequent trading doesn't necessarily indicate real demand. But for a cryptocurrency that aims to support payments or commercial activity, the ability to circulate matters just as much as people's willingness to hold it.
+其实，早在 2022 年 Pi Network 仍处于封闭式主网阶段时，我就曾经尝试在生态平台上销售自己的商品。当时也有来自不同国家的用户对商品表现出兴趣。这段经历让我有机会从商家的角度接触早期生态交易，而不只是站在旁观者的位置讨论代币价格。
 
-<!-- TODO: 翻译 block-43 -->
-What My Experience With Pi Network Taught Me About Merchant Pricing
+可能很多人会好奇，我当时究竟给自己的商品标了多少 Pi。但相比具体数字，我更想谈谈商家在这种交易中需要面对的问题。
 
-<!-- TODO: 翻译 block-44 -->
-Pi Network is one example that comes to mind when I think about these questions.
+对于参与生态的商家来说，这其实是一把双刃剑。当一种数字资产尚未形成相对稳定、被广泛接受的计价参考时，商家需要自行判断应该收取多少代币。如果按照较少的 Pi 数量出售商品，而之后这些代币能够兑换的价值不足以覆盖商品成本，那么其中的损失就需要商家自己承担。反过来，如果收到的 Pi 后来大幅升值，商家也可能因此获得额外收益。
 
-<!-- TODO: 翻译 block-45 -->
-How much should Pi actually be worth? I don't know, and I don't think a price suggested by any particular community can become a standard that everyone must accept.
+但问题是，在交易发生的时候，没有人能够确定未来的市场价格究竟会如何变化。商品一旦售出，生产成本、采购成本以及交付责任都是实实在在的，而收到的数字资产却可能继续波动。
 
-<!-- TODO: 翻译 block-46 -->
-What interests me more is that some merchants have been willing to accept Pi for goods and services, while some holders have chosen to spend their Pi instead of simply keeping it in their wallets.
+作为商家，我不能只考虑它未来可能值多少钱，还需要考虑今天付出了多少成本。如果最终无法覆盖成本，不能因为自己相信某个项目，就要求供应商或者物流公司共同承担损失。
 
-<!-- TODO: 翻译 block-47 -->
-According to [Pi Network's official review of its first 100 days of Open Network](https://minepi.com/blog/100-days-open-network/), the 2025 PiFest campaign recorded more than 125,000 registered sellers, including around 58,000 classified as active, while Map of Pi attracted over 1.8 million users. Those figures show participation, but they don't tell us how many purchases were completed, their total value, or how regularly customers returned.
+这也是为什么我并不意外，在一些生态交易中，同样的商品会出现差异很大的 Pi 标价。有些商家愿意接受较少的 Pi，有些则要求很高的数量。背后可能不仅是对未来价格的不同期待，也包含各自对成本、风险和资产流动性的判断。
 
-<!-- TODO: 翻译 block-48 -->
-Pi Network's [development over the past seven years](https://flowanriver.com/posts/pi-network-seven-years-original-vision/), from mobile participation to ecosystem applications, raises some interesting questions about how community belief develops into actual use. But there's another side to this story that I experienced firsthand.
+我不认为价格越高，就代表商家拥有越强的共识，也不认为价格越低，就一定意味着对生态更有贡献。每个商家都有自己的经营压力，没有人有义务通过牺牲利润来证明对某种加密货币的信心。
 
-<!-- TODO: 翻译 block-49 -->
-Back in 2022, when Pi Network was still in its Enclosed Mainnet period, I tried listing my own products on an ecosystem marketplace. Some users from different countries showed interest in what I was selling, and the experience gave me an opportunity to look at an early crypto ecosystem from a merchant's perspective rather than simply watching token prices.
+尤其需要注意，2022 年 Pi 所处的封闭网络环境，与后来开放网络后的市场条件并不相同。根据 [Pi Network 关于封闭式主网的官方说明](https://minepi.com/blog/enclosed-mainnet/)，当时网络允许在生态内探索 Pi 的实际用途，但不允许与法币或其他加密货币进行兑换。因此，不能简单地用后来交易所出现的市场价格，倒推早期商家的交易成本与定价判断。
 
-![pi-network-pifest-2025-merchant-data](/images/pi-network-pifest-2025-merchant-data.jpeg "Pi Network's official 2025 PiFest report showing registered merchants, active sellers, and Map of Pi participation.")
+![Pi Network 对封闭式主网期间交易限制的官方说明。](/images/pi-network-enclosed-mainnet-trading-restrictions.jpeg)
 
-<!-- TODO: 翻译 block-51 -->
-Some people might be curious about how much Pi I asked for my products. But the exact number isn't really the point. What matters is the risk merchants face when the asset they're accepting doesn't have a widely agreed, reliable reference price.
+回到前面提到的 Bitcoin 披萨交易，我觉得两者都有一个值得思考的共同点：有人愿意用数字资产交换商品，至少说明它在特定场景中获得了接受。
 
-<!-- TODO: 翻译 block-52 -->
-For a business, this can work both ways.
+但接受并不代表价格已经稳定，更不代表生态已经成熟。
 
-<!-- TODO: 翻译 block-53 -->
-If a merchant accepts a relatively small amount of Pi for a product and the value they can eventually realize from those tokens doesn't cover the cost, the business may lose money. On the other hand, if the Pi received later rises substantially in value, the merchant could benefit.
+真正值得持续观察的，是消费者是否有真实需求、商家能否覆盖经营成本、交易是否能够顺利完成，以及双方在下一次交易时是否仍然愿意使用这种资产。
 
-<!-- TODO: 翻译 block-54 -->
-The difficulty is that nobody knows what the future price will be when the transaction takes place.
+我认为，一个可持续的商业生态，不能只要求消费者相信未来，也需要让商家能够合理地控制今天的经营风险。
 
-<!-- TODO: 翻译 block-55 -->
-Once a product has been sold, the purchasing costs, production expenses, and delivery obligations are real. Those bills don't disappear just because the merchant believes a digital asset might become more valuable someday.
+这也让我想起之前对 [USDT 与 USDC 的理解](https://flowanriver.com/zh/posts/from-thinking-all-stablecoins-were-the-same-to-understanding-usdt-and-usdc/)。即使同样被称为稳定币，它们的发行结构、使用场景和风险也并不完全相同。数字资产能否在实际商业活动中持续流通，除了有人愿意接受，还需要考虑它本身的设计以及使用过程中需要承担的风险。
 
-<!-- TODO: 翻译 block-56 -->
-As someone who has worked with physical products, I can't look only at what a token might be worth in the future. I also have to think about how today's suppliers, production costs, and shipping expenses will be paid.
+## 建立共识，究竟需要什么？
 
-<!-- TODO: 翻译 block-57 -->
-The market conditions in 2022 were also very different from those after Pi's Open Network launch. During the Enclosed Mainnet period, Pi could be explored for goods and services within the ecosystem, but exchanging it for fiat currencies or other cryptocurrencies was prohibited under the network's rules, as explained in [Pi Network's official Enclosed Mainnet Q&A](https://minepi.com/blog/enclosed-mainnet/).
+说到建立共识，很多人首先想到的就是扩大社区规模，让更多人知道项目、加入项目。
 
-<!-- TODO: 翻译 block-58 -->
-It wouldn't make sense to take a later exchange price and use it to judge whether an early merchant's pricing decision was right or wrong.
+但我认为，一个社区拥有多少成员，与这些成员是否真正理解项目，并不是同一回事。
 
-![Pi Network's official Enclosed Mainnet Q&A explaining restrictions on exchanging Pi for fiat and other cryptocurrencies.](/images/pi-network-enclosed-mainnet-trading-restrictions.jpeg "pi-network-enclosed-mainnet-trading-restrictions")
+我接触过一些加密社区，也看过不同的组织方式。有些讨论会围绕技术更新、应用功能和实际问题展开；另一些则更重视成员数量、投票、转发以及如何让更多人加入。
 
-<!-- TODO: 翻译 block-60 -->
-This helps explain why the same type of product can sometimes carry very different Pi prices across an ecosystem. One merchant may be comfortable accepting fewer tokens, while another asks for considerably more because of production costs, uncertainty, or a different view of future value.
+这些活动不一定没有意义。信息传播能够帮助更多人了解项目，社区互动也可能增加参与感。但如果长期只有宣传，而缺乏实际应用和持续建设，即使成员数量不断增长，也很难证明生态已经拥有稳定的发展基础。
 
-<!-- TODO: 翻译 block-61 -->
-I don't think asking for a higher price means a merchant has stronger consensus, just as offering a lower price doesn't automatically mean they're contributing more to the ecosystem.
+假设一个社区有十万人，其中大部分人每天只是等待消息、转发内容、关注价格，而真正参与应用测试、产品开发或者提供有效反馈的人很少。那么，这十万人形成的究竟是对技术与生态的共同认可，还是对未来收益的共同期待？
 
-<!-- TODO: 翻译 block-62 -->
-Every merchant has costs to manage, and no one should have to sacrifice their business simply to prove faith in a cryptocurrency.
+我认为，建立共识至少需要三个方面。
 
-<!-- TODO: 翻译 block-63 -->
-If merchants can use the Pi they've received to buy supplies, pay for services, or exchange it through permitted channels at manageable costs, they have more practical reasons to continue participating. But if every sale leaves them carrying financial risks they can't reasonably control, belief alone won't keep that business model going for long.
+首先是一个明确的目标。项目究竟准备解决什么问题，为什么需要区块链，以及它能否提供比现有解决方案更有意义的选择，应该让参与者有机会理解。
 
-<!-- TODO: 翻译 block-64 -->
-For me, a sustainable crypto ecosystem needs more than customers willing to spend. It also needs merchants who can afford to keep accepting the currency.
+其次是能够被检验的规则和信息。代币如何发行、生态如何运作、治理权力如何分配、产品发展到什么阶段，这些问题不应该完全依靠传闻和社区成员的猜测。
 
-<!-- TODO: 翻译 block-65 -->
-That's why I believe circulation, real demand, and the financial pressures on businesses deserve more attention in conversations about consensus.
+最后，也是我认为非常重要的一点，是持续的行动。开发者是否愿意完善产品，商家是否能够找到实际需求，用户能否通过真实使用提出意见，社区是否愿意认真讨论存在的问题，这些都可能影响一个项目能否长期获得信任。
 
-<!-- TODO: 翻译 block-66 -->
-Who Can Take Part in Consensus, and What Can Ordinary Holders Do?
+当然，新技术的发展需要时间，并不是所有项目都能很快建立成熟的商业模式。但相信未来，不应该成为忽略现实问题的理由。
 
-<!-- TODO: 翻译 block-67 -->
-When people talk about participating in crypto consensus, the first suggestions are often to buy tokens, hold them for the long term, or bring more people into the community.
+我们可以认可一个项目的发展方向，同时承认它目前还存在不足。这两种态度完全可以同时存在。
 
-<!-- TODO: 翻译 block-68 -->
-But participation doesn't have to be limited to those activities.
+## 哪些人可以参与共识？
 
-<!-- TODO: 翻译 block-69 -->
-At the protocol level, different blockchains have different requirements. Bitcoin miners participate in creating blocks, while full nodes independently check transactions and blocks against the network's rules. Some Proof of Stake networks allow qualified validators to participate by staking assets, although that can involve technical requirements and financial risks.
+如果谈的是区块链的技术共识，不同网络会有不同要求。
 
-<!-- TODO: 翻译 block-70 -->
-Community participation is broader. Developers build applications, merchants explore business uses, users test products and report problems, while writers and educators help explain technologies that many people find difficult to understand.
+例如，在 Bitcoin 网络中，矿工参与新区块创建，完整节点负责独立验证交易和区块是否符合协议规则。运行完整节点并不等于挖矿，两者在网络中承担不同的作用。
 
-<!-- TODO: 翻译 block-71 -->
-For an ordinary token holder, I think a good place to start is simply understanding what they're holding. What problem is the project trying to solve? What role does the token play? Which features are already working, and which are still part of a future plan?
+在采用权益证明机制的区块链中，符合条件的验证者可以按照协议规则参与区块提议和验证，但往往涉及一定的技术要求与经济风险。
 
-<!-- TODO: 翻译 block-72 -->
-If the project has products available, people can try them when there's a genuine need and when the legal and financial risks are acceptable. A useful report about a confusing feature or a technical problem may be more valuable to a development team than another social media post predicting a token's future price.
+而如果我们讨论的是更广泛的社区共识和生态建设，那么参与者就不局限于掌握专业技术的人。
 
-<!-- TODO: 翻译 block-73 -->
-I have also been spending time organizing and explaining blockchain-related information. One thing I've learned is that collecting articles and announcements isn't particularly difficult; deciding which information is reliable, checking the original source, and making sure my own interpretation isn't mistaken for an official statement takes much more work.
+开发者可以负责应用建设，商家可以探索真实的商业场景，普通用户能够通过体验产品提出意见，内容创作者则可以帮助更多人理解技术和项目的发展情况。
 
-<!-- TODO: 翻译 block-74 -->
-I see that as a meaningful form of participation, even though it may have no direct effect on a token's market price.
+这里需要注意，不是每个社区成员都天然拥有协议治理权，也不是持有代币就一定能够对技术规则进行投票。
 
-<!-- TODO: 翻译 block-75 -->
-Of course, joining community discussions doesn't necessarily grant governance rights, and owning tokens doesn't automatically mean someone can change a blockchain's protocol. [Ethereum's governance process](https://ethereum.org/governance/), for example, involves developers, researchers, node operators, and other participants rather than simply assigning protocol decisions according to ETH holdings.
+比如 [Ethereum 的治理体系](https://ethereum.org/governance/)就涉及开发者、研究人员、节点运营者和其他社区参与者的协作，并不是简单地按照持有 ETH 的数量来决定协议修改。
 
-<!-- TODO: 翻译 block-76 -->
-I also don't think long-term holding should be the only measure of someone's commitment.
+所以，我不认为参与共识只有一种方式，也不认为每个人都需要承担同样的责任。
 
-<!-- TODO: 翻译 block-77 -->
-One person may own a large amount of cryptocurrency but rarely use its ecosystem. Another may contribute useful feedback, develop an application, or help other users understand the project without investing much money.
+## 作为普通持币者，我们能做些什么？
 
-<!-- TODO: 翻译 block-78 -->
-People have different financial circumstances and different reasons for participating. Buying, holding, spending, or selling an asset should remain an individual decision rather than a test of loyalty to a community.
+这是我最希望这篇文章能够回答的问题。
 
-<!-- TODO: 翻译 block-79 -->
-When the expectation becomes that everyone must keep buying or refuse to sell to demonstrate consensus, I think it's worth asking what kind of agreement the community is actually trying to maintain.
+大多数普通持币者没有专业开发能力，也不一定拥有足够的资金或者设备运行验证节点。那么，除了买入、长期持有或者等待价格上涨，还能为一个生态做些什么？
 
-<!-- TODO: 翻译 block-80 -->
-What Can Consensus Really Create?
-
-<!-- TODO: 翻译 block-81 -->
-I don't doubt that consensus matters.
-
-<!-- TODO: 翻译 block-82 -->
-For a technology to move beyond an idea, it needs developers willing to work on it, users willing to try it, businesses prepared to explore possible applications, and people who believe the effort is worth continuing.
-
-<!-- TODO: 翻译 block-83 -->
-But agreement alone can't replace real demand, and it certainly can't guarantee a rising market price.
-
-<!-- TODO: 翻译 block-84 -->
-From Bitcoin's early pizza purchase to today's experiments with cryptocurrency payments and digital ecosystems, we've seen that acceptance takes time. The broader development of [digital finance](https://flowanriver.com/posts/from-fed-policy-to-crypto-evolution-how-digital-finance-is-entering-a-new-era/) also shows how the conversation is expanding beyond trading to include payments, stablecoins, and financial infrastructure. But turning these possibilities into something people regularly use still involves difficult questions about pricing, liquidity, business costs, and how risk is shared.
-
-<!-- TODO: 翻译 block-85 -->
-What interests me most isn't how many community members are willing to repeat the same price expectation. It's how many understand what they're participating in, whether they can take part under reasonable conditions, and whether people are beginning to use the products because they genuinely need them.
-
-<!-- TODO: 翻译 block-86 -->
-And shared goals don't mean everyone has to agree on everything. Developers, merchants, customers, and token holders all see a project from different perspectives. When problems arise, being willing to acknowledge them and discuss possible solutions may do more for long-term trust than asking everyone to keep believing.
-
-<!-- TODO: 翻译 block-87 -->
-I've come to think that consensus can begin with a small group of people who share an idea, and communities can certainly help it grow. But if that belief is going to last, eventually it needs something more substantial than promotion.
-
-<!-- TODO: 翻译 block-88 -->
-For a digital asset intended to function as a means of exchange, that means people need to be willing not only to hold it, but also to accept it, spend it, and pass it along under conditions they can reasonably manage.
-
-<!-- TODO: 翻译 block-89 -->
-Whether those activities eventually support a particular market value is another question, one that can only be tested through demand, supply, and what actually happens over time.
-
-<!-- TODO: 翻译 block-90 -->
-Perhaps the more meaningful sign of progress will come when communities no longer need to remind everyone to keep holding, because more people are choosing to use the currency for reasons that make sense in their everyday lives.
-
-<!-- TODO: 翻译 block-91 -->
-To me, that's a much more interesting conversation than trying to predict how high a cryptocurrency might go.
-
-<!-- TODO: 翻译 block-92 -->
-*Disclaimer: This article reflects my personal observations of cryptocurrency communities and my experience exploring early ecosystem commerce, alongside publicly available technical information. My discussion of Pi Network is intended to examine merchant pricing, circulation, and ecosystem participation, not to endorse the project or predict its future price. Nothing in this article constitutes investment, financial, or legal advice. Digital assets involve price volatility, liquidity constraints, and regulatory risks, and readers should consider the laws applicable in their own jurisdictions.*
-
-<!--
-原文：https://flowanriver.com/posts/what-is-consensus-in-crypto/
-人工检查项目：
-block-0：缺少中文译文
-block-1：缺少中文译文
-block-2：缺少中文译文
-block-3：缺少中文译文
-block-4：缺少中文译文
-block-5：缺少中文译文
-block-6：缺少中文译文
-block-7：缺少中文译文
-block-8：缺少中文译文
-block-9：缺少中文译文
-block-10：缺少中文译文
-block-11：缺少中文译文
-block-12：缺少中文译文
-block-13：缺少中文译文
-block-14：缺少中文译文
-block-15：缺少中文译文
-block-17：缺少中文译文
-block-18：缺少中文译文
-block-19：缺少中文译文
-block-20：缺少中文译文
-block-21：缺少中文译文
-block-22：缺少中文译文
-block-23：缺少中文译文
-block-24：缺少中文译文
-block-25：缺少中文译文
-block-26：缺少中文译文
-block-27：缺少中文译文
-block-28：缺少中文译文
-block-29：缺少中文译文
-block-30：缺少中文译文
-block-31：缺少中文译文
-block-32：缺少中文译文
-block-33：缺少中文译文
-block-34：缺少中文译文
-block-35：缺少中文译文
-block-36：缺少中文译文
-block-37：缺少中文译文
-block-38：缺少中文译文
-block-39：缺少中文译文
-block-40：缺少中文译文
-block-41：缺少中文译文
-block-42：缺少中文译文
-block-43：缺少中文译文
-block-44：缺少中文译文
-block-45：缺少中文译文
-block-46：缺少中文译文
-block-47：缺少中文译文
-block-48：缺少中文译文
-block-49：缺少中文译文
-block-51：缺少中文译文
-block-52：缺少中文译文
-block-53：缺少中文译文
-block-54：缺少中文译文
-block-55：缺少中文译文
-block-56：缺少中文译文
-block-57：缺少中文译文
-block-58：缺少中文译文
-block-60：缺少中文译文
-block-61：缺少中文译文
-block-62：缺少中文译文
-block-63：缺少中文译文
-block-64：缺少中文译文
-block-65：缺少中文译文
-block-66：缺少中文译文
-block-67：缺少中文译文
-block-68：缺少中文译文
-block-69：缺少中文译文
-block-70：缺少中文译文
-block-71：缺少中文译文
-block-72：缺少中文译文
-block-73：缺少中文译文
-block-74：缺少中文译文
-block-75：缺少中文译文
-block-76：缺少中文译文
-block-77：缺少中文译文
-block-78：缺少中文译文
-block-79：缺少中文译文
-block-80：缺少中文译文
-block-81：缺少中文译文
-block-82：缺少中文译文
-block-83：缺少中文译文
-block-84：缺少中文译文
-block-85：缺少中文译文
-block-86：缺少中文译文
-block-87：缺少中文译文
-block-88：缺少中文译文
-block-89：缺少中文译文
-block-90：缺少中文译文
-block-91：缺少中文译文
-block-92：缺少中文译文
--->
+我觉得，第一步其实是了解自己正在参与的项目。
+
+我自己在接触不同加密项目时，也会遇到很多不熟悉的技术概念。有时候，即使看过项目介绍，也不意味着真正理解了它的运行机制。
+
+因此，我更倾向于先查找资料，尽量区分哪些信息来自项目官方，哪些属于社区成员的个人理解，哪些仍然没有得到证实。
+
+特别是在 Crypto 领域，一条消息经过不同社区反复转发后，很容易让人误以为它已经得到了确认。如果连信息的来源都无法判断，所谓共识就可能建立在错误的理解之上。
+
+其次，是尝试了解和使用生态中的真实产品。
+
+如果一个项目推出了支付工具、社交应用、游戏或者其他服务，我们可以根据自己的需求决定是否体验，看看它是否真的有用、操作是否便利，以及还有哪些需要改善的地方。
+
+这里并不是要求每个持币者必须消费，或者为了支持项目而承担额外风险。用户是否愿意主动使用，本身就是检验产品价值的一种方式。
+
+对于商家来说也是如此。是否接受某种数字资产支付，需要考虑经营成本、资产价格波动、兑换渠道、法律合规以及实际客户需求，而不能只因为社区强调共识就作出商业决定。
+
+第三，是在有能力的情况下参与实际建设。
+
+有人懂技术，可以参与开发和测试；有人熟悉商业，可以研究适合的应用场景；有人擅长内容整理与沟通，可以分享准确的知识，帮助其他人理解复杂概念。
+
+最近我自己也在尝试整理区块链知识。在这个过程中，我发现把资料收集起来并不难，真正需要花时间的，是如何判断信息是否准确，以及怎样避免把自己的理解当成官方结论。
+
+我认为，这样的工作虽然未必能够直接影响代币价格，却能够帮助社区减少误解，也让更多人有机会形成独立判断。
+
+至于质押、治理投票或者运行验证节点，则应该根据具体项目的机制和个人条件决定。它们可能涉及资金锁定、技术要求、罚没或者第三方服务风险，并不是普通持币者必须参与的活动。
+
+最后，是允许其他人拥有不同的选择。
+
+有人愿意长期持有，有人希望使用代币购买商品，也有人可能因为个人财务需求而决定出售。这些行为背后的原因并不相同，不能仅仅因为一个人作出了不同选择，就认为他不认可项目或者正在破坏共识。
+
+## 长期持币，就代表拥有更强的共识吗？
+
+我能够理解为什么有些社区将长期持有视为信心的表现。毕竟，在价格波动的市场中，愿意继续持有，可能反映一个人对项目未来的期待。
+
+但我并不认为持有时间和持有数量，可以直接成为衡量共识的标准。
+
+一个人可能持有很多代币，却从来没有使用过生态中的任何产品；另一个人可能积极参与测试、帮助开发者反馈问题，或者为社区提供有价值的信息，却并没有投入大量资金。
+
+如果仅仅按照钱包里的代币数量判断谁对生态更有贡献，显然不够全面。
+
+同样，出售代币也不一定意味着不再认可项目的技术或发展方向。
+
+每个人都有自己的生活、财务状况和风险承受能力。有人需要资金周转，有人希望降低风险，还有人只是改变了个人的投资安排。这些都是正常的经济选择。
+
+我始终认为，如果一个社区开始要求成员通过不断买入、拒绝出售或者承诺未来价格来证明信心，就需要警惕共识与市场情绪之间的界限正在变得模糊。
+
+从商业角度来说，我也不认为持币者应该为了所谓的共识，不顾自己的实际需求。
+
+如果一个生态真正希望长期发展，它需要的不只是愿意持有资产的人，还需要愿意开发、使用、提供服务，以及能够在合理风险下参与交易的人。
+
+否则，当所有人都在等待未来有人以更高的价格接手，而缺乏实际用途时，这种参与方式就更接近投机，而不是生态建设。
+
+## 当共识出现分歧，是不是意味着失败？
+
+我反而认为，分歧可能是共识建设中无法避免的一部分。
+
+任何拥有大量参与者的社区，都不可能长期保持完全一致的看法。开发者可能更关注技术可行性，商家考虑真实经营成本，持币者关注资产风险，而普通消费者只在意产品是否好用。
+
+他们可以认可同一个发展方向，却不一定对实现方式拥有完全相同的意见。
+
+这种分歧未必是坏事。
+
+在现实商业合作中，我也见过类似的情况。大家对未来抱有共同期待时，很容易形成一致意见，但当结果不如预期，才会发现彼此对目标、责任和风险的理解并不完全相同。
+
+追求利益本身没有错，但作出选择之后，也需要承担相应的责任。不能在发展顺利时把所有成果归功于自己的判断，一旦出现问题，就认为一定是别人没有做好。
+
+我觉得加密社区同样需要面对这个问题。
+
+当产品开发遇到困难，市场表现不如预期，或者项目的发展方向受到质疑时，是否允许参与者提出问题？大家是愿意讨论原因和解决方法，还是更倾向于要求所有人继续相信？
+
+当然，允许不同意见，并不意味着放任虚假信息传播。合理质疑应该有事实依据，支持项目也同样需要尊重事实。
+
+但如果一个社区只能接受赞同的声音，却无法容纳有根据的不同意见，那么它可能拥有很强的表面一致性，却未必拥有真正稳定的合作基础。
+
+## 共识最终能够创造价值吗？
+
+回到最开始的问题，为什么加密货币领域如此强调共识？
+
+我想，其中一个重要原因是，区块链网络不仅需要技术规则，也需要有人愿意持续维护、使用和发展它。
+
+没有参与者，再完善的技术也很难形成广泛应用；没有实际需求，再庞大的社区也可能只是在等待市场给出一个更高的价格。
+
+我不否认共识的重要性。人们因为认可某种技术而聚集，愿意投入时间、知识和资源，确实可能帮助一个生态逐渐成长。
+
+但我认为，共识本身并不能保证投资回报。
+
+从 Bitcoin 早期的披萨交易，到今天不同区块链探索支付、商业和其他应用场景，我们能够看到，技术被接受和使用的过程，往往需要经历不断尝试、形成价格、面对分歧和调整方向。
+
+而在这些过程中，不同参与者承担的风险并不相同。
+
+消费者考虑自己付出了什么，商家需要计算成本和利润，开发者要面对技术难题，持币者则需要承担市场价格变化带来的风险。
+
+如果我们真的希望一个生态能够持续发展，就不能只要求某一类参与者不断付出，而忽略他们各自的利益与现实压力。
+
+对我而言，真正值得关注的共识，并不是有多少人在社区里表达相同的价格期待，而是有多少人理解这个项目、愿意在合理的条件下参与，以及它是否逐渐形成了能够满足真实需求的产品和服务。
+
+共识可以从少数人的相信开始，也可以通过社区主动推动，但它不能永远依靠宣传来维持。最终，它仍然需要接受现实的检验。
+
+或许有一天，当我们不再需要反复告诉别人应该坚定持有，而是有越来越多的人因为实际需求愿意使用某种数字资产时，这样的共识才真正开始拥有更加扎实的基础。
+
+我想，这比单纯讨论一种加密货币未来能够涨到多少钱，更值得我们花时间思考。
+
+---
+
+*免责声明：本文基于公开技术资料及作者对加密货币社区、商业交易和生态发展的个人观察。涉及 Pi Network 的经历仅用于说明早期生态交易与商家定价问题，不代表对该项目的认可、推荐或价格预测。本文仅供信息交流，不构成投资、财务或法律建议。数字资产具有价格波动、流动性及其他风险，具体参与行为应遵守适用的法律法规。*
+
