@@ -13,6 +13,60 @@ const reply = (message, status = 200) =>
     }
   });
 
+
+async function checkIpRateLimit(request, env) {
+  const ip = request.headers.get("CF-Connecting-IP");
+
+  if (!ip || !env.LETTERS_RATE_LIMIT_KEY) {
+    return false;
+  }
+
+  // Generate a protected identifier without storing the IP.
+  const encoder = new TextEncoder();
+
+  const key = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(env.LETTERS_RATE_LIMIT_KEY),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+
+  const signature = await crypto.subtle.sign(
+    "HMAC",
+    key,
+    encoder.encode(ip)
+  );
+
+  const identifier = Array.from(
+    new Uint8Array(signature),
+    b => b.toString(16).padStart(2, "0")
+  ).join("");
+
+  const now = Math.floor(Date.now() / 1000);
+  const windowStart = Math.floor(now / 3600) * 3600;
+
+  // Atomically count requests within the hour.
+  const result = await env.DB.prepare(`
+    INSERT INTO letter_rate_limits (
+      identifier, window_start,
+      request_count, expires_at
+    )
+    VALUES (?, ?, 1, ?)
+    ON CONFLICT(identifier, window_start)
+    DO UPDATE SET request_count = request_count + 1
+    WHERE request_count < 5
+    RETURNING request_count
+  `).bind(
+    identifier,
+    windowStart,
+    windowStart + 7200
+  ).first();
+
+  return result !== null;
+}
+
+
 export async function onRequestPost({ request, env }) {
   // Do not accept submissions until verification
   // and cleanup protection are ready.
@@ -111,6 +165,29 @@ export async function onRequestPost({ request, env }) {
     return reply("Security verification failed.", 403);
   }
 
+  
+  // IP rate limit: maximum 5 submissions per hour.
+  if (!env.LETTERS_RATE_LIMIT_KEY) {
+    return reply("Rate limiting is not configured.", 503);
+  }
+
+  try {
+    const allowed = await checkIpRateLimit(request, env);
+
+    if (!allowed) {
+      return reply(
+        "Too many requests. Please try again later.",
+        429
+      );
+    }
+  } catch {
+    return reply(
+      "Unable to process this request right now.",
+      503
+    );
+  }
+
+  
   // Basic per-email cooldown
   
 const since = new Date(Date.now() - 15 * 60 * 1000)
