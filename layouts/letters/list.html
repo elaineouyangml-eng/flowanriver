@@ -642,7 +642,7 @@
 
       <textarea
         id="futureLetterText"
-        maxlength="20000"
+        maxlength="10000"
         data-placeholder-en="A thought, a memory, a wish, or anything you'd like to remember..."
         data-placeholder-zh="写下此刻的心情、一个愿望，或任何你想留给未来的话……"
         placeholder="A thought, a memory, a wish, or anything you'd like to remember..."></textarea>
@@ -720,6 +720,15 @@
 
     </div>
 
+     <!-- TURNSTILE VERIFICATION -->
+<div class="letters-field">
+  <div
+    id="lettersTurnstile"
+    class="cf-turnstile"
+    data-sitekey="0x4AAAAAAFneuTcGGFhkhTkF">
+  </div>
+</div>
+     
     <!-- BUTTON DISABLED UNTIL BACKEND IS READY -->
 
     <button type="button"
@@ -1331,6 +1340,22 @@
     }
   });
 })();
+</script>
+
+<script>
+  window.onLettersTurnstileSuccess = function (token) {
+    window.lettersTurnstileToken = token;
+  };
+
+  window.onLettersTurnstileExpired = function () {
+    window.lettersTurnstileToken = "";
+  };
+</script>
+
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer>
 </script>
 
 {{ end }}
