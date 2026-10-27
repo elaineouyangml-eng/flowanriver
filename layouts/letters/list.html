@@ -925,7 +925,7 @@
     changeLanguage("zh");
   });
 
-  /* No data is saved or submitted in preview mode */
+  /* Initialize the bilingual letter form */
 
   changeLanguage("en");
 })();
@@ -1358,6 +1358,161 @@
   console.error("Flowanriver Turnstile error code:", code);
 };
 </script>
+
+
+<script>
+(function () {
+  const button = document.getElementById("sealLetterButton");
+  const note = document.querySelector(".letters-preview-note");
+  const contentField = document.getElementById("futureLetterText");
+  const emailField = document.getElementById("futureLetterEmail");
+  const yearField = document.getElementById("letterYear");
+  const monthField = document.getElementById("letterMonth");
+  const dayField = document.getElementById("letterDay");
+
+  if (!button || !note || !contentField || !emailField) return;
+
+  let submitting = false;
+  let submitted = false;
+
+  function isChinese() {
+    return document.getElementById("lettersZH")
+      ?.getAttribute("aria-pressed") === "true";
+  }
+
+  const messages = {
+    en: {
+      missing: "Please complete your letter, date and email.",
+      email: "Please enter a valid email address.",
+      date: "Please choose tomorrow or a later date.",
+      verify: "Please complete the security verification.",
+      sending: "Sending...",
+      success: "Please check your inbox and confirm your email within 24 hours. Your letter will be scheduled after confirmation.",
+      closed: "Letter submissions are not open yet.",
+      error: "Unable to submit your letter. Please try again."
+    },
+    zh: {
+      missing: "请填写信件内容、寄送日期和邮箱。",
+      email: "请输入有效的邮箱地址。",
+      date: "请选择明天或之后的日期。",
+      verify: "请先完成人机验证。",
+      sending: "正在提交……",
+      success: "确认邮件已提交发送。请在24小时内前往邮箱完成确认，确认后信件才会正式预约。",
+      closed: "寄信功能暂未开放。",
+      error: "提交失败，请稍后重试。"
+    }
+  };
+
+  function lang() {
+    return isChinese() ? "zh" : "en";
+  }
+
+  function showMessage(key) {
+    note.setAttribute("data-en", messages.en[key]);
+    note.setAttribute("data-zh", messages.zh[key]);
+    note.textContent = messages[lang()][key];
+  }
+
+  function resetVerification() {
+    window.lettersTurnstileToken = "";
+    if (window.turnstile) {
+      try {
+        window.turnstile.reset("#lettersTurnstile");
+      } catch (e) {
+        console.warn("Turnstile reset unavailable.");
+      }
+    }
+  }
+
+  button.addEventListener("click", async function () {
+    if (submitting || submitted) return;
+
+    const t = messages[lang()];
+    const content = contentField.value.trim();
+    const email = emailField.value.trim();
+    const year = yearField.value;
+    const month = monthField.value;
+    const day = dayField.value;
+
+    if (!content || !email || !year || !month || !day) {
+      showMessage("missing");
+      return;
+    }
+
+    if (!emailField.checkValidity()) {
+      showMessage("email");
+      return;
+    }
+
+    const deliveryDate =
+      `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+    const target = new Date(deliveryDate + "T00:00:00Z");
+    const now = new Date();
+    const tomorrow = Date.UTC(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate() + 1
+    );
+
+    if (
+      !Number.isFinite(target.getTime()) ||
+      target.toISOString().slice(0, 10) !== deliveryDate ||
+      target.getTime() < tomorrow
+    ) {
+      showMessage("date");
+      return;
+    }
+
+    const token = window.lettersTurnstileToken ||
+      document.querySelector('input[name="cf-turnstile-response"]')?.value;
+
+    if (!token) {
+      showMessage("verify");
+      return;
+    }
+
+    submitting = true;
+    button.disabled = true;
+    button.textContent = t.sending;
+
+    try {
+      const response = await fetch("/api/letters/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email,
+          content,
+          deliveryDate,
+          language: lang(),
+          turnstileToken: token
+        })
+      });
+
+      if (response.ok) {
+        submitted = true;
+        showMessage("success");
+        button.disabled = true;
+      } else {
+        showMessage(response.status === 503 ? "closed" : "error");
+        resetVerification();
+      }
+    } catch (error) {
+      showMessage("error");
+      resetVerification();
+    } finally {
+      submitting = false;
+      if (!submitted) button.disabled = false;
+      button.textContent = isChinese()
+        ? "封存这封信"
+        : "Seal My Letter";
+    }
+  });
+})();
+</script>
+
 
 <script
   src="https://challenges.cloudflare.com/turnstile/v0/api.js"
