@@ -728,7 +728,7 @@
     data-sitekey="0x4AAAAAAFneuTcGGFhkhTkF"
     data-callback="onLettersTurnstileSuccess"
     data-expired-callback="onLettersTurnstileExpired"
-    data-error-callback="onLettersTurnstileExpired">
+    data-error-callback="onLettersTurnstileError">
   </div>
 </div>
      
@@ -1353,6 +1353,10 @@
   window.onLettersTurnstileExpired = function () {
     window.lettersTurnstileToken = "";
   };
+   window.onLettersTurnstileError = function (code) {
+  window.lettersTurnstileToken = "";
+  console.error("Flowanriver Turnstile error code:", code);
+};
 </script>
 
 <script
