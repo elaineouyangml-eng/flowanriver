@@ -1,7 +1,7 @@
 ---
 title: "加密货币中的共识是什么？从 Bitcoin 披萨交易到真实的生态价值"
 date: 2026-10-27T10:07:00.000+08:00
-draft: true
+draft: false
 description: "从 Bitcoin 披萨交易到 Pi Network 生态，探讨技术共识、社区共识与市场价格的区别，以及数字资产的真实应用、流动性和商家经营风险。"
 tags: ["Crypto","Blockchain","Bitcoin","Pi Network"]
 cover:
