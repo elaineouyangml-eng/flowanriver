@@ -720,12 +720,15 @@
 
     </div>
 
-     <!-- TURNSTILE VERIFICATION -->
+    <!-- TURNSTILE VERIFICATION -->
 <div class="letters-field">
   <div
     id="lettersTurnstile"
     class="cf-turnstile"
-    data-sitekey="0x4AAAAAAFneuTcGGFhkhTkF">
+    data-sitekey="0x4AAAAAAFneuTcGGFhkhTkF"
+    data-callback="onLettersTurnstileSuccess"
+    data-expired-callback="onLettersTurnstileExpired"
+    data-error-callback="onLettersTurnstileExpired">
   </div>
 </div>
      
