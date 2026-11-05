@@ -65,6 +65,8 @@ In Binance's case, the exchange took steps to contain the attack, committed fina
 
 In a [November 3 interview with CoinDesk](https://www.coindesk.com/business/2026/11/03/cz-warns-of-more-ai-driven-hacks-following-binance-s-historic-usd6-4-billion-heist), Binance founder Changpeng Zhao discussed the withdrawal activity following the incident. He pointed to the relatively limited initial outflows compared with the exchange's overall asset holdings as an indication of continued user confidence.
 
+![CoinDesk interview with Binance founder Changpeng Zhao (CZ), discussing the October 2026 Binance hack and emerging AI-related cybersecurity risks.](/images/cz-coindesk-binance-hack-interview-2026.png "cz-coindesk-binance-hack-interview-2026")
+
 Withdrawal figures alone cannot tell us exactly how much trust customers have in a platform. People may choose to keep funds on an exchange for many reasons, including trading needs and convenience. Still, the ability to restore services and demonstrate that the platform can meet its obligations is meaningful.
 
 I also think Binance's updated Proof of Reserves deserves attention. Giving users a way to independently check certain asset balances is more useful than simply asking them to trust a statement. Of course, Proof of Reserves has limitations and cannot, by itself, establish that every operational or financial risk has been addressed.
