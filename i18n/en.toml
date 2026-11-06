@@ -66,3 +66,27 @@ other = "Latest Stories"
 [seeAll]
 other = "See all"
   
+
+[footerTagline]
+other = "Ideas, stories & life in progress."
+
+[footerExplore]
+other = "Explore"
+
+[footerInformation]
+other = "Information"
+
+[privacyPolicy]
+other = "Privacy Policy"
+
+[termsOfService]
+other = "Terms of Service"
+
+[disclaimer]
+other = "Disclaimer"
+
+[faq]
+other = "FAQ"
+
+[allRightsReserved]
+other = "All rights reserved."
