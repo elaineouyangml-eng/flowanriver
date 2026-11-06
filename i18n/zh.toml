@@ -12,7 +12,7 @@ other = "加密货币"
 other = "随笔"
 
 [letters]
-other = "写给未来的自己"
+other = "写给未来的信"
 
 [about]
 other = "关于"
@@ -49,7 +49,7 @@ other = "记录在探索与实践中的所思所想。"
 other = "向下探索"
 
 [lettersKicker]
-other = "写给未来的信"
+other = "来自未来的信"
 
 [lettersTitle]
 other = "遇见未来的自己"
@@ -66,3 +66,27 @@ other = "最新文章"
 [seeAll]
 other = "查看全部"
   
+
+[footerTagline]
+other = "记录想法、故事与不断前行的生活。"
+
+[footerExplore]
+other = "探索"
+
+[footerInformation]
+other = "网站信息"
+
+[privacyPolicy]
+other = "隐私政策"
+
+[termsOfService]
+other = "服务条款"
+
+[disclaimer]
+other = "免责声明"
+
+[faq]
+other = "常见问题"
+
+[allRightsReserved]
+other = "保留所有权利。"
