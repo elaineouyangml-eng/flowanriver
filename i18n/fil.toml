@@ -66,3 +66,27 @@ other = "Mga Bagong Artikulo"
 [seeAll]
 other = "Tingnan Lahat"
   
+
+[footerTagline]
+other = "Mga ideya, kuwento, at patuloy na paglalakbay sa buhay."
+
+[footerExplore]
+other = "Tuklasin"
+
+[footerInformation]
+other = "Impormasyon"
+
+[privacyPolicy]
+other = "Patakaran sa Privacy"
+
+[termsOfService]
+other = "Mga Tuntunin ng Serbisyo"
+
+[disclaimer]
+other = "Paunawa sa Pananagutan"
+
+[faq]
+other = "Mga Madalas Itanong"
+
+[allRightsReserved]
+other = "Nakalaan ang lahat ng karapatan."
