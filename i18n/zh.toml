@@ -37,3 +37,32 @@ other = "搜索"
 
 [chooseLanguage]
 other = "选择语言"
+
+
+[heroSubtitle1]
+other = "不追逐热度，只分享真实的想法"
+
+[heroSubtitle2]
+other = "记录在探索与实践中的所思所想。"
+
+[scroll]
+other = "向下探索"
+
+[lettersKicker]
+other = "写给未来的信"
+
+[lettersTitle]
+other = "遇见未来的自己"
+
+[lettersCTA]
+other = "写一封信"
+
+[journalKicker]
+other = "随笔"
+
+[latestStories]
+other = "最新文章"
+
+[seeAll]
+other = "查看全部"
+  
