@@ -66,3 +66,27 @@ other = "Bài viết mới nhất"
 [seeAll]
 other = "Xem tất cả"
   
+
+[footerTagline]
+other = "Ý tưởng, câu chuyện và hành trình cuộc sống."
+
+[footerExplore]
+other = "Khám phá"
+
+[footerInformation]
+other = "Thông tin"
+
+[privacyPolicy]
+other = "Chính sách quyền riêng tư"
+
+[termsOfService]
+other = "Điều khoản dịch vụ"
+
+[disclaimer]
+other = "Tuyên bố miễn trừ trách nhiệm"
+
+[faq]
+other = "Câu hỏi thường gặp"
+
+[allRightsReserved]
+other = "Đã đăng ký bản quyền."
