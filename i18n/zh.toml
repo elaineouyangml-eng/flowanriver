@@ -1,0 +1,39 @@
+
+[home]
+other = "首页"
+
+[ai]
+other = "AI"
+
+[crypto]
+other = "加密货币"
+
+[journal]
+other = "随笔"
+
+[letters]
+other = "写给未来的自己"
+
+[about]
+other = "关于"
+
+[aboutUs]
+other = "关于我们"
+
+[contactUs]
+other = "联系我们"
+
+[signIn]
+other = "登录"
+
+[signInPi]
+other = "使用 Pi 登录"
+
+[searchArticles]
+other = "搜索文章..."
+
+[search]
+other = "搜索"
+
+[chooseLanguage]
+other = "选择语言"
