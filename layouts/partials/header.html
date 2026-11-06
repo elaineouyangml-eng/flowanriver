@@ -797,7 +797,7 @@
 
         <div class="fr-language-options">
 
-          {{- range hugo.Sites -}}
+          {{- range site.Sites -}}
             {{- $lang := .Language.Lang -}}
             {{- $targetURL := .Home.RelPermalink -}}
             {{- $name := .Language.LanguageName -}}
