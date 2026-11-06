@@ -37,3 +37,32 @@ other = "Maghanap"
 
 [chooseLanguage]
 other = "Pumili ng Wika"
+
+
+[heroSubtitle1]
+other = "Walang hype, mga tapat na pananaw lang"
+
+[heroSubtitle2]
+other = "mula sa isang taong patuloy na nag-aaral at sumusubok."
+
+[scroll]
+other = "Tuklasin"
+
+[lettersKicker]
+other = "Mga Liham para sa Hinaharap"
+
+[lettersTitle]
+other = "Kilalanin ang Iyong Sarili sa Hinaharap"
+
+[lettersCTA]
+other = "Sumulat ng Liham"
+
+[journalKicker]
+other = "Mga Sanaysay"
+
+[latestStories]
+other = "Mga Bagong Artikulo"
+
+[seeAll]
+other = "Tingnan Lahat"
+  
