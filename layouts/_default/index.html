@@ -233,7 +233,7 @@
    Non-Latin Font Support
 ========================= */
 
-{{- if or (eq .Lang "zh") (eq .Lang "ko") -}}
+{{- if or (eq .Lang "zh") (eq .Lang "ko") }}
 
 .fr-hero .fr-sub {
   font-family:
@@ -267,7 +267,7 @@
   font-size: 1.05rem;
 }
 
-{{- else if or (eq .Lang "vi") (eq .Lang "fil") -}}
+{{- else if or (eq .Lang "vi") (eq .Lang "fil") }}
 
 .fr-letters-title,
 .fr-letters-link {
@@ -289,7 +289,7 @@
   font-size: 1.1rem;
 }
 
-{{- end -}}
+{{- end }}
 
 /* =========================
    Journal Transition
@@ -372,6 +372,29 @@
   color: #6a5a40;
 }
 
+/* English fallback notice */
+
+.fr-posts-language-note {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 16px 0 4px;
+  color: #958b7d;
+  font-size: 0.72rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.fr-posts-language-note::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+  background: #a8b3a0;
+  border-radius: 50%;
+}
+
 /* Article List */
 
 .fr-post-item {
@@ -452,6 +475,10 @@
 
 [data-theme="dark"] .fr-letters-link {
   border-bottom-color: #9fb59f;
+}
+
+[data-theme="dark"] .fr-posts-language-note {
+  color: var(--secondary);
 }
 
 /* =========================
@@ -559,7 +586,7 @@
 
   /* Multilingual Mobile Letters */
 
-  {{- if ne .Lang "en" -}}
+  {{- if ne .Lang "en" }}
 
   .fr-letters-title {
     font-size: clamp(1.5rem, 6vw, 2rem);
@@ -570,15 +597,17 @@
     font-size: 1rem;
   }
 
-  {{- end -}}
+  {{- end }}
 }
 
 @media (max-width: 390px) {
+
   .fr-letters-card {
     padding: 1.1rem 1.15rem;
   }
 
-  {{- if eq .Lang "en" -}}
+  {{- if eq .Lang "en" }}
+
   .fr-letters-title {
     font-size: 2rem;
   }
@@ -586,7 +615,9 @@
   .fr-letters-link {
     font-size: 1.4rem;
   }
-  {{- else -}}
+
+  {{- else }}
+
   .fr-letters-title {
     font-size: 1.55rem;
   }
@@ -594,7 +625,8 @@
   .fr-letters-link {
     font-size: 1rem;
   }
-  {{- end -}}
+
+  {{- end }}
 }
 </style>
 
@@ -605,8 +637,9 @@
 <div class="fr-hero">
 
   <div class="fr-hero-brand">
-    <span class="fr-candle"
-          aria-hidden="true">🕯️</span>
+    <span
+      class="fr-candle"
+      aria-hidden="true">🕯️</span>
     <span class="fr-eyebrow">FlowAnRiver</span>
   </div>
 
@@ -677,8 +710,9 @@
   class="fr-journal-zone"
   aria-label="{{ i18n "latestStories" }}">
 
-  <div class="fr-journal-leaf"
-       aria-hidden="true">
+  <div
+    class="fr-journal-leaf"
+    aria-hidden="true">
 
     <svg
       viewBox="0 0 32 36"
@@ -718,48 +752,87 @@
         </h2>
       </div>
 
-      <a class="fr-posts-all" href="/posts/">
+      <a class="fr-posts-all"
+         href="{{ if in (slice "vi" "ko" "fil") .Lang }}/posts/{{ else }}{{ "posts/" | relLangURL }}{{ end }}">
         {{ i18n "seeAll" }} →
       </a>
 
     </div>
 
-    {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+    <!--
+      Article language selection:
+      EN: English posts
+      ZH: Chinese posts
+      VI / KO / FIL: English fallback
+    -->
+
+    {{- $contentSite := site -}}
+    {{- $useEnglish := in (slice "vi" "ko" "fil") .Lang -}}
+
+    {{- if $useEnglish -}}
+      {{- range site.Sites -}}
+        {{- if eq .Language.Lang "en" -}}
+          {{- $contentSite = . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- $pages := where $contentSite.RegularPages "Type" "in" $contentSite.Params.mainSections -}}
+    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" true -}}
+
+    {{- if $useEnglish -}}
+
+      <p class="fr-posts-language-note">
+        <span lang="en">Articles available in English</span>
+      </p>
+
+    {{- end -}}
+
+    <!-- Latest six articles -->
 
     {{- range first 6 ($pages.ByDate.Reverse) }}
 
-    <a class="fr-post-item" href="{{ .Permalink }}">
+      <a class="fr-post-item"
+         href="{{ .RelPermalink }}"
+         {{ if $useEnglish }}hreflang="en"{{ end }}>
 
-      <div class="fr-post-left">
+        <div class="fr-post-left">
 
-        <span class="fr-post-tag">
-          {{ with .Params.tags }}
-            {{ index . 0 }}
-          {{ end }}
-        </span>
+          <span class="fr-post-tag">
+            {{ with .Params.tags }}
+              {{ index . 0 }}
+            {{ end }}
+          </span>
 
-        <span class="fr-post-title">
-          {{ .Title }}
-        </span>
+          <span
+            class="fr-post-title"
+            {{ if $useEnglish }}lang="en"{{ end }}>
+            {{ .Title }}
+          </span>
 
-      </div>
+        </div>
 
-      {{- $minutes := .ReadingTime -}}
+        {{- $minutes := .ReadingTime -}}
 
-      {{- if eq .Lang "zh" -}}
-        {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" .Plain) -}}
-        {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
-        {{- if lt $minutes 1 -}}
-          {{- $minutes = 1 -}}
+        <!-- Chinese reading time -->
+
+        {{- if eq .Lang "zh" -}}
+
+          {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" .Plain) -}}
+
+          {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
+
+          {{- if lt $minutes 1 -}}
+            {{- $minutes = 1 -}}
+          {{- end -}}
+
         {{- end -}}
-      {{- end -}}
 
-      <span class="fr-post-meta">
-        {{ .Date.Format "Jan 2" }} · {{ $minutes }} min
-      </span>
+        <span class="fr-post-meta">
+          {{ .Date.Format "Jan 2" }} · {{ $minutes }} min
+        </span>
 
-    </a>
+      </a>
 
     {{- end }}
 
