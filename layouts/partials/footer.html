@@ -2,8 +2,8 @@
 <style>
 /* =================================
    FlowAnRiver Footer
+   Five-Language Edition
 ================================= */
-
 
 .footer.fr-footer {
   background: #E8DED0 !important;
@@ -11,7 +11,6 @@
   color: #625A51;
   text-align: left;
 
-  /* Remove theme footer width limits */
   width: 100% !important;
   max-width: none !important;
   margin: 0 !important;
@@ -19,11 +18,14 @@
   box-sizing: border-box;
 }
 
+/* Footer Container */
 
 .fr-footer-inner {
   max-width: 1100px;
   margin: 0 auto;
 }
+
+/* Three Column Layout */
 
 .fr-footer-main {
   display: grid;
@@ -32,7 +34,9 @@
   padding-bottom: 36px;
 }
 
-/* Brand */
+/* =================================
+   Brand
+================================= */
 
 .fr-footer-brand {
   text-align: left;
@@ -57,7 +61,9 @@
   line-height: 1.7;
 }
 
-/* Social media */
+/* =================================
+   Social Media
+================================= */
 
 .fr-footer-social {
   display: flex;
@@ -71,11 +77,16 @@
   justify-content: center;
   width: 34px;
   height: 34px;
+
   color: #423A32 !important;
   text-decoration: none !important;
+
   border: 1px solid #CFC1B0;
   border-radius: 50%;
-  transition: background 0.2s, border-color 0.2s;
+
+  transition:
+    background 0.2s,
+    border-color 0.2s;
 }
 
 .fr-footer-social a:hover {
@@ -88,7 +99,9 @@
   height: 16px;
 }
 
-/* Navigation */
+/* =================================
+   Footer Navigation
+================================= */
 
 .fr-footer-column {
   display: flex;
@@ -111,6 +124,7 @@
   font-size: 12px;
   line-height: 1.5;
   text-decoration: none !important;
+
   transition: color 0.2s;
 }
 
@@ -118,18 +132,24 @@
   color: #292521 !important;
 }
 
-/* Copyright */
+/* =================================
+   Copyright
+================================= */
 
 .fr-footer-bottom {
   padding-top: 20px;
   border-top: 1px solid #D3C5B5;
+
   color: #928779;
   font-size: 11px;
   letter-spacing: 0.03em;
+  line-height: 1.7;
   text-align: center;
 }
 
-/* Dark mode */
+/* =================================
+   Dark Mode
+================================= */
 
 [data-theme="dark"] .footer.fr-footer {
   background: #354038 !important;
@@ -160,7 +180,9 @@
   border-color: #48534B;
 }
 
-/* Tablet */
+/* =================================
+   Tablet
+================================= */
 
 @media (max-width: 900px) and (min-width: 601px) {
   .fr-footer-main {
@@ -169,11 +191,14 @@
   }
 }
 
-/* Mobile */
+/* =================================
+   Mobile
+================================= */
 
 @media (max-width: 600px) {
+
   .footer.fr-footer {
-    padding: 36px 22px 22px;
+    padding: 36px 22px 22px !important;
   }
 
   .fr-footer-main {
@@ -201,6 +226,7 @@
 
   .fr-footer-column {
     gap: 13px;
+    min-width: 0;
   }
 
   .fr-footer-heading {
@@ -209,6 +235,7 @@
 
   .fr-footer-column a {
     font-size: 12px;
+    overflow-wrap: anywhere;
   }
 
   .fr-footer-bottom {
@@ -216,104 +243,145 @@
     line-height: 1.7;
   }
 }
+
 </style>
 
+<!-- =================================
+     FOOTER
+================================= -->
+
 <footer class="footer fr-footer">
+
   <div class="fr-footer-inner">
 
     <div class="fr-footer-main">
 
-      <!-- Brand -->
+      <!-- =========================
+           Brand
+      ========================= -->
+
       <div class="fr-footer-brand">
 
-        <a class="fr-footer-logo"
-           href="{{ "" | absLangURL }}">
+        <a
+          class="fr-footer-logo"
+          href="{{ "" | absLangURL }}">
           FlowAnRiver
         </a>
 
         <p class="fr-footer-tagline">
-          Ideas, stories &amp; life in progress.
+          {{ i18n "footerTagline" }}
         </p>
+
+        <!-- Social Media -->
 
         <div class="fr-footer-social">
 
           <!-- X -->
-          <a href="https://x.com/Elaineoyml"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="FlowAnRiver on X"
-             title="Follow on X">
 
-            <svg viewBox="0 0 24 24"
-                 fill="currentColor"
-                 aria-hidden="true">
+          <a
+            href="https://x.com/Elaineoyml"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="FlowAnRiver on X"
+            title="FlowAnRiver on X">
+
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true">
+
               <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.847h-7.406l-5.8-7.584-6.64 7.584H.47l8.6-9.83L0 1.153h7.594l5.243 6.932 6.064-6.932Zm-1.29 19.49h2.039L6.486 3.24H4.298l13.313 17.403Z"/>
+
             </svg>
 
           </a>
+
         </div>
 
       </div>
 
-      <!-- Explore -->
-      <nav class="fr-footer-column"
-           aria-label="Explore">
+      <!-- =========================
+           Explore
+      ========================= -->
 
-        <h3 class="fr-footer-heading">Explore</h3>
+      <nav
+        class="fr-footer-column"
+        aria-label="{{ i18n "footerExplore" }}">
+
+        <h3 class="fr-footer-heading">
+          {{ i18n "footerExplore" }}
+        </h3>
 
         <a href="{{ "tags/ai/" | absLangURL }}">
-          AI
+          {{ i18n "ai" }}
         </a>
 
         <a href="{{ "tags/crypto/" | absLangURL }}">
-          Crypto
+          {{ i18n "crypto" }}
         </a>
 
         <a href="{{ "tags/journal/" | absLangURL }}">
-          Journal
+          {{ i18n "journal" }}
         </a>
 
         <a href="{{ "about/" | absLangURL }}">
-          About Us
+          {{ i18n "aboutUs" }}
         </a>
 
       </nav>
 
-      <!-- Information -->
-      <nav class="fr-footer-column"
-           aria-label="Information">
+      <!-- =========================
+           Information
+      ========================= -->
 
-        <h3 class="fr-footer-heading">Information</h3>
+      <nav
+        class="fr-footer-column"
+        aria-label="{{ i18n "footerInformation" }}">
+
+        <h3 class="fr-footer-heading">
+          {{ i18n "footerInformation" }}
+        </h3>
+
+        <!-- Contact -->
 
         <a href="{{ "contact/" | absLangURL }}">
-          Contact Us
+          {{ i18n "contactUs" }}
         </a>
 
+        <!-- Legal Pages -->
+        <!-- Existing English URLs retained -->
+
         <a href="/privacy-policy/">
-          Privacy Policy
+          {{ i18n "privacyPolicy" }}
         </a>
 
         <a href="/terms-of-service/">
-          Terms of Service
+          {{ i18n "termsOfService" }}
         </a>
 
         <a href="/disclaimer/">
-          Disclaimer
+          {{ i18n "disclaimer" }}
         </a>
 
         <a href="/faq/">
-          FAQ
+          {{ i18n "faq" }}
         </a>
 
       </nav>
 
     </div>
 
-    <!-- Copyright -->
+    <!-- =========================
+         Copyright
+    ========================= -->
+
     <div class="fr-footer-bottom">
+
       &copy; {{ now.Year }} FlowAnRiver.
-      All rights reserved.
+      {{ i18n "allRightsReserved" }}
+
     </div>
 
   </div>
+
 </footer>
