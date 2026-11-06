@@ -1,0 +1,39 @@
+
+[home]
+other = "홈"
+
+[ai]
+other = "AI"
+
+[crypto]
+other = "암호화폐"
+
+[journal]
+other = "에세이"
+
+[letters]
+other = "미래의 나에게 보내는 편지"
+
+[about]
+other = "소개"
+
+[aboutUs]
+other = "회사 소개"
+
+[contactUs]
+other = "문의하기"
+
+[signIn]
+other = "로그인"
+
+[signInPi]
+other = "Pi로 로그인"
+
+[searchArticles]
+other = "글 검색..."
+
+[search]
+other = "검색"
+
+[chooseLanguage]
+other = "언어 선택"
