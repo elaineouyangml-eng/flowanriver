@@ -1,0 +1,39 @@
+
+[home]
+other = "Home"
+
+[ai]
+other = "AI"
+
+[crypto]
+other = "Crypto"
+
+[journal]
+other = "Journal"
+
+[letters]
+other = "Letters"
+
+[about]
+other = "About"
+
+[aboutUs]
+other = "About Us"
+
+[contactUs]
+other = "Contact Us"
+
+[signIn]
+other = "Sign in"
+
+[signInPi]
+other = "Sign in with Pi"
+
+[searchArticles]
+other = "Search articles..."
+
+[search]
+other = "Search"
+
+[chooseLanguage]
+other = "Choose language"
