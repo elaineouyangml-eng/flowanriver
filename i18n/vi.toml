@@ -37,3 +37,32 @@ other = "Tìm kiếm"
 
 [chooseLanguage]
 other = "Chọn ngôn ngữ"
+
+
+[heroSubtitle1]
+other = "Không chạy theo trào lưu, chỉ chia sẻ góc nhìn chân thật"
+
+[heroSubtitle2]
+other = "từ một người đang tự mình khám phá và trải nghiệm."
+
+[scroll]
+other = "Khám phá"
+
+[lettersKicker]
+other = "Thư gửi tương lai"
+
+[lettersTitle]
+other = "Gặp gỡ bản thân trong tương lai"
+
+[lettersCTA]
+other = "Viết thư"
+
+[journalKicker]
+other = "Nhật ký"
+
+[latestStories]
+other = "Bài viết mới nhất"
+
+[seeAll]
+other = "Xem tất cả"
+  
