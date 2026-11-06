@@ -37,3 +37,32 @@ other = "Search"
 
 [chooseLanguage]
 other = "Choose language"
+
+
+[heroSubtitle1]
+other = "No hype. Just honest takes"
+
+[heroSubtitle2]
+other = "from someone building in the open."
+
+[scroll]
+other = "Scroll"
+
+[lettersKicker]
+other = "Letters to the Future"
+
+[lettersTitle]
+other = "Meet Your Future Self"
+
+[lettersCTA]
+other = "Write Your Letter"
+
+[journalKicker]
+other = "The Journal"
+
+[latestStories]
+other = "Latest Stories"
+
+[seeAll]
+other = "See all"
+  
