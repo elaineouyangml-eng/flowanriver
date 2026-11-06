@@ -1,29 +1,10 @@
 
 {{- $currentPage := . -}}
 {{- $labelText := site.Params.label.text | default site.Title -}}
-{{- $englishURL := "/" -}}
-{{- $chineseURL := "/zh/" -}}
-{{- $hasChineseTranslation := false -}}
-
-{{- if eq .Lang "en" -}}
-  {{- $englishURL = .RelPermalink -}}
-{{- else if eq .Lang "zh" -}}
-  {{- $chineseURL = .RelPermalink -}}
-{{- end -}}
-
-{{- range .Translations -}}
-  {{- if eq .Lang "en" -}}
-    {{- $englishURL = .RelPermalink -}}
-  {{- else if eq .Lang "zh" -}}
-    {{- $chineseURL = .RelPermalink -}}
-    {{- $hasChineseTranslation = true -}}
-  {{- end -}}
-{{- end -}}
-
 {{- $searchURL := "/search/" -}}
 
 <style>
-/* FlowAnRiver header - warm sand theme */
+/* Flowanriver Header - Warm Sand */
 
 .header {
   background: #E8DED0 !important;
@@ -100,7 +81,7 @@
   opacity: .7;
 }
 
-/* Dropdowns */
+/* General dropdown */
 
 .fr-header-dropdown {
   position: relative;
@@ -136,7 +117,7 @@
   background: var(--code-bg);
 }
 
-/* About dropdown - LaceMoods style */
+/* About dropdown */
 
 .fr-desktop-about .fr-header-dropdown-menu,
 .fr-mobile-about .fr-header-dropdown-menu {
@@ -242,7 +223,7 @@
   cursor: pointer;
 }
 
-/* Language dropdown */
+/* Five-language dropdown */
 
 .fr-language-switch {
   position: relative;
@@ -253,8 +234,8 @@
   top: calc(100% + 10px);
   right: 0;
   z-index: 1000;
-  min-width: 108px;
-  padding: 5px;
+  min-width: 165px;
+  padding: 6px;
   background: var(--theme);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -267,7 +248,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 8px;
+  padding: 10px;
   border-radius: 5px;
   color: var(--primary);
   font-size: 13px;
@@ -279,6 +260,15 @@
 
 .fr-language-options a:hover {
   background: var(--code-bg);
+}
+
+.fr-language-current {
+  background: var(--code-bg);
+  font-weight: 500;
+}
+
+.fr-language-check {
+  font-size: 14px;
 }
 
 /* Theme toggle */
@@ -343,14 +333,13 @@
   cursor: pointer;
 }
 
-/* Mobile-only items */
+/* Hide mobile items on desktop */
 
-/* Hide mobile menu items on desktop */
 .fr-header-nav #menu > li.fr-mobile-only {
   display: none !important;
 }
 
-/* Responsive desktop */
+/* Medium desktop */
 
 @media (max-width: 1250px) and (min-width: 769px) {
   .fr-header-nav {
@@ -375,7 +364,7 @@
   }
 }
 
-/* Mobile header and menu */
+/* Mobile */
 
 @media (max-width: 768px) {
   .header {
@@ -458,11 +447,10 @@
     display: none !important;
   }
 
-.fr-header-nav #menu > li.fr-mobile-only {
-  display: block !important;
-}
+  .fr-header-nav #menu > li.fr-mobile-only {
+    display: block !important;
+  }
 
-  /* Regular mobile dropdowns */
   .fr-header-dropdown-menu {
     position: static;
     width: 100%;
@@ -478,7 +466,6 @@
     font-size: 14px;
   }
 
-  /* About remains a white panel */
   .fr-mobile-about .fr-header-dropdown-menu {
     position: static;
     width: 100%;
@@ -546,9 +533,9 @@
 [data-theme="dark"] .fr-header-nav #hamburger span {
   background: var(--primary);
 }
-  
 
-/* Unified desktop header alignment */
+/* Desktop header alignment */
+
 @media (min-width: 769px) {
   .fr-header-nav,
   .fr-header-nav #menu,
@@ -599,10 +586,6 @@
     align-self: center;
   }
 }
-
-}
-}
-
 </style>
 
 <header class="header">
@@ -647,14 +630,14 @@
         </a>
       </li>
 
-      <!-- Letters to the Future navigation -->
-<li>
-  <a href="/letters/">
-    {{ if eq .Lang "zh" }}写给未来的自己{{ else }}Letters{{ end }}
-  </a>
-</li>
+      <!-- Letters to the Future -->
+      <li>
+        <a href="/letters/">
+          {{ if eq .Lang "zh" }}写给未来的自己{{ else }}Letters{{ end }}
+        </a>
+      </li>
 
-      <!-- Desktop About dropdown -->
+      <!-- Desktop About -->
       <li class="fr-desktop-about">
         <details class="fr-header-dropdown">
           <summary class="fr-dropdown-trigger">
@@ -674,7 +657,7 @@
         </details>
       </li>
 
-      <!-- Mobile About dropdown -->
+      <!-- Mobile About -->
       <li class="fr-mobile-only fr-mobile-about">
         <details class="fr-header-dropdown">
           <summary class="fr-dropdown-trigger">
@@ -713,7 +696,7 @@
     <!-- Right-side actions -->
     <div class="fr-header-actions">
 
-      <!-- Desktop search -->
+      <!-- Desktop Search -->
       <form class="fr-header-search"
             action="{{ $searchURL }}"
             method="get"
@@ -723,7 +706,7 @@
           type="search"
           name="q"
           placeholder="{{ if eq .Lang "zh" }}搜索文章...{{ else }}Search articles...{{ end }}"
-          aria-label="Search FlowAnRiver articles"
+          aria-label="Search Flowanriver articles"
           required>
 
         <button type="submit" aria-label="Search">
@@ -754,7 +737,7 @@
         </details>
       </div>
 
-      <!-- Mobile search -->
+      <!-- Mobile Search -->
       <details class="fr-mobile-search">
         <summary class="fr-header-icon"
                  aria-label="Search articles"
@@ -779,7 +762,7 @@
               type="search"
               name="q"
               placeholder="{{ if eq .Lang "zh" }}搜索文章...{{ else }}Search articles...{{ end }}"
-              aria-label="Search FlowAnRiver articles"
+              aria-label="Search Flowanriver articles"
               required>
 
             <button type="submit">
@@ -789,57 +772,78 @@
         </div>
       </details>
 
-      <!-- Language dropdown -->
+      <!-- Five-language switcher -->
       {{- if and hugo.IsMultilingual (not site.Params.disableLangToggle) -}}
-        <details class="fr-language-switch">
-          <summary class="fr-header-icon"
-                   aria-label="Choose language / 选择语言"
-                   title="Choose language / 选择语言">
+      <details class="fr-language-switch">
+        <summary class="fr-header-icon"
+                 aria-label="Choose language"
+                 title="Choose language">
 
-            <svg width="19" height="19"
-                 viewBox="0 0 24 24"
-                 fill="none"
-                 stroke="currentColor"
-                 stroke-width="1.7"
-                 stroke-linecap="round"
-                 stroke-linejoin="round"
-                 aria-hidden="true">
+          <svg width="19" height="19"
+               viewBox="0 0 24 24"
+               fill="none"
+               stroke="currentColor"
+               stroke-width="1.7"
+               stroke-linecap="round"
+               stroke-linejoin="round"
+               aria-hidden="true">
 
-              <circle cx="12" cy="12" r="9"></circle>
-              <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
-            </svg>
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
+          </svg>
 
-            <span style="font-size:10px;"
-                  aria-hidden="true">⌄</span>
-          </summary>
+          <span style="font-size:10px;" aria-hidden="true">⌄</span>
+        </summary>
 
-          <div class="fr-language-options">
+        <div class="fr-language-options">
 
-            {{- if eq .Lang "en" -}}
-              <div class="fr-language-current">
-                <span>🇬🇧 EN</span>
-                <span>✓</span>
+          {{- range hugo.Sites -}}
+            {{- $lang := .Language.Lang -}}
+            {{- $targetURL := .Home.RelPermalink -}}
+            {{- $name := .Language.LanguageName -}}
+            {{- $flag := "🌐" -}}
+
+            {{- if eq $lang "en" -}}
+              {{- $flag = "🇬🇧" -}}
+              {{- $name = "English" -}}
+            {{- else if eq $lang "zh" -}}
+              {{- $flag = "🇨🇳" -}}
+              {{- $name = "简体中文" -}}
+            {{- else if eq $lang "vi" -}}
+              {{- $flag = "🇻🇳" -}}
+              {{- $name = "Tiếng Việt" -}}
+            {{- else if eq $lang "ko" -}}
+              {{- $flag = "🇰🇷" -}}
+              {{- $name = "한국어" -}}
+            {{- else if eq $lang "fil" -}}
+              {{- $flag = "🇵🇭" -}}
+              {{- $name = "Filipino" -}}
+            {{- end -}}
+
+            {{- range $currentPage.AllTranslations -}}
+              {{- if eq .Lang $lang -}}
+                {{- $targetURL = .RelPermalink -}}
+              {{- end -}}
+            {{- end -}}
+
+            {{- if eq $currentPage.Lang $lang -}}
+              <div class="fr-language-current"
+                   aria-current="page">
+                <span>{{ $flag }} {{ $name }}</span>
+                <span class="fr-language-check">✓</span>
               </div>
             {{- else -}}
-              <a href="{{ $englishURL }}" title="English">
-                <span>🇬🇧 EN</span>
+              <a href="{{ $targetURL }}"
+                 lang="{{ $lang }}"
+                 title="{{ $name }}">
+                <span>{{ $flag }} {{ $name }}</span>
               </a>
             {{- end -}}
 
-            {{- if eq .Lang "zh" -}}
-              <div class="fr-language-current">
-                <span>🇨🇳 ZH</span>
-                <span>✓</span>
-              </div>
-            {{- else -}}
-              <a href="{{ $chineseURL }}"
-                 title="{{ if or .IsHome $hasChineseTranslation }}阅读中文版{{ else }}本文章暂无中文版，前往中文首页{{ end }}">
-                <span>🇨🇳 ZH</span>
-              </a>
-            {{- end -}}
+          {{- end -}}
 
-          </div>
-        </details>
+        </div>
+      </details>
       {{- end -}}
 
       <!-- Theme toggle -->
@@ -899,7 +903,7 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  // Preserve existing search behavior
+  // Preserve search behavior
   var query = new URLSearchParams(window.location.search).get("q");
   var searchInput = document.getElementById("searchInput");
 
