@@ -1,0 +1,39 @@
+
+[home]
+other = "Trang chủ"
+
+[ai]
+other = "AI"
+
+[crypto]
+other = "Tiền mã hóa"
+
+[journal]
+other = "Nhật ký"
+
+[letters]
+other = "Thư gửi tương lai"
+
+[about]
+other = "Giới thiệu"
+
+[aboutUs]
+other = "Về chúng tôi"
+
+[contactUs]
+other = "Liên hệ"
+
+[signIn]
+other = "Đăng nhập"
+
+[signInPi]
+other = "Đăng nhập bằng Pi"
+
+[searchArticles]
+other = "Tìm kiếm bài viết..."
+
+[search]
+other = "Tìm kiếm"
+
+[chooseLanguage]
+other = "Chọn ngôn ngữ"
