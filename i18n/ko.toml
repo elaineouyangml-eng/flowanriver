@@ -66,3 +66,27 @@ other = "최신 글"
 [seeAll]
 other = "모두 보기"
   
+
+[footerTagline]
+other = "생각과 이야기, 그리고 계속되는 삶의 여정."
+
+[footerExplore]
+other = "둘러보기"
+
+[footerInformation]
+other = "안내"
+
+[privacyPolicy]
+other = "개인정보 처리방침"
+
+[termsOfService]
+other = "서비스 이용약관"
+
+[disclaimer]
+other = "면책 조항"
+
+[faq]
+other = "자주 묻는 질문"
+
+[allRightsReserved]
+other = "모든 권리 보유."
