@@ -2,7 +2,7 @@
 {{ define "main" }}
 
 {{- $lang := .Lang -}}
-{{- $useEnglishFallback := in (slice "vi" "ko" "fil" "ja") $lang -}}
+{{- $useEnglishFallback := in (slice "zh" "vi" "ko" "fil" "ja") $lang -}}
 
 {{- /* Default interface text */ -}}
 {{- $pageTitle := "All Stories" -}}
@@ -11,7 +11,6 @@
 {{- $articleUnit := "Articles" -}}
 {{- $previousLabel := "Previous" -}}
 {{- $nextLabel := "Next" -}}
-{{- $englishLabel := "English" -}}
 
 {{- if eq $lang "zh" -}}
   {{- $pageTitle = "全部文章" -}}
@@ -20,7 +19,7 @@
   {{- $articleUnit = "篇文章" -}}
   {{- $previousLabel = "上一页" -}}
   {{- $nextLabel = "下一页" -}}
-  {{- $englishLabel = "英文" -}}
+
 {{- else if eq $lang "ja" -}}
   {{- $pageTitle = "すべての記事" -}}
   {{- $description = "テクノロジー、ビジネス、文化、そして日々の暮らしについての記録" -}}
@@ -28,7 +27,7 @@
   {{- $articleUnit = "記事" -}}
   {{- $previousLabel = "前へ" -}}
   {{- $nextLabel = "次へ" -}}
-  {{- $englishLabel = "英語" -}}
+
 {{- else if eq $lang "ko" -}}
   {{- $pageTitle = "모든 글" -}}
   {{- $description = "기술, 비즈니스, 문화 그리고 일상에 대한 이야기와 생각" -}}
@@ -36,7 +35,7 @@
   {{- $articleUnit = "개의 글" -}}
   {{- $previousLabel = "이전" -}}
   {{- $nextLabel = "다음" -}}
-  {{- $englishLabel = "영어" -}}
+
 {{- else if eq $lang "vi" -}}
   {{- $pageTitle = "Tất cả bài viết" -}}
   {{- $description = "Những câu chuyện và suy ngẫm về công nghệ, kinh doanh, văn hóa và cuộc sống thường ngày" -}}
@@ -44,7 +43,7 @@
   {{- $articleUnit = "bài viết" -}}
   {{- $previousLabel = "Trước" -}}
   {{- $nextLabel = "Tiếp" -}}
-  {{- $englishLabel = "Tiếng Anh" -}}
+
 {{- else if eq $lang "fil" -}}
   {{- $pageTitle = "Lahat ng Artikulo" -}}
   {{- $description = "Mga kuwento at pananaw tungkol sa teknolohiya, negosyo, kultura, at pang-araw-araw na buhay" -}}
@@ -52,20 +51,18 @@
   {{- $articleUnit = "artikulo" -}}
   {{- $previousLabel = "Nakaraan" -}}
   {{- $nextLabel = "Susunod" -}}
-  {{- $englishLabel = "Ingles" -}}
 {{- end -}}
 
 {{- /*
-  ARTICLE SELECTION
+  SIX-LANGUAGE ARTICLE SELECTION
 
-  English: English articles
-  Chinese: Chinese articles
+  English: English originals.
 
-  Japanese, Korean, Vietnamese, Filipino:
-  1. Start from English articles
-  2. Replace with a translation when available
-  3. Include local-only articles
-  4. Avoid duplicates
+  Chinese, Japanese, Korean, Vietnamese, Filipino:
+  1. Start with English articles.
+  2. Use the local translation when available.
+  3. Include articles written only in the local language.
+  4. Avoid duplicate translations.
 */ -}}
 
 {{- $pages := .RegularPages -}}
@@ -116,6 +113,8 @@
 {{- $paginator := .Paginate $pages 10 -}}
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap');
+
 /* FlowAnRiver — All Stories
    Six-language article archive
 */
@@ -405,8 +404,6 @@
     font-size: 15px;
   }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap');
 </style>
 
 <section class="fr-all-stories">
@@ -447,17 +444,28 @@
 
     </div>
 
+    <!-- Language notice -->
+
     {{- if $useEnglishFallback -}}
       <p class="fr-all-language-note">
-        {{- if eq $lang "ja" -}}
+
+        {{- if eq $lang "zh" -}}
+          尚未翻译的文章暂以英文原文展示。
+
+        {{- else if eq $lang "ja" -}}
           翻訳版のない記事は英語で表示されます。
+
         {{- else if eq $lang "ko" -}}
           번역되지 않은 글은 영어로 표시됩니다.
+
         {{- else if eq $lang "vi" -}}
           Những bài chưa được dịch sẽ hiển thị bằng tiếng Anh.
+
         {{- else if eq $lang "fil" -}}
           Ang mga artikulong wala pang salin ay ipapakita sa Ingles.
+
         {{- end -}}
+
       </p>
     {{- end -}}
 
@@ -481,19 +489,40 @@
         {{- end -}}
       {{- end -}}
 
+      {{- /*
+        Estimated reading time:
+
+        zh: 400 Han characters/min
+        ja: 400 Japanese characters/min
+        ko: 450 Hangul syllables/min
+
+        en, vi, fil: Hugo default
+      */ -}}
+
       {{- $minutes := .ReadingTime -}}
 
       {{- if eq .Lang "zh" -}}
-        {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" .Plain) -}}
-        {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
-        {{- if lt $minutes 1 -}}
-          {{- $minutes = 1 -}}
-        {{- end -}}
+        {{- $chars := len (findRE "[一-龥]" .Plain) -}}
+        {{- $minutes = int (math.Ceil (div (float $chars) 400)) -}}
+
+      {{- else if eq .Lang "ja" -}}
+        {{- $chars := len (findRE "[一-龥ぁ-ゖァ-ヺー]" .Plain) -}}
+        {{- $minutes = int (math.Ceil (div (float $chars) 400)) -}}
+
+      {{- else if eq .Lang "ko" -}}
+        {{- $chars := len (findRE "[가-힣]" .Plain) -}}
+        {{- $minutes = int (math.Ceil (div (float $chars) 450)) -}}
+
+      {{- end -}}
+
+      {{- if lt $minutes 1 -}}
+        {{- $minutes = 1 -}}
       {{- end -}}
 
       <article class="fr-all-article{{ if not $cover }} no-image{{ end }}">
 
         {{ if $cover }}
+
           <a class="fr-all-image"
              href="{{ .RelPermalink }}"
              aria-label="{{ .Title }}">
@@ -505,6 +534,7 @@
               decoding="async">
 
           </a>
+
         {{ end }}
 
         <div class="fr-all-content">
