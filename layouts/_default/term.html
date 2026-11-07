@@ -2,33 +2,129 @@
 {{ define "main" }}
 
 {{- $term := lower .Data.Term -}}
-{{- $isZH := eq .Lang "zh" -}}
+{{- $lang := .Lang -}}
 
 {{- $intro := "" -}}
+{{- $latestLabel := "Latest Stories" -}}
+{{- $articleUnit := "Articles" -}}
+{{- $readUnit := "min read" -}}
+{{- $previousLabel := "Previous" -}}
+{{- $nextLabel := "Next" -}}
+
+{{- /* Localized interface labels */ -}}
+
+{{- if eq $lang "zh" -}}
+  {{- $latestLabel = "最新文章" -}}
+  {{- $articleUnit = "篇文章" -}}
+  {{- $readUnit = "分钟阅读" -}}
+  {{- $previousLabel = "上一页" -}}
+  {{- $nextLabel = "下一页" -}}
+
+{{- else if eq $lang "ja" -}}
+  {{- $latestLabel = "最新の記事" -}}
+  {{- $articleUnit = "記事" -}}
+  {{- $readUnit = "分で読めます" -}}
+  {{- $previousLabel = "前へ" -}}
+  {{- $nextLabel = "次へ" -}}
+
+{{- else if eq $lang "ko" -}}
+  {{- $latestLabel = "최신 글" -}}
+  {{- $articleUnit = "개의 글" -}}
+  {{- $readUnit = "분 소요" -}}
+  {{- $previousLabel = "이전" -}}
+  {{- $nextLabel = "다음" -}}
+
+{{- else if eq $lang "vi" -}}
+  {{- $latestLabel = "Bài viết mới nhất" -}}
+  {{- $articleUnit = "bài viết" -}}
+  {{- $readUnit = "phút đọc" -}}
+  {{- $previousLabel = "Trước" -}}
+  {{- $nextLabel = "Tiếp" -}}
+
+{{- else if eq $lang "fil" -}}
+  {{- $latestLabel = "Mga Bagong Artikulo" -}}
+  {{- $articleUnit = "artikulo" -}}
+  {{- $readUnit = "min basahin" -}}
+  {{- $previousLabel = "Nakaraan" -}}
+  {{- $nextLabel = "Susunod" -}}
+{{- end -}}
+
+{{- /* AI category introduction */ -}}
+
 {{- if eq $term "ai" -}}
-  {{- if $isZH -}}
+
+  {{- if eq $lang "zh" -}}
     {{- $intro = "AI 正在逐渐融入我们的工作与生活。在这里，我想分享自己使用 AI 的经历、对技术变化的观察，以及那些至今仍让我感到好奇的问题" -}}
+
+  {{- else if eq $lang "ja" -}}
+    {{- $intro = "AI は少しずつ、私たちの仕事や暮らしの一部になっています。ここでは、実際に AI を使って学んだこと、気になった技術の変化、そして今も答えを探している疑問について綴っています。" -}}
+
+  {{- else if eq $lang "ko" -}}
+    {{- $intro = "AI는 조금씩 우리의 일과 일상 속으로 들어오고 있습니다. 이곳에서는 AI를 직접 사용하며 배운 것들, 흥미롭게 지켜본 기술의 변화, 그리고 여전히 궁금한 질문들을 나누고 싶습니다." -}}
+
+  {{- else if eq $lang "vi" -}}
+    {{- $intro = "AI đang dần trở thành một phần trong công việc và cuộc sống của chúng ta. Ở đây, tôi chia sẻ những điều mình học được khi trực tiếp sử dụng AI, những thay đổi công nghệ khiến tôi quan tâm và cả những câu hỏi mà tôi vẫn đang tìm lời giải." -}}
+
+  {{- else if eq $lang "fil" -}}
+    {{- $intro = "Unti-unting nagiging bahagi ng ating trabaho at pang-araw-araw na buhay ang AI. Dito, ibinabahagi ko ang mga natutunan ko sa paggamit nito, ang mga pagbabagong teknolohikal na nakapukaw ng aking interes, at ang mga tanong na hanggang ngayon ay nais ko pang masagot." -}}
+
   {{- else -}}
     {{- $intro = "AI is becoming part of how we work and live. Here, I share what I've learned from using it, the changes I find interesting, and the questions I still have" -}}
   {{- end -}}
+
+{{- /* Crypto category introduction */ -}}
+
 {{- else if eq $term "crypto" -}}
-  {{- if $isZH -}}
+
+  {{- if eq $lang "zh" -}}
     {{- $intro = "Crypto 不只是价格涨跌和交易。我更感兴趣的是区块链、数字资产与监管变化将如何影响未来的金融体系，以及这些变化在现实中究竟会如何发生" -}}
+
+  {{- else if eq $lang "ja" -}}
+    {{- $intro = "Crypto は、価格の上がり下がりや取引だけの話ではありません。私が関心を持っているのは、ブロックチェーンやデジタル資産、規制の変化がこれからの金融をどう変えていくのか、そしてその変化が現実の世界でどのように起こるのかということです。" -}}
+
+  {{- else if eq $lang "ko" -}}
+    {{- $intro = "Crypto는 단순히 가격의 오르내림이나 거래에 관한 이야기만은 아닙니다. 저는 블록체인과 디지털 자산, 변화하는 규제가 앞으로 금융의 모습을 어떻게 바꿀지, 그리고 그 변화가 현실에서 어떻게 나타날지에 더 관심이 있습니다." -}}
+
+  {{- else if eq $lang "vi" -}}
+    {{- $intro = "Crypto không chỉ là chuyện giá tăng giảm hay giao dịch. Điều khiến tôi quan tâm hơn là blockchain, tài sản số và những thay đổi trong quy định sẽ tác động ra sao đến tương lai của tài chính, cũng như những thay đổi ấy sẽ thực sự diễn ra thế nào trong đời sống." -}}
+
+  {{- else if eq $lang "fil" -}}
+    {{- $intro = "Hindi lang tungkol sa pagtaas at pagbaba ng presyo o sa pangangalakal ang Crypto. Mas interesado ako sa kung paano maaaring baguhin ng blockchain, mga digital asset, at nagbabagong regulasyon ang hinaharap ng pananalapi, at kung paano talaga mangyayari ang mga pagbabagong iyon sa totoong buhay." -}}
+
   {{- else -}}
     {{- $intro = "Crypto is about more than prices and trading. I'm interested in how blockchain, digital assets, and changing regulations might reshape finance—and what actually happens along the way" -}}
   {{- end -}}
+
+{{- /* Journal category introduction */ -}}
+
 {{- else if eq $term "journal" -}}
-  {{- if $isZH -}}
+
+  {{- if eq $lang "zh" -}}
     {{- $intro = "有些思考来自一本书、一段对话，或生活中某个平常的瞬间。这里记录我对生活、文化与人性的观察，也记录那些一直留在心里的感受" -}}
+
+  {{- else if eq $lang "ja" -}}
+    {{- $intro = "考えるきっかけは、一冊の本や誰かとの会話、何気ない日常のひとときにあるのかもしれません。ここには、暮らしや文化、人の心について感じたこと、そしていつまでも心に残っている思いを書き留めています。" -}}
+
+  {{- else if eq $lang "ko" -}}
+    {{- $intro = "어떤 생각은 한 권의 책에서, 누군가와 나눈 대화에서, 또는 평범한 하루의 작은 순간에서 시작됩니다. 이곳에는 삶과 문화, 인간의 본성에 대한 생각과 오래도록 마음에 남은 감정들을 기록합니다." -}}
+
+  {{- else if eq $lang "vi" -}}
+    {{- $intro = "Có những suy nghĩ bắt đầu từ một cuốn sách, một cuộc trò chuyện hay một khoảnh khắc rất đỗi bình thường. Đây là nơi tôi ghi lại những quan sát về cuộc sống, văn hóa và bản chất con người, cùng những cảm xúc vẫn còn đọng lại trong lòng." -}}
+
+  {{- else if eq $lang "fil" -}}
+    {{- $intro = "May mga kaisipang nagsisimula sa isang libro, isang pag-uusap, o isang simpleng sandali sa araw-araw. Dito ko isinusulat ang mga napapansin ko tungkol sa buhay, kultura, at kalikasan ng tao, pati na ang mga damdaming matagal na nananatili sa aking isip at puso." -}}
+
   {{- else -}}
     {{- $intro = "Some thoughts begin with a book, a conversation, or an ordinary day. This is where I write about life, culture, human nature, and whatever stays on my mind" -}}
   {{- end -}}
+
 {{- else -}}
   {{- $intro = .Description | plainify -}}
 {{- end -}}
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap');
+
 /* FlowAnRiver editorial category pages */
 
 .fr-category {
@@ -120,6 +216,7 @@
 }
 
 .fr-category-image {
+  display: block;
   width: 185px;
   aspect-ratio: 4 / 3;
   overflow: hidden;
@@ -336,9 +433,9 @@
     <div class="fr-category-accent"></div>
 
     {{ with $intro }}
-    <p class="fr-category-description">
-      {{ . }}
-    </p>
+      <p class="fr-category-description">
+        {{ . }}
+      </p>
     {{ end }}
 
   </header>
@@ -352,12 +449,11 @@
     <div class="fr-category-list-head">
 
       <span class="fr-category-list-label">
-        {{ if $isZH }}最新文章{{ else }}Latest Stories{{ end }}
+        {{ $latestLabel }}
       </span>
 
       <span class="fr-category-list-count">
-        {{ len .Pages }}
-        {{ if $isZH }}篇文章{{ else }}Articles{{ end }}
+        {{ len .Pages }} {{ $articleUnit }}
       </span>
 
     </div>
@@ -382,26 +478,43 @@
         {{- end -}}
       {{- end -}}
 
+      {{- /* Localized reading time */ -}}
+
+      {{- $minutes := .ReadingTime -}}
+
+      {{- if eq .Lang "zh" -}}
+        {{- $chars := len (findRE "[一-龥]" .Plain) -}}
+        {{- $minutes = int (math.Ceil (div (float $chars) 400)) -}}
+
+      {{- else if eq .Lang "ja" -}}
+        {{- $chars := len (findRE "[一-龥ぁ-ゖァ-ヺー]" .Plain) -}}
+        {{- $minutes = int (math.Ceil (div (float $chars) 400)) -}}
+
+      {{- else if eq .Lang "ko" -}}
+        {{- $chars := len (findRE "[가-힣]" .Plain) -}}
+        {{- $minutes = int (math.Ceil (div (float $chars) 450)) -}}
+
+      {{- end -}}
+
+      {{- if lt $minutes 1 -}}
+        {{- $minutes = 1 -}}
+      {{- end -}}
+
       <article class="fr-category-article{{ if not $cover }} no-image{{ end }}">
 
-        {{ with $cover }}
-        <a class="fr-category-image"
-           href="{{ $.Site.BaseURL }}{{ "" }}"
-           data-placeholder="none"
-           style="display:none"></a>
-        {{ end }}
-
         {{ if $cover }}
-        <a class="fr-category-image"
-           href="{{ .RelPermalink }}"
-           aria-label="{{ .Title }}">
 
-          <img src="{{ $cover | safeURL }}"
-               alt="{{ $coverAlt }}"
-               loading="lazy"
-               decoding="async">
+          <a class="fr-category-image"
+             href="{{ .RelPermalink }}"
+             aria-label="{{ .Title }}">
 
-        </a>
+            <img src="{{ $cover | safeURL }}"
+                 alt="{{ $coverAlt }}"
+                 loading="lazy"
+                 decoding="async">
+
+          </a>
+
         {{ end }}
 
         <div class="fr-category-content">
@@ -409,7 +522,7 @@
           <div class="fr-category-meta">
             {{ .Date.Format "Jan 2, 2006" }}
             &nbsp;·&nbsp;
-            {{ .ReadingTime }} min read
+            {{ $minutes }} {{ $readUnit }}
           </div>
 
           <h2 class="fr-category-article-title">
@@ -419,14 +532,15 @@
           </h2>
 
           {{- $excerpt := .Description -}}
+
           {{- if not $excerpt -}}
             {{- $excerpt = .Summary | plainify -}}
           {{- end -}}
 
           {{ with $excerpt }}
-          <div class="fr-category-excerpt">
-            {{ . | plainify | truncate 180 }}
-          </div>
+            <div class="fr-category-excerpt">
+              {{ . | plainify | truncate 180 }}
+            </div>
           {{ end }}
 
         </div>
@@ -438,31 +552,33 @@
     <!-- Pagination -->
 
     {{ if gt $paginator.TotalPages 1 }}
-    <nav class="fr-category-pagination"
-         aria-label="Pagination">
 
-      <div>
-        {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}">
-          ← Previous
-        </a>
-        {{ end }}
-      </div>
+      <nav class="fr-category-pagination"
+           aria-label="Pagination">
 
-      <span class="fr-category-page-number">
-        {{ $paginator.PageNumber }}
-        / {{ $paginator.TotalPages }}
-      </span>
+        <div>
+          {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}">
+              ← {{ $previousLabel }}
+            </a>
+          {{ end }}
+        </div>
 
-      <div>
-        {{ if $paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}">
-          Next →
-        </a>
-        {{ end }}
-      </div>
+        <span class="fr-category-page-number">
+          {{ $paginator.PageNumber }}
+          / {{ $paginator.TotalPages }}
+        </span>
 
-    </nav>
+        <div>
+          {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}">
+              {{ $nextLabel }} →
+            </a>
+          {{ end }}
+        </div>
+
+      </nav>
+
     {{ end }}
 
   </section>
