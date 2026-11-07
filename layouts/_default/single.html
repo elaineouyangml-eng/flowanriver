@@ -1,10 +1,15 @@
+
 {{- define "main" }}
 <article class="post-single">
   <header class="post-header">
     {{- partial "breadcrumbs.html" . }}
     <h1 class="post-title entry-hint-parent">
       {{- .Title }}
-      {{- with .Draft }}<span class="entry-hint" title="Draft">{{ i18n "draft" | default "Draft" }}</span>{{- end }}
+      {{- with .Draft }}
+        <span class="entry-hint" title="Draft">
+          {{ i18n "draft" | default "Draft" }}
+        </span>
+      {{- end }}
     </h1>
     {{- if not (.Param "hideMeta") }}
     <div class="post-meta">
@@ -12,45 +17,106 @@
     </div>
     {{- end }}
   </header>
+
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
+
   {{- if (.Param "ShowToc") }}
-  {{- partial "toc.html" . }}
+    {{- partial "toc.html" . }}
   {{- end }}
+
   {{- if .Content }}
   <div class="post-content md-content">
-    
-    {{- if and (eq .Lang "zh") (eq .Section "posts") }}
+
+    {{- /* Translation notice for translated Post articles */ -}}
+    {{- $currentLang := .Lang -}}
+    {{- $isTranslatedPost := and (eq .Section "posts") (in (slice "zh" "ja" "ko" "vi" "fil") $currentLang) -}}
+
+    {{- if $isTranslatedPost }}
+
       {{- range .Translations }}
+
         {{- if eq .Lang "en" }}
-        <p style="font-size:14px;color:var(--secondary);padding:12px 16px;border-left:3px solid var(--tertiary);margin-bottom:28px;">
-          <strong>翻译说明：</strong>本文根据 FlowAnRiver 英文原文自动翻译整理，仅为方便中文读者阅读。如有理解上的差异，请以
-          <a href="{{ .RelPermalink }}">英文原文</a>为准。
-        </p>
+
+          <div class="fr-translation-notice"
+               style="font-size:14px;color:var(--secondary);padding:12px 16px;border-left:3px solid var(--tertiary);margin-bottom:28px;line-height:1.9;">
+
+            {{- if eq $currentLang "zh" -}}
+
+              <strong>翻译说明：</strong>
+              本文根据 Flowanriver 英文原文翻译整理，方便不同语言的读者阅读。如有理解上的差异，请以
+              <a href="{{ .RelPermalink }}">英文原文</a>为准。
+
+            {{- else if eq $currentLang "ja" -}}
+
+              <strong>翻訳について：</strong>
+              この記事は、Flowanriverの英語原文をもとに翻訳したものです。
+              より多くの読者に内容をお届けするために掲載しています。
+              内容の解釈に違いがある場合は、
+              <a href="{{ .RelPermalink }}">英語の原文</a>をご確認ください。
+
+            {{- else if eq $currentLang "ko" -}}
+
+              <strong>번역 안내:</strong>
+              이 글은 Flowanriver의 영어 원문을 바탕으로 번역되었습니다.
+              다양한 언어를 사용하는 독자들이 편하게 읽을 수 있도록 제공됩니다.
+              내용의 해석에 차이가 있을 경우
+              <a href="{{ .RelPermalink }}">영어 원문</a>을 기준으로 확인해 주세요.
+
+            {{- else if eq $currentLang "vi" -}}
+
+              <strong>Lưu ý về bản dịch:</strong>
+              Bài viết này được dịch từ bản gốc tiếng Anh của Flowanriver
+              để giúp độc giả sử dụng các ngôn ngữ khác nhau dễ dàng tiếp cận nội dung.
+              Nếu có sự khác biệt trong cách hiểu, vui lòng tham khảo
+              <a href="{{ .RelPermalink }}">bản gốc tiếng Anh</a>.
+
+            {{- else if eq $currentLang "fil" -}}
+
+              <strong>Paalala tungkol sa pagsasalin:</strong>
+              Ang artikulong ito ay isinalin mula sa orihinal na bersiyong Ingles ng Flowanriver
+              upang mas madaling mabasa ng mga mambabasa sa iba't ibang wika.
+              Kung may pagkakaiba sa interpretasyon, mangyaring sumangguni sa
+              <a href="{{ .RelPermalink }}">orihinal na artikulo sa Ingles</a>.
+
+            {{- end }}
+
+          </div>
+
         {{- end }}
+
       {{- end }}
+
     {{- end }}
 
     {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+      {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}
+      {{ .Content }}
+    {{- end }}
+
   </div>
   {{- end }}
+
   {{- partial "extend_post_content.html" . }}
+
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
     <ul class="post-tags">
       {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+        <li>
+          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+        </li>
       {{- end }}
     </ul>
+
     {{- if (.Param "ShowPostNavLinks") }}
-    {{- partial "post_nav_links.html" . }}
+      {{- partial "post_nav_links.html" . }}
     {{- end }}
-    
   </footer>
+
   {{- if (.Param "comments") }}
-  {{- partial "comments.html" . }}
+    {{- partial "comments.html" . }}
   {{- end }}
 </article>
 {{- end }}
