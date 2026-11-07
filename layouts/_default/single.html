@@ -1,56 +1,1576 @@
-{{- define "main" }}
-<article class="post-single">
-  <header class="post-header">
-    {{- partial "breadcrumbs.html" . }}
-    <h1 class="post-title entry-hint-parent">
-      {{- .Title }}
-      {{- with .Draft }}<span class="entry-hint" title="Draft">{{ i18n "draft" | default "Draft" }}</span>{{- end }}
-    </h1>
-    {{- if not (.Param "hideMeta") }}
-    <div class="post-meta">
-      {{- partial "post_meta.html" . -}}
-    </div>
-    {{- end }}
-  </header>
-  {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
-  {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
-  {{- if (.Param "ShowToc") }}
-  {{- partial "toc.html" . }}
-  {{- end }}
-  {{- if .Content }}
-  <div class="post-content md-content">
-    
-    {{- if and (eq .Lang "zh") (eq .Section "posts") }}
-      {{- range .Translations }}
-        {{- if eq .Lang "en" }}
-        <p style="font-size:14px;color:var(--secondary);padding:12px 16px;border-left:3px solid var(--tertiary);margin-bottom:28px;">
-          <strong>翻译说明：</strong>本文根据 FlowAnRiver 英文原文自动翻译整理，仅为方便中文读者阅读。如有理解上的差异，请以
-          <a href="{{ .RelPermalink }}">英文原文</a>为准。
-        </p>
-        {{- end }}
-      {{- end }}
-    {{- end }}
 
-    {{- if not (.Param "disableAnchoredHeadings") }}
-    {{- partial "anchored_headings.html" .Content -}}
-    {{- else }}{{ .Content }}{{ end }}
+{{ define "main" }}
+
+<style>
+/* ======================================
+   FLOWANRIVER · LETTERS TO THE FUTURE
+   Six Languages · Unified Site Menu
+   ====================================== */
+
+.future-letters {
+  --letter-green: #607764;
+  --letter-dark: #405746;
+  --letter-sage: #e9eee6;
+  --letter-cream: #f7f3eb;
+  --letter-border: #e1e7de;
+  --letter-muted: #637565;
+
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 0 65px;
+  color: var(--primary);
+}
+
+.future-letters *,
+.future-letters *::before,
+.future-letters *::after {
+  box-sizing: border-box;
+}
+
+/* HERO */
+
+.letters-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 65px 40px 58px;
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      ellipse at 96% 18%,
+      rgba(210, 226, 207, .6),
+      transparent 55%
+    ),
+    linear-gradient(
+      125deg,
+      #f7f3eb 0%,
+      #f2f2e9 48%,
+      #e9eee6 100%
+    );
+
+  color: var(--letter-dark);
+}
+
+.letters-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 110px;
+  left: -55px;
+  width: 210px;
+  height: 300px;
+  opacity: .38;
+  filter: blur(15px);
+  transform: rotate(-24deg);
+
+  background:
+    radial-gradient(
+      ellipse 22px 65px at 45px 62px,
+      rgba(116, 144, 107, .2) 0 75%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 26px 65px at 115px 115px,
+      rgba(116, 144, 107, .2) 0 75%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 24px 60px at 45px 175px,
+      rgba(116, 144, 107, .18) 0 75%,
+      transparent 80%
+    ),
+    radial-gradient(
+      ellipse 25px 65px at 125px 245px,
+      rgba(116, 144, 107, .16) 0 75%,
+      transparent 80%
+    );
+
+  pointer-events: none;
+}
+
+.letters-hero-top {
+  text-align: center;
+}
+
+.letters-envelope {
+  margin-bottom: 23px;
+  font-size: 33px;
+  line-height: 1;
+  color: #506b56;
+}
+
+.letters-eyebrow {
+  margin-bottom: 17px;
+  color: #7a8d7b;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.letters-hero h1 {
+  margin: 0 0 20px;
+  color: #405746;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(32px, 5vw, 45px);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.letters-subtitle {
+  margin-bottom: 30px;
+  color: #607764;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.letters-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  color: #506552;
+  font-size: 15px;
+  line-height: 1.85;
+  text-align: left;
+}
+
+.letters-intro p {
+  margin: 0 0 15px;
+}
+
+.letters-intro p:last-child {
+  margin-bottom: 0;
+}
+
+/* FORM CARD */
+
+.letters-form-card {
+  margin-top: 26px;
+  padding: 43px 44px 35px;
+  background: #fff;
+  border: 1px solid #dfe6dc;
+  border-radius: 21px;
+  box-shadow: 0 8px 28px rgba(73, 83, 67, .035);
+  color: #252c26;
+}
+
+.letters-form-card h2 {
+  margin: 0 0 28px;
+  color: #252b25;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.letters-field {
+  margin-bottom: 26px;
+}
+
+.letters-field label,
+.letters-date-label {
+  display: block;
+  margin-bottom: 11px;
+  color: #29342c;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.letters-field textarea,
+.letters-field input,
+.letters-field select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+  background: #fff;
+  border: 1px solid #dbe4d9;
+  border-radius: 11px;
+  color: #303d33;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.65;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.letters-field textarea {
+  min-height: 220px;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.letters-field textarea::placeholder,
+.letters-field input::placeholder {
+  color: #909a91;
+}
+
+.letters-field textarea:focus,
+.letters-field input:focus,
+.letters-field select:focus {
+  border-color: #91a792;
+  box-shadow: 0 0 0 3px rgba(120, 151, 124, .12);
+}
+
+/* COLUMNS */
+
+.letters-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+/* DATE */
+
+.letters-date-fields {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr;
+  gap: 7px;
+}
+
+.letters-date-fields select {
+  appearance: auto;
+  padding: 13px 7px;
+  font-size: 13px;
+}
+
+.letters-date-hint {
+  margin-top: 8px;
+  color: #7b897d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* SUBMIT */
+
+.letters-send {
+  display: block;
+  width: 100%;
+  margin-top: 7px;
+  padding: 16px 20px;
+  border: 0;
+  border-radius: 35px;
+  background: #607764;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  transition: background .2s ease;
+}
+
+.letters-send:disabled {
+  background: #9eae9f;
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.letters-send:not(:disabled) {
+  cursor: pointer;
+}
+
+.letters-send:not(:disabled):hover {
+  background: #4d6552;
+}
+
+.letters-preview-note {
+  margin: 14px 0 0;
+  color: #858b84;
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* PRIVACY */
+
+.letters-privacy {
+  margin-top: 28px;
+  padding: 24px 25px;
+  background: linear-gradient(
+    125deg,
+    #f6f3ed,
+    #f8f6f0
+  );
+  border-radius: 13px;
+  color: #637364;
+  text-align: center;
+}
+
+.letters-privacy strong {
+  display: block;
+  margin-bottom: 9px;
+  color: #556d59;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.letters-privacy p {
+  max-width: 640px;
+  margin: 0 auto;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* FOOTER QUOTE */
+
+.letters-footer-note {
+  margin: 38px auto 0;
+  color: #687c6b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.letters-flower {
+  display: block;
+  margin-bottom: 10px;
+  color: #738c75;
+  font-size: 20px;
+  font-style: normal;
+}
+
+.letters-footer-note::after {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 1px;
+  margin: 18px auto 0;
+  background: #cbd6c9;
+}
+
+/* ANIMATION PREVIEW */
+
+.magic-preview-btn {
+  display: block;
+  margin: 22px auto 0;
+  padding: 11px 24px;
+  border: 1px solid #9aac98;
+  border-radius: 30px;
+  background: transparent;
+  color: #607764;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.magic-preview-btn:hover {
+  background: #edf2e9;
+  color: #405746;
+}
+
+.magic-scene[hidden] {
+  display: none !important;
+}
+
+.magic-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(
+    ellipse at center,
+    #f6f3e9 0%,
+    #e8eee5 75%,
+    #e2eadf 100%
+  );
+}
+
+.magic-close {
+  position: absolute;
+  top: 25px;
+  right: 26px;
+  z-index: 5;
+  padding: 8px 13px;
+  border: 1px solid #c9d6c7;
+  border-radius: 25px;
+  background: #ffffffbb;
+  color: #536b57;
+  cursor: pointer;
+}
+
+.magic-letter {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  width: 150px;
+  height: 102px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 12px 12px #59664b33);
+}
+
+.magic-envelope {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid #cab898;
+  border-radius: 5px;
+  background: #e9dcc3;
+}
+
+.magic-envelope::before {
+  content: "";
+  position: absolute;
+  top: -77px;
+  left: 21px;
+  width: 106px;
+  height: 106px;
+  transform: rotate(45deg);
+  border-right: 1px solid #bca888;
+  border-bottom: 1px solid #bca888;
+  background: #f8eed9;
+}
+
+.magic-envelope::after {
+  content: "";
+  position: absolute;
+  bottom: -63px;
+  left: 24px;
+  width: 102px;
+  height: 102px;
+  transform: rotate(45deg);
+  border-top: 1px solid #d2c1a3;
+  border-left: 1px solid #d2c1a3;
+  background: #eee0c5;
+}
+
+.magic-wax {
+  position: absolute;
+  z-index: 2;
+  left: 61px;
+  top: 42px;
+  width: 28px;
+  height: 28px;
+  border-radius: 46% 54% 49% 51%;
+  background: #799077;
+  border: 3px double #506950;
+  box-shadow: 0 2px 4px #403c2c44;
+  transform: scale(0);
+}
+
+.magic-wax::after {
+  content: "F";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e8eddf;
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+
+.magic-particle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c6a66d;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.magic-scene.playing .magic-letter {
+  animation: magicFlight 4.2s ease-in-out forwards;
+}
+
+.magic-scene.playing .magic-wax {
+  animation: magicSeal .55s .65s ease-out forwards;
+}
+
+.magic-scene.playing .magic-particle {
+  animation: magicSpark 1.6s ease-out both;
+  animation-delay: var(--delay);
+}
+
+@keyframes magicSeal {
+  0% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes magicFlight {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 80%) scale(.8);
+  }
+  18% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  36% {
+    opacity: 1;
+    transform:
+      translate(-50%, -75%) scale(1.07)
+      rotate(-8deg);
+  }
+  55% {
+    opacity: 1;
+    transform:
+      translate(-5%, -105%) scale(.95)
+      rotate(9deg);
+  }
+  75% {
+    opacity: 1;
+    transform:
+      translate(100%, -170%) scale(.7)
+      rotate(-12deg);
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate(260%, -300%) scale(.2)
+      rotate(15deg);
+  }
+}
+
+@keyframes magicSpark {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(.3);
+  }
+  35% {
+    opacity: .9;
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate(var(--x), var(--y))
+      scale(.2);
+  }
+}
+
+.magic-finish {
+  position: absolute;
+  z-index: 3;
+  left: 20px;
+  right: 20px;
+  top: 53%;
+  text-align: center;
+  color: #49634e;
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.magic-finish h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, serif;
+  font-size: clamp(23px, 5vw, 32px);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.magic-finish p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.magic-scene.finished .magic-finish {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .8s, transform .8s;
+}
+
+/* DARK MODE */
+
+[data-theme="dark"] .letters-hero {
+  background: linear-gradient(
+    130deg,
+    #26382e,
+    #304638
+  );
+}
+
+[data-theme="dark"] .letters-hero h1,
+[data-theme="dark"] .letters-subtitle,
+[data-theme="dark"] .letters-intro,
+[data-theme="dark"] .letters-eyebrow,
+[data-theme="dark"] .letters-envelope {
+  color: #e1e9de;
+}
+
+[data-theme="dark"] .letters-hero::before {
+  opacity: .15;
+}
+
+[data-theme="dark"] .letters-form-card {
+  background: var(--entry);
+  border-color: #465a49;
+  color: var(--primary);
+}
+
+[data-theme="dark"] .letters-form-card h2,
+[data-theme="dark"] .letters-field label,
+[data-theme="dark"] .letters-date-label {
+  color: var(--primary);
+}
+
+[data-theme="dark"] .letters-field textarea,
+[data-theme="dark"] .letters-field input,
+[data-theme="dark"] .letters-field select {
+  background: var(--theme);
+  color: var(--primary);
+  border-color: #4a604e;
+}
+
+[data-theme="dark"] .letters-privacy {
+  background: #293b30;
+  color: #d1ded0;
+}
+
+[data-theme="dark"] .letters-privacy strong {
+  color: #dce7d8;
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+  .future-letters {
+    padding: 10px 0 45px;
+  }
+
+  .letters-hero {
+    padding: 45px 22px 38px;
+    border-radius: 17px;
+  }
+
+  .letters-hero h1 {
+    font-size: 31px;
+  }
+
+  .letters-subtitle {
+    font-size: 16px;
+    margin-bottom: 23px;
+  }
+
+  .letters-intro {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .letters-form-card {
+    padding: 27px 19px;
+    border-radius: 16px;
+  }
+
+  .letters-form-card h2 {
+    font-size: 24px;
+  }
+
+  .letters-two-col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .letters-field textarea {
+    min-height: 230px;
+  }
+
+  .letters-date-fields {
+    grid-template-columns: 1.2fr 1fr 1fr;
+  }
+
+  .letters-privacy {
+    padding: 22px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magic-scene.playing .magic-letter,
+  .magic-scene.playing .magic-wax,
+  .magic-scene.playing .magic-particle {
+    animation: none;
+  }
+
+  .magic-scene.playing .magic-letter {
+    opacity: 0;
+  }
+
+  .magic-scene.finished .magic-finish {
+    transition: none;
+  }
+}
+</style>
+
+<section
+  class="future-letters"
+  id="futureLetters"
+  data-language="{{ .Lang }}">
+
+  <div class="letters-hero">
+
+    <div class="letters-hero-top">
+      <div class="letters-envelope" aria-hidden="true">
+        ✉
+      </div>
+
+      <div class="letters-eyebrow" id="lettersEyebrow">
+        FLOWANRIVER · A QUIET CORNER
+      </div>
+
+      <h1 id="lettersTitle">
+        Letters to the Future
+      </h1>
+
+      <div class="letters-subtitle" id="lettersSubtitle">
+        You may forget, but time will remember.
+      </div>
+    </div>
+
+    <div class="letters-intro" id="lettersIntro">
+      <p>
+        Imagine opening your inbox one ordinary day
+        and finding an unexpected letter.
+        The sender is no one else but you,
+        writing from a few months or even years ago.
+      </p>
+    </div>
+
   </div>
-  {{- end }}
-  {{- partial "extend_post_content.html" . }}
-  <footer class="post-footer">
-    {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}
-    <ul class="post-tags">
-      {{- range ($.GetTerms $tags) }}
-      <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-    {{- if (.Param "ShowPostNavLinks") }}
-    {{- partial "post_nav_links.html" . }}
-    {{- end }}
-    
-  </footer>
-  {{- if (.Param "comments") }}
-  {{- partial "comments.html" . }}
-  {{- end }}
-</article>
-{{- end }}
+
+  <div class="letters-form-card">
+
+    <h2 id="lettersFormHeading">
+      Your Letter
+    </h2>
+
+    <div class="letters-field">
+      <label for="futureLetterText" id="lettersContentLabel">
+        What would you like to tell your future self?
+      </label>
+
+      <textarea
+        id="futureLetterText"
+        maxlength="10000"
+        placeholder="A thought, a memory, a wish, or anything you'd like to remember..."></textarea>
+    </div>
+
+    <div class="letters-two-col">
+
+      <div class="letters-field">
+        <label class="letters-date-label"
+               for="letterYear"
+               id="lettersDateLabel">
+          When should it arrive?
+        </label>
+
+        <div class="letters-date-fields">
+
+          <select id="letterYear" aria-label="Year">
+            <option value="">Year</option>
+          </select>
+
+          <select id="letterMonth" aria-label="Month">
+            <option value="">Month</option>
+          </select>
+
+          <select id="letterDay" aria-label="Day">
+            <option value="">Day</option>
+          </select>
+
+        </div>
+
+        <div class="letters-date-hint" id="lettersDateHint">
+          Choose a future date
+        </div>
+      </div>
+
+      <div class="letters-field">
+        <label for="futureLetterEmail" id="lettersEmailLabel">
+          Your email address
+        </label>
+
+        <input
+          type="email"
+          id="futureLetterEmail"
+          autocomplete="email"
+          placeholder="hello@example.com">
+      </div>
+
+    </div>
+
+    <div class="letters-field">
+      <div
+        id="lettersTurnstile"
+        class="cf-turnstile"
+        data-sitekey="0x4AAAAAAFneuTcGGFhkhTkF"
+        data-callback="onLettersTurnstileSuccess"
+        data-expired-callback="onLettersTurnstileExpired"
+        data-error-callback="onLettersTurnstileError">
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="letters-send"
+      id="sealLetterButton">
+      Seal My Letter
+    </button>
+
+    <p
+      class="letters-preview-note"
+      id="lettersStatus"
+      role="status"
+      aria-live="polite">
+      After submitting, please check your inbox and
+      confirm your email within 24 hours.
+      Your letter will only be scheduled after confirmation.
+    </p>
+
+    <div class="letters-privacy">
+      <strong id="lettersPrivacyTitle">
+        ♡ A Little Promise from Flowanriver
+      </strong>
+
+      <p id="lettersPrivacyText">
+        Your letter is personal. We respect your privacy
+        and will not intentionally read, share, or publish
+        your words without your permission.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="letters-footer-note">
+    <span class="letters-flower" aria-hidden="true">
+      ❧
+    </span>
+
+    <span id="lettersFooterQuote">
+      A little piece of today, waiting for tomorrow.
+    </span>
+  </div>
+
+</section>
+
+<!-- LETTER ANIMATION -->
+
+<div style="text-align:center">
+  <button
+    type="button"
+    id="magicPreviewButton"
+    class="magic-preview-btn">
+    ✨ Preview Letter Animation
+  </button>
+</div>
+
+<div
+  id="magicScene"
+  class="magic-scene"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Letter animation preview"
+  hidden>
+
+  <button
+    type="button"
+    id="magicClose"
+    class="magic-close"
+    aria-label="Close animation">
+    ✕
+  </button>
+
+  <div class="magic-letter" aria-hidden="true">
+    <div class="magic-envelope"></div>
+    <div class="magic-wax"></div>
+  </div>
+
+  <div id="magicParticles" aria-hidden="true"></div>
+
+  <div class="magic-finish" aria-live="polite">
+    <div style="font-size:31px;margin-bottom:15px">
+      ✉
+    </div>
+
+    <h2 id="magicFinishTitle">
+      Your letter is sealed. Until we meet again.
+    </h2>
+
+    <p id="magicFinishNote">
+      A little piece of today, waiting for tomorrow.
+    </p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  const root = document.getElementById("futureLetters");
+  if (!root) return;
+
+  const rawLanguage = (
+    root.dataset.language || "en"
+  ).toLowerCase();
+
+  const language = ["en", "zh", "ko", "vi", "fil", "ja"]
+    .includes(rawLanguage)
+    ? rawLanguage
+    : "en";
+
+  const translations = {
+    en: {
+      eyebrow: "FLOWANRIVER · A QUIET CORNER",
+      title: "Letters to the Future",
+      subtitle: "You may forget, but time will remember.",
+      intro: [
+        "Imagine opening your inbox one ordinary day and finding an unexpected letter. The sender is no one else but you, writing from a few months or even years ago.",
+        "The letter might remind you of how you felt back then, what life was like, or the people and things that once meant so much to you. Perhaps you see things differently now. Perhaps those worries are long gone, or you've almost forgotten why you wrote those words in the first place.",
+        "You may have forgotten, but time has kept that moment for you.",
+        "So, what would you like to leave for your future self?",
+        "You don't need a special reason, and you don't have to wait for an important occasion. Write whatever is on your mind today, choose a date in the future, and let these words find their way back to you."
+      ],
+      formHeading: "Your Letter",
+      contentLabel: "What would you like to tell your future self?",
+      placeholder: "A thought, a memory, a wish, or anything you'd like to remember...",
+      dateLabel: "When should it arrive?",
+      year: "Year",
+      month: "Month",
+      day: "Day",
+      dateHint: "Choose a future date",
+      emailLabel: "Your email address",
+      submit: "Seal My Letter",
+      pending: "After submitting, please check your inbox and confirm your email within 24 hours. Your letter will only be scheduled after confirmation.",
+      privacyTitle: "♡ A Little Promise from Flowanriver",
+      privacyText: "Your letter is personal. We respect your privacy and will not intentionally read, share, or publish your words without your permission.",
+      footer: "A little piece of today, waiting for tomorrow.",
+      preview: "✨ Preview Letter Animation",
+      animationLabel: "Letter animation preview",
+      closeLabel: "Close animation",
+      sealedTitle: "Your letter is sealed. Until we meet again.",
+      submittedTitle: "Check your inbox",
+      submittedNote: "Please confirm your email within 24 hours to schedule your letter.",
+      missing: "Please complete your letter, date and email.",
+      invalidEmail: "Please enter a valid email address.",
+      invalidDate: "Please choose tomorrow or a later date.",
+      verify: "Please complete the security verification.",
+      sending: "Sending...",
+      success: "Please check your inbox and confirm your email within 24 hours. Your letter will be scheduled after confirmation.",
+      closed: "Letter submissions are not open yet.",
+      error: "Unable to submit your letter. Please try again."
+    },
+
+    zh: {
+      eyebrow: "FLOWANRIVER · 一处安静的角落",
+      title: "写给未来的自己",
+      subtitle: "你可能会忘记，但时间会记得。",
+      intro: [
+        "想象一下，也许在未来的某一天，你像往常一样打开邮箱，却意外收到一封信。",
+        "寄件人不是别人，而是几个月前，或是几年前的自己。",
+        "信里写着那时的心情、正在经历的生活，还有一些曾经很在意的人和事。也许现在的你已经有了不同的答案，也许那些烦恼早已过去，甚至连当初为什么写下这些话都记不清了。",
+        "你可能已经忘记，但时间替你记住了那一刻。",
+        "如果可以，你想给未来的自己留下什么？",
+        "不需要特别的理由，也不必等到重要的日子。写下此刻想说的话，选一个未来的日期，让它在某一天重新回到你身边。"
+      ],
+      formHeading: "写给未来的一封信",
+      contentLabel: "此刻的你，有什么话想留给未来？",
+      placeholder: "写下此刻的心情、一个愿望，或任何你想留给未来的话……",
+      dateLabel: "希望哪一天收到？",
+      year: "年",
+      month: "月",
+      day: "日",
+      dateHint: "选择一个未来的日期",
+      emailLabel: "你的邮箱地址",
+      submit: "封存这封信",
+      pending: "提交后，请在24小时内前往邮箱完成确认。确认成功后，信件才会正式预约寄送。",
+      privacyTitle: "♡ Flowanriver 的一份小小承诺",
+      privacyText: "你的信件属于你自己。我们尊重每个人的隐私，未经你的允许，不会主动阅读、分享或公开你的信件。",
+      footer: "把今天的一小段时光，留给未来的自己。",
+      preview: "✨ 预览信封动画",
+      animationLabel: "信封动画预览",
+      closeLabel: "关闭动画",
+      sealedTitle: "信已封存，未来再见。",
+      submittedTitle: "请查看你的邮箱",
+      submittedNote: "请在24小时内完成邮箱确认。确认后，这封信才会正式预约寄送。",
+      missing: "请填写信件内容、寄送日期和邮箱。",
+      invalidEmail: "请输入有效的邮箱地址。",
+      invalidDate: "请选择明天或之后的日期。",
+      verify: "请先完成人机验证。",
+      sending: "正在提交……",
+      success: "确认邮件已提交发送。请在24小时内前往邮箱完成确认，确认后信件才会正式预约。",
+      closed: "寄信功能暂未开放。",
+      error: "提交失败，请稍后重试。"
+    },
+
+    ko: {
+      eyebrow: "FLOWANRIVER · 고요한 공간",
+      title: "미래의 나에게 쓰는 편지",
+      subtitle: "당신은 잊어도, 시간은 기억할 거예요.",
+      intro: [
+        "어느 평범한 날, 이메일함을 열었는데 뜻밖의 편지 한 통이 도착해 있다고 상상해 보세요. 보낸 사람은 다름 아닌 몇 달 전, 혹은 몇 년 전의 당신입니다.",
+        "그 편지에는 당시의 마음과 일상, 소중하게 여겼던 사람들과 순간들이 담겨 있을지도 모릅니다. 지금은 생각이 달라졌을 수도 있고, 그때의 고민이 이미 지나갔을 수도 있겠지요.",
+        "당신은 잊었을지 몰라도, 시간은 그 순간을 간직하고 있습니다.",
+        "미래의 자신에게 어떤 말을 남기고 싶나요?",
+        "특별한 이유나 기념일이 없어도 괜찮아요. 지금 마음에 떠오르는 이야기를 적고 미래의 날짜를 선택해 보세요. 언젠가 그 말들이 다시 당신에게 돌아올 거예요."
+      ],
+      formHeading: "나의 편지",
+      contentLabel: "미래의 나에게 어떤 말을 전하고 싶나요?",
+      placeholder: "지금의 생각, 추억, 소망 또는 오래 기억하고 싶은 이야기를 적어 보세요...",
+      dateLabel: "언제 편지를 받고 싶나요?",
+      year: "년",
+      month: "월",
+      day: "일",
+      dateHint: "미래의 날짜를 선택하세요",
+      emailLabel: "이메일 주소",
+      submit: "편지 봉인하기",
+      pending: "제출 후 24시간 이내에 이메일을 확인해 주세요. 이메일 인증을 완료해야 편지 발송이 예약됩니다.",
+      privacyTitle: "♡ Flowanriver의 작은 약속",
+      privacyText: "이 편지는 당신만의 이야기입니다. 우리는 개인정보를 존중하며, 허락 없이 편지를 의도적으로 읽거나 공유하거나 공개하지 않습니다.",
+      footer: "오늘의 작은 순간을 미래의 나에게 남겨 보세요.",
+      preview: "✨ 편지 애니메이션 미리 보기",
+      animationLabel: "편지 애니메이션 미리 보기",
+      closeLabel: "애니메이션 닫기",
+      sealedTitle: "편지를 봉인했어요. 미래에 다시 만나요.",
+      submittedTitle: "이메일을 확인해 주세요",
+      submittedNote: "24시간 이내에 이메일 인증을 완료해야 편지 발송이 예약됩니다.",
+      missing: "편지 내용, 발송 날짜, 이메일을 모두 입력해 주세요.",
+      invalidEmail: "올바른 이메일 주소를 입력해 주세요.",
+      invalidDate: "내일 이후의 날짜를 선택해 주세요.",
+      verify: "보안 인증을 완료해 주세요.",
+      sending: "제출 중...",
+      success: "이메일을 확인하고 24시간 이내에 인증을 완료해 주세요. 인증 후 편지 발송이 예약됩니다.",
+      closed: "현재 편지 접수를 진행하지 않습니다.",
+      error: "편지를 제출하지 못했습니다. 다시 시도해 주세요."
+    },
+
+    vi: {
+      eyebrow: "FLOWANRIVER · MỘT GÓC BÌNH YÊN",
+      title: "Lá thư gửi đến tương lai",
+      subtitle: "Bạn có thể quên, nhưng thời gian sẽ nhớ.",
+      intro: [
+        "Hãy tưởng tượng một ngày bình thường, bạn mở hộp thư và bất ngờ nhận được một lá thư. Người gửi không ai khác chính là bạn của vài tháng, hoặc vài năm trước.",
+        "Lá thư có thể nhắc bạn nhớ về những cảm xúc ngày ấy, cuộc sống khi đó và những người hay những điều từng rất quan trọng. Có lẽ bây giờ bạn đã nghĩ khác, hoặc những lo lắng ngày xưa đã qua từ lâu.",
+        "Bạn có thể đã quên, nhưng thời gian vẫn giữ lại khoảnh khắc ấy.",
+        "Vậy bạn muốn nhắn gửi điều gì đến chính mình trong tương lai?",
+        "Không cần một lý do đặc biệt hay một dịp quan trọng. Hãy viết điều đang ở trong lòng bạn hôm nay, chọn một ngày trong tương lai và để những lời ấy tìm đường trở lại bên bạn."
+      ],
+      formHeading: "Lá thư của bạn",
+      contentLabel: "Bạn muốn nói điều gì với bản thân trong tương lai?",
+      placeholder: "Một suy nghĩ, một kỷ niệm, một điều ước hoặc bất cứ điều gì bạn muốn ghi nhớ...",
+      dateLabel: "Bạn muốn nhận thư vào ngày nào?",
+      year: "Năm",
+      month: "Tháng",
+      day: "Ngày",
+      dateHint: "Chọn một ngày trong tương lai",
+      emailLabel: "Địa chỉ email của bạn",
+      submit: "Niêm phong lá thư",
+      pending: "Sau khi gửi, hãy kiểm tra email và xác nhận trong vòng 24 giờ. Lá thư chỉ được lên lịch sau khi bạn xác nhận.",
+      privacyTitle: "♡ Một lời hứa nhỏ từ Flowanriver",
+      privacyText: "Lá thư là câu chuyện riêng của bạn. Chúng tôi tôn trọng quyền riêng tư và sẽ không cố ý đọc, chia sẻ hay công khai nội dung thư khi chưa được bạn cho phép.",
+      footer: "Giữ lại một chút của hôm nay cho ngày mai.",
+      preview: "✨ Xem trước hiệu ứng lá thư",
+      animationLabel: "Xem trước hiệu ứng lá thư",
+      closeLabel: "Đóng hiệu ứng",
+      sealedTitle: "Lá thư đã được niêm phong. Hẹn gặp lại trong tương lai.",
+      submittedTitle: "Hãy kiểm tra email",
+      submittedNote: "Vui lòng xác nhận email trong vòng 24 giờ để hoàn tất lịch gửi thư.",
+      missing: "Vui lòng nhập nội dung thư, ngày nhận và email.",
+      invalidEmail: "Vui lòng nhập địa chỉ email hợp lệ.",
+      invalidDate: "Vui lòng chọn ngày mai hoặc một ngày sau đó.",
+      verify: "Vui lòng hoàn tất xác minh bảo mật.",
+      sending: "Đang gửi...",
+      success: "Hãy kiểm tra email và xác nhận trong vòng 24 giờ. Lá thư sẽ được lên lịch sau khi xác nhận.",
+      closed: "Tính năng gửi thư hiện chưa mở.",
+      error: "Không thể gửi thư. Vui lòng thử lại."
+    },
+
+    fil: {
+      eyebrow: "FLOWANRIVER · ISANG TAHIMIK NA SULOK",
+      title: "Liham para sa Hinaharap",
+      subtitle: "Maaaring makalimot ka, ngunit maaalala ng panahon.",
+      intro: [
+        "Isipin mong isang ordinaryong araw, binuksan mo ang iyong inbox at may nakita kang hindi inaasahang liham. Ang nagpadala ay walang iba kundi ang sarili mo ilang buwan o ilang taon na ang nakalipas.",
+        "Maaaring ipaalala ng liham ang nararamdaman mo noon, ang buhay mo sa panahong iyon, at ang mga tao at bagay na mahalaga sa iyo. Marahil ay iba na ang pananaw mo ngayon, o matagal nang lumipas ang mga alalahanin mo.",
+        "Maaaring nakalimutan mo na, pero iningatan ng panahon ang sandaling iyon.",
+        "Ano ang gusto mong sabihin sa sarili mo sa hinaharap?",
+        "Hindi mo kailangan ng espesyal na dahilan o okasyon. Isulat ang anumang nasa isip mo ngayon, pumili ng petsa sa hinaharap, at hayaang bumalik sa iyo ang mga salitang ito balang araw."
+      ],
+      formHeading: "Ang Iyong Liham",
+      contentLabel: "Ano ang gusto mong sabihin sa sarili mo sa hinaharap?",
+      placeholder: "Isang alaala, pangarap, saloobin, o anumang nais mong maalala...",
+      dateLabel: "Kailan mo gustong matanggap ito?",
+      year: "Taon",
+      month: "Buwan",
+      day: "Araw",
+      dateHint: "Pumili ng petsa sa hinaharap",
+      emailLabel: "Iyong email address",
+      submit: "Selyuhan ang Liham",
+      pending: "Pagkatapos magsumite, tingnan ang iyong inbox at kumpirmahin ang email sa loob ng 24 oras. Maiiskedyul lamang ang liham pagkatapos ng kumpirmasyon.",
+      privacyTitle: "♡ Isang Munting Pangako mula sa Flowanriver",
+      privacyText: "Personal ang iyong liham. Iginagalang namin ang iyong privacy at hindi namin sinasadyang babasahin, ibabahagi, o ilalathala ang iyong mga salita nang walang pahintulot mo.",
+      footer: "Isang munting bahagi ng ngayon, para sa bukas.",
+      preview: "✨ Silipin ang Animasyon ng Liham",
+      animationLabel: "Preview ng animasyon ng liham",
+      closeLabel: "Isara ang animasyon",
+      sealedTitle: "Naselyuhan na ang liham. Hanggang sa muli sa hinaharap.",
+      submittedTitle: "Tingnan ang iyong inbox",
+      submittedNote: "Kumpirmahin ang iyong email sa loob ng 24 oras upang maiiskedyul ang liham.",
+      missing: "Pakilagyan ng nilalaman, petsa, at email ang liham.",
+      invalidEmail: "Maglagay ng wastong email address.",
+      invalidDate: "Pumili ng bukas o mas huling petsa.",
+      verify: "Kumpletuhin muna ang security verification.",
+      sending: "Isinusumite...",
+      success: "Tingnan ang iyong inbox at kumpirmahin ang email sa loob ng 24 oras. Maiiskedyul ang liham pagkatapos ng kumpirmasyon.",
+      closed: "Hindi pa bukas ang pagpapadala ng liham.",
+      error: "Hindi maisumite ang liham. Pakisubukang muli."
+    },
+
+    ja: {
+      eyebrow: "FLOWANRIVER · 静かなひととき",
+      title: "未来の自分へ手紙を",
+      subtitle: "あなたが忘れても、時間は覚えています。",
+      intro: [
+        "いつもと変わらないある日、メールを開くと、思いがけない一通の手紙が届いていたら。差出人は、数か月前、あるいは数年前のあなた自身です。",
+        "そこには、当時の気持ちや暮らし、大切にしていた人や出来事が綴られているかもしれません。今は考え方が変わっていたり、あの頃の悩みがすっかり過去のものになっていたりするでしょう。",
+        "あなたが忘れてしまっても、時間はその瞬間をそっと残してくれます。",
+        "未来の自分に、どんな言葉を届けたいですか。",
+        "特別な理由も、大切な記念日も必要ありません。今日の気持ちをそのまま書き、未来の日付を選んでください。いつか、その言葉があなたのもとへ帰ってきます。"
+      ],
+      formHeading: "あなたの手紙",
+      contentLabel: "未来の自分に、何を伝えたいですか？",
+      placeholder: "今の気持ち、思い出、願いごと、未来に残しておきたい言葉を自由に書いてください…",
+      dateLabel: "いつ手紙を受け取りたいですか？",
+      year: "年",
+      month: "月",
+      day: "日",
+      dateHint: "未来の日付を選んでください",
+      emailLabel: "メールアドレス",
+      submit: "手紙を封じる",
+      pending: "送信後、24時間以内に確認メールのリンクを開いてください。確認が完了すると、手紙の配信が予約されます。",
+      privacyTitle: "♡ Flowanriverからの小さなお約束",
+      privacyText: "この手紙は、あなただけの大切な言葉です。私たちはプライバシーを尊重し、許可なく手紙を意図的に読んだり、共有したり、公開したりしません。",
+      footer: "今日の小さなかけらを、未来の自分へ。",
+      preview: "✨ 手紙のアニメーションを見る",
+      animationLabel: "手紙のアニメーションプレビュー",
+      closeLabel: "アニメーションを閉じる",
+      sealedTitle: "手紙を封じました。未来でまた会いましょう。",
+      submittedTitle: "メールをご確認ください",
+      submittedNote: "24時間以内にメール認証を完了してください。認証後に配信が予約されます。",
+      missing: "手紙の内容、配信日、メールアドレスを入力してください。",
+      invalidEmail: "有効なメールアドレスを入力してください。",
+      invalidDate: "明日以降の日付を選んでください。",
+      verify: "セキュリティ認証を完了してください。",
+      sending: "送信中...",
+      success: "メールをご確認のうえ、24時間以内に認証を完了してください。認証後に手紙の配信が予約されます。",
+      closed: "現在、手紙の受付は行っていません。",
+      error: "手紙を送信できませんでした。もう一度お試しください。"
+    }
+  };
+
+  const t = translations[language];
+
+  function setText(id, value) {
+    const element = document.getElementById(id);
+    if (element) element.textContent = value;
+  }
+
+  // Apply the current Hugo language to all visible content.
+  setText("lettersEyebrow", t.eyebrow);
+  setText("lettersTitle", t.title);
+  setText("lettersSubtitle", t.subtitle);
+  setText("lettersFormHeading", t.formHeading);
+  setText("lettersContentLabel", t.contentLabel);
+  setText("lettersDateLabel", t.dateLabel);
+  setText("lettersDateHint", t.dateHint);
+  setText("lettersEmailLabel", t.emailLabel);
+  setText("sealLetterButton", t.submit);
+  setText("lettersStatus", t.pending);
+  setText("lettersPrivacyTitle", t.privacyTitle);
+  setText("lettersPrivacyText", t.privacyText);
+  setText("lettersFooterQuote", t.footer);
+  setText("magicPreviewButton", t.preview);
+
+  const intro = document.getElementById("lettersIntro");
+
+  if (intro) {
+    intro.replaceChildren();
+
+    t.intro.forEach(function (paragraph) {
+      const element = document.createElement("p");
+      element.textContent = paragraph;
+      intro.appendChild(element);
+    });
+
+    intro.lang = language;
+  }
+
+  const contentField = document.getElementById(
+    "futureLetterText"
+  );
+  const emailField = document.getElementById(
+    "futureLetterEmail"
+  );
+  const yearField = document.getElementById("letterYear");
+  const monthField = document.getElementById("letterMonth");
+  const dayField = document.getElementById("letterDay");
+
+  contentField.placeholder = t.placeholder;
+  contentField.lang = language;
+
+  yearField.options[0].textContent = t.year;
+  monthField.options[0].textContent = t.month;
+  dayField.options[0].textContent = t.day;
+
+  yearField.setAttribute("aria-label", t.year);
+  monthField.setAttribute("aria-label", t.month);
+  dayField.setAttribute("aria-label", t.day);
+
+  // DATE OPTIONS
+
+  const today = new Date();
+
+  for (
+    let year = today.getFullYear();
+    year <= today.getFullYear() + 10;
+    year++
+  ) {
+    const option = document.createElement("option");
+    option.value = String(year);
+    option.textContent = String(year);
+    yearField.appendChild(option);
+  }
+
+  for (let month = 1; month <= 12; month++) {
+    const option = document.createElement("option");
+    option.value = String(month).padStart(2, "0");
+    option.textContent = String(month);
+    monthField.appendChild(option);
+  }
+
+  function updateDays() {
+    const previousDay = dayField.value;
+
+    while (dayField.options.length > 1) {
+      dayField.remove(1);
+    }
+
+    const year = Number(yearField.value);
+    const month = Number(monthField.value);
+
+    if (!year || !month) return;
+
+    const totalDays = new Date(
+      year,
+      month,
+      0
+    ).getDate();
+
+    for (let day = 1; day <= totalDays; day++) {
+      const option = document.createElement("option");
+      option.value = String(day).padStart(2, "0");
+      option.textContent = String(day);
+      dayField.appendChild(option);
+    }
+
+    if (
+      previousDay &&
+      Number(previousDay) <= totalDays
+    ) {
+      dayField.value = previousDay;
+    }
+  }
+
+  yearField.addEventListener("change", updateDays);
+  monthField.addEventListener("change", updateDays);
+
+  // TURNSTILE
+
+  window.onLettersTurnstileSuccess = function (token) {
+    window.lettersTurnstileToken = token;
+  };
+
+  window.onLettersTurnstileExpired = function () {
+    window.lettersTurnstileToken = "";
+  };
+
+  window.onLettersTurnstileError = function (code) {
+    window.lettersTurnstileToken = "";
+    console.error(
+      "Flowanriver Turnstile error code:",
+      code
+    );
+  };
+
+  function resetVerification() {
+    window.lettersTurnstileToken = "";
+
+    if (window.turnstile) {
+      try {
+        window.turnstile.reset("#lettersTurnstile");
+      } catch (error) {
+        console.warn("Turnstile reset unavailable.");
+      }
+    }
+  }
+
+  // ANIMATION
+
+  const preview = document.getElementById(
+    "magicPreviewButton"
+  );
+  const scene = document.getElementById("magicScene");
+  const close = document.getElementById("magicClose");
+  const particles = document.getElementById(
+    "magicParticles"
+  );
+  const animationTitle = document.getElementById(
+    "magicFinishTitle"
+  );
+  const animationNote = document.getElementById(
+    "magicFinishNote"
+  );
+
+  scene.setAttribute("aria-label", t.animationLabel);
+  close.setAttribute("aria-label", t.closeLabel);
+
+  let finishTimer;
+  let previousFocus = null;
+
+  const positions = [
+    [-120, -70], [-65, -135], [25, -115],
+    [105, -90], [160, -155], [-160, 40],
+    [-35, 75], [90, 50], [175, 35],
+    [-90, 130], [45, 150], [215, -55],
+    [-190, -110], [120, 110], [-15, -190]
+  ];
+
+  positions.forEach(function (position, index) {
+    const spark = document.createElement("span");
+    spark.className = "magic-particle";
+    spark.style.setProperty(
+      "--x",
+      position[0] + "px"
+    );
+    spark.style.setProperty(
+      "--y",
+      position[1] + "px"
+    );
+    spark.style.setProperty(
+      "--delay",
+      (1.1 + index * .14) + "s"
+    );
+    particles.appendChild(spark);
+  });
+
+  function openAnimation(isSubmission) {
+    previousFocus = document.activeElement;
+    clearTimeout(finishTimer);
+
+    animationTitle.textContent = isSubmission
+      ? t.submittedTitle
+      : t.sealedTitle;
+
+    animationNote.textContent = isSubmission
+      ? t.submittedNote
+      : t.footer;
+
+    scene.hidden = false;
+    scene.classList.remove("playing", "finished");
+
+    void scene.offsetWidth;
+
+    scene.classList.add("playing");
+    close.focus();
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    finishTimer = setTimeout(function () {
+      scene.classList.add("finished");
+    }, reduceMotion ? 100 : 4100);
+  }
+
+  function closeAnimation() {
+    clearTimeout(finishTimer);
+    scene.classList.remove("playing", "finished");
+    scene.hidden = true;
+
+    if (
+      previousFocus &&
+      typeof previousFocus.focus === "function"
+    ) {
+      previousFocus.focus();
+    }
+  }
+
+  preview.addEventListener("click", function () {
+    openAnimation(false);
+  });
+
+  window.addEventListener(
+    "flowanriver:letter-submitted",
+    function () {
+      openAnimation(true);
+    }
+  );
+
+  close.addEventListener("click", closeAnimation);
+
+  scene.addEventListener("click", function (event) {
+    if (event.target === scene) {
+      closeAnimation();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (scene.hidden) return;
+
+    if (event.key === "Escape") {
+      closeAnimation();
+    }
+
+    if (event.key === "Tab") {
+      event.preventDefault();
+      close.focus();
+    }
+  });
+
+  // LETTER SUBMISSION
+
+  const button = document.getElementById(
+    "sealLetterButton"
+  );
+  const note = document.getElementById("lettersStatus");
+
+  let submitting = false;
+  let submitted = false;
+
+  function showMessage(key) {
+    note.textContent = t[key];
+  }
+
+  button.addEventListener("click", async function () {
+    if (submitting || submitted) return;
+
+    const content = contentField.value.trim();
+    const email = emailField.value.trim();
+    const year = yearField.value;
+    const month = monthField.value;
+    const day = dayField.value;
+
+    if (!content || !email || !year || !month || !day) {
+      showMessage("missing");
+      return;
+    }
+
+    if (!emailField.checkValidity()) {
+      showMessage("invalidEmail");
+      return;
+    }
+
+    const deliveryDate =
+      `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+    const target = new Date(
+      deliveryDate + "T00:00:00Z"
+    );
+
+    const now = new Date();
+
+    const tomorrow = Date.UTC(
+      now.getUTCFullYear(),
+      now.getUTCMonth(),
+      now.getUTCDate() + 1
+    );
+
+    if (
+      !Number.isFinite(target.getTime()) ||
+      target.toISOString().slice(0, 10) !== deliveryDate ||
+      target.getTime() < tomorrow
+    ) {
+      showMessage("invalidDate");
+      return;
+    }
+
+    const token =
+      window.lettersTurnstileToken ||
+      document.querySelector(
+        'input[name="cf-turnstile-response"]'
+      )?.value;
+
+    if (!token) {
+      showMessage("verify");
+      return;
+    }
+
+    submitting = true;
+    button.disabled = true;
+    button.textContent = t.sending;
+
+    try {
+      const response = await fetch(
+        "/api/letters/submit",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            email,
+            content,
+            deliveryDate,
+            language,
+            turnstileToken: token
+          })
+        }
+      );
+
+      if (response.ok) {
+        submitted = true;
+        showMessage("success");
+        button.disabled = true;
+
+        window.dispatchEvent(
+          new Event("flowanriver:letter-submitted")
+        );
+      } else {
+        showMessage(
+          response.status === 503
+            ? "closed"
+            : "error"
+        );
+
+        resetVerification();
+      }
+    } catch (error) {
+      showMessage("error");
+      resetVerification();
+    } finally {
+      submitting = false;
+
+      if (!submitted) {
+        button.disabled = false;
+      }
+
+      button.textContent = t.submit;
+    }
+  });
+
+})();
+</script>
+
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer>
+</script>
+
+{{ end }}
