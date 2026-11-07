@@ -1,6 +1,6 @@
 ---
 title: "After the $6.3 Billion Binance Hack: What Really Matters for Crypto Security?"
-slug: "\tbinance-hack-crypto-security"
+slug: "binance-hack-crypto-security"
 date: 2026-11-05T13:11:00.000+08:00
 draft: false
 tags:
