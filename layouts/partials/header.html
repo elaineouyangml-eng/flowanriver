@@ -3,6 +3,23 @@
 {{- $labelText := site.Params.label.text | default site.Title -}}
 {{- $searchURL := "/search/" -}}
 
+{{- /* Category links: local page first, English fallback */ -}}
+{{- $aiURL := "/tags/ai/" -}}
+{{- $cryptoURL := "/tags/crypto/" -}}
+{{- $journalURL := "/tags/journal/" -}}
+
+{{- with site.GetPage "/tags/ai" -}}
+  {{- $aiURL = .RelPermalink -}}
+{{- end -}}
+
+{{- with site.GetPage "/tags/crypto" -}}
+  {{- $cryptoURL = .RelPermalink -}}
+{{- end -}}
+
+{{- with site.GetPage "/tags/journal" -}}
+  {{- $journalURL = .RelPermalink -}}
+{{- end -}}
+
 <style>
 /* =========================================
    FLOWANRIVER HEADER
@@ -652,21 +669,21 @@
 
       <!-- AI -->
       <li>
-        <a href="{{ "tags/ai/" | absLangURL }}">
+        <a href="{{ $aiURL }}">
           {{ i18n "ai" }}
         </a>
       </li>
 
       <!-- Crypto -->
       <li>
-        <a href="{{ "tags/crypto/" | absLangURL }}">
+        <a href="{{ $cryptoURL }}">
           {{ i18n "crypto" }}
         </a>
       </li>
 
       <!-- Journal -->
       <li>
-        <a href="{{ "tags/journal/" | absLangURL }}">
+        <a href="{{ $journalURL }}">
           {{ i18n "journal" }}
         </a>
       </li>
@@ -862,7 +879,6 @@
                aria-hidden="true">
 
             <circle cx="12" cy="12" r="9"></circle>
-
             <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path>
 
           </svg>
