@@ -6,8 +6,6 @@ layout = "page"
 
 ![晨雾笼罩的河谷，象征 Flowanriver 的探索与成长](/images/Misty%20Sunrise%20River%20Valley.png)
 
-# 关于 Flowanriver
-
 ### 从一个简单的想法开始
 
 Flowanriver 最初只是一个普通的 Blog。
