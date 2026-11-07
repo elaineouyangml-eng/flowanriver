@@ -1,0 +1,90 @@
+
+[home]
+other = "ホーム"
+
+[ai]
+other = "AI"
+
+[crypto]
+other = "暗号資産"
+
+[journal]
+other = "エッセイ"
+
+[letters]
+other = "未来への手紙"
+
+[about]
+other = "サイトについて"
+
+[aboutUs]
+other = "私について"
+
+[contactUs]
+other = "お問い合わせ"
+
+[signIn]
+other = "ログイン"
+
+[signInPi]
+other = "Piでログイン"
+
+[searchArticles]
+other = "記事を検索..."
+
+[search]
+other = "検索"
+
+[chooseLanguage]
+other = "言語を選択"
+
+[heroSubtitle1]
+other = "AIと暗号資産、そして日々の暮らしを、自分の言葉で。"
+
+[heroSubtitle2]
+other = "学び、試し、考えながら歩んでいく日々の記録。"
+
+[scroll]
+other = "スクロール"
+
+[lettersKicker]
+other = "未来への手紙"
+
+[lettersTitle]
+other = "未来の自分へ"
+
+[lettersCTA]
+other = "手紙を書く"
+
+[journalKicker]
+other = "日々の記録"
+
+[latestStories]
+other = "最新の記事"
+
+[seeAll]
+other = "すべての記事を見る"
+
+[footerTagline]
+other = "アイデアと物語、そして続いていく日々。"
+
+[footerExplore]
+other = "カテゴリー"
+
+[footerInformation]
+other = "サイト情報"
+
+[privacyPolicy]
+other = "プライバシーポリシー"
+
+[termsOfService]
+other = "利用規約"
+
+[disclaimer]
+other = "免責事項"
+
+[faq]
+other = "よくある質問"
+
+[allRightsReserved]
+other = "無断転載を禁じます。"
