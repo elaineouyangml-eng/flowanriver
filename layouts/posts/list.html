@@ -1,12 +1,124 @@
 
 {{ define "main" }}
 
-{{- $isZH := eq .Lang "zh" -}}
-{{- $pages := .RegularPages.ByDate.Reverse -}}
+{{- $lang := .Lang -}}
+{{- $useEnglishFallback := in (slice "vi" "ko" "fil" "ja") $lang -}}
+
+{{- /* Default interface text */ -}}
+{{- $pageTitle := "All Stories" -}}
+{{- $description := "Stories and reflections on technology, business, culture, and everyday life" -}}
+{{- $latestLabel := "Latest Stories" -}}
+{{- $articleUnit := "Articles" -}}
+{{- $previousLabel := "Previous" -}}
+{{- $nextLabel := "Next" -}}
+{{- $englishLabel := "English" -}}
+
+{{- if eq $lang "zh" -}}
+  {{- $pageTitle = "全部文章" -}}
+  {{- $description = "看世界变化万千，写日常平凡知趣" -}}
+  {{- $latestLabel = "最新文章" -}}
+  {{- $articleUnit = "篇文章" -}}
+  {{- $previousLabel = "上一页" -}}
+  {{- $nextLabel = "下一页" -}}
+  {{- $englishLabel = "英文" -}}
+{{- else if eq $lang "ja" -}}
+  {{- $pageTitle = "すべての記事" -}}
+  {{- $description = "テクノロジー、ビジネス、文化、そして日々の暮らしについての記録" -}}
+  {{- $latestLabel = "最新の記事" -}}
+  {{- $articleUnit = "記事" -}}
+  {{- $previousLabel = "前へ" -}}
+  {{- $nextLabel = "次へ" -}}
+  {{- $englishLabel = "英語" -}}
+{{- else if eq $lang "ko" -}}
+  {{- $pageTitle = "모든 글" -}}
+  {{- $description = "기술, 비즈니스, 문화 그리고 일상에 대한 이야기와 생각" -}}
+  {{- $latestLabel = "최신 글" -}}
+  {{- $articleUnit = "개의 글" -}}
+  {{- $previousLabel = "이전" -}}
+  {{- $nextLabel = "다음" -}}
+  {{- $englishLabel = "영어" -}}
+{{- else if eq $lang "vi" -}}
+  {{- $pageTitle = "Tất cả bài viết" -}}
+  {{- $description = "Những câu chuyện và suy ngẫm về công nghệ, kinh doanh, văn hóa và cuộc sống thường ngày" -}}
+  {{- $latestLabel = "Bài viết mới nhất" -}}
+  {{- $articleUnit = "bài viết" -}}
+  {{- $previousLabel = "Trước" -}}
+  {{- $nextLabel = "Tiếp" -}}
+  {{- $englishLabel = "Tiếng Anh" -}}
+{{- else if eq $lang "fil" -}}
+  {{- $pageTitle = "Lahat ng Artikulo" -}}
+  {{- $description = "Mga kuwento at pananaw tungkol sa teknolohiya, negosyo, kultura, at pang-araw-araw na buhay" -}}
+  {{- $latestLabel = "Mga Bagong Artikulo" -}}
+  {{- $articleUnit = "artikulo" -}}
+  {{- $previousLabel = "Nakaraan" -}}
+  {{- $nextLabel = "Susunod" -}}
+  {{- $englishLabel = "Ingles" -}}
+{{- end -}}
+
+{{- /*
+  ARTICLE SELECTION
+
+  English: English articles
+  Chinese: Chinese articles
+
+  Japanese, Korean, Vietnamese, Filipino:
+  1. Start from English articles
+  2. Replace with a translation when available
+  3. Include local-only articles
+  4. Avoid duplicates
+*/ -}}
+
+{{- $pages := .RegularPages -}}
+
+{{- if $useEnglishFallback -}}
+
+  {{- $englishSite := site -}}
+
+  {{- range site.Sites -}}
+    {{- if eq .Language.Lang "en" -}}
+      {{- $englishSite = . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $pages = slice -}}
+  {{- $seen := newScratch -}}
+
+  {{- $englishPosts := where $englishSite.RegularPages "Section" "posts" -}}
+
+  {{- range $englishPosts -}}
+
+    {{- $selected := . -}}
+
+    {{- range .Translations -}}
+      {{- if eq .Lang $lang -}}
+        {{- $selected = . -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- $pages = append $selected $pages -}}
+    {{- $seen.Set $selected.TranslationKey true -}}
+
+  {{- end -}}
+
+  {{- range .RegularPages -}}
+
+    {{- if not ($seen.Get .TranslationKey) -}}
+      {{- $pages = append . $pages -}}
+      {{- $seen.Set .TranslationKey true -}}
+    {{- end -}}
+
+  {{- end -}}
+
+{{- end -}}
+
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" true -}}
+{{- $pages = $pages.ByDate.Reverse -}}
 {{- $paginator := .Paginate $pages 10 -}}
 
 <style>
-/* FlowAnRiver — All Stories */
+/* FlowAnRiver — All Stories
+   Six-language article archive
+*/
 
 .fr-all-stories {
   max-width: 1040px;
@@ -76,6 +188,13 @@
 .fr-all-count {
   color: #a99c8b;
   font-size: 12px;
+}
+
+.fr-all-language-note {
+  margin: 14px 0 0;
+  color: #a99c8b;
+  font-size: 12px;
+  line-height: 1.7;
 }
 
 /* Article rows */
@@ -149,6 +268,17 @@
 
 .fr-all-article.no-image {
   grid-template-columns: minmax(0, 1fr);
+}
+
+.fr-all-english-tag {
+  display: inline-block;
+  margin-left: 7px;
+  padding: 2px 6px;
+  border: 1px solid #d9d0c4;
+  border-radius: 4px;
+  color: #a49787;
+  font-size: 10px;
+  line-height: 1.3;
 }
 
 /* Pagination */
@@ -275,8 +405,10 @@
     font-size: 15px;
   }
 }
-  @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap');
 </style>
+
 <section class="fr-all-stories">
 
   <!-- Page introduction -->
@@ -284,21 +416,17 @@
   <header class="fr-all-intro">
 
     <div class="fr-all-eyebrow">
-      FlowAnRiver / All Stories
+      FlowAnRiver / {{ $pageTitle }}
     </div>
 
-   <h1 class="fr-all-title">
-  All Stories
-</h1>
+    <h1 class="fr-all-title">
+      {{ $pageTitle }}
+    </h1>
 
     <div class="fr-all-accent"></div>
 
     <p class="fr-all-description">
-      {{ if $isZH }}
-      看世界变化万千，写日常平凡知趣
-      {{ else }}
-      Stories and reflections on technology, business, culture, and everyday life
-      {{ end }}
+      {{ $description }}
     </p>
 
   </header>
@@ -308,15 +436,30 @@
   <div class="fr-all-list">
 
     <div class="fr-all-list-head">
+
       <span class="fr-all-list-label">
-        {{ if $isZH }}最新文章{{ else }}Latest Stories{{ end }}
+        {{ $latestLabel }}
       </span>
 
       <span class="fr-all-count">
-        {{ len $pages }}
-        {{ if $isZH }}篇文章{{ else }}Articles{{ end }}
+        {{ len $pages }} {{ $articleUnit }}
       </span>
+
     </div>
+
+    {{- if $useEnglishFallback -}}
+      <p class="fr-all-language-note">
+        {{- if eq $lang "ja" -}}
+          翻訳版のない記事は英語で表示されます。
+        {{- else if eq $lang "ko" -}}
+          번역되지 않은 글은 영어로 표시됩니다.
+        {{- else if eq $lang "vi" -}}
+          Những bài chưa được dịch sẽ hiển thị bằng tiếng Anh.
+        {{- else if eq $lang "fil" -}}
+          Ang mga artikulong wala pang salin ay ipapakita sa Ingles.
+        {{- end -}}
+      </p>
+    {{- end -}}
 
     {{ range $paginator.Pages }}
 
@@ -339,6 +482,7 @@
       {{- end -}}
 
       {{- $minutes := .ReadingTime -}}
+
       {{- if eq .Lang "zh" -}}
         {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" .Plain) -}}
         {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
@@ -350,22 +494,32 @@
       <article class="fr-all-article{{ if not $cover }} no-image{{ end }}">
 
         {{ if $cover }}
-        <a class="fr-all-image"
-           href="{{ .RelPermalink }}"
-           aria-label="{{ .Title }}">
+          <a class="fr-all-image"
+             href="{{ .RelPermalink }}"
+             aria-label="{{ .Title }}">
 
-          <img src="{{ $cover | safeURL }}"
-               alt="{{ $coverAlt }}"
-               loading="lazy"
-               decoding="async">
-        </a>
+            <img
+              src="{{ $cover | safeURL }}"
+              alt="{{ $coverAlt }}"
+              loading="lazy"
+              decoding="async">
+
+          </a>
         {{ end }}
 
         <div class="fr-all-content">
 
           <div class="fr-all-meta">
+
             {{ .Date.Format "Jan 2, 2006" }}
             · {{ $minutes }} min
+
+            {{- if and $useEnglishFallback (eq .Lang "en") -}}
+              <span class="fr-all-english-tag" lang="en">
+                EN
+              </span>
+            {{- end -}}
+
           </div>
 
           <h2 class="fr-all-article-title">
@@ -375,14 +529,15 @@
           </h2>
 
           {{- $excerpt := .Description -}}
+
           {{- if not $excerpt -}}
             {{- $excerpt = .Summary | plainify -}}
           {{- end -}}
 
           {{ with $excerpt }}
-          <div class="fr-all-excerpt">
-            {{ . | plainify | truncate 180 }}
-          </div>
+            <div class="fr-all-excerpt">
+              {{ . | plainify | truncate 180 }}
+            </div>
           {{ end }}
 
         </div>
@@ -394,31 +549,33 @@
     <!-- Pagination -->
 
     {{ if gt $paginator.TotalPages 1 }}
-    <nav class="fr-all-pagination"
-         aria-label="Pagination">
 
-      <div>
-        {{ if $paginator.HasPrev }}
-        <a href="{{ $paginator.Prev.URL }}">
-          ← Previous
-        </a>
-        {{ end }}
-      </div>
+      <nav class="fr-all-pagination"
+           aria-label="Pagination">
 
-      <span class="fr-all-page-number">
-        {{ $paginator.PageNumber }}
-        / {{ $paginator.TotalPages }}
-      </span>
+        <div>
+          {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}">
+              ← {{ $previousLabel }}
+            </a>
+          {{ end }}
+        </div>
 
-      <div>
-        {{ if $paginator.HasNext }}
-        <a href="{{ $paginator.Next.URL }}">
-          Next →
-        </a>
-        {{ end }}
-      </div>
+        <span class="fr-all-page-number">
+          {{ $paginator.PageNumber }}
+          / {{ $paginator.TotalPages }}
+        </span>
 
-    </nav>
+        <div>
+          {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}">
+              {{ $nextLabel }} →
+            </a>
+          {{ end }}
+        </div>
+
+      </nav>
+
     {{ end }}
 
   </div>
