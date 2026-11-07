@@ -6,7 +6,7 @@
 <style>
 /* =========================================
    FLOWANRIVER HEADER
-   Warm Sand Theme · Five Languages
+   Warm Sand Theme · Six Languages
    ========================================= */
 
 .header {
@@ -374,19 +374,22 @@
 @media (min-width: 769px) {
   html[lang^="ko"] .fr-header-nav,
   html[lang^="vi"] .fr-header-nav,
-  html[lang^="fil"] .fr-header-nav {
+  html[lang^="fil"] .fr-header-nav,
+  html[lang^="ja"] .fr-header-nav {
     gap: 10px;
   }
 
   html[lang^="ko"] .fr-header-nav #menu,
   html[lang^="vi"] .fr-header-nav #menu,
-  html[lang^="fil"] .fr-header-nav #menu {
+  html[lang^="fil"] .fr-header-nav #menu,
+  html[lang^="ja"] .fr-header-nav #menu {
     gap: 12px;
   }
 
   html[lang^="ko"] .fr-header-search,
   html[lang^="vi"] .fr-header-search,
-  html[lang^="fil"] .fr-header-search {
+  html[lang^="fil"] .fr-header-search,
+  html[lang^="ja"] .fr-header-search {
     width: 125px;
   }
 }
@@ -840,7 +843,7 @@
         </div>
       </details>
 
-      <!-- Five-language switcher -->
+      <!-- Six-language switcher -->
       {{- if and hugo.IsMultilingual (not site.Params.disableLangToggle) -}}
 
       <details class="fr-language-switch">
@@ -896,6 +899,10 @@
             {{- else if eq $lang "fil" -}}
               {{- $flag = "🇵🇭" -}}
               {{- $name = "Filipino" -}}
+
+            {{- else if eq $lang "ja" -}}
+              {{- $flag = "🇯🇵" -}}
+              {{- $name = "日本語" -}}
 
             {{- end -}}
 
