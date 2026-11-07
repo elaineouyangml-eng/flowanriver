@@ -425,7 +425,6 @@
       <span style="height:9px"></span>
       <span style="height:5px"></span>
       <span style="height:11px"></span>
-      <span style="height:4px"></span>
     </div>
     <div class="fr-music-label">now playing</div>
   </div>
@@ -441,10 +440,12 @@
 
 <!-- JOURNAL -->
 
-<section class="fr-journal-zone" aria-label="{{ i18n "latestStories" | default "Latest Stories" }}">
+<section class="fr-journal-zone"
+         aria-label="{{ i18n "latestStories" | default "Latest Stories" }}">
 
   <div class="fr-journal-leaf" aria-hidden="true">
-    <svg viewBox="0 0 32 36" fill="none"
+    <svg viewBox="0 0 32 36"
+         fill="none"
          xmlns="http://www.w3.org/2000/svg">
       <path d="M16 33C16 23 15 14 24 5"
             stroke="currentColor"
@@ -461,16 +462,79 @@
 
   <div class="fr-posts">
 
-    {{- /* Select current language or English fallback */ -}}
-    {{- $contentSite := site -}}
-    {{- $useEnglish := in (slice "vi" "ko" "fil" "ja") .Lang -}}
+    {{- /*
+      Multilingual article selection
+
+      English: English posts
+      Chinese: Chinese posts
+
+      Japanese / Korean / Vietnamese / Filipino:
+      Prefer translation, otherwise use English.
+      Show each article only once.
+    */ -}}
+
+    {{- $currentLang := .Lang -}}
+    {{- $useEnglish := in (slice "vi" "ko" "fil" "ja") $currentLang -}}
+
+    {{- $pages := where site.RegularPages "Section" "posts" -}}
 
     {{- if $useEnglish -}}
+
+      {{- $englishSite := site -}}
+
       {{- range site.Sites -}}
         {{- if eq .Language.Lang "en" -}}
-          {{- $contentSite = . -}}
+          {{- $englishSite = . -}}
         {{- end -}}
       {{- end -}}
+
+      {{- $englishPosts := where $englishSite.RegularPages "Section" "posts" -}}
+
+      {{- $pages = slice -}}
+      {{- $seen := newScratch -}}
+
+      {{- range $englishPosts -}}
+
+        {{- $selected := . -}}
+
+        {{- range .Translations -}}
+          {{- if eq .Lang $currentLang -}}
+            {{- $selected = . -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- $pages = append $selected $pages -}}
+        {{- $seen.Set $selected.TranslationKey true -}}
+
+      {{- end -}}
+
+      {{- $localPosts := where site.RegularPages "Section" "posts" -}}
+
+      {{- range $localPosts -}}
+
+        {{- if not ($seen.Get .TranslationKey) -}}
+          {{- $pages = append . $pages -}}
+          {{- $seen.Set .TranslationKey true -}}
+        {{- end -}}
+
+      {{- end -}}
+
+    {{- end -}}
+
+    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" true -}}
+    {{- $pages = sort $pages "Date" "desc" -}}
+
+    {{- $localPosts := where site.RegularPages "Section" "posts" -}}
+
+    {{- /*
+      Link to local archive if local posts exist.
+      Otherwise use the English archive.
+    */ -}}
+
+    {{- $allPostsURL := "posts/" | absURL -}}
+
+    {{- if gt (len $localPosts) 0 -}}
+      {{- $allPostsURL = "posts/" | relLangURL -}}
     {{- end -}}
 
     <div class="fr-posts-header">
@@ -478,61 +542,61 @@
         <span class="fr-posts-kicker">
           {{ i18n "journalKicker" | default "The Journal" }}
         </span>
+
         <h2 class="fr-posts-heading">
           {{ i18n "latestStories" | default "Latest Stories" }}
         </h2>
       </div>
 
-     <a class="fr-posts-all"
-   href="{{ if eq .Lang "zh" }}{{ "posts/" | relLangURL }}{{ else }}{{ "posts/" | absURL }}{{ end }}">
+      <a class="fr-posts-all" href="{{ $allPostsURL }}">
         {{ i18n "seeAll" | default "See all" }} →
       </a>
     </div>
 
     {{- if $useEnglish -}}
       <p class="fr-posts-language-note" lang="en">
-        Articles available in English
+        Articles without translations are available in English.
       </p>
     {{- end -}}
 
-    {{- /* Read posts from the selected site */ -}}
-    {{- $pages := where $contentSite.RegularPages "Section" "posts" -}}
-    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" true -}}
-    {{- $pages = $pages.ByDate.Reverse -}}
-
     {{- range first 6 $pages -}}
 
-    <a class="fr-post-item" href="{{ .RelPermalink }}">
-      <div class="fr-post-left">
-        <span class="fr-post-tag">
-          {{ with .Params.tags }}
-            {{ index . 0 }}
-          {{ end }}
-        </span>
-        <span class="fr-post-title">
-          {{ .Title }}
-        </span>
-      </div>
+      <a class="fr-post-item" href="{{ .RelPermalink }}">
 
-      {{- $minutes := .ReadingTime -}}
+        <div class="fr-post-left">
 
-      {{- if eq .Lang "zh" -}}
-        {{- $chineseChars := len (findRE "[一-龥]" .Plain) -}}
-        {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
-        {{- if lt $minutes 1 -}}
-          {{- $minutes = 1 -}}
+          <span class="fr-post-tag">
+            {{ with .Params.tags }}
+              {{ index . 0 }}
+            {{ end }}
+          </span>
+
+          <span class="fr-post-title">
+            {{ .Title }}
+          </span>
+
+        </div>
+
+        {{- $minutes := .ReadingTime -}}
+
+        {{- if eq .Lang "zh" -}}
+          {{- $chineseChars := len (findRE "[一-龥]" .Plain) -}}
+          {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
+          {{- if lt $minutes 1 -}}
+            {{- $minutes = 1 -}}
+          {{- end -}}
         {{- end -}}
-      {{- end -}}
 
-      <span class="fr-post-meta">
-        {{ .Date.Format "Jan 2" }} · {{ $minutes }} min
-      </span>
+        <span class="fr-post-meta">
+          {{ .Date.Format "Jan 2" }} · {{ $minutes }} min
+        </span>
 
-    </a>
+      </a>
 
     {{- end -}}
 
   </div>
+
 </section>
 
 {{ end }}
