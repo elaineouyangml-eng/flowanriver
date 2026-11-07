@@ -10,6 +10,7 @@
 {{- $readUnit := "min read" -}}
 {{- $previousLabel := "Previous" -}}
 {{- $nextLabel := "Next" -}}
+{{- $languageNote := "" -}}
 
 {{- /* Localized interface labels */ -}}
 
@@ -19,6 +20,7 @@
   {{- $readUnit = "分钟阅读" -}}
   {{- $previousLabel = "上一页" -}}
   {{- $nextLabel = "下一页" -}}
+  {{- $languageNote = "部分文章暂时提供英文原文，你可以使用浏览器翻译功能阅读。" -}}
 
 {{- else if eq $lang "ja" -}}
   {{- $latestLabel = "最新の記事" -}}
@@ -26,6 +28,7 @@
   {{- $readUnit = "分で読めます" -}}
   {{- $previousLabel = "前へ" -}}
   {{- $nextLabel = "次へ" -}}
+  {{- $languageNote = "翻訳版のない記事は英語で表示されます。ブラウザの翻訳機能をご利用いただけます。" -}}
 
 {{- else if eq $lang "ko" -}}
   {{- $latestLabel = "최신 글" -}}
@@ -33,6 +36,7 @@
   {{- $readUnit = "분 소요" -}}
   {{- $previousLabel = "이전" -}}
   {{- $nextLabel = "다음" -}}
+  {{- $languageNote = "번역되지 않은 글은 영어 원문으로 표시됩니다. 브라우저 번역 기능을 이용해 읽으실 수 있습니다." -}}
 
 {{- else if eq $lang "vi" -}}
   {{- $latestLabel = "Bài viết mới nhất" -}}
@@ -40,6 +44,7 @@
   {{- $readUnit = "phút đọc" -}}
   {{- $previousLabel = "Trước" -}}
   {{- $nextLabel = "Tiếp" -}}
+  {{- $languageNote = "Một số bài viết hiện chỉ có bản tiếng Anh. Bạn có thể sử dụng tính năng dịch của trình duyệt để đọc." -}}
 
 {{- else if eq $lang "fil" -}}
   {{- $latestLabel = "Mga Bagong Artikulo" -}}
@@ -47,6 +52,7 @@
   {{- $readUnit = "min basahin" -}}
   {{- $previousLabel = "Nakaraan" -}}
   {{- $nextLabel = "Susunod" -}}
+  {{- $languageNote = "Ang ilang artikulo ay available pa lamang sa Ingles. Maaari mong gamitin ang translation feature ng browser para basahin ang mga ito." -}}
 {{- end -}}
 
 {{- /* AI category introduction */ -}}
@@ -121,6 +127,74 @@
 {{- else -}}
   {{- $intro = .Description | plainify -}}
 {{- end -}}
+
+{{- /*
+  MULTILINGUAL CATEGORY ARTICLES
+
+  English:
+    Show English articles.
+
+  Chinese, Japanese, Korean, Vietnamese, Filipino:
+    1. Read English articles in this category.
+    2. Prefer a translation in the current language.
+    3. Keep the English original when no translation exists.
+    4. Add local-only articles.
+    5. Avoid duplicates.
+    6. Sort by date.
+*/ -}}
+
+{{- $pages := .Pages -}}
+
+{{- if ne $lang "en" -}}
+
+  {{- $pages = slice -}}
+  {{- $seen := newScratch -}}
+
+  {{- $englishSite := site -}}
+
+  {{- range site.Sites -}}
+    {{- if eq .Language.Lang "en" -}}
+      {{- $englishSite = . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $englishTerm := $englishSite.GetPage (printf "/tags/%s" $term) -}}
+
+  {{- with $englishTerm -}}
+
+    {{- range .Pages -}}
+
+      {{- $selected := . -}}
+
+      {{- range .Translations -}}
+        {{- if eq .Lang $lang -}}
+          {{- $selected = . -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- if not ($seen.Get $selected.TranslationKey) -}}
+        {{- $pages = append $selected $pages -}}
+        {{- $seen.Set $selected.TranslationKey true -}}
+      {{- end -}}
+
+    {{- end -}}
+
+  {{- end -}}
+
+  {{- range .Pages -}}
+
+    {{- if not ($seen.Get .TranslationKey) -}}
+      {{- $pages = append . $pages -}}
+      {{- $seen.Set .TranslationKey true -}}
+    {{- end -}}
+
+  {{- end -}}
+
+{{- end -}}
+
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" true -}}
+{{- $pages = sort $pages "Date" "desc" -}}
+{{- $paginator := .Paginate $pages 10 -}}
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;1,500&display=swap');
@@ -204,6 +278,13 @@
   color: #a99c8b;
 }
 
+.fr-category-language-note {
+  margin: 14px 0 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #a99c8b;
+}
+
 /* Article rows */
 
 .fr-category-article {
@@ -245,6 +326,18 @@
   color: #a49787;
   font-size: 11px;
   letter-spacing: 0.025em;
+}
+
+.fr-category-english-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  border: 1px solid #d9d0c4;
+  border-radius: 4px;
+  color: #a49787;
+  font-size: 10px;
+  line-height: 1.3;
+  letter-spacing: 0.03em;
 }
 
 .fr-category-article-title {
@@ -317,12 +410,14 @@
 }
 
 [data-theme="dark"] .fr-category-description,
-[data-theme="dark"] .fr-category-excerpt {
+[data-theme="dark"] .fr-category-excerpt,
+[data-theme="dark"] .fr-category-language-note {
   color: var(--secondary);
 }
 
 [data-theme="dark"] .fr-category-list-head,
-[data-theme="dark"] .fr-category-article {
+[data-theme="dark"] .fr-category-article,
+[data-theme="dark"] .fr-category-english-tag {
   border-color: var(--border);
 }
 
@@ -444,8 +539,6 @@
 
   <section class="fr-category-list">
 
-    {{- $paginator := .Paginate .Pages 10 -}}
-
     <div class="fr-category-list-head">
 
       <span class="fr-category-list-label">
@@ -453,10 +546,16 @@
       </span>
 
       <span class="fr-category-list-count">
-        {{ len .Pages }} {{ $articleUnit }}
+        {{ len $pages }} {{ $articleUnit }}
       </span>
 
     </div>
+
+    {{- if and (ne $lang "en") $languageNote -}}
+      <p class="fr-category-language-note">
+        {{ $languageNote }}
+      </p>
+    {{- end -}}
 
     {{ range $paginator.Pages }}
 
@@ -478,7 +577,7 @@
         {{- end -}}
       {{- end -}}
 
-      {{- /* Localized reading time */ -}}
+      {{- /* Reading time based on article language */ -}}
 
       {{- $minutes := .ReadingTime -}}
 
@@ -508,10 +607,11 @@
              href="{{ .RelPermalink }}"
              aria-label="{{ .Title }}">
 
-            <img src="{{ $cover | safeURL }}"
-                 alt="{{ $coverAlt }}"
-                 loading="lazy"
-                 decoding="async">
+            <img
+              src="{{ $cover | safeURL }}"
+              alt="{{ $coverAlt }}"
+              loading="lazy"
+              decoding="async">
 
           </a>
 
@@ -523,6 +623,13 @@
             {{ .Date.Format "Jan 2, 2006" }}
             &nbsp;·&nbsp;
             {{ $minutes }} {{ $readUnit }}
+
+            {{- if and (ne $lang "en") (eq .Lang "en") -}}
+              <span class="fr-category-english-tag" lang="en">
+                EN
+              </span>
+            {{- end -}}
+
           </div>
 
           <h2 class="fr-category-article-title">
