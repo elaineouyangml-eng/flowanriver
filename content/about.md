@@ -6,7 +6,6 @@ layout = "page"
 
 ![A misty river valley at sunrise, reflecting Flowanriver's spirit of exploration and growth](/images/Misty%20Sunrise%20River%20Valley.png)
 
-# About Flowanriver
 
 ### It Started with a Simple Idea
 
