@@ -33,6 +33,11 @@ defaultContentLanguageInSubdir = false
   languageName = "Filipino"
   weight = 5
 
+  [languages.ja]
+  languageCode = "ja-JP"
+  languageName = "日本語"
+  weight = 6
+
 
 [params]
   mainSections = ["posts"]
