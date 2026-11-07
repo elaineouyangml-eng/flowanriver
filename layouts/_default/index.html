@@ -6,6 +6,7 @@
 
 /* =========================
    FlowAnRiver Homepage
+   Six Languages
 ========================= */
 
 .fr-hero {
@@ -101,6 +102,10 @@
   font-weight: 400;
   line-height: 1.8;
   letter-spacing: 0.025em;
+}
+
+.fr-hero .fr-sub p {
+  margin: 0;
 }
 
 /* Music indicator */
@@ -264,6 +269,16 @@
   color: #6a5a40;
 }
 
+/* English content notice */
+
+.fr-posts-language-note {
+  margin: 15px 0 2px;
+  color: #988d7e;
+  font-size: 0.73rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
 /* Article list */
 
 .fr-post-item {
@@ -400,8 +415,8 @@
   <hr class="fr-rule">
 
   <div class="fr-sub">
-    No hype. Just honest takes<br>
-    from someone building in the open.
+    <p>{{ i18n "heroSubtitle1" | default "No hype. Just honest takes" }}</p>
+    <p>{{ i18n "heroSubtitle2" | default "from someone building in the open." }}</p>
   </div>
 
   <div class="fr-music">
@@ -417,14 +432,16 @@
 
   <div class="fr-scroll">
     <div class="fr-scroll-line"></div>
-    <div class="fr-scroll-text">scroll</div>
+    <div class="fr-scroll-text">
+      {{ i18n "scroll" | default "scroll" }}
+    </div>
   </div>
 
 </div>
 
 <!-- JOURNAL -->
 
-<section class="fr-journal-zone" aria-label="Latest stories">
+<section class="fr-journal-zone" aria-label="{{ i18n "latestStories" | default "Latest Stories" }}">
 
   <div class="fr-journal-leaf" aria-hidden="true">
     <svg viewBox="0 0 32 36" fill="none"
@@ -444,27 +461,48 @@
 
   <div class="fr-posts">
 
+    {{- /* Select current language or English fallback */ -}}
+    {{- $contentSite := site -}}
+    {{- $useEnglish := in (slice "vi" "ko" "fil" "ja") .Lang -}}
+
+    {{- if $useEnglish -}}
+      {{- range site.Sites -}}
+        {{- if eq .Language.Lang "en" -}}
+          {{- $contentSite = . -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
     <div class="fr-posts-header">
       <div>
         <span class="fr-posts-kicker">
-          The Journal
+          {{ i18n "journalKicker" | default "The Journal" }}
         </span>
         <h2 class="fr-posts-heading">
-          Latest Stories
+          {{ i18n "latestStories" | default "Latest Stories" }}
         </h2>
       </div>
 
-      <a class="fr-posts-all" href="/posts/">
-        See all →
+      <a class="fr-posts-all"
+         href="{{ "posts/" | absURL }}">
+        {{ i18n "seeAll" | default "See all" }} →
       </a>
     </div>
 
-    {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
-    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+    {{- if $useEnglish -}}
+      <p class="fr-posts-language-note" lang="en">
+        Articles available in English
+      </p>
+    {{- end -}}
 
-    {{- range first 6 $pages }}
+    {{- /* Read posts from the selected site */ -}}
+    {{- $pages := where $contentSite.RegularPages "Section" "posts" -}}
+    {{- $pages = where $pages "Params.hiddenInHomeList" "!=" true -}}
+    {{- $pages = $pages.ByDate.Reverse -}}
 
-    <a class="fr-post-item" href="{{ .Permalink }}">
+    {{- range first 6 $pages -}}
+
+    <a class="fr-post-item" href="{{ .RelPermalink }}">
       <div class="fr-post-left">
         <span class="fr-post-tag">
           {{ with .Params.tags }}
@@ -477,8 +515,9 @@
       </div>
 
       {{- $minutes := .ReadingTime -}}
+
       {{- if eq .Lang "zh" -}}
-        {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" .Plain) -}}
+        {{- $chineseChars := len (findRE "[一-龥]" .Plain) -}}
         {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
         {{- if lt $minutes 1 -}}
           {{- $minutes = 1 -}}
@@ -491,7 +530,7 @@
 
     </a>
 
-    {{- end }}
+    {{- end -}}
 
   </div>
 </section>
