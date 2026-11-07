@@ -483,8 +483,8 @@
         </h2>
       </div>
 
-      <a class="fr-posts-all"
-         href="{{ "posts/" | absURL }}">
+     <a class="fr-posts-all"
+   href="{{ if eq .Lang "zh" }}{{ "posts/" | relLangURL }}{{ else }}{{ "posts/" | absURL }}{{ end }}">
         {{ i18n "seeAll" | default "See all" }} →
       </a>
     </div>
