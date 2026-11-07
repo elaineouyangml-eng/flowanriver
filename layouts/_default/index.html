@@ -409,7 +409,7 @@
     */ -}}
 
     {{- $currentLang := .Lang -}}
-    {{- $useEnglish := in (slice "vi" "ko" "fil" "ja") $currentLang -}}
+    {{- $useEnglish := in (slice "zh" "vi" "ko" "fil" "ja") $currentLang -}}
 
     {{- $pages := where site.RegularPages "Section" "posts" -}}
 
@@ -485,10 +485,14 @@
     </div>
 
     {{- if $useEnglish -}}
-      <p class="fr-posts-language-note" lang="en">
-        Articles without translations are available in English.
-      </p>
+  <p class="fr-posts-language-note">
+    {{- if eq $currentLang "zh" -}}
+      尚未翻译的文章暂以英文原文展示。
+    {{- else -}}
+      <span lang="en">Articles without translations are available in English.</span>
     {{- end -}}
+  </p>
+{{- end -}}
 
     {{- range first 6 $pages -}}
 
