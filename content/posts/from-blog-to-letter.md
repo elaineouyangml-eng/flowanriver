@@ -4,9 +4,9 @@ slug: from-blog-to-letter
 date: 2026-11-10T12:34:00.000+08:00
 draft: false
 tags:
+  - AI
   - Flowanriver
   - Letter
-  - AI
   - Web3
   - Personal Stories
 description: Discover how Flowanriver grew from a personal blog into an
