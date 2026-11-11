@@ -1,10 +1,8 @@
 
 (() => {
-  let sessionToken = null;
   let piUser = null;
 
-  const backendUrl =
-    "https://backend.appstudio-u7cm9zhmha0ruwv8.piappengine.com/pi/auth/v1/login";
+  const backendUrl = "/api/pi/verify";
 
   function showStatus(message) {
     const el = document.getElementById("pi-auth-status");
@@ -16,10 +14,17 @@
       throw new Error("Pi SDK is unavailable");
     }
 
+    const isTestnet =
+      window.location.hostname === "test.flowanriver.com" ||
+      window.location.hostname === "localhost";
+
     showStatus("Initializing Pi SDK...");
 
     try {
-      await window.Pi.init({ version: "2.0" });
+      window.Pi.init({
+        version: "2.0",
+        sandbox: isTestnet
+      });
     } catch (error) {
       throw new Error("Pi SDK initialization failed");
     }
@@ -29,23 +34,13 @@
     let auth;
 
     try {
-      auth = await Promise.race([
-        window.Pi.authenticate(
-          ["username"],
-          (payment) => {
-            console.info("Incomplete Pi payment detected");
-          }
-        ),
-        new Promise((_, reject) => {
-          setTimeout(() => {
-            reject(new Error("Pi authorization timed out"));
-          }, 20000);
-        })
-      ]);
+      auth = await window.Pi.authenticate(
+        ["username"],
+        (payment) => {
+          console.info("Incomplete Pi payment detected");
+        }
+      );
     } catch (error) {
-      if (error.message?.includes("timed out")) {
-        throw new Error("Pi authorization timed out");
-      }
       throw new Error("Pi authorization failed");
     }
 
@@ -53,7 +48,7 @@
       throw new Error("No Pi access token received");
     }
 
-    showStatus("Pi authorization received. Contacting App Studio...");
+    showStatus("Verifying Pi identity...");
 
     let response;
 
@@ -65,33 +60,25 @@
         },
         body: JSON.stringify({
           accessToken: auth.accessToken
-        })
+        }),
+        cache: "no-store"
       });
     } catch (error) {
-      throw new Error("App Studio network request failed");
+      throw new Error("Pi verification network request failed");
     }
 
     if (!response.ok) {
       throw new Error(
-        "App Studio verification HTTP " + response.status
+        "Pi verification HTTP " + response.status
       );
     }
 
-    showStatus("Checking App Studio response...");
+    const data = await response.json();
 
-    let data;
-
-    try {
-      data = await response.json();
-    } catch (error) {
-      throw new Error("Invalid App Studio JSON response");
+    if (!data.verified || !data.user?.uid) {
+      throw new Error("Invalid Pi verification response");
     }
 
-    if (!data.sessionToken || !data.user?.uid) {
-      throw new Error("Invalid App Studio response");
-    }
-
-    sessionToken = data.sessionToken;
     piUser = data.user;
 
     showStatus("Pi identity verified successfully");
@@ -102,6 +89,6 @@
   window.FlowAnRiverPiAuth = {
     signIn: signInWithPi,
     getUser: () => piUser,
-    getSessionToken: () => sessionToken
+    getSessionToken: () => null
   };
 })();
