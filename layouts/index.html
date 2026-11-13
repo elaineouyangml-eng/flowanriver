@@ -1,3 +1,4 @@
+
 {{ define "main" }}
 <style>
 .fr-hero {
@@ -25,6 +26,38 @@
 .fr-scroll { display: flex; flex-direction: column; align-items: center; gap: 6px; }
 .fr-scroll-line { width: 1px; height: 32px; background: linear-gradient(to bottom, #c8c0a8, transparent); }
 .fr-scroll-text { font-size: 0.6rem; letter-spacing: 0.16em; color: #c8c0a8; text-transform: uppercase; }
+
+/* Letters entry */
+.fr-letters-entry {
+  text-align: center;
+  padding: 0 20px 65px;
+}
+.fr-letters-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+  font-size: 0.92rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.fr-letters-link:hover {
+  opacity: 0.65;
+}
+.fr-letters-icon {
+  font-size: 1.15rem;
+  color: #b99b8e;
+}
+.fr-letters-desc {
+  margin: 8px 0 0;
+  color: #a99b88;
+  font-family: Georgia, serif;
+  font-size: 0.75rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
 .fr-posts { max-width: 640px; margin: 0 auto; padding: 0 2rem 4rem; }
 .fr-posts-header { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 0.5px solid rgba(0,0,0,0.07); }
 .fr-posts-heading { font-size: 0.65rem; letter-spacing: 0.18em; color: #b0aa9a; text-transform: uppercase; }
@@ -35,6 +68,18 @@
 .fr-post-tag { font-size: 0.6rem; color: #b8b0a0; letter-spacing: 0.1em; text-transform: uppercase; min-width: 38px; flex-shrink: 0; }
 .fr-post-title { font-size: 0.9rem; color: #1e1c18; font-weight: 400; line-height: 1.5; transition: color 0.2s; }
 .fr-post-meta { font-size: 0.7rem; color: #c0b8a8; white-space: nowrap; flex-shrink: 0; }
+
+@media (max-width: 768px) {
+  .fr-letters-entry {
+    padding-bottom: 45px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fr-music-bars span {
+    animation: none;
+  }
+}
 </style>
 
 <div class="fr-hero">
@@ -54,31 +99,73 @@
   </div>
 </div>
 
+<!-- Letters to the Future -->
+
+{{- $lettersURL := "/letters/" -}}
+{{- if ne .Lang "en" -}}
+  {{- $lettersURL = printf "/%s/letters/" .Lang -}}
+{{- end -}}
+
+{{- $lettersTitle := "Letters to the Future" -}}
+{{- $lettersDesc := "Write a letter to your future self." -}}
+
+{{- if eq .Lang "zh" -}}
+  {{- $lettersTitle = "写给未来的自己" -}}
+  {{- $lettersDesc = "留一封信，给未来的你。" -}}
+{{- else if eq .Lang "ja" -}}
+  {{- $lettersTitle = "未来の自分への手紙" -}}
+  {{- $lettersDesc = "未来の自分へ、手紙を書いてみませんか。" -}}
+{{- else if eq .Lang "ko" -}}
+  {{- $lettersTitle = "미래의 나에게 쓰는 편지" -}}
+  {{- $lettersDesc = "미래의 나에게 편지를 남겨 보세요." -}}
+{{- else if eq .Lang "vi" -}}
+  {{- $lettersTitle = "Lá thư gửi đến tương lai" -}}
+  {{- $lettersDesc = "Viết một lá thư cho chính mình trong tương lai." -}}
+{{- else if eq .Lang "fil" -}}
+  {{- $lettersTitle = "Liham para sa Hinaharap" -}}
+  {{- $lettersDesc = "Sumulat ng liham para sa sarili mo sa hinaharap." -}}
+{{- end -}}
+
+<div class="fr-letters-entry">
+  <a class="fr-letters-link" href="{{ $lettersURL }}">
+    <span class="fr-letters-icon" aria-hidden="true">✉</span>
+    <span>{{ $lettersTitle }} ↗</span>
+  </a>
+  <p class="fr-letters-desc">{{ $lettersDesc }}</p>
+</div>
+
+<!-- Latest Stories -->
+
 <div class="fr-posts">
   <div class="fr-posts-header">
     <div class="fr-posts-heading">Latest</div>
     <a class="fr-posts-all" href="/posts/">See all →</a>
   </div>
+
   {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
   {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+
   {{- range first 6 $pages }}
   <a class="fr-post-item" href="{{ .Permalink }}">
     <div class="fr-post-left">
       <span class="fr-post-tag">{{ index .Params.tags 0 }}</span>
       <span class="fr-post-title">{{ .Title }}</span>
     </div>
-    
-{{- $minutes := .ReadingTime -}}
-{{- if eq .Lang "zh" -}}
-  {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" .Plain) -}}
-  {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
-  {{- if lt $minutes 1 -}}
-    {{- $minutes = 1 -}}
-  {{- end -}}
-{{- end -}}
-<span class="fr-post-meta">{{ .Date.Format "Jan 2" }} · {{ $minutes }} min</span>
 
+    {{- $minutes := .ReadingTime -}}
+    {{- if eq .Lang "zh" -}}
+      {{- $chineseChars := len (findRE "[\u4e00-\u9fff]" .Plain) -}}
+      {{- $minutes = int (math.Ceil (div (float $chineseChars) 400)) -}}
+      {{- if lt $minutes 1 -}}
+        {{- $minutes = 1 -}}
+      {{- end -}}
+    {{- end -}}
+
+    <span class="fr-post-meta">
+      {{ .Date.Format "Jan 2" }} · {{ $minutes }} min
+    </span>
   </a>
   {{- end }}
 </div>
+
 {{ end }}
